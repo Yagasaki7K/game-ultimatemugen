@@ -1,0 +1,361 @@
+;=====================================================================================================================================================================
+[Statedef -2]
+;=====================================================================================================================================================================
+[State -2, 0]
+type = PlaySnd
+triggerall = Alive
+triggerall = GetHitVar(AnimType) = 0
+triggerall = Time = 1 && Random < 330
+trigger1 = StateNo = 5000
+trigger2 = StateNo = 5010
+trigger3 = StateNo = 5020
+value = 5000, 0
+channel = 7
+
+[State -2, 1]
+type = PlaySnd
+triggerall = Alive
+triggerall = GetHitVar(AnimType) = 1
+triggerall = Time = 1 && Random < 330
+trigger1 = StateNo = 5000
+trigger2 = StateNo = 5010
+trigger3 = StateNo = 5020
+value = 5000, 0
+channel = 7
+
+[State -2, 0]
+type = PlaySnd
+triggerall = Alive
+triggerall = GetHitVar(AnimType) >= 2
+triggerall = !(EnemyNear,HitDefAttr=SCA,SA,HA,SP,HP)
+triggerall = Time = 1 && Random < 330
+trigger1 = stateno = 5000
+trigger2 = stateno = 5010
+trigger3 = stateno = 5020
+value = 5000, 1
+channel = 7
+
+[State -2, 0]
+type = PlaySnd
+triggerall = Alive
+triggerall = (EnemyNear,HitDefAttr=SCA,SA,HA,SP,HP)
+triggerall = Time = 1 && Random < 330
+trigger1 = stateno = 5000
+trigger2 = stateno = 5010
+trigger3 = stateno = 5020
+value = 5000, 2
+channel = 7
+
+;---------------------------------------
+;ダッシュ音制御
+;[State -2, 0]
+;type = stopsnd
+;trigger1 = stateno != 100
+;trigger2 = prevstateno = 100 && stateno != 100
+;channel = 5
+
+;---------------------------------------
+;挑発ボイス制御
+[State -2, 0]
+type = stopsnd
+trigger1 = stateno != 195
+trigger2 = prevstateno = 195 && stateno != 195
+channel = 8
+
+;---------------------------------------
+;ターゲットＯＮ・ＯＦＦ
+[State -2, 0]
+type = VarSet
+trigger1 = NumTarget = 0
+v = 6
+value = 0
+
+[State -2, 0]
+type = VarSet
+trigger1 = NumTarget >= 1
+v = 6
+value = 1
+
+;---------------------------------------
+;空中ガード不可
+[State -2, 0]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAirGuard
+
+;---------------------------------------
+[State -2, 0]
+type = Explod
+trigger1 = NumExplod(135) = 0 && Anim = 130
+;persistent = 0
+anim = 135
+id = 135
+pos = 0, 0
+postype = p1
+shadow = -1
+sprpriority = 3
+removetime = -1
+removeongethit = 1
+bindtime = -1
+ownpal = 1
+
+[State -2, 0]
+type = Explod
+trigger1 = NumExplod(136) = 0 && Anim = 131
+;persistent = 0
+anim = 136
+id = 136
+pos = 0, 0
+postype = p1
+shadow = -1
+sprpriority = 3
+removetime = -1
+removeongethit = 1
+bindtime = -1
+ownpal = 1
+
+[State -2, 0]
+type = Explod
+trigger1 = NumExplod(155) = 0 && Anim = 150
+;persistent = 0
+anim = 155
+id = 155
+pos = 0, 0
+postype = p1
+shadow = -1
+sprpriority = 3
+removetime = -1
+removeongethit = 1
+bindtime = -1
+ownpal = 1
+
+[State -2, 0]
+type = Explod
+trigger1 = NumExplod(156) = 0 && Anim = 151
+;persistent = 0
+anim = 156
+id = 156
+pos = 0, 0
+postype = p1
+shadow = -1
+sprpriority = 3
+removetime = -1
+removeongethit = 1
+bindtime = -1
+ownpal = 1
+
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 120
+id = 125
+
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 121
+id = 126
+
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 130
+id = 135
+
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 131
+id = 136
+
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 140
+id = 145
+
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 141
+id = 146
+
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 150
+id = 155
+
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 151
+id = 156
+
+;---------------------------------------
+;スロー
+[State -2, 0]
+type = Pause
+triggerall = var(6) >= 1
+trigger1 = ProjHitTime(74601) = [12, 28]
+trigger2 = ProjHitTime(74602) = [12, 28]
+trigger3 = ProjHitTime(74603) = [12, 28]
+trigger4 = ProjHitTime(74604) = [12, 28]
+trigger5 = ProjHitTime(74605) = [12, 28]
+trigger6 = ProjHitTime(74606) = [12, 28]
+trigger7 = ProjHitTime(74607) = [12, 28]
+trigger8 = ProjHitTime(7462) = [0, 28]
+trigger9 = ProjHitTime(7466) = [2, 24]
+time = 1
+
+;---------------------------------------
+;画面反転処理
+[State -2, 0]
+type = BGPalFX
+trigger1 = movetype = H
+trigger1 = prevstateno = 3201
+time = 1
+mul = 300,300,300
+invertall = 1
+
+;=====================================================================================================================================================================
+[Statedef -3]
+;=====================================================================================================================================================================
+;---------------------------------------
+;ラウンド２以降のイントロ
+[State -3, 0]
+type = ChangeState
+trigger1 = stateno = 5900
+trigger1 = roundno >= 2
+value = 192
+
+;---------------------------------------
+;イントロ時声制御
+[State -3, 0]
+type = stopsnd
+trigger1 = !(RoundState = 0 || RoundState = 1)
+channel = 6
+
+;---------------------------------------
+;勝利時のライフバー消し
+[State -3, 0]
+type = AssertSpecial
+trigger1 = RoundState = 3 || RoundState = 4
+flag = nobardisplay
+
+;---------------------------------------
+;相手名前セット
+[State -3, 0]
+type = Varset
+triggerall = 1
+trigger1 = P2Name = "k'" || P4Name = "k'"
+trigger2 = P2Name = "maxima" || P4Name = "maxima"
+trigger3 = P2Name = "whip" || P4Name = "whip"
+trigger4 = P2Name = "k9999" || P4Name = "k9999"
+trigger5 = P2Name = "kula" || P4Name = "kula"
+trigger6 = P2Name = "foxy" || P4Name = "foxy"
+trigger7 = P2Name = "angel" || P4Name = "angel"
+trigger8 = P2Name = "zero" || P4Name = "zero"
+var(0) = 1
+
+;---------------------------------------
+;強制振り向き
+[State -3, 0]
+type = Turn
+trigger1 = p2dist X < -5
+trigger1 = Anim = 47
+
+;---------------------------------------
+;エフェクト消し
+[State -2, 0]
+type = RemoveExplod
+trigger1 = Anim != 1400
+id = 7455
+
+;---------------------------------------
+;コンボ制限
+[State -3, 0]
+type = VarSet
+trigger1 = P2StateNo = [0, 110]
+trigger2 = movehit
+trigger2 = StateNo = 850
+trigger3 = movehit
+trigger3 = StateNo = 1000 || StateNo = 1001
+trigger4 = movehit
+trigger4 = StateNo = 1050 || StateNo = 1051 || StateNo = 1052
+trigger5 = movehit
+trigger5 = StateNo = 1100 || StateNo = 1101 || StateNo = 1102
+trigger6 = movehit
+trigger6 = StateNo = 1150 || StateNo = 1151 || StateNo = 1152 || StateNo = 1153
+v = 7
+value = 0
+
+[State -3, 0]
+type = VarSet
+triggerall = var(6) >= 1
+trigger1 = enemy,anim = 5052
+v = 7
+value = 1
+
+;---------------------------------------
+;イーディアンブレイドへスパキャン
+[State -3, 0]
+type = ChangeState
+triggerall = movecontact
+triggerall = command = "イーディアンブレイド" && power >= 2000
+trigger1 = stateno = 1000 && movecontact
+trigger2 = stateno = 1001 && movecontact && (AnimElem = 2, < 0)
+trigger3 = stateno = 1050 && movecontact
+trigger4 = stateno = 1051 && movecontact
+trigger5 = stateno = 1052 && movecontact && (AnimElem = 2, < 0)
+trigger6 = stateno = 1100 && movecontact
+trigger7 = stateno = 1101 && movecontact
+trigger8 = stateno = 1150 && movecontact
+trigger9 = stateno = 1151 && movecontact
+trigger10 = stateno = 1153 && movecontact && (AnimElem = 8, < 0)
+trigger11 = stateno = 1305 && Anim = 1300
+value = 3000
+ctrl = 0
+
+;---------------------------------------
+;ケイオス　タイドへスパキャン
+[State -3, 0]
+type = ChangeState
+triggerall = movecontact
+triggerall = command = "ケイオス　タイド" && power >= 2000
+trigger1 = stateno = 1000 && movecontact
+trigger2 = stateno = 1001 && movecontact && (AnimElem = 2, < 0)
+trigger3 = stateno = 1050 && movecontact
+trigger4 = stateno = 1051 && movecontact
+trigger5 = stateno = 1052 && movecontact && (AnimElem = 2, < 0)
+trigger6 = stateno = 1100 && movecontact
+trigger7 = stateno = 1101 && movecontact
+trigger8 = stateno = 1150 && movecontact
+trigger9 = stateno = 1151 && movecontact
+trigger10 = stateno = 1153 && movecontact && (AnimElem = 8, < 0)
+trigger11 = stateno = 1305 && Anim = 1300
+value = 3100
+ctrl = 0
+
+;---------------------------------------
+;ブルータル　ゴット　プロジェクトへスパキャン
+[State -3, 0]
+type = ChangeState
+triggerall = movecontact
+triggerall = command = "ブルータル　ゴット　プロジェクト" && power >= 3000
+trigger1 = stateno = 1000 && movecontact
+trigger2 = stateno = 1001 && movecontact && (AnimElem = 2, < 0)
+trigger3 = stateno = 1050 && movecontact
+trigger4 = stateno = 1051 && movecontact
+trigger5 = stateno = 1052 && movecontact && (AnimElem = 2, < 0)
+trigger6 = stateno = 1100 && movecontact
+trigger7 = stateno = 1101 && movecontact
+trigger8 = stateno = 1150 && movecontact
+trigger9 = stateno = 1151 && movecontact
+trigger10 = stateno = 1153 && movecontact && (AnimElem = 8, < 0)
+trigger11 = stateno = 1305 && Anim = 1300
+value = 3200
+ctrl = 0
+
+;---------------------------------------
+;クリップボード
+[state -3, 0]
+type = DisplayToClipboard
+trigger1 = 1
+text="+ComboFactor: %d \n+create by butti"
+params = var(7);, var(30), var(1), var(5), var(4)
+ignorehitpause = 1
+
+

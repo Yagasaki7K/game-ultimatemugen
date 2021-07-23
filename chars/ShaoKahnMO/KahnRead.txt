@@ -1,0 +1,175 @@
+Shao Kahn, ripped from Mortal Kombat 2 Arcade 
+
+RELEASE 1.0 (First Public)
+
+BY Mike Obrecht (Obreck2@britpost.com)
+for WinMUGEN (DosMugen compatiable scripts included)
+
+
+STUFF YOU NEED TO KNOW
+-----------------------------------
+He has all the required Sprites
+Has all his MK2 and MK3 Taunts
+Has Boss Physics: Kahn does not fall over when tripped, cannot be thrown*,
+  and is very hard to knock off his feet.
+Has new moves.
+Has a Super Boss version.
+MK2 style death!
+	
+
+*: certain characters like Zangief that depend highly on throws 
+   can still throw Kahn ;). If you have a HIGHLY THROW DEPENDANT
+   character you think should be added to the list of exceptions
+   drop my an e-mail. Just make sure I haven't made them able to
+   throw Kahn already.
+
+WHAT'S NEW
+-----------------------------------
+First Public Release
+
+KAHNTHRONE.DEF
+-----------------------------------
+This is a special version of Kahn that has a intro designed only to be
+used on DoorHenge's Kahn's Arena stage.(Included.Use KArena.def not KArena2.def).
+Try in out by starting a match with this version of Kahn on that stage.
+Kahn must be on player2's side.
+
+KAHN's ARENA STAGE
+------------------------------------
+Included is an arcade port of Shao Kahn's MK2 stage. It was given to me by
+DoorHenge to go with my Shao Kahn years ago when I originally intended to
+release him
+
+KARENA.def has Kahn's throne empty. Use for Kahn is you use his KAHNTHRONE.DEF
+version
+
+KARENA2.DEF has Kahn sitting in his throne. Makes little sense if your fighting
+Kahn, unless its supposed to be his clone or something. Good for a random
+stage or fighting Kintaro.
+
+TO DO LIST
+-----------------------
+Fix any bugs that come up.
+Fatalities (Maybe. Kahn already has the code for a fatality system, but its
+  disabled for now)
+
+TO MAKE HIM WORK FOR DOSMUGEN
+-----------------------------------------
+Take the files out of Kahn's "DOSMugen" folder and move them to his main 
+folder, overwrite the windows version of those files.
+
+Kahns Fireball is less impressive on the Dos version.
+
+Due to WinMugen changing the basic block scripts dramticly, there was no
+way to make a single version of Kahn that works for both the Dos and 
+Windows version.
+
+Move Key
+--------------
+U = Up
+D = Down
+F = Forward
+B = Back
+a = a button
+b = b button
+c = c button
+x = x button
+y = y button
+z = z button
+start = start button
+
+Normal Moves
+--------------
+x or a - Giant Punch
+y or b - Big Boot
+D+x - Massive Uppercut
+c or z - Block
+x,y,a,or b in air - Big Boot
+start - Taunt
+D+start - Laugh
+
+Special Moves
+--------------------------------
+Energy Arrow - B, B, F, b (Hold Up or Down to aim)
+Energy Ball - B, B, F, a
+Shoulder Charge - D, F, a
+Vertical Shoulder Charge - D, F, x
+Hammer - B, F, x
+
+Super A.I. Moves and Supers (AI only)
+--------------------------------
+Soul Blaster - ???
+Soul Beam - ???
+Super Shoulder Charge - ??? (Level 1 Super)
+Soul Rapture - ??? (Level 1 Super)
+Super Soul Beam - ??? (Level 3 Super)
+Taunt Counter - ???
+Laugh Counter - ???
+
+Fatalities
+-------------------------
+None Yet.
+
+COMMENTS
+-----------------------
+- To enable the hold back block, open AI.cns and add ;'s to the 
+  first two states.
+- Due to the fact that there's an SNK wrestler named Raiden, MK Raiden may
+  be able to throw Kahn due to name confusion. Just blame it on him being
+  a god.
+- If the stages don't work for WinMugen, create a folder in the stages folder
+  called stages and move the KArena.sff file there. WinMugen can be wierd
+  about this.
+
+OTHER INFO (READ THIS)
+-----------------------
+- Kahn's has boss physics. This make him extremely resistent to being
+  knocked off his feet. Trip moves register as low hits instead and other
+  knockup attacks may only knock him off balance instead of up in the
+  air if they weren't meant to send him very high.
+- Sometimes Kahn's AI takes a second to "kick in". This is Elecbyte's
+  problem, not mine, as the current version of Mugen has no real 
+  "AI trigger" so I'm forced to hack it in.
+- One of the best ways of beating Kahn is to play defensively. Kahn's
+  AI is based on punishing aggressive opponents so its best to wait
+  for him to leave himself open before attacking.
+- Don't even try to kill Kahn by pelting him with fireballs from a
+  distance...
+- The Super AI Kahn has a special death sequence based on the way he dies
+  in MK2
+
+SUPER A.I.
+-----------------------
+When the A.I. controlled Kahn is defeated a round, he goes beserk next
+round. He gains new moves and supers and is even more resistent to
+knockup moves.
+
+RIPPED FROM
+-----------------------
+Sprites - Mortal Kombat 2 (Arcade version), excluding blood and a couple of his fatality effects
+Sounds Effects - Mortal Kombat Trilogy and PC Mortal Kombat 2 (Thanks DoorHenge)
+Souls - Ripped from Heretic and Hexen
+Various Energy Effect - Ripped from various sources
+
+PUBLIC USE
+----------------------------
+- You MAY host this character on your site WITHOUT my permission. I 
+  actually encourage it as my previously released creations are nearly
+  impossible to find due to lack of distribution.
+
+- You MAY distribution this file WITHOUT my permission to ANYONE. See above.
+
+- You MAY use my Shao Kahn as a base for your own characters WITHOUT asking,
+  so long as you give me credit in your release.
+
+- You MAY extend my version Shao Kahn, adding fatalities, new moves, 
+  AUTHENTIC sounding new taunts, etc. Just don't remove any existing in-game
+  content and tell me before you release him. And give me my credit.
+
+THANKS TO:
+------------
+Midway: For created this charater and the sounds I used.
+The Impaler,Kramzer13,Cipher44, WilloughbyJackson and anyone who helped them with their MK Charaters: I borrowed some things from them.
+DoorHenge - For ripping 99% of Kahns's taunts. And for the Kahn Arena stage.
+
+Matt Lohman,Chris Brennan,Keenan Rice: Friends who gave me feedback move ideas for the charter.

@@ -1,0 +1,45 @@
+; Definition file for Card Captor Iron Saisyu Kusanagi
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Kusanagi Saisyu"
+displayname = "Saisyu"
+versiondate = 2010,08,25 ;UpDate
+mugenversion = 04,01,2001
+author = "David Demianoff Åï TOBIKAGE , KamranBernstein" 
+Edited by KamranBernstein"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the player
+[Files]
+cmd      = coding/saisyu.cmd.cns        ;Other config
+cns      = coding/saisyu.cns        ;Constants
+st       = coding/saisyu.cns        ;States
+st1      = coding/attacks.cns        ;States
+st2      = coding/specials.cns        ;States
+st3      = coding/hypers.cns        ;States
+st4      = coding/misc.cns        ;States
+st5	 = AI/AI.cns
+st6      = AI/AIstate.cns
+stcommon = common1.cns     ;Common states
+sprite   = files/saisyu.sff        ;Sprite
+anim     = coding/saisyu.air        ;Animation
+sound    = files/saisyu.snd        ;Sound
+pal1     = pals/saisyu98a.act        ;Normal palette
+pal2     = pals/saisyu98b.act
+pal3     = pals/saisyu98c.act
+pal4     = pals/saisyu98d.act
+pal5	 = pals/saisyuor1.act
+pal6	 = pals/saisyuor2.act
+pal7     = pals/saisyu98a.act        ;Normal palette
+pal8     = pals/saisyu98b.act
+pal9     = pals/saisyu98c.act
+pal10    = pals/saisyu98d.act
+pal11	 = pals/saisyuor1.act
+pal12	 = pals/saisyuor2.act
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = end.def
+;ending.storyboard = end.def

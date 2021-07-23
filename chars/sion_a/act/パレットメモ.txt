@@ -1,0 +1,18 @@
+
+＊各カラー詳細＊
+
+-表モード-
+sion_a1.act    : （自作）MELTY BLOOD ノーマルシオン 1Pカラー
+2p_n.act       : （柊・竹・梅さん作）MELTY BLOOD Re.Act ノーマルシオン 2Pカラー
+sink_a.act     : （柊・竹・梅さん作）Rozen Maiden 真紅 再現
+sion_a4.act    : （柊・竹・梅さん作）東方萃夢想 西行寺幽々子 1Pカラー再現
+sion_eirin.act : （柊・竹・梅さん作）東方永夜抄 八意永琳 再現
+2p_n.act       : 略
+
+-裏モード-
+sion_a1.act    : 略
+2p_n.act       : 略
+sink_a.act     : 略
+sion_a4.act    : 略
+sink_eirin.act : 略
+sion_a4.act    : 略

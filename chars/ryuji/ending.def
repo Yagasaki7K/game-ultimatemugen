@@ -1,0 +1,389 @@
+; Ending cutscene for YAMAZAKI's KOF97 story.
+
+; Like the intro, this storyboard has multiple scenes.
+; Each scene uses two overlay anims, one for the picture, and
+; another for the text.
+; The fadein and fadeout parameters are used to fade one screen
+; to the next.
+
+[SceneDef]
+spr = ending.sff
+startscene = 0         ;Starting scene number (for debugging)
+
+;------------------------------------
+;START
+[Scene 0]
+; Fade
+fadein.time = 200       ;Time to take for fading in
+fadein.col = 100,-100,-100     ;Use 255,255,255 for white-fade
+fadeout.time = 20
+fadeout.col =200,-100,-100
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  1
+layer0.offset = 155,135
+layer0.starttime = 0 
+layer1.anim =  2
+layer1.offset = 85,135
+layer1.starttime = 50 
+layer2.anim =  3
+layer2.offset = 262,135
+layer2.starttime = 50 
+layer3.anim =  0       ;Anim action number
+layer3.offset = 0,0    ;Position offset
+layer3.starttime = 0   ;Time to start display
+layer4.anim =  4       ;Anim action number
+layer4.offset = 29,166 ;Position offset
+layer4.starttime = 120 ;Time to start display
+
+; Music
+bgm = ending.mp3       ;Name of music file to play
+bgm.loop = 0
+; Total time
+end.time = 900
+
+;------------------------------------
+;BLANK
+[Scene 1]
+; Fade
+fadein.time = 15
+fadein.col = 250,0,0
+fadeout.time = 15
+fadeout.col = 250,0,0
+clearcolor = 100,0,0
+; Screen color
+; The previous clearcolor value is carried over by default
+; Overlay Anims (from 0 to 9)
+; The previous layerall.pos value is carried over by default
+; Total time
+end.time = 15
+
+;BLANK
+[Scene 2]
+; Fade
+fadein.time = 15
+fadein.col = 250,0,0
+fadeout.time = 15
+fadeout.col = 250,0,0
+clearcolor = 100,0,0
+; Screen color
+; The previous clearcolor value is carried over by default
+; Overlay Anims (from 0 to 9)
+; The previous layerall.pos value is carried over by default
+; Total time
+end.time = 15
+
+;BLANK <WHY YOU>
+[Scene 3]
+; Fade
+fadein.time = 15
+fadein.col = 100,-100,-100
+fadeout.time = 15
+fadeout.col = 100,-100,-100
+clearcolor = 0,0,0
+; Screen color
+; The previous clearcolor value is carried over by default
+; Overlay Anims (from 0 to 9)
+; The previous layerall.pos value is carried over by default
+layer0.anim =  0
+layer0.offset = 0,0
+layer0.starttime = 0
+layer1.anim =  5       ;Anim action number
+layer1.offset = 29,166 ;Position offset
+layer1.starttime = 0   ;Time to start display
+; Total time
+end.time = 150
+
+;------------------------------------
+; SHOCKED
+[Scene 4]
+; Fade
+fadein.time = 20       ;Time to take for fading in
+fadein.col = -50,-50,-50     ;Use 255,255,255 for white-fade
+fadeout.time = 20
+fadeout.col = -50,-50,-50
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  1
+layer0.offset = 155,135
+layer0.starttime = 0 
+layer1.anim =  6
+layer1.offset = 161,135
+layer1.starttime = 0 
+layer2.anim =  0       ;Anim action number
+layer2.offset = 0,0    ;Position offset
+layer2.starttime = 0   ;Time to start display
+layer3.anim =  7       ;Anim action number
+layer3.offset = 29,166 ;Position offset
+layer3.starttime = 0 ;Time to start display
+end.time = 350
+
+;------------------------------------
+;YAMAZAKI :P
+[Scene 5]
+; Fade
+fadein.time = 20       ;Time to take for fading in
+fadein.col = -50,-50,-50     ;Use 255,255,255 for white-fade
+fadeout.time = 20
+fadeout.col =-50,-50,-50
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  8
+layer0.offset = 165,135
+layer0.starttime = 0 
+layer1.anim =  0       ;Anim action number
+layer1.offset = 0,0    ;Position offset
+layer1.starttime = 0   ;Time to start display
+layer2.anim =  9       ;Anim action number
+layer2.offset = 29,166 ;Position offset
+layer2.starttime = 100   ;Time to start display
+end.time = 300
+
+;------------------------------------
+;YAMAZAKI X
+[Scene 6]
+; Fade
+fadein.time = 20       ;Time to take for fading in
+fadein.col = -50,-50,-50     ;Use 255,255,255 for white-fade
+fadeout.time = 20
+fadeout.col =-50,-50,-50
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  11
+layer0.offset = 159,135
+layer0.starttime = 0 
+layer1.anim =  0       ;Anim action number
+layer1.offset = 0,0    ;159,215 ;Position offset
+layer1.starttime = 0    ;Time to start display
+layer2.anim =  10        ;Anim action number
+layer2.offset = 29,166  ;Position offset
+layer2.starttime = 120  ;Time to start display
+end.time = 350
+
+;------------------------------------
+;SANDER71113
+[Scene 7]
+; Fade
+fadein.time = 20       ;Time to take for fading in
+fadein.col = -50,-50,-50     ;Use 255,255,255 for white-fade
+fadeout.time = 20
+fadeout.col =-50,-50,-50
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  12
+layer0.offset = 55,35
+layer0.starttime = 0 
+end.time = 1500
+
+
+
+;=======================================================================
+;Background image
+[Begin Action 0]
+0,0, 0,0, -1
+
+;City BackDrop
+[Begin Action 1]
+1,0, 0,0, -1
+
+;Geese
+[Begin Action 2]
+2,0, 0,0, 4
+2,0, 1,0, 4
+2,0, 2,0, 4
+2,0, 3,0, 4
+2,0, 4,0, 4
+2,0, 5,0, 4
+2,0, 6,0, 4
+2,0, 7,0, 4
+2,0, 8,0, 4
+2,0, 9,0, 4
+2,0,10,0, 4
+2,0,11,0, 4
+2,0,12,0, 4
+2,0,13,0, 4
+2,0,14,0, 4
+2,0,15,0, 4
+2,0,16,0, 4
+2,0,17,0, 4
+2,0,18,0, 4
+2,0,19,0, 4
+2,0,20,0, 4
+2,0, 21,0, 4
+2,0, 22,0, 4
+2,0, 23,0, 4
+2,0, 24,0, 4
+2,0, 25,0, 4
+2,0, 26,0, 4
+2,0, 27,0, 4
+2,0, 28,0, 4
+2,0, 29,0, 4
+2,0,30,0, 4
+2,0,31,0, 4
+2,0,32,0, 4
+2,0,33,0, 4
+2,0,34,0, 4
+2,0,35,0, 4
+2,0,36,0, 4
+2,0,37,0, 4
+2,0,38,0, 4
+2,0,39,0, 4
+2,0,40,0, -1
+
+;billy
+[Begin Action 3]
+3,0, -0,0, 4
+3,0, -1,0, 4
+3,0, -2,0, 4
+3,0, -3,0, 4
+3,0, -4,0, 4
+3,0, -5,0, 4
+3,0, -6,0, 4
+3,0, -7,0, 4
+3,0, -8,0, 4
+3,0, -9,0, 4
+3,0, -10,0, 4
+3,0, -11,0, 4
+3,0, -12,0, 4
+3,0, -13,0, 4
+3,0, -14,0, 4
+3,0, -15,0, 4
+3,0, -16,0, 4
+3,0, -17,0, 4
+3,0, -18,0, 4
+3,0, -19,0, 4
+3,0, -20,0, 4
+3,0, -21,0, 4
+3,0, -22,0, 4
+3,0, -23,0, 4
+3,0, -24,0, 4
+3,0, -25,0, 4
+3,0, -26,0, 4
+3,0, -27,0, 4
+3,0, -28,0, 4
+3,0, -29,0, 4
+3,0, -30,0, 4
+3,0, -31,0, 4
+3,0, -32,0, 4
+3,0, -33,0, 4
+3,0, -34,0, 4
+3,0, -35,0, 4
+3,0, -36,0, 4
+3,0, -37,0, 4
+3,0, -38,0, 4
+3,0, -39,0, 4
+3,0, -40,0, -1
+
+;TEXT 1,1
+[Begin Action 4]
+4,  0, 0,0, 150
+0,  -1,0,0, 20 
+4,  1, 0,0, 150
+0,  -1,0,0, 20 
+4,  2, 0,0, 150
+0,  -1,0,0, 20 
+4,  3, 0,0, -1
+
+;TEXT 2,1
+[Begin Action 5]
+5,  0, 0,0, -1
+
+;GEESE & BILLY
+[Begin Action 6]
+6,  0, 0,0, -1
+
+;TEXT 3,1
+[Begin Action 7]
+7, 0, 0,0, 100
+0, -1, 0,0, 20
+7, 1, 0,0, -1
+
+;YAMAZAKI' :P
+[Begin Action 8]
+8,4, 0,0, 50
+8,0, 0,0, 7
+8,1, 0,0, 7
+8,2, 0,0, 7
+8,3, 0,0, 7
+8,4, 0,0, -1 
+
+;TEXT 4,1
+[Begin Action 9]
+9,0, 0,0, -1
+
+;TEXT 5,1
+[Begin Action 10]
+10,0, 0,0, -1
+
+;YAMAZAKI ATTACK
+[Begin Action 11]
+11,0, 0,0, 2
+11,0, 0,2, 2
+11,0, 0,4, 2
+11,0, 0,6, 2
+11,0, 0,8, 2
+11,0, 0,10, 2
+11,0, 0,12, 2
+11,0, 0,14, 2
+11,0, 0,16, 2
+11,0, 0,18, 2
+11,0, 0,20, 2
+11,0, 0,22, 2
+11,0, 0,24, 2
+11,0, 0,26, 2
+11,0, 0,28, 2
+11,0, 0,30, 2
+11,0, 0,32, 2
+11,0, 0,34, 2
+11,0, 0,36, 2
+11,0, 0,38, 2
+11,0, 0,40, 2
+11,0, 0,42, 2
+11,0, 0,44, 2
+11,0, 0,46, 2
+11,0, 0,48, 2
+11,0, 0,50, 2
+11,0, 0,52, 2
+11,0, 0,54, 2
+11,0, 0,56, 2
+11,0, 0,58, 2
+11,0, 0,60, 2
+11,0, 0,62, 2
+11,0, 0,64, 2
+11,0, 0,66, 2
+11,0, 0,68, 2
+11,0, 0,70, 2
+11,0, 0,72, 2
+11,0, 0,74, 2
+11,0, 0,76, 2
+11,0, 0,78, 2
+11,0, 0,80, 2
+11,0, 0,82, 2
+11,0, 0,84, 2
+11,0, 0,86, 2
+11,0, 0,88, 2
+11,0, 0,90, 2
+11,0, 0,92, 2
+11,0, 0,94, 2
+11,0, 0,96, 2
+11,0, 0,98, 2
+11,0, 0,100, 2
+11,0, 0,102, 2
+11,0, 0,104, 2
+11,0, 0,106, 2
+11,0, 0,108, 2
+11,0, 0,109, -1
+
+;SANDER71113
+[Begin Action 12]
+12,0, 0,0, -1

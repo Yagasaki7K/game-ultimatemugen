@@ -1,0 +1,3494 @@
+
+;êªçÏMINI43 2007/10/26,2008/2/13çXêV
+;;;;;
+;ç°âÒêªçÏÇ…ä÷ÇµÇ‹ÇµÇƒJAMÇ≥ÇÒÇ…ÇÕÇ¢ÇÎÇ¢ÇÎÇ∆ÉAÉhÉoÉCÉXãyÇ—ÅAéëóøìôëÂïœÇ®ê¢òbÇ…Ç»ÇËÇ‹ÇµÇΩÅB
+;Ç†ÇËÇ™Ç∆Ç§Ç≤Ç¥Ç¢Ç‹Ç∑ÅB
+;
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;OriginalGame------Capcom Vs Snk ~Millenium Fight 2000Å@Pro--DCî≈
+
+
+
+
+
+
+
+
+[Info]
+name="Cvs Kamuikotan"
+
+
+[Camera]
+startx=0
+starty=0
+boundleft=-160
+boundright=160
+boundhigh=-10
+boundlow=0
+verticalfollow=.05
+floortension=0
+tension=60
+
+[PlayerInfo]
+p1startx=-70
+p1starty=0
+p1startz=0
+p1facing=1
+p2startx=70
+p2starty=0
+p2startz=0
+p2facing=-1
+
+leftbound=-1000
+rightbound=1000
+topbound=0
+botbound=0
+
+[Scaling]
+topz=0
+botz=50
+topscale=1
+botscale=1.2
+
+[Bound]
+screenleft=15  
+screenright=15
+
+[StageInfo]
+zoffset=220
+autoturn=1
+resetBG=0
+
+
+
+[Shadow]
+intensity = 64
+color = 1,1,1
+yscale=.1
+fade.range = -100,-40
+
+
+[Music]
+bgmusic=sound/CVS2K-nakoruru.mp3
+bgvolume=255
+
+[BGdef]
+spr=stages/Cvs2K-kamuikotan2.sff
+debugbg=0
+
+
+
+;;;;;;;;;;ãÛ
+
+
+[BG 1] 
+type = normal
+spriteno = 1, 2
+layerno = 0
+start = -120,  -15
+delta = .95, 1
+trans = None
+mask = 1
+sin.y = 2, 3
+sin.x = 2, 3
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+[BG 2] ;;;;êX
+type = normal
+spriteno = 2, 1
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-2] 
+type = normal
+spriteno = 2, 2
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-3] 
+type = normal
+spriteno = 2, 3
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-4] 
+type = normal
+spriteno = 2, 4
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-5] 
+type = normal
+spriteno = 2, 5
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+[BG 2-6] 
+type = normal
+spriteno = 2, 6
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-7] 
+type = normal
+spriteno = 2, 7
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+
+[BG 2-8] 
+type = normal
+spriteno = 2, 8
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+[BG 2-9] 
+type = normal
+spriteno = 2, 9
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+
+[BG 2-10] 
+type = normal
+spriteno = 2, 10
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+[BG 2-11] ;;;;êX
+type = normal
+spriteno = 2, 11
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-12] 
+type = normal
+spriteno = 2, 12
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-13] 
+type = normal
+spriteno = 2, 13
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-14] 
+type = normal
+spriteno = 2, 14
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-15] 
+type = normal
+spriteno = 2, 15
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+[BG 2-16] 
+type = normal
+spriteno = 2, 16
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+[BG 2-17] 
+type = normal
+spriteno = 2, 17
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+
+[BG 2-18] 
+type = normal
+spriteno = 2, 18
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+[BG 2-19] 
+type = normal
+spriteno = 2, 19
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+
+[BG 2-20] 
+type = normal
+spriteno = 2, 20
+layerno = 0
+start = -120,  0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;âä
+[BG 4-1]
+type= anim
+layerno = 0
+actionno =1
+start = -120, 0
+delta = .97, 1
+trans = None
+mask = 1
+
+
+[Begin action 1]
+4,1, 0,0, 5
+4,2, 0,0, 5
+4,3, 0,0, 5
+4,4, 0,0, 5
+4,10, 0,0, 5
+4,6, 0,0, 5
+4,7, 0,0, 5
+4,8, 0,0, 5
+4,9, 0,0, 5
+4,10, 0,0, 5
+;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ê·âú
+
+;;;
+[BG 10] ;;;âEéŒÇﬂâ∫ã≠
+type = normal
+spriteno = 10, 10
+layerno = 0
+start = -60,  -10
+delta = .97, .97
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 22
+
+[BG 10] ;;;âEéŒÇﬂè„ã≠
+type = normal
+spriteno = 10, 10
+layerno = 0
+start = -60,  -10
+delta = .97, .97
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 25
+
+[BG 12-3];;;;;;;;â°é„âEâ∫
+type = normal
+spriteno = 12, 10
+layerno = 0
+start = -60,  -10
+delta = .97, .97
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 32
+
+[BG 12-3];;;;;;;;â°é„ç∂â∫
+type = normal
+spriteno = 12, 10
+layerno = 0
+start = -60,  -10
+delta = .97, .97
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 35
+
+
+[BG 14-1] ;;;;;;;;ê·óéÇø
+type = normal
+spriteno = 14, 5
+layerno = 0
+start = -60,  -20;;;10
+delta = .99, .99
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 52
+
+
+
+[BG 14-2] 
+type = normal
+spriteno = 14, 8
+layerno = 0
+start = -60, -20;; -10
+delta = .99, .99
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 55
+
+[BG 15-2] ;;;;;;âEéŒÇﬂè„ã≠
+type = normal
+spriteno = 15, 6
+layerno = 0
+start = -90,  -10
+delta = .97, .97
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 62
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;ínñ ;;;;;;;;
+[BG 1] 
+type = normal
+spriteno = 3, 1
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-2] 
+type = normal
+spriteno = 3, 2
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-3] 
+type = normal
+spriteno = 3, 3
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-4] 
+type = normal
+spriteno = 3, 4
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-5] 
+type = normal
+spriteno = 3, 5
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-6] 
+type = normal
+spriteno = 3, 6
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-7] 
+type = normal
+spriteno = 3, 7
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-8] 
+type = normal
+spriteno = 3, 8
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-9] 
+type = normal
+spriteno = 3, 9
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-10] 
+type = normal
+spriteno = 3, 10
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-11] 
+type = normal
+spriteno = 3, 11
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-12] 
+type = normal
+spriteno = 3, 12
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-13] 
+type = normal
+spriteno = 3, 13
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-14] 
+type = normal
+spriteno = 3, 14
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-15] 
+type = normal
+spriteno = 3, 15
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-16] 
+type = normal
+spriteno = 3, 16
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-17] 
+type = normal
+spriteno = 3, 17
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-18] 
+type = normal
+spriteno = 3, 18
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-19] 
+type = normal
+spriteno = 3, 19
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-20] 
+type = normal
+spriteno = 3, 20
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-21] 
+type = normal
+spriteno = 3, 21
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-22] 
+type = normal
+spriteno = 3, 22
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-23] 
+type = normal
+spriteno = 3, 23
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-24] 
+type = normal
+spriteno = 3, 24
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-25] 
+type = normal
+spriteno = 3, 25
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-26] 
+type = normal
+spriteno = 3, 26
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-27] 
+type = normal
+spriteno = 3, 27
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-28] 
+type = normal
+spriteno = 3, 28
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-29] 
+type = normal
+spriteno = 3, 29
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-30] 
+type = normal
+spriteno = 3, 30
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-31] 
+type = normal
+spriteno = 3, 31
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-32] 
+type = normal
+spriteno = 3, 32
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-33] 
+type = normal
+spriteno = 3, 33
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-34] 
+type = normal
+spriteno = 3, 34
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-35] 
+type = normal
+spriteno = 3, 35
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-36] 
+type = normal
+spriteno = 3, 36
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-37] 
+type = normal
+spriteno = 3, 37
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-38] 
+type = normal
+spriteno = 3, 38
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+
+[BG 1-39] 
+type = normal
+spriteno = 3, 39
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+
+[BG 1-40] 
+type = normal
+spriteno = 3, 40
+layerno = 0
+start = -120,  0
+delta = 1, 1
+trans = None
+mask = 1
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+[BG 6-1];;;;;âÒì]
+type= anim
+layerno = 1
+actionno =10
+start = -120, 0
+delta = 1, 1
+trans = None
+mask = 1
+tile = 1, 0
+tilespacing = 500,0
+ID=10
+[Begin action 10]
+26,1, 0,0, 7,,AS100D256
+26,2, 0,0, 7,,AS100D256
+26,3, 0,0, 7,,AS100D256
+26,4, 0,0, 7,,AS100D256
+26,5, 0,0, 7,,AS100D256
+26,6, 0,0, 7,,AS100D256
+26,7, 0,0, 7,,AS100D256
+26,8, 0,0, 7,,AS100D256
+26,9, 0,0, 7,,AS100D256
+26,10, 0,0, 7,,AS100D256
+26,11, 0,0, 7,,AS100D256
+26,12, 0,0, 7,,AS100D256
+26,13, 0,0, 7,,AS100D256
+26,14, 0,0, 7,,AS100D256
+26,15, 0,0, 7,,AS100D256
+26,16, 0,0, 7,,AS100D256
+26,17, 0,0, 7,,AS100D256
+26,18, 0,0, 7,,AS100D256
+26,19, 0,0, 7,,AS100D256
+26,20, 0,0, 7,,AS100D256
+26,21, 0,0, 6,,AS100D256
+26,22, 0,0, 6,,AS100D256
+26,23, 0,0, 6,,AS100D256
+26,24, 0,0, 6,,AS100D256
+26,25, 0,0, 6,,AS100D256
+26,26, 0,0, 6,,AS100D256
+26,27, 0,0, 6,,AS100D256
+26,28, 0,0, 6,,AS100D256
+26,29, 0,0, 6,,AS100D256
+26,30, 0,0, 6,,AS100D256
+26,31, 0,0, 6,,AS100D256
+26,32, 0,0, 6,,AS100D256
+26,33, 0,0, 6,,AS100D256
+26,34, 0,0, 6,,AS100D256
+26,35, 0,0, 6,,AS100D256
+26,36, 0,0, 6,,AS100D256
+26,37, 0,0, 6,,AS100D256
+26,38, 0,0, 6,,AS100D256
+26,39, 0,0, 6,,AS100D256
+26,40, 0,0, 6,,AS100D256
+26,41, 0,0, 6,,AS100D256
+26,42, 0,0, 6,,AS100D256
+26,43, 0,0, 6,,AS100D256
+26,44, 0,0, 6,,AS100D256
+26,45, 0,0, 6,,AS100D256
+26,46, 0,0, 6,,AS100D256
+26,47, 0,0, 6,,AS90D256
+26,48, 0,0, 6,,AS80D256
+26,49, 0,0, 6,,AS70D256
+26,50, 0,0, 6,,AS70D256
+26,51, 0,0, 6,,AS70D256
+26,52, 0,0, 6,,AS70D256
+26,53, 0,0, 6,,AS70D256
+26,54, 0,0, 6,,AS70D256
+26,55, 0,0, 6,,AS70D256
+26,56, 0,0, 6,,AS70D256
+26,57, 0,0, 6,,AS70D256
+26,58, 0,0, 6,,AS70D256
+26,59, 0,0, 6,,AS70D256
+26,60, 0,0, 6,,AS70D256
+;;;;;;;;;;;;;;;
+26,1, 0,0, 7,,AS100D256
+26,2, 0,0, 7,,AS100D256
+26,3, 0,0, 7,,AS100D256
+26,4, 0,0, 7,,AS100D256
+26,5, 0,0, 7,,AS100D256
+26,6, 0,0, 7,,AS100D256
+26,7, 0,0, 7,,AS100D256
+26,8, 0,0, 7,,AS100D256
+26,9, 0,0, 7,,AS100D256
+26,10, 0,0, 7,,AS100D256
+26,11, 0,0, 7,,AS100D256
+26,12, 0,0, 7,,AS100D256
+26,13, 0,0, 7,,AS100D256
+26,14, 0,0, 7,,AS100D256
+26,15, 0,0, 7,,AS100D256
+26,16, 0,0, 7,,AS100D256
+26,17, 0,0, 7,,AS100D256
+26,18, 0,0, 7,,AS100D256
+26,19, 0,0, 7,,AS100D256
+26,20, 0,0, 7,,AS100D256
+
+26,1, 0,0, 7,,AS100D256
+26,2, 0,0, 7,,AS100D256
+26,3, 0,0, 7,,AS100D256
+26,4, 0,0, 7,,AS100D256
+26,5, 0,0, 7,,AS100D256
+26,6, 0,0, 7,,AS100D256
+26,7, 0,0, 7,,AS100D256
+26,8, 0,0, 7,,AS100D256
+26,9, 0,0, 7,,AS100D256
+26,10, 0,0, 7,,AS100D256
+26,11, 0,0, 7,,AS100D256
+26,12, 0,0, 7,,AS100D256
+26,13, 0,0, 7,,AS100D256
+26,14, 0,0, 7,,AS100D256
+26,15, 0,0, 7,,AS100D256
+26,16, 0,0, 7,,AS100D256
+26,17, 0,0, 7,,AS100D256
+26,18, 0,0, 7,,AS100D256
+26,19, 0,0, 7,,AS100D256
+26,20, 0,0, 7,,AS100D256
+
+26,1, 0,0, 7,,AS100D256
+26,2, 0,0, 7,,AS100D256
+26,3, 0,0, 7,,AS100D256
+26,4, 0,0, 7,,AS100D256
+26,5, 0,0, 7,,AS100D256
+26,6, 0,0, 7,,AS100D256
+26,7, 0,0, 7,,AS100D256
+26,8, 0,0, 7,,AS100D256
+26,9, 0,0, 7,,AS100D256
+26,10, 0,0, 7,,AS100D256
+26,11, 0,0, 7,,AS100D256
+26,12, 0,0, 7,,AS100D256
+26,13, 0,0, 7,,AS100D256
+26,14, 0,0, 7,,AS100D256
+26,15, 0,0, 7,,AS100D256
+26,16, 0,0, 7,,AS100D256
+26,17, 0,0, 7,,AS100D256
+26,18, 0,0, 7,,AS100D256
+26,19, 0,0, 7,,AS100D256
+26,20, 0,0, 7,,AS100D256
+
+26,1, 0,0, 7,,AS100D256
+26,2, 0,0, 7,,AS100D256
+26,3, 0,0, 7,,AS100D256
+26,4, 0,0, 7,,AS100D256
+26,5, 0,0, 7,,AS100D256
+26,6, 0,0, 7,,AS100D256
+26,7, 0,0, 7,,AS100D256
+26,8, 0,0, 7,,AS100D256
+26,9, 0,0, 7,,AS100D256
+26,10, 0,0, 7,,AS100D256
+26,11, 0,0, 7,,AS100D256
+26,12, 0,0, 7,,AS100D256
+26,13, 0,0, 7,,AS100D256
+26,14, 0,0, 7,,AS100D256
+26,15, 0,0, 7,,AS100D256
+26,16, 0,0, 7,,AS100D256
+26,17, 0,0, 7,,AS100D256
+26,18, 0,0, 7,,AS100D256
+26,19, 0,0, 7,,AS100D256
+26,20, 0,0, 7,,AS100D256
+
+26,21, 0,0, 6,,AS100D256
+26,22, 0,0, 6,,AS100D256
+26,23, 0,0, 6,,AS100D256
+26,24, 0,0, 6,,AS100D256
+26,25, 0,0, 6,,AS100D256
+26,26, 0,0, 6,,AS100D256
+26,27, 0,0, 6,,AS100D256
+26,28, 0,0, 6,,AS100D256
+26,29, 0,0, 6,,AS100D256
+26,30, 0,0, 6,,AS100D256
+26,31, 0,0, 6,,AS100D256
+26,32, 0,0, 6,,AS100D256
+26,33, 0,0, 6,,AS100D256
+26,34, 0,0, 6,,AS100D256
+26,35, 0,0, 6,,AS100D256
+26,36, 0,0, 6,,AS100D256
+26,37, 0,0, 6,,AS100D256
+26,38, 0,0, 6,,AS100D256
+26,39, 0,0, 6,,AS100D256
+26,40, 0,0, 6,,AS100D256
+26,41, 0,0, 6,,AS100D256
+26,42, 0,0, 6,,AS100D256
+26,43, 0,0, 6,,AS100D256
+26,44, 0,0, 6,,AS100D256
+26,45, 0,0, 6,,AS100D256
+26,46, 0,0, 6,,AS100D256
+26,47, 0,0, 6,,AS90D256
+26,48, 0,0, 6,,AS80D256
+26,49, 0,0, 6,,AS70D256
+26,50, 0,0, 6,,AS70D256
+26,51, 0,0, 6,,AS70D256
+26,52, 0,0, 6,,AS70D256
+26,53, 0,0, 6,,AS70D256
+26,54, 0,0, 6,,AS70D256
+26,55, 0,0, 6,,AS70D256
+26,56, 0,0, 6,,AS70D256
+26,57, 0,0, 6,,AS70D256
+26,58, 0,0, 6,,AS70D256
+26,59, 0,0, 6,,AS70D256
+26,60, 0,0, 6,,AS70D256
+
+
+
+
+
+
+
+;;;;;;;âEéŒÇﬂâ∫ã≠
+[BG 10] 
+type = normal
+spriteno = 10, 2
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 20
+
+
+[BG 10] 
+type = normal
+spriteno = 10, 9
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 21
+
+
+
+
+;--------
+;;;;;;;ç∂éŒÇﬂè„ã≠
+[BG 10] 
+type = normal
+spriteno = 10, 1
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 23
+
+
+[BG 10] 
+type = normal
+spriteno = 10, 9
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 24
+
+
+
+
+
+
+
+
+[BG 12] ;;;;;;;;;â°é„âEâ∫
+type = normal
+spriteno = 12, 8
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 30
+
+
+[BG 12-2]
+type = normal
+spriteno = 12, 3
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 31
+
+
+;;;;;;;;;;;;;;;;;;
+
+[BG 12] ;;;;;;;;;â°é„ç∂â∫
+type = normal
+spriteno = 12, 8
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 33
+
+
+[BG 12-2]
+type = normal
+spriteno = 12, 3
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 34
+
+
+;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+
+
+
+;;;;;;;;ê·óéÇø
+
+
+
+
+[BG 14-1] 
+type = normal
+spriteno = 14, 1
+layerno = 1
+start = -60, -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 40
+
+[BG 14-2] 
+type = normal
+spriteno = 14, 2
+layerno = 1
+start = -60, -11
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 50
+
+
+
+
+
+
+
+
+;;;;;;;;ê·óéÇøíZ480
+[BG 14-1] 
+type = normal
+spriteno = 14, 3
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 41
+[BG 14-2] 
+type = normal
+spriteno = 14, 4
+layerno = 1
+start = -60, -11
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 51
+
+
+;;;;;;;;ê·óéÇøíZ250
+[BG 14-1] 
+type = normal
+spriteno = 14, 6
+layerno = 1
+start = -60, -11
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 53
+
+[BG 14-2] 
+type = normal
+spriteno = 14, 7
+layerno = 1
+start = -60, -11
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 0
+tilespacing = 0,0
+ID = 54
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;;;;;;;;;âEéŒÇﬂè„ã≠
+
+[BG 15-1] 
+type = normal
+spriteno = 15, 5
+layerno = 1
+start = -60,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 61
+
+
+[BG 15-3] 
+type = normal
+spriteno = 15, 2   ;7
+layerno = 1
+start = -120,  -10
+delta = 1, 1
+trans = Add
+mask = 1
+tile = 1, 1
+tilespacing = 0,0
+ID = 63
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+;;;;;;ê·Ç‡Ç‚
+
+[BG 4-1]
+type= anim
+layerno = 1
+actionno =53
+start = -120, -15
+delta = .95, 1
+trans = None
+mask = 1
+
+ID=100
+[Begin action 53]
+;;âÒì]370
+
+1,4, 0,0, 23,,AS170D190
+1,4, 0,0, 60,,AS180D180
+1,4, 0,0, 60,,AS170D190
+1,4, 0,0, 30,,AS160D200
+1,4, 0,0, 20,,AS150D208
+1,4, 0,0, 17,,AS140D216
+1,4, 0,0, 16,,AS130D224
+1,4, 0,0, 16,,AS120D232
+1,4, 0,0, 16,,AS110D240
+1,4, 0,0, 16,,AS100D248
+1,4, 0,0, 16,,AS90D252
+1,4, 0,0, 16,,AS80D253
+1,4, 0,0, 16,,AS70D254
+1,4, 0,0, 16,,AS60D255
+1,4, 0,0, 16,,AS50D256
+1,4, 0,0, 16,,AS40D256
+
+
+-1,3, 0,0, 1830
+
+
+
+
+
+
+
+
+1,4, 0,0, 5,,AS46D256
+1,4, 0,0, 5,,AS51D247
+1,4, 0,0, 5,,AS56D243
+1,4, 0,0, 5,,AS61D239
+1,4, 0,0, 5,,AS66D235
+1,4, 0,0, 5,,AS71D232
+1,4, 0,0, 5,,AS76D229
+1,4, 0,0, 5,,AS81D227
+1,4, 0,0, 5,,AS86D224
+1,4, 0,0, 5,,AS91D221
+1,4, 0,0, 1450,,AS96D220;;;é„;;1500
+
+
+
+
+1,4, 0,0, 6,,AS108D218
+1,4, 0,0, 6,,AS115D216
+1,4, 0,0, 6,,AS125D214
+1,4, 0,0, 6,,AS135D212
+1,4, 0,0, 6,,AS140D210
+1,4, 0,0, 6,,AS145D208
+1,4, 0,0, 6,,AS150D205
+1,4, 0,0, 8,,AS155D202
+1,4, 0,0, 550,,AS160D200;;;ã≠650
+1,4, 0,0, 10,,AS148D204
+1,4, 0,0, 10,,AS136D208
+1,4, 0,0, 10,,AS124D212
+1,4, 0,0, 10,,AS112D216
+1,4, 0,0, 10,,AS100D220
+
+
+
+
+
+1,4, 0,0, 1614,,AS96D220;;;é„1650
+1,4, 0,0, 1,,AS95D221
+1,4, 0,0, 1,,AS94D222
+1,4, 0,0, 1,,AS93D223
+1,4, 0,0, 1,,AS92D224
+1,4, 0,0, 1,,AS91D225
+1,4, 0,0, 1,,AS90D226
+1,4, 0,0, 1,,AS89D227
+1,4, 0,0, 1,,AS88D228
+1,4, 0,0, 1,,AS87D229
+1,4, 0,0, 1,,AS86D230
+
+1,4, 0,0, 1,,AS85D231
+1,4, 0,0, 1,,AS84D232
+1,4, 0,0, 1,,AS83D233
+1,4, 0,0, 1,,AS82D234
+1,4, 0,0, 1,,AS81D235
+1,4, 0,0, 1,,AS80D236
+1,4, 0,0, 1,,AS79D237
+1,4, 0,0, 1,,AS78D238
+1,4, 0,0, 1,,AS77D239
+1,4, 0,0, 1,,AS76D240
+
+1,4, 0,0, 1,,AS75D241
+1,4, 0,0, 1,,AS74D242
+1,4, 0,0, 1,,AS73D243
+1,4, 0,0, 1,,AS72D245
+1,4, 0,0, 1,,AS71D246
+1,4, 0,0, 1,,AS70D247
+1,4, 0,0, 1,,AS69D248
+1,4, 0,0, 1,,AS68D249
+1,4, 0,0, 1,,AS67D250
+1,4, 0,0, 1,,AS66D251
+
+1,4, 0,0, 1,,AS65D252
+1,4, 0,0, 1,,AS64D253
+1,4, 0,0, 1,,AS63D254
+1,4, 0,0, 1,,AS62D256
+1,4, 0,0, 1,,AS61D256
+1,4, 0,0, 1,,AS50D256
+
+-1,4, 0,0, 1700
+
+
+
+
+
+1,4, 0,0, 6,,AS108D249
+1,4, 0,0, 6,,AS115D242
+1,4, 0,0, 6,,AS125D235
+1,4, 0,0, 6,,AS135D228
+1,4, 0,0, 6,,AS140D221
+1,4, 0,0, 6,,AS145D214
+1,4, 0,0, 6,,AS150D207
+1,4, 0,0, 8,,AS155D200
+1,4, 0,0, 650,,AS160D200;;;ã≠750
+1,4, 0,0, 10,,AS148D204
+1,4, 0,0, 10,,AS136D208
+1,4, 0,0, 10,,AS124D212
+1,4, 0,0, 10,,AS112D216
+1,4, 0,0, 10,,AS100D220
+
+
+
+
+1,4, 0,0, 500,,AS96D220;;;é„500
+
+
+
+1,4, 0,0, 6,,AS108D218
+1,4, 0,0, 6,,AS115D216
+1,4, 0,0, 6,,AS125D214
+1,4, 0,0, 6,,AS135D212
+1,4, 0,0, 6,,AS140D210
+1,4, 0,0, 6,,AS145D208
+1,4, 0,0, 6,,AS150D205
+1,4, 0,0, 8,,AS155D202
+1,4, 0,0, 600,,AS160D200;;;ã≠700
+1,4, 0,0, 10,,AS148D204
+1,4, 0,0, 10,,AS136D208
+1,4, 0,0, 10,,AS124D212
+1,4, 0,0, 10,,AS112D216
+1,4, 0,0, 10,,AS100D220
+
+
+
+
+
+1,4, 0,0, 1914,,AS96D220;;;é„1950
+
+1,4, 0,0, 1,,AS95D221
+1,4, 0,0, 1,,AS94D222
+1,4, 0,0, 1,,AS93D223
+1,4, 0,0, 1,,AS92D224
+1,4, 0,0, 1,,AS91D225
+1,4, 0,0, 1,,AS90D226
+1,4, 0,0, 1,,AS89D227
+1,4, 0,0, 1,,AS88D228
+1,4, 0,0, 1,,AS87D229
+1,4, 0,0, 1,,AS86D230
+
+1,4, 0,0, 1,,AS85D231
+1,4, 0,0, 1,,AS84D232
+1,4, 0,0, 1,,AS83D233
+1,4, 0,0, 1,,AS82D234
+1,4, 0,0, 1,,AS81D235
+1,4, 0,0, 1,,AS80D236
+1,4, 0,0, 1,,AS79D237
+1,4, 0,0, 1,,AS78D238
+1,4, 0,0, 1,,AS77D239
+1,4, 0,0, 1,,AS76D240
+
+1,4, 0,0, 1,,AS75D241
+1,4, 0,0, 1,,AS74D242
+1,4, 0,0, 1,,AS73D243
+1,4, 0,0, 1,,AS72D245
+1,4, 0,0, 1,,AS71D246
+1,4, 0,0, 1,,AS70D247
+1,4, 0,0, 1,,AS69D248
+1,4, 0,0, 1,,AS68D249
+1,4, 0,0, 1,,AS67D250
+1,4, 0,0, 1,,AS66D251
+
+1,4, 0,0, 1,,AS65D252
+1,4, 0,0, 1,,AS64D253
+1,4, 0,0, 1,,AS63D254
+1,4, 0,0, 1,,AS62D256
+1,4, 0,0, 1,,AS61D256
+1,4, 0,0, 1,,AS50D256
+
+
+
+-1,4, 0,0, 1800
+
+
+
+
+
+
+1,4, 0,0, 5,,AS46D256
+1,4, 0,0, 5,,AS51D247
+1,4, 0,0, 5,,AS56D243
+1,4, 0,0, 5,,AS61D239
+1,4, 0,0, 5,,AS66D235
+1,4, 0,0, 5,,AS71D232
+1,4, 0,0, 5,,AS76D229
+1,4, 0,0, 5,,AS81D227
+1,4, 0,0, 5,,AS86D224
+1,4, 0,0, 5,,AS91D221
+1,4, 0,0, 950,,AS96D220;;;é„1000
+
+
+
+
+1,4, 0,0, 6,,AS108D218
+1,4, 0,0, 6,,AS115D216
+1,4, 0,0, 6,,AS125D214
+1,4, 0,0, 6,,AS135D212
+1,4, 0,0, 6,,AS140D210
+1,4, 0,0, 6,,AS145D208
+1,4, 0,0, 6,,AS150D205
+1,4, 0,0, 8,,AS155D202
+1,4, 0,0, 450,,AS160D200;;;ã≠550
+1,4, 0,0, 10,,AS148D204
+1,4, 0,0, 10,,AS136D208
+1,4, 0,0, 10,,AS124D212
+1,4, 0,0, 10,,AS112D216
+1,4, 0,0, 10,,AS100D220
+
+
+
+
+
+1,4, 0,0, 1664,,AS96D220;;;é„1700
+1,4, 0,0, 1,,AS95D221
+1,4, 0,0, 1,,AS94D222
+1,4, 0,0, 1,,AS93D223
+1,4, 0,0, 1,,AS92D224
+1,4, 0,0, 1,,AS91D225
+1,4, 0,0, 1,,AS90D226
+1,4, 0,0, 1,,AS89D227
+1,4, 0,0, 1,,AS88D228
+1,4, 0,0, 1,,AS87D229
+1,4, 0,0, 1,,AS86D230
+
+1,4, 0,0, 1,,AS85D231
+1,4, 0,0, 1,,AS84D232
+1,4, 0,0, 1,,AS83D233
+1,4, 0,0, 1,,AS82D234
+1,4, 0,0, 1,,AS81D235
+1,4, 0,0, 1,,AS80D236
+1,4, 0,0, 1,,AS79D237
+1,4, 0,0, 1,,AS78D238
+1,4, 0,0, 1,,AS77D239
+1,4, 0,0, 1,,AS76D240
+
+1,4, 0,0, 1,,AS75D241
+1,4, 0,0, 1,,AS74D242
+1,4, 0,0, 1,,AS73D243
+1,4, 0,0, 1,,AS72D245
+1,4, 0,0, 1,,AS71D246
+1,4, 0,0, 1,,AS70D247
+1,4, 0,0, 1,,AS69D248
+1,4, 0,0, 1,,AS68D249
+1,4, 0,0, 1,,AS67D250
+1,4, 0,0, 1,,AS66D251
+
+1,4, 0,0, 1,,AS65D252
+1,4, 0,0, 1,,AS64D253
+1,4, 0,0, 1,,AS63D254
+1,4, 0,0, 1,,AS62D256
+1,4, 0,0, 1,,AS61D256
+1,4, 0,0, 1,,AS50D256
+
+
+
+
+
+-1,4, 0,0, 1950
+
+
+
+1,4, 0,0, 5,,AS46D256
+1,4, 0,0, 5,,AS51D247
+1,4, 0,0, 5,,AS56D243
+1,4, 0,0, 5,,AS61D239
+1,4, 0,0, 5,,AS66D235
+1,4, 0,0, 5,,AS71D232
+1,4, 0,0, 5,,AS76D229
+1,4, 0,0, 5,,AS81D227
+1,4, 0,0, 5,,AS86D224
+1,4, 0,0, 5,,AS91D221
+1,4, 0,0, 1100,,AS96D220;;;é„1150
+
+
+
+
+1,4, 0,0, 6,,AS108D218
+1,4, 0,0, 6,,AS115D216
+1,4, 0,0, 6,,AS125D214
+1,4, 0,0, 6,,AS135D212
+1,4, 0,0, 6,,AS140D210
+1,4, 0,0, 6,,AS145D208
+1,4, 0,0, 6,,AS150D205
+1,4, 0,0, 8,,AS155D202
+1,4, 0,0, 1240,,AS160D200;;;ã≠1350
+1,4, 0,0, 2,,AS158D201
+1,4, 0,0, 2,,AS156D202
+1,4, 0,0, 2,,AS154D203
+1,4, 0,0, 2,,AS152D204
+1,4, 0,0, 2,,AS150D205
+1,4, 0,0, 2,,AS148D206
+1,4, 0,0, 2,,AS146D207
+1,4, 0,0, 2,,AS144D208
+1,4, 0,0, 2,,AS142D209
+1,4, 0,0, 2,,AS140D210
+
+1,4, 0,0, 2,,AS138D211
+1,4, 0,0, 2,,AS136D212
+1,4, 0,0, 2,,AS134D213
+1,4, 0,0, 2,,AS132D214
+1,4, 0,0, 2,,AS130D215
+1,4, 0,0, 2,,AS128D216
+1,4, 0,0, 2,,AS126D217
+1,4, 0,0, 2,,AS124D218
+1,4, 0,0, 2,,AS122D219
+1,4, 0,0, 2,,AS120D220
+
+1,4, 0,0, 1,,AS118D221
+1,4, 0,0, 1,,AS116D222
+1,4, 0,0, 1,,AS114D223
+1,4, 0,0, 1,,AS112D224
+1,4, 0,0, 1,,AS110D225
+1,4, 0,0, 1,,AS98D226
+1,4, 0,0, 1,,AS96D227
+1,4, 0,0, 1,,AS94D228
+1,4, 0,0, 1,,AS92D229
+1,4, 0,0, 1,,AS90D230
+
+1,4, 0,0, 1,,AS88D231
+1,4, 0,0, 1,,AS86D232
+1,4, 0,0, 1,,AS84D233
+1,4, 0,0, 1,,AS82D234
+1,4, 0,0, 1,,AS80D235
+1,4, 0,0, 1,,AS78D236
+1,4, 0,0, 1,,AS76D237
+1,4, 0,0, 1,,AS74D238
+1,4, 0,0, 1,,AS72D239
+1,4, 0,0, 1,,AS70D240
+
+
+-1,4, 0,0, 62
+;âÒì]888
+;1,4, 0,0, 40,,AS170D190
+1,4, 0,0, 83,,AS175D185
+1,4, 0,0, 400,,AS180D180
+1,4, 0,0, 200,,AS175D185
+1,4, 0,0, 100,,AS170D190
+1,4, 0,0, 80,,AS165D195
+1,4, 0,0, 25,,AS160D200
+
+
+
+
+1,4, 0,0, 950,,AS160D200;;;ã≠1000
+1,4, 0,0, 10,,AS148D204
+1,4, 0,0, 10,,AS136D208
+1,4, 0,0, 10,,AS124D212
+1,4, 0,0, 10,,AS112D216
+1,4, 0,0, 10,,AS100D220
+
+
+
+
+1,4, 0,0, 914,,AS96D220;;;é„950
+1,4, 0,0, 1,,AS95D221
+1,4, 0,0, 1,,AS94D222
+1,4, 0,0, 1,,AS93D223
+1,4, 0,0, 1,,AS92D224
+1,4, 0,0, 1,,AS91D225
+1,4, 0,0, 1,,AS90D226
+1,4, 0,0, 1,,AS89D227
+1,4, 0,0, 1,,AS88D228
+1,4, 0,0, 1,,AS87D229
+1,4, 0,0, 1,,AS86D230
+
+1,4, 0,0, 1,,AS85D231
+1,4, 0,0, 1,,AS84D232
+1,4, 0,0, 1,,AS83D233
+1,4, 0,0, 1,,AS82D234
+1,4, 0,0, 1,,AS81D235
+1,4, 0,0, 1,,AS80D236
+1,4, 0,0, 1,,AS79D237
+1,4, 0,0, 1,,AS78D238
+1,4, 0,0, 1,,AS77D239
+1,4, 0,0, 1,,AS76D240
+
+1,4, 0,0, 1,,AS75D241
+1,4, 0,0, 1,,AS74D242
+1,4, 0,0, 1,,AS73D243
+1,4, 0,0, 1,,AS72D245
+1,4, 0,0, 1,,AS71D246
+1,4, 0,0, 1,,AS70D247
+1,4, 0,0, 1,,AS69D248
+1,4, 0,0, 1,,AS68D249
+1,4, 0,0, 1,,AS67D250
+1,4, 0,0, 1,,AS66D251
+
+1,4, 0,0, 1,,AS65D252
+1,4, 0,0, 1,,AS64D253
+1,4, 0,0, 1,,AS63D254
+1,4, 0,0, 1,,AS62D256
+1,4, 0,0, 1,,AS61D256
+1,4, 0,0, 1,,AS50D256
+
+
+
+
+-1,4, 0,0, 1700
+
+
+1,4, 0,0, 5,,AS46D256
+1,4, 0,0, 5,,AS51D247
+1,4, 0,0, 5,,AS56D243
+1,4, 0,0, 5,,AS61D239
+1,4, 0,0, 5,,AS66D235
+1,4, 0,0, 5,,AS71D232
+1,4, 0,0, 5,,AS76D229
+1,4, 0,0, 5,,AS81D227
+1,4, 0,0, 5,,AS86D224
+1,4, 0,0, 5,,AS91D221
+1,4, 0,0, 950,,AS96D220;;;é„1000
+
+
+
+
+1,4, 0,0, 6,,AS108D218
+1,4, 0,0, 6,,AS115D216
+1,4, 0,0, 6,,AS125D214
+1,4, 0,0, 6,,AS135D212
+1,4, 0,0, 6,,AS140D210
+1,4, 0,0, 6,,AS145D208
+1,4, 0,0, 6,,AS150D205
+1,4, 0,0, 8,,AS155D202
+1,4, 0,0, 550,,AS160D200;;;ã≠650
+1,4, 0,0, 10,,AS148D204
+1,4, 0,0, 10,,AS136D208
+1,4, 0,0, 10,,AS124D212
+1,4, 0,0, 10,,AS112D216
+1,4, 0,0, 10,,AS100D220
+
+
+
+
+1,4, 0,0, 1714,,AS96D220;;;é„1750
+1,4, 0,0, 1,,AS95D221
+1,4, 0,0, 1,,AS94D222
+1,4, 0,0, 1,,AS93D223
+1,4, 0,0, 1,,AS92D224
+1,4, 0,0, 1,,AS91D225
+1,4, 0,0, 1,,AS90D226
+1,4, 0,0, 1,,AS89D227
+1,4, 0,0, 1,,AS88D228
+1,4, 0,0, 1,,AS87D229
+1,4, 0,0, 1,,AS86D230
+
+1,4, 0,0, 1,,AS85D231
+1,4, 0,0, 1,,AS84D232
+1,4, 0,0, 1,,AS83D233
+1,4, 0,0, 1,,AS82D234
+1,4, 0,0, 1,,AS81D235
+1,4, 0,0, 1,,AS80D236
+1,4, 0,0, 1,,AS79D237
+1,4, 0,0, 1,,AS78D238
+1,4, 0,0, 1,,AS77D239
+1,4, 0,0, 1,,AS76D240
+
+1,4, 0,0, 1,,AS75D241
+1,4, 0,0, 1,,AS74D242
+1,4, 0,0, 1,,AS73D243
+1,4, 0,0, 1,,AS72D245
+1,4, 0,0, 1,,AS71D246
+1,4, 0,0, 1,,AS70D247
+1,4, 0,0, 1,,AS69D248
+1,4, 0,0, 1,,AS68D249
+1,4, 0,0, 1,,AS67D250
+1,4, 0,0, 1,,AS66D251
+
+1,4, 0,0, 1,,AS65D252
+1,4, 0,0, 1,,AS64D253
+1,4, 0,0, 1,,AS63D254
+1,4, 0,0, 1,,AS62D256
+1,4, 0,0, 1,,AS61D256
+1,4, 0,0, 1,,AS50D256
+
+
+
+-1,4, 0,0, 1800
+
+
+
+1,4, 0,0, 5,,AS46D256
+1,4, 0,0, 5,,AS51D247
+1,4, 0,0, 5,,AS56D243
+1,4, 0,0, 5,,AS61D239
+1,4, 0,0, 5,,AS66D235
+1,4, 0,0, 5,,AS71D232
+1,4, 0,0, 5,,AS76D229
+1,4, 0,0, 5,,AS81D227
+1,4, 0,0, 5,,AS86D224
+1,4, 0,0, 5,,AS91D221
+1,4, 0,0, 1000,,AS96D220;;;é„1050
+
+
+
+1,4, 0,0, 6,,AS108D218
+1,4, 0,0, 6,,AS115D216
+1,4, 0,0, 6,,AS125D214
+1,4, 0,0, 6,,AS135D212
+1,4, 0,0, 6,,AS140D210
+1,4, 0,0, 6,,AS145D208
+1,4, 0,0, 6,,AS150D205
+1,4, 0,0, 8,,AS155D202
+1,4, 0,0, 500,,AS160D200;;;ã≠600
+1,4, 0,0, 10,,AS148D204
+1,4, 0,0, 10,,AS136D208
+1,4, 0,0, 10,,AS124D212
+1,4, 0,0, 10,,AS112D216
+1,4, 0,0, 10,,AS100D220
+
+
+
+1,4, 0,0, 1614,,AS96D220;;;é„1650
+1,4, 0,0, 1,,AS95D221
+1,4, 0,0, 1,,AS94D222
+1,4, 0,0, 1,,AS93D223
+1,4, 0,0, 1,,AS92D224
+1,4, 0,0, 1,,AS91D225
+1,4, 0,0, 1,,AS90D226
+1,4, 0,0, 1,,AS89D227
+1,4, 0,0, 1,,AS88D228
+1,4, 0,0, 1,,AS87D229
+1,4, 0,0, 1,,AS86D230
+
+1,4, 0,0, 1,,AS85D231
+1,4, 0,0, 1,,AS84D232
+1,4, 0,0, 1,,AS83D233
+1,4, 0,0, 1,,AS82D234
+1,4, 0,0, 1,,AS81D235
+1,4, 0,0, 1,,AS80D236
+1,4, 0,0, 1,,AS79D237
+1,4, 0,0, 1,,AS78D238
+1,4, 0,0, 1,,AS77D239
+1,4, 0,0, 1,,AS76D240
+
+1,4, 0,0, 1,,AS75D241
+1,4, 0,0, 1,,AS74D242
+1,4, 0,0, 1,,AS73D243
+1,4, 0,0, 1,,AS72D245
+1,4, 0,0, 1,,AS71D246
+1,4, 0,0, 1,,AS70D247
+1,4, 0,0, 1,,AS69D248
+1,4, 0,0, 1,,AS68D249
+1,4, 0,0, 1,,AS67D250
+1,4, 0,0, 1,,AS66D251
+
+1,4, 0,0, 1,,AS65D252
+1,4, 0,0, 1,,AS64D253
+1,4, 0,0, 1,,AS63D254
+1,4, 0,0, 1,,AS62D256
+1,4, 0,0, 1,,AS61D256
+1,4, 0,0, 1,,AS50D256
+
+
+
+
+
+[bgctrldef 100]
+
+CtrlID = 100
+Looptime = 34200
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time =0 
+value = 1
+
+
+
+
+
+
+
+
+;;;;;;;;;;bgctrl;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+;;;;;âÒì]
+[bgctrldef 6]
+Looptime = 34200
+CtrlID = 10,11
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 380  ;;370
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 21156
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 21956;;;;;22044
+value = 0
+
+
+
+
+
+;;;;;;;âEéŒÇﬂâ∫ã≠
+
+
+
+
+
+
+;-------
+[bgctrldef 10]
+Looptime = 34200
+CtrlID = 21
+
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 7700
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 8500
+value = 0
+
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = 7,300
+
+[BGCtrl 1]
+
+type=Siny
+
+value = -3,300
+
+[bgctrl 1]
+type = velset
+
+y = 2.3
+
+[bgctrl 1]
+type = velset
+
+x = 5.4
+
+
+[bgctrldef 10]
+;-----
+CtrlID = 22
+Looptime = 34200
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 7750
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 8450
+value = 0
+
+
+
+
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = -7,300
+
+[BGCtrl 1]
+
+type=Siny
+
+value = 3,300
+
+[bgctrl 1]
+type = velset
+
+y = 2.6
+
+[bgctrl 1]
+type = velset
+
+x = 5.2
+
+;---------
+[bgctrldef 10]
+
+CtrlID = 20
+Looptime = 34200
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 7800
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 8400
+value = 0
+
+
+
+
+
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = -5,320
+
+[BGCtrl 1]
+
+type=Siny
+
+value = 4,320
+
+[bgctrl 1]
+type = velset
+
+y = 1.1
+
+[bgctrl 1]
+type = velset
+
+x = 8.9
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;ç∂éŒÇﬂè„ã≠
+
+
+;-------
+[bgctrldef 10]
+
+CtrlID = 24
+Looptime = 34200
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 20250
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 21100
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 22550
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 23100
+value = 0
+
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = 7,300
+
+[BGCtrl 1]
+
+type=Siny
+
+value = -3,300
+
+[bgctrl 1]
+type = velset
+
+y = -2.3
+
+[bgctrl 1]
+type = velset
+
+x = -5.4
+
+
+[bgctrldef 10]
+;-----
+CtrlID = 25
+Looptime = 34200
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 20300
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 21050
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 22600
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 23050
+value = 0
+
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = -7,300
+
+[BGCtrl 1]
+
+type=Siny
+
+value = 3,300
+
+[bgctrl 1]
+type = velset
+
+y = -2.6
+
+[bgctrl 1]
+type = velset
+
+x = -5.2
+;-----------
+;---------;;;;é„
+
+
+
+
+;---------------
+
+
+
+
+[bgctrldef 10]
+
+CtrlID = 23
+Looptime = 34200
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 20350
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 21000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 22650
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 23000
+value = 0
+
+
+
+
+
+
+[bgctrldef 10]
+
+CtrlID = 23
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = -5,320
+
+[BGCtrl 1]
+
+type=Siny
+
+value = 4,320
+
+[bgctrl 1]
+type = velset
+
+y = -1.1
+
+[bgctrl 1]
+type = velset
+
+x = -8.9
+
+
+
+
+
+
+
+;;;;;;;;â°é„âEâ∫
+[bgctrldef 12]
+
+CtrlID = 30,31,32
+Looptime = 34200
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 2200
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 3000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 4350
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 4700
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 5350
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 6000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 9650
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 10400
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 10950
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 11600
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 13400
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 14000
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 14950
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 15600
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 16050
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 16650
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 18600
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 19100
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 23050
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 23600
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 25700
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 26300
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 27350
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 28000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 28550
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 29100
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 30900
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 31500
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 32550
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 33000
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 33550
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 34200
+value = 0
+
+
+
+[bgctrldef 12]
+CtrlID = 30
+
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = 4,220
+
+[BGCtrl 1]
+
+type=Siny
+
+value = -2,220
+
+
+
+[bgctrl 1]
+type = velset
+
+y = 2.5
+
+[bgctrl 1]
+type = velset
+
+x = 5.4
+
+
+
+
+[bgctrldef 12-2]
+
+CtrlID = 31
+
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = 2,200
+
+
+[bgctrl 1]
+type = velset
+
+y = 1.9
+
+[bgctrl 1]
+type = velset
+
+x = 4.8
+
+
+
+[bgctrldef 12-3]
+CtrlID = 32
+
+looptime=5
+
+
+
+[bgctrl 1]
+type = velset
+
+y = -.5
+
+[bgctrl 1]
+type = velset
+
+x = 5.4
+
+
+[bgctrl 1]
+type = PosSet
+time = 0
+y = 0
+
+;;;;;;;;â°é„ç∂â∫
+[bgctrldef 12-A]
+
+CtrlID = 33,34,35
+Looptime = 34200
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 2950
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 3750
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 4650
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 5400
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 8450
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 9000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 10350
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 11000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 13950
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 14500
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 15550
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 16100
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 19050
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 19800
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 23550
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 24000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 26250
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 26800
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 27950
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 28600
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 31450
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 32000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 32950
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 33600
+value = 0
+
+
+
+
+
+[bgctrldef 12A-1]
+CtrlID = 33
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = 4,220
+
+[BGCtrl 1]
+
+type=Siny
+
+value = -2,220
+
+
+
+[bgctrl 1]
+type = velset
+
+y = 2.5
+
+[bgctrl 1]
+type = velset
+
+x = -5.4
+
+[bgctrldef 12A-2]
+
+CtrlID = 34
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = -2,400
+
+
+
+[bgctrl 1]
+type = velset
+
+y = 1.95
+
+[bgctrl 1]
+type = velset
+
+x = -4.8
+
+
+
+[bgctrldef 12A-3]
+CtrlID = 35
+
+looptime=5
+
+
+[bgctrl 1]
+type = velset
+
+y = -.5
+
+[bgctrl 1]
+type = velset
+
+x = -5.4
+
+
+
+
+[bgctrl 1]
+type = PosSet
+time = 0
+y = 0
+
+
+
+
+;;;;;;;;ê·óéÇøí∑
+[bgctrldef 14]
+
+CtrlID = 40,50
+Looptime = 34200
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+
+
+
+
+
+
+[bgctrldef 14];;;;;;;;ê·óéÇøíZ480
+
+CtrlID = 41,51,52
+Looptime = 34200
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time =300 
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time =4300 
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 16600
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 20000
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 29050
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 34000
+value = 0
+
+
+
+
+[bgctrl 1]
+type = posset
+time =300
+y = 0
+
+[bgctrl 1]
+type = posset
+time =16600
+y = 0
+
+[bgctrl 1]
+type = posset
+time =29050
+y = 0
+
+
+
+[bgctrldef 14-1]
+
+CtrlID = 41
+
+[BGCtrl 1]
+
+type=Sinx
+time = 300
+value = -5,300
+
+[bgctrl 1]
+type = velset
+time = 300
+y = .26
+
+[bgctrl 1]
+type = velset
+time = 600
+y = .3
+
+[bgctrl 1]
+type = velset
+time = 1200
+y = .35
+
+[bgctrl 1]
+type = velset
+time = 1800
+y = .39
+
+[bgctrl 1]
+type = velset
+time = 2300
+y = .44
+;-----
+[bgctrl 1]
+type = velset
+time = 16600
+y = .26
+
+[bgctrl 1]
+type = velset
+time = 16900
+y = .3
+
+[bgctrl 1]
+type = velset
+time = 17500
+y = .35
+
+[bgctrl 1]
+type = velset
+time = 18100
+y = .39
+
+[bgctrl 1]
+type = velset
+time = 18600
+y = .44
+;-------
+
+;-----
+[bgctrl 1]
+type = velset
+time = 20950
+y = .26
+
+[bgctrl 1]
+type = velset
+time = 21250
+y = .3
+
+[bgctrl 1]
+type = velset
+time = 21850
+y = .35
+
+[bgctrl 1]
+type = velset
+time = 22450
+y = .39
+
+[bgctrl 1]
+type = velset
+time = 22950
+y = .44
+;-------
+
+
+
+[bgctrldef 14-2]
+
+CtrlID = 51
+
+[BGCtrl 1]
+
+type=Sinx
+time = 300
+value = 4,300
+
+[bgctrl 1]
+type = velset
+time = 300
+y = .31
+
+
+[bgctrl 1]
+type = velset
+time = 600
+y = .36
+
+[bgctrl 1]
+type = velset
+time = 1200
+y = .41
+
+[bgctrl 1]
+type = velset
+time = 1800
+y = .46
+
+[bgctrl 1]
+type = velset
+time = 2300
+y = .51
+
+;-----
+[bgctrl 1]
+type = velset
+time = 16600
+y = .31
+
+[bgctrl 1]
+type = velset
+time = 16900
+y = .36
+
+[bgctrl 1]
+type = velset
+time = 17500
+y = .41
+
+[bgctrl 1]
+type = velset
+time = 18100
+y = .46
+
+[bgctrl 1]
+type = velset
+time = 18600
+y = .51
+
+;-----
+[bgctrl 1]
+type = velset
+time = 20950
+y = .31
+
+[bgctrl 1]
+type = velset
+time = 21250
+y = .36
+
+[bgctrl 1]
+type = velset
+time = 21850
+y = .41
+
+[bgctrl 1]
+type = velset
+time = 22450
+y = .46
+
+[bgctrl 1]
+type = velset
+time = 22950
+y = .51
+;-------
+
+
+
+
+
+
+[bgctrldef 14-3];;;è¨ó±âú480
+
+CtrlID = 52
+
+
+
+[BGCtrl 1]
+
+type=Sinx
+time = 300
+value = 3,300
+
+
+
+[bgctrl 1]
+type = velset
+time = 300
+y = .23
+
+[bgctrl 1]
+type = velset
+time = 600
+y = .28
+
+[bgctrl 1]
+type = velset
+time = 1200
+y = .33
+
+[bgctrl 1]
+type = velset
+time = 1800
+y = .38
+
+[bgctrl 1]
+type = velset
+time = 2300
+y = .43
+
+;------
+
+[bgctrl 1]
+type = velset
+time = 16600
+y = .23
+
+[bgctrl 1]
+type = velset
+time = 16900
+y = .28
+
+[bgctrl 1]
+type = velset
+time = 17500
+y = .33
+
+[bgctrl 1]
+type = velset
+time = 18100
+y = .38
+
+[bgctrl 1]
+type = velset
+time = 18600
+y = .43
+
+;-----
+[bgctrl 1]
+type = velset
+time = 20950
+y = .23
+
+[bgctrl 1]
+type = velset
+time = 21250
+y = .28
+
+[bgctrl 1]
+type = velset
+time = 21850
+y = .33
+
+[bgctrl 1]
+type = velset
+time = 22450
+y = .38
+
+[bgctrl 1]
+type = velset
+time = 22950
+y = .43
+;-------
+
+
+
+
+
+
+
+
+
+[bgctrldef 14];;;;;;;;ê·óéÇøíZ250
+
+CtrlID = 53,54,55
+Looptime = 34200
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 6000
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 9000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 11550
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 14550
+value = 0
+
+
+
+
+[bgctrl 1]
+type = enable
+time = 23950
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 26950
+value = 0
+
+
+[bgctrl 1]
+type = posset
+time =6000
+y = 0
+
+[bgctrl 1]
+type = posset
+time =11550
+y = 0
+
+[bgctrl 1]
+type = posset
+time =23950
+y = 0
+
+
+
+
+
+
+
+[bgctrldef 14-1]
+
+CtrlID = 53
+[BGCtrl 1]
+
+type=Sinx
+time = 300
+value = -5,300
+
+[bgctrl 1]
+type = velset
+time = 300
+y = .26
+
+
+
+[bgctrldef 14-2]
+
+CtrlID = 54
+[BGCtrl 1]
+
+type=Sinx
+time = 300
+value = 4,300
+
+[bgctrl 1]
+type = velset
+time = 300
+y = .31
+
+
+
+
+
+
+[bgctrldef 14-3];;;è¨ó±âú250
+
+CtrlID = 55
+
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = 3,300
+
+
+[bgctrl 1]
+type = velset
+
+y = .21
+
+
+
+
+;;;;;;;âEéŒÇﬂè„ã≠
+[bgctrldef 15]
+
+CtrlID = 61,62
+Looptime = 34200
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time =3700
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 4400
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 8950
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 9700
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 14400
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 15000
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 19750
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 20300
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 22100
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 22600
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 26750
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 27400
+value = 0
+
+
+[bgctrl 1]
+type = enable
+time = 31950
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 32600
+value = 0
+
+
+[bgctrldef 15]
+
+CtrlID = 63
+
+[bgctrl 1]
+type = enable
+time = 0
+value = 0
+
+[bgctrl 1]
+type = enable
+time =3650
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 4450
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 8900
+value = 1
+
+
+[bgctrl 1]
+type = enable
+time = 9750
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 14350
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 15050
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 19700
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 20350
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 22050
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 22550
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 26700
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 27350
+value = 0
+
+[bgctrl 1]
+type = enable
+time = 31900
+value = 1
+
+[bgctrl 1]
+type = enable
+time = 32550
+value = 0
+
+
+
+
+
+[bgctrldef 15-1]
+
+CtrlID = 61
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = 7,320
+
+[BGCtrl 1]
+
+type=Siny
+
+value = -3,320
+
+[bgctrl 1]
+type = velset
+
+y = -2.6
+
+[bgctrl 1]
+type = velset
+
+x = 5.3
+
+
+
+
+[bgctrldef 15-2]
+
+CtrlID = 62
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = -7,300
+
+[BGCtrl 1]
+
+type=Siny
+
+value = 3,300
+
+[bgctrl 1]
+type = velset
+
+y = -2.1
+
+[bgctrl 1]
+type = velset
+
+x = 5.5
+
+
+
+
+
+
+
+[bgctrldef 15-3]
+
+CtrlID = 63
+
+[BGCtrl 1]
+
+type=Sinx
+
+value = -7,320
+
+[BGCtrl 1]
+
+type=Siny
+
+value = 3,320
+
+[bgctrl 1]
+type = velset
+
+y = -1.4
+
+[bgctrl 1]
+type = velset
+
+x = 8.4
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,2014 @@
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Cs-X- Training room"
+author = "-SyN-"
+;thanks Tamez with the help me with the parallax issue.
+;--------------------------------------------------------
+[Camera]
+ ;Camera starting position: Usually 0 for both
+startx = 0
+starty = 0
+
+ ;Left and right bound of camera
+ ;You may want to fiddle a bit with these values to make sure the
+ ;background doesn't move too far or too little
+ ;***
+boundleft = -355;-227
+boundright = 354;228
+
+ ;High and low bound of camera
+ ;High is a negative number. Make is more negative if you want to
+ ;camera to be able to move higher.
+ ;Low should usually be 0.
+ ;If omitted, defaults to -25 and 0 respectively
+ ;***
+boundhigh = -125
+boundlow = 0
+
+ ;This is how much the camera will move vertically towards the
+ ;highest player. Valid values are from 0 to 1. A value of 0 will mean
+ ;the camera does not move up at all. A value of 1 will makes the camera
+ ;follow the highest player.
+ ;Typically .2 for normal-sized backgrounds. You may need to pull this
+ ;value up for taller backgrounds.
+verticalfollow = .6
+
+ ;Minimum vertical distance the highest player has to be from the floor,
+ ;before the camera starts to move up to follow him. For extremely
+ ;tall stages, a floor tension of about 20-30 coupled with a
+ ;vertical-follow of .8 allows the camera to follow the action.
+floortension = 0
+
+ ;Horizontal distance player is from edge before camera starts to move
+ ;left or right. Typically 50 or 60.
+tension = 50
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;Z offset for drawing
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;It's the position where the players stand at.
+ ;Up - smaller, Down - larger
+ ;***
+zoffset = 194
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background be reset between
+ ;rounds.
+resetBG = 1
+
+ ;Set the following to 1 if the stage is high-res to have it
+ ;display properly.
+hires = 1
+
+;--------------------------------------------------------
+[Shadow]
+ ;This is the shadow darkening intensity. Valid values range from
+ ;0 (lightest) to 256 (darkest). Defaults to 128 if omitted.
+intensity = 0
+
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 0,0,0 if omitted.
+ ;intensity and color's effects add up to give the final shadow
+ ;result.
+color = 0,0,0
+
+ ;This is the scale factor of the shadow. Use a big scale factor
+ ;to make the shadow longer. You can use a NEGATIVE scale factor
+ ;to make the shadow fall INTO the screen.
+ ;Defaults to 0.4 if omitted.
+yscale = .3
+
+ ;This parameter lets you set the range over which the shadow is
+ ;visible. The first value is the high level, and the second is
+ ;the middle level. Both represent y-coordinates of the player.
+ ;A shadow is invisible if the player is above the high level,
+ ;and fully visible if below the middle level. The shadow is
+ ;faded in between the two levels. This gives an effect of the
+ ;shadow fading away as the player gets farther away from the
+ ;ground. If omitted, defaults to no level effects (shadow is
+ ;always fully visible).
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+ ;Intensity of reflection (from 0 to 256). Set to 0 to have no
+ ;reflection. Defaults to 0.
+intensity = 50
+
+;--------------------------------------------------------
+[Music]
+ ;Put a filename for a MOD, MP3 or MIDI here, or just leave it
+ ;blank if you don't want music. If an invalid filename is
+ ;given, then no music will play. To play CD audio, put
+ ;the track number followed by ".da". Using a track number of
+ ;0 will play a random audio track. For example, to play
+ ;track 3 from a music CD, use:
+ ;  bgmusic = 3.da
+bgmusic = sound/Cs-X-.mp3
+
+ ;Adjust the volume. 0 is normal, negative for softer, and
+ ;positive for louder (only for mp3, mods and CDA)
+bgvolume = 255
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+; ***
+;-------------------------------------
+; [BG x]
+; type = ?       "Normal"/"Parallax"  (def: "normal")
+; spriteno = ?, ? Sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   Starting location (integer)  (def: 0, 0)
+; delta = ?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      Transparency settings: "none"/"add"/"add1"/"sub"" (def: "none")
+; mask = ?       Masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0) - only for Normal BG
+; tilespacing = ?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale = ?, ?    Top xscale, bottom xscale (float)
+; width = ?, ?     Top width, bottom width (int)  (use either this or above, but not both)
+; yscalestart = ?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  Change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+spr = Cs-X-TR.sff
+bgclearcolor = 0,0,0
+
+[BG Ceiling]
+type  = parallax
+spriteno = 0,1
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 0
+
+;=============================================
+;parallaxing animations Celing start
+;=============================================
+[BG floor fx]
+type  = parallax
+spriteno = 4,0
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 21
+
+[BGCtrlDef 21]
+ctrlid = 21
+looptime = 268
+
+[BGCtrl 21.1]
+type = Visible
+time = 0
+value = 1
+ctrlid = 21
+
+[BGCtrl 21.2]
+type = Visible
+time = 4
+value = 0
+ctrlid = 21
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,1
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 22
+
+[BGCtrlDef 2]
+ctrlid = 22
+looptime = 268
+
+[BGCtrl 22.1]
+type = Visible
+time = 4
+value = 1
+ctrlid =2 2
+
+[BGCtrl 22.2]
+type = Visible
+time = 8
+value = 0
+ctrlid = 22
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,2
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 23
+
+[BGCtrlDef 23]
+ctrlid = 23
+looptime = 268
+
+[BGCtrl 23.1]
+type = Visible
+time = 8
+value = 1
+ctrlid = 23
+
+[BGCtrl 23.2]
+type = Visible
+time = 12
+value = 0
+ctrlid = 23
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,3
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 4
+
+[BGCtrlDef 24]
+ctrlid = 24
+looptime = 268
+
+[BGCtrl 24.1]
+type = Visible
+time = 12
+value = 1
+ctrlid = 24
+
+[BGCtrl 24.2]
+type = Visible
+time = 16
+value = 0
+ctrlid = 24
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,4
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 25
+
+[BGCtrlDef 25]
+ctrlid = 25
+looptime = 268
+
+[BGCtrl 25.1]
+type = Visible
+time = 16
+value = 1
+ctrlid = 25
+
+[BGCtrl 25.2]
+type = Visible
+time = 20
+value = 0
+ctrlid = 25
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,5
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 26
+
+[BGCtrlDef 26]
+ctrlid = 26
+looptime = 268
+
+[BGCtrl 26.1]
+type = Visible
+time = 20
+value = 1
+ctrlid = 26
+
+[BGCtrl 26.2]
+type = Visible
+time = 24
+value = 0
+ctrlid = 26
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,6
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 27
+
+[BGCtrlDef 27]
+ctrlid = 27
+looptime = 268
+
+[BGCtrl 27.1]
+type = Visible
+time = 24
+value = 1
+ctrlid = 27
+
+[BGCtrl 27.2]
+type = Visible
+time = 28
+value = 0
+ctrlid = 27
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,7
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 28
+
+[BGCtrlDef 28]
+ctrlid = 28
+looptime = 268
+
+[BGCtrl 8.1]
+type = Visible
+time = 28
+value = 1
+ctrlid = 28
+
+[BGCtrl 28.2]
+type = Visible
+time = 32
+value = 0
+ctrlid = 28
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,8
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 29
+
+[BGCtrlDef 29]
+ctrlid = 29
+looptime = 268
+
+[BGCtrl 9.1]
+type = Visible
+time = 32
+value = 1
+ctrlid = 29
+
+[BGCtrl 29.2]
+type = Visible
+time = 36
+value = 0
+ctrlid = 29
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,9
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 30
+
+[BGCtrlDef 30]
+ctrlid = 30
+looptime = 268
+
+[BGCtrl 30.1]
+type = Visible
+time = 36
+value = 1
+ctrlid = 30
+
+[BGCtrl 3.2]
+type = Visible
+time = 40
+value = 0
+ctrlid = 30
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,10
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 31
+
+[BGCtrlDef 31]
+ctrlid = 31
+looptime = 268
+
+[BGCtrl 31.1]
+type = Visible
+time = 40
+value = 1
+ctrlid = 31
+
+[BGCtrl 31.2]
+type = Visible
+time = 44
+value = 0
+ctrlid = 31
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,11
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 32
+
+[BGCtrlDef 32]
+ctrlid = 32
+looptime = 268
+
+[BGCtrl 32.1]
+type = Visible
+time = 44
+value = 1
+ctrlid = 32
+
+[BGCtrl 32.2]
+type = Visible
+time = 48
+value = 0
+ctrlid = 32
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,12
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 13
+
+[BGCtrlDef 33]
+ctrlid = 33
+looptime = 268
+
+[BGCtrl 33.1]
+type = Visible
+time = 48
+value = 1
+ctrlid = 33
+
+[BGCtrl 33.2]
+type = Visible
+time = 52
+value = 0
+ctrlid = 33
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,13
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 34
+
+[BGCtrlDef 34]
+ctrlid = 34
+looptime = 268
+
+[BGCtrl 34.1]
+type = Visible
+time = 52
+value = 1
+ctrlid = 34
+
+[BGCtrl 34.2]
+type = Visible
+time = 58
+value = 0
+ctrlid = 34
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,14
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 35
+
+[BGCtrlDef 35]
+ctrlid = 35
+looptime = 268
+
+[BGCtrl 35.1]
+type = Visible
+time = 58
+value = 1
+ctrlid = 35
+
+[BGCtrl 35.2]
+type = Visible
+time = 62
+value = 0
+ctrlid = 35
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,15
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 36
+
+[BGCtrlDef 36]
+ctrlid = 16
+looptime = 268
+
+[BGCtrl 36.1]
+type = Visible
+time = 62
+value = 1
+ctrlid = 36
+
+[BGCtrl 36.2]
+type = Visible
+time = 66
+value = 0
+ctrlid = 36
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 4,16
+start = 0, -50
+delta = 0.9,2
+xscale = 1.011,1.115
+yscalestart = 205
+mask = 1
+id = 37
+
+[BGCtrlDef 37]
+ctrlid = 37
+looptime = 268
+
+[BGCtrl 37.1]
+type = Visible
+time = 66
+value = 1
+ctrlid = 37
+
+[BGCtrl 37.2]
+type = Visible
+time = 70
+value = 0
+ctrlid = 37
+
+;=============================================
+;parallaxing animations celing end
+;=============================================
+
+[BG Base Wall img 1]
+type  = Normal
+spriteno = 5, 0
+start = -104, 66
+delta = 0.9,2
+mask = 0
+
+[BG Base Wall img hibana 1]
+type  = anim
+actionno = 2
+start = -104, 66
+delta = 0.9,2
+mask = 0
+
+[BG Base Wall img 2]
+type  = Normal
+spriteno = 5, 1
+start = -104, 66
+delta = 0.9,2
+mask = 0
+
+[BG Base Wall img 3]
+type  = Normal
+spriteno = 5, 2
+start = -104, 66
+delta = 0.9,2
+mask = 0
+
+[BG Base Wall img 4]
+type  = Normal
+spriteno = 5, 3
+start = -104, 66
+delta = 0.9,2
+mask = 0
+
+[BG Base Wall img 5]
+type  = Normal
+spriteno = 5, 4
+start = -104, 66
+delta = 0.9,2
+mask = 0
+
+[BG Base Wall img tube]
+type  = anim
+actionno = 4
+start = -104, 66
+delta = 0.9,2
+mask = 1
+
+[BG Base Wall img broadcast]
+type  = anim
+actionno = 5
+start = -104, 66
+delta = 0.9,2
+mask = 1
+
+[BG Base Wall Scrolling binary]
+type  = Normal
+spriteno = 5, 5
+start = -104, 66
+delta = 0.9,2
+mask = 0
+trans = add
+tile = 0,1
+velocity = 0,2.5
+window = -320, -86, 319, 250
+windowdelta = 0.9,2
+
+[BG Base Wall]
+type  = Normal
+spriteno = 0, 2
+start = 0, 66
+delta = 0.9,2
+mask = 1
+
+[BG floor]
+type  = parallax
+spriteno = 0, 0
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 0
+
+[BG Base Wall Scrolling binary ceiling reflection]
+type  = Normal
+spriteno = 5, 6
+start = -104, -180
+delta = 0.9,2
+mask = 0
+trans = add
+tile = 0,1
+velocity = 0,-2.5
+window = -320, -200, 319, -80
+windowdelta = 0.9,2
+
+[BG Base Wall Scrolling binary bottom reflection]
+type  = Normal
+spriteno = 5, 6
+start = -104, 280
+delta = 0.9,2
+mask = 0
+trans = add
+tile = 0,1
+velocity = 0,-2.5
+window = -320, 230, 319, 450
+windowdelta = 0.9,2
+
+;=============================================
+;parallaxing animations Floor
+;=============================================
+[BG floor fx]
+type  = parallax
+spriteno = 3,0
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 1
+
+[BGCtrlDef 1]
+ctrlid = 1
+looptime = 268
+
+[BGCtrl 1.1]
+type = Visible
+time = 0
+value = 1
+ctrlid = 1
+
+[BGCtrl 1.2]
+type = Visible
+time = 4
+value = 0
+ctrlid = 1
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,1
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 2
+
+[BGCtrlDef 2]
+ctrlid = 2
+looptime = 268
+
+[BGCtrl 2.1]
+type = Visible
+time = 4
+value = 1
+ctrlid = 2
+
+[BGCtrl 2.2]
+type = Visible
+time = 8
+value = 0
+ctrlid = 2
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,2
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 3
+
+[BGCtrlDef 3]
+ctrlid = 3
+looptime = 268
+
+[BGCtrl 3.1]
+type = Visible
+time = 8
+value = 1
+ctrlid = 3
+
+[BGCtrl 3.2]
+type = Visible
+time = 12
+value = 0
+ctrlid = 3
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,3
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 4
+
+[BGCtrlDef 4]
+ctrlid = 5
+looptime = 268
+
+[BGCtrl 4.1]
+type = Visible
+time = 12
+value = 1
+ctrlid = 4
+
+[BGCtrl 4.2]
+type = Visible
+time = 16
+value = 0
+ctrlid = 4
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,4
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 5
+
+[BGCtrlDef 5]
+ctrlid = 5
+looptime = 268
+
+[BGCtrl 5.1]
+type = Visible
+time = 16
+value = 1
+ctrlid = 5
+
+[BGCtrl 5.2]
+type = Visible
+time = 20
+value = 0
+ctrlid = 5
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,5
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 6
+
+[BGCtrlDef 6]
+ctrlid = 6
+looptime = 268
+
+[BGCtrl 6.1]
+type = Visible
+time = 20
+value = 1
+ctrlid = 6
+
+[BGCtrl 6.2]
+type = Visible
+time = 24
+value = 0
+ctrlid = 6
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,6
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 7
+
+[BGCtrlDef 7]
+ctrlid = 7
+looptime = 268
+
+[BGCtrl 7.1]
+type = Visible
+time = 24
+value = 1
+ctrlid = 7
+
+[BGCtrl 7.2]
+type = Visible
+time = 28
+value = 0
+ctrlid = 7
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,7
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 8
+
+[BGCtrlDef 8]
+ctrlid = 8
+looptime = 268
+
+[BGCtrl 8.1]
+type = Visible
+time = 28
+value = 1
+ctrlid = 8
+
+[BGCtrl 8.2]
+type = Visible
+time = 32
+value = 0
+ctrlid = 8
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,8
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 9
+
+[BGCtrlDef 9]
+ctrlid = 9
+looptime = 268
+
+[BGCtrl 9.1]
+type = Visible
+time = 32
+value = 1
+ctrlid = 9
+
+[BGCtrl 9.2]
+type = Visible
+time = 36
+value = 0
+ctrlid = 9
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,9
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 10
+
+[BGCtrlDef 10]
+ctrlid = 10
+looptime = 268
+
+[BGCtrl 10.1]
+type = Visible
+time = 36
+value = 1
+ctrlid = 10
+
+[BGCtrl 10.2]
+type = Visible
+time = 40
+value = 0
+ctrlid = 10
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,10
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 11
+
+[BGCtrlDef 11]
+ctrlid = 11
+looptime = 268
+
+[BGCtrl 11.1]
+type = Visible
+time = 40
+value = 1
+ctrlid = 11
+
+[BGCtrl 10.2]
+type = Visible
+time = 44
+value = 0
+ctrlid = 11
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,11
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 12
+
+[BGCtrlDef 12]
+ctrlid = 12
+looptime = 268
+
+[BGCtrl 12.1]
+type = Visible
+time = 44
+value = 1
+ctrlid = 12
+
+[BGCtrl 12.2]
+type = Visible
+time = 48
+value = 0
+ctrlid = 12
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,12
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 13
+
+[BGCtrlDef 13]
+ctrlid = 13
+looptime = 268
+
+[BGCtrl 13.1]
+type = Visible
+time = 48
+value = 1
+ctrlid = 13
+
+[BGCtrl 13.2]
+type = Visible
+time = 52
+value = 0
+ctrlid = 13
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,13
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 14
+
+[BGCtrlDef 14]
+ctrlid = 14
+looptime = 268
+
+[BGCtrl 14.1]
+type = Visible
+time = 52
+value = 1
+ctrlid = 14
+
+[BGCtrl 14.2]
+type = Visible
+time = 58
+value = 0
+ctrlid = 14
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,14
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 15
+
+[BGCtrlDef 15]
+ctrlid = 15
+looptime = 268
+
+[BGCtrl 15.1]
+type = Visible
+time = 58
+value = 1
+ctrlid = 15
+
+[BGCtrl 15.2]
+type = Visible
+time = 62
+value = 0
+ctrlid = 15
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,15
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 16
+
+[BGCtrlDef 16]
+ctrlid = 16
+looptime = 268
+
+[BGCtrl 16.1]
+type = Visible
+time = 62
+value = 1
+ctrlid = 16
+
+[BGCtrl 16.2]
+type = Visible
+time = 66
+value = 0
+ctrlid = 16
+
+;---------------------------------------------
+
+[BG floor fx]
+type  = parallax
+spriteno = 3,16
+start = 0, 220
+delta = 1.13,2
+xscale = 0.8,1.75
+yscalestart = 150
+;yscaledelta = -0.52
+mask = 1
+id = 17
+
+[BGCtrlDef 17]
+ctrlid = 17
+looptime = 268
+
+[BGCtrl 16.1]
+type = Visible
+time = 66
+value = 1
+ctrlid = 17
+
+[BGCtrl 17.2]
+type = Visible
+time = 70
+value = 0
+ctrlid = 17
+
+;=============================================
+;parallaxing animations floor end
+;=============================================
+
+[BG Base Wall reflect Bottom]
+type  = Normal
+spriteno = 0, 3
+start = 0, 196
+delta = 0.9,2
+mask = 0
+trans = add
+
+[BG Base Wall img hibana 1 reflect bottom]
+type  = anim
+actionno = 3
+start = -104, 196
+delta = 0.9,2
+mask = 0
+trans = add
+
+[BG Base Wall reflect Top]
+type  = Normal
+spriteno = 0, 3
+start = 0, -330
+delta = 0.9,2
+mask = 0
+trans = add
+
+[BG Base Wall img hibana 1 reflect ceiling]
+type  = anim
+actionno = 3
+start = -104, -330
+delta = 0.9,2
+mask = 0
+trans = add
+
+[BG Base Wall img tube reflect bottom]
+type  = anim
+actionno = 6
+start = -104, 196
+delta = 0.9,2
+mask = 1
+
+[BG Base Wall img broadcast reflect bottom]
+type  = anim
+actionno = 7
+start = -104, 196
+delta = 0.9,2
+mask = 1
+
+[BG Base Wall img tube reflect top]
+type  = anim
+actionno = 6
+start = -104, -330
+delta = 0.9,2
+mask = 1
+
+[BG Base Wall img broadcast reflect top]
+type  = anim
+actionno = 7
+start = -104, -330
+delta = 0.9,2
+mask = 1
+
+[BG Scan Fx]
+type  = anim
+actionno = 0
+start = 0, 160
+delta = .008,.008
+layerno = 1
+
+;scan fx
+[Begin Action 0]
+Loopstart
+2,0, 0,0, 200,, a
+2,1, 0,0, 1,, a
+2,2, 0,0, 1,, a
+2,3, 0,0, 1,, a
+2,4, 0,0, 1,, a
+2,5, 0,0, 1,, a
+2,6, 0,0, 1,, a
+2,7, 0,0, 1,, a
+2,8, 0,0, 1,, a
+2,9, 0,0, 1,, a
+2,10, 0,0, 1,, a
+2,11, 0,0, 1,, a
+2,12, 0,0, 1,, a
+2,13, 0,0, 1,, a
+2,14, 0,0, 1,, a
+2,15, 0,0, 1,, a
+2,16, 0,0, 1,, a
+2,17, 0,0, 1,, a
+2,18, 0,0, 1,, a
+2,19, 0,0, 1,, a
+2,20, 0,0, 1,, a
+2,21, 0,0, 1,, a
+2,22, 0,0, 1,, a
+2,23, 0,0, 1,, a
+2,24, 0,0, 1,, a
+2,25, 0,0, 1,, a
+2,26, 0,0, 1,, a
+2,27, 0,0, 1,, a
+2,28, 0,0, 1,, a
+2,29, 0,0, 1,, a
+2,30, 0,0, 1,, a
+2,31, 0,0, 1,, a
+2,32, 0,0, 1,, a
+2,33, 0,0, 1,, a
+2,34, 0,0, 1,, a
+2,35, 0,0, 1,, a
+2,36, 0,0, 1,, a
+2,37, 0,0, 1,, a
+2,38, 0,0, 1,, a
+2,39, 0,0, 1,, a
+2,40, 0,0, 1,, a
+2,41, 0,0, 1,, a
+2,42, 0,0, 1,, a
+2,43, 0,0, 1,, a
+2,44, 0,0, 1,, a
+2,45, 0,0, 1,, a
+2,46, 0,0, 1,, a
+2,47, 0,0, 1,, a
+2,48, 0,0, 1,, a
+2,49, 0,0, 1,, a
+2,50, 0,0, 1,, a
+2,51, 0,0, 1,, a
+2,52, 0,0, 1,, a
+2,53, 0,0, 1,, a
+2,54, 0,0, 1,, a
+2,55, 0,0, 1,, a
+2,56, 0,0, 1,, a
+2,57, 0,0, 1,, a
+2,58, 0,0, 1,, a
+2,59, 0,0, 1,, a
+2,60, 0,0, 1,, a
+2,61, 0,0, 1,, a
+2,62, 0,0, 1,, a
+2,63, 0,0, 1,, a
+2,64, 0,0, 1,, a
+2,65, 0,0, 1,, a
+2,66, 0,0, 1,, a
+2,67, 0,0, 1,, a
+2,68, 0,0, 1,, a
+2,69, 0,0, 1,, a
+2,70, 0,0, 1,, a
+2,71, 0,0, 1,, a
+2,72, 0,0, 1,, a
+2,73, 0,0, 1,, a
+2,74, 0,0, 1,, a
+2,75, 0,0, 1,, a
+2,76, 0,0, 1,, a
+2,77, 0,0, 1,, a
+2,78, 0,0, 1,, a
+2,79, 0,0, 1,, a
+2,80, 0,0, 1,, a
+2,81, 0,0, 1,, a
+2,82, 0,0, 1,, a
+2,83, 0,0, 1,, a
+2,84, 0,0, 1,, a
+2,85, 0,0, 1,, a
+2,86, 0,0, 1,, a
+2,87, 0,0, 1,, a
+2,88, 0,0, 1,, a
+2,89, 0,0, 1,, a
+2,90, 0,0, 1,, a
+2,91, 0,0, 1,, a
+2,92, 0,0, 1,, a
+2,93, 0,0, 1,, a
+2,94, 0,0, 1,, a
+2,95, 0,0, 1,, a
+2,96, 0,0, 1,, a
+2,97, 0,0, 1,, a
+2,98, 0,0, 1,, a
+2,99, 0,0, 1,, a
+2,100, 0,0, 1,, a
+2,101, 0,0, 1,, a
+2,102, 0,0, 1,, a
+2,103, 0,0, 1,, a
+2,104, 0,0, 1,, a
+2,105, 0,0, 1,, a
+2,106, 0,0, 1,, a
+2,107, 0,0, 1,, a
+2,108, 0,0, 1,, a
+2,109, 0,0, 1,, a
+2,110, 0,0, 1,, a
+2,111, 0,0, 1,, a
+2,112, 0,0, 1,, a
+2,113, 0,0, 1,, a
+2,114, 0,0, 1,, a
+
+;wall scan
+[Begin Action 1]
+5,0, 0,0, 300
+5,1, 0,0, 2
+5,2, 0,0, 2
+5,3, 0,0, 2
+5,4, 0,0, 2
+5,5, 0,0, 2
+5,6, 0,0, 2
+5,7, 0,0, 2
+5,8, 0,0, 2
+5,9, 0,0, 2
+5,10, 0,0, 2
+5,11, 0,0, 2
+5,12, 0,0, 2
+5,13, 0,0, 2
+5,14, 0,0, 2
+5,15, 0,0, 2
+5,16, 0,0, 2
+5,17, 0,0, 2
+5,18, 0,0, 2
+5,19, 0,0, 2
+5,20, 0,0, 2
+5,21, 0,0, 2
+5,22, 0,0, 2
+5,23, 0,0, 2
+5,24, 0,0, 2
+5,25, 0,0, 2
+5,26, 0,0, 2
+5,27, 0,0, 2
+5,28, 0,0, 2
+5,29, 0,0, 2
+5,30, 0,0, 2
+5,31, 0,0, 2
+5,32, 0,0, 2
+5,33, 0,0, 2
+5,34, 0,0, 2
+5,35, 0,0, 2
+5,36, 0,0, 2
+5,37, 0,0, 2
+5,38, 0,0, 2
+5,39, 0,0, 2
+5,40, 0,0, 2
+5,41, 0,0, 2
+5,42, 0,0, 2
+5,43, 0,0, 2
+5,44, 0,0, 2
+5,45, 0,0, 2
+5,46, 0,0, 2
+5,47, 0,0, 2
+5,48, 0,0, 2
+5,49, 0,0, 2
+5,50, 0,0, 2
+5,51, 0,0, 2
+5,52, 0,0, 2
+5,53, 0,0, 2
+5,54, 0,0, 2
+5,55, 0,0, 2
+5,56, 0,0, 2
+5,57, 0,0, 2
+5,58, 0,0, 2
+5,59, 0,0, 2
+5,60, 0,0, 2
+5,61, 0,0, 2
+5,62, 0,0, 2
+5,63, 0,0, 2
+5,64, 0,0, 2
+5,65, 0,0, 2
+5,66, 0,0, 2
+5,67, 0,0, 2
+5,68, 0,0, 2
+5,69, 0,0, 2
+5,70, 0,0, 2
+5,71, 0,0, 2
+5,72, 0,0, 2
+5,73, 0,0, 2
+5,74, 0,0, 2
+5,75, 0,0, 2
+5,76, 0,0, 2
+5,77, 0,0, 2
+5,78, 0,0, 2
+5,79, 0,0, 2
+5,80, 0,0, 2
+5,81, 0,0, 2
+5,82, 0,0, 2
+5,83, 0,0, 2
+5,84, 0,0, 2
+5,85, 0,0, 2
+5,86, 0,0, 2
+5,87, 0,0, 2
+5,88, 0,0, 2
+5,89, 0,0, 2
+5,90, 0,0, 2
+5,91, 0,0, 2
+5,92, 0,0, 2
+5,93, 0,0, 2
+5,94, 0,0, 2
+5,95, 0,0, 2
+5,96, 0,0, 2
+
+;hibana image 1
+[Begin Action 2]
+6,6, 0,0, 400
+6,0, 0,0, 1
+6,1, 0,0, 1
+6,2, 0,0, 1
+6,3, 0,0, 1
+6,4, 0,0, 1
+6,5, 0,0, 1
+6,5, 0,0, 1
+6,4, 0,0, 1
+6,3, 0,0, 1
+6,2, 0,0, 1
+6,1, 0,0, 1
+6,0, 0,0, 1
+6,0, 0,0, 1
+6,1, 0,0, 1
+6,2, 0,0, 1
+6,3, 0,0, 1
+6,4, 0,0, 1
+6,5, 0,0, 1
+6,5, 0,0, 1
+6,4, 0,0, 1
+6,3, 0,0, 1
+6,2, 0,0, 1
+6,1, 0,0, 1
+6,0, 0,0, 1
+6,0, 0,0, 1
+6,1, 0,0, 1
+6,2, 0,0, 1
+6,3, 0,0, 1
+6,4, 0,0, 1
+6,5, 0,0, 1
+6,5, 0,0, 1
+6,4, 0,0, 1
+6,3, 0,0, 1
+6,2, 0,0, 1
+6,1, 0,0, 1
+6,0, 0,0, 1
+6,0, 0,0, 1
+6,1, 0,0, 1
+6,2, 0,0, 1
+6,3, 0,0, 1
+6,4, 0,0, 1
+6,5, 0,0, 1
+6,5, 0,0, 1
+6,4, 0,0, 1
+6,3, 0,0, 1
+6,2, 0,0, 1
+6,1, 0,0, 1
+6,0, 0,0, 1
+
+;hibana image 1 reflect
+[Begin Action 3]
+7,5, 0,0, 400,, a
+7,0, 0,0, 1,, a
+7,1, 0,0, 1,, a
+7,2, 0,0, 1,, a
+7,3, 0,0, 1,, a
+7,4, 0,0, 1,, a
+7,5, 0,0, 1,, a
+7,5, 0,0, 1,, a
+7,4, 0,0, 1,, a
+7,3, 0,0, 1,, a
+7,2, 0,0, 1,, a
+7,1, 0,0, 1,, a
+7,0, 0,0, 1,, a
+7,0, 0,0, 1,, a
+7,1, 0,0, 1,, a
+7,2, 0,0, 1,, a
+7,3, 0,0, 1,, a
+7,4, 0,0, 1,, a
+7,5, 0,0, 1,, a
+7,5, 0,0, 1,, a
+7,4, 0,0, 1,, a
+7,3, 0,0, 1,, a
+7,2, 0,0, 1,, a
+7,1, 0,0, 1,, a
+7,0, 0,0, 1,, a
+7,0, 0,0, 1,, a
+7,1, 0,0, 1,, a
+7,2, 0,0, 1,, a
+7,3, 0,0, 1,, a
+7,4, 0,0, 1,, a
+7,5, 0,0, 1,, a
+7,5, 0,0, 1,, a
+7,4, 0,0, 1,, a
+7,3, 0,0, 1,, a
+7,2, 0,0, 1,, a
+7,1, 0,0, 1,, a
+7,0, 0,0, 1,, a
+7,0, 0,0, 1,, a
+7,1, 0,0, 1,, a
+7,2, 0,0, 1,, a
+7,3, 0,0, 1,, a
+7,4, 0,0, 1,, a
+7,5, 0,0, 1,, a
+7,5, 0,0, 1,, a
+7,4, 0,0, 1,, a
+7,3, 0,0, 1,, a
+7,2, 0,0, 1,, a
+7,1, 0,0, 1,, a
+7,0, 0,0, 1,, a
+
+;tube
+[Begin Action 4]
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 50,, a
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 40,, a
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 30,, a
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 20,, a
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 10,, a
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 8,, a
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 6,, a
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 4,, a
+8,0, 0,0, 10,, a
+-1,-1, 0,0, 2,, a
+8,0, 0,0, -1,, a
+
+;brodcast
+[Begin Action 5]
+-1,-1, 0,0, 259
+loopstart
+9,0, 0,0, 1
+9,1, 0,0, 1
+9,2, 0,0, 1
+9,3, 0,0, 1
+9,3, 0,0, 1
+9,2, 0,0, 1
+9,1, 0,0, 1
+9,0, 0,0, 1
+9,0, 0,0, 1
+9,1, 0,0, 1
+9,2, 0,0, 1
+9,3, 0,0, 1
+9,3, 0,0, 1
+9,2, 0,0, 1
+9,1, 0,0, 1
+9,0, 0,0, 1
+9,0, 0,0, 1
+9,1, 0,0, 1
+9,2, 0,0, 1
+9,3, 0,0, 1
+9,3, 0,0, 1
+9,2, 0,0, 1
+9,1, 0,0, 1
+9,0, 0,0, 1
+9,0, 0,0, 1
+9,1, 0,0, 1
+9,2, 0,0, 1
+9,3, 0,0, 1
+9,3, 0,0, 1
+9,2, 0,0, 1
+9,1, 0,0, 1
+9,0, 0,0, 1
+9,0, 0,0, 1
+9,1, 0,0, 1
+9,2, 0,0, 1
+9,3, 0,0, 1
+9,3, 0,0, 1
+9,2, 0,0, 1
+9,1, 0,0, 1
+9,0, 0,0, 1
+9,0, 0,0, 1
+9,1, 0,0, 1
+9,2, 0,0, 1
+9,3, 0,0, 1
+9,3, 0,0, 1
+9,2, 0,0, 1
+9,1, 0,0, 1
+9,0, 0,0, 1
+9,0, 0,0, 1
+9,1, 0,0, 1
+9,2, 0,0, 1
+9,3, 0,0, 1
+9,3, 0,0, 1
+9,2, 0,0, 1
+9,1, 0,0, 1
+9,0, 0,0, 1
+9,4, 0,0, 300
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,0, 0,0, 1
+10,1, 0,0, 1
+10,2, 0,0, 1
+10,3, 0,0, 1
+10,2, 0,0, 1
+10,1, 0,0, 1
+10,0, 0,0, 1
+10,4, 0,0, 300
+
+;tube
+[Begin Action 6]
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 50,, a
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 40,, a
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 30,, a
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 20,, a
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 10,, a
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 8,, a
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 6,, a
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 4,, a
+11,0, 0,0, 10,, a
+-1,-1, 0,0, 2,, a
+11,0, 0,0, -1,, a
+
+
+;brodcast
+[Begin Action 7]
+-1,-1, 0,0, 259,, a
+Loopstart
+12,0, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,3, 0,0, 1,, a
+12,2, 0,0, 1,, a
+12,1, 0,0, 1,, a
+12,0, 0,0, 1,, a
+12,4, 0,0, 300,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,3, 0,0, 1,, a
+13,2, 0,0, 1,, a
+13,1, 0,0, 1,, a
+13,0, 0,0, 1,, a
+13,4, 0,0, 300,, a
+
+
+

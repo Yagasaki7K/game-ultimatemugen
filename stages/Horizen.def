@@ -1,0 +1,3010 @@
+;Web : http://www.freewebs.com/sangkalaza/
+;My mail : sang_kalaza@yahoo.com
+
+[Info]
+name ="Horizen"
+author = "Sang Kalaza"
+;********************************
+[Camera]
+startx = 0
+starty = 0
+boundleft = -170
+boundright = 200
+boundhigh = -250
+boundlow = 0
+tension =50
+verticalfollow =.93
+floortension = 116
+;********************************
+[PlayerInfo]
+p1startx = -90          
+p1starty = 0           
+p1startz = 0            
+p1facing = 1           
+p2startx = 90
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;********************************
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0    
+botbound  =  0    
+;********************************
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+;********************************
+[Bound]
+screenleft = 12    
+screenright = 12   
+;********************************
+[StageInfo]
+zoffset = 215
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+Hires=1
+;********************************
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0.1
+;********************************
+[Reflection]
+intensity = 115
+;********************************
+[Music]
+bgmusic = musics/Horizen.mp3
+bgvolume = 255
+;===========================================
+[BGdef]
+spr = stages/Horizen.sff    
+debugbg = 0
+
+[BG BackGround]
+type = normal
+spriteno = 1,0
+layerno = 0               
+start = -570,-200
+delta = .15,.25
+trans = none
+mask  = 1
+
+[BG Khoi]
+type =normal
+spriteno =2,0
+start = 0,0
+delta = 1, 1
+window = 0,0, 639,479
+layerno = 0
+tile = 1,0
+velocity = -2,-0.0
+trans = add
+[BG Khoi]
+type =normal
+spriteno =2,1
+start = 0,0
+delta = 1, 1
+window = 0,0, 639,479
+layerno = 0
+tile = 1,0
+velocity = 2,-0.0
+trans = add
+[BG Khoi]
+type =normal
+spriteno =2,2
+start = 0,0
+delta = 1, 1
+window = 0,0, 639,479
+layerno = 1
+tile = 1,0
+velocity = 9,-0.0
+trans = add
+[BG Khoi]
+type =normal
+spriteno =2,3
+start = 0,0
+delta = 1, 1
+window = 0,0, 639,479
+layerno = 1
+tile = 1,0
+velocity = -9,-0.0
+trans = add
+[BG Khoi]
+type =normal
+spriteno =2,4
+start = 0,0
+delta = 1, 1
+window = 0,0, 639,479
+layerno = 0
+tile = 1,1
+velocity =-0.5,0
+mask = 1
+trans = add
+[BG Khoi]
+type =normal
+spriteno =2,5
+start = 0,0
+delta = 1, 1
+window = 0,0, 639,479
+layerno = 0
+tile = 1,1
+velocity =0.5,0
+mask = 1
+trans = add
+;===******=== Horizen ===******===
+[BG Horizen]
+type = anim
+layerno = 0
+actionno = 0
+start = 40,0
+delta = 1.7,1.6
+trans = None
+mask = 0
+
+[Begin Action 0]
+0,0,0,0,50,,as256d256
+0,0,0,0,50,,as256d256
+0,0,0,0,50,,as252d256
+0,0,0,0,50,,as248d256
+0,0,0,0,50,,as244d256
+0,0,0,0,50,,as240d256
+0,0,0,0,50,,as236d256
+0,0,0,0,50,,as232d256
+0,0,0,0,50,,as228d256
+0,0,0,0,50,,as224d256
+0,0,0,0,50,,as220d256
+0,0,0,0,50,,as216d256
+0,0,0,0,50,,as212d256
+0,0,0,0,50,,as208d256
+0,0,0,0,50,,as204d256
+0,0,0,0,50,,as200d256
+0,0,0,0,50,,as204d256
+0,0,0,0,50,,as208d256
+0,0,0,0,50,,as212d256
+0,0,0,0,50,,as216d256
+0,0,0,0,50,,as220d256
+0,0,0,0,50,,as224d256
+0,0,0,0,50,,as228d256
+0,0,0,0,50,,as232d256
+0,0,0,0,50,,as236d256
+0,0,0,0,50,,as240d256
+0,0,0,0,50,,as244d256
+0,0,0,0,50,,as248d256
+0,0,0,0,50,,as252d256
+0,0,0,0,50,,as256d256
+;=============Falling Star===============*1*
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 10
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 10
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -46.5
+y = 90
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 11
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 11
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -4.65
+y = 9
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 12
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 12
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -9.3
+y = 18
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 13
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 13
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -13.95
+y = 27
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 14
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 14
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -18.6
+y = 36
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 15
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 15
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -23.25
+y = 45
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 16
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 16
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -27.9
+y = 54
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 17
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 17
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -32.55
+y = 63
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 18
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 18
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -37.2
+y = 72
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -185,520
+delta = 1.7,1.6
+mask = 1
+id = 19
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 19
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -41.85
+y = 81
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 4.65
+y = -9
+;=================================*2*
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 20
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 20
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 21.5
+y = 90
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 21
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 21
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 2.15
+y = 9
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 22
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 22
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 4.3
+y = 18
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 23
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 23
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 6.45
+y = 27
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 24
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 24
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 8.6
+y = 36
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 25
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 25
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 10.75
+y = 45
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 26
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 26
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 12.9
+y = 54
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 27
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 27
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 15.05
+y = 63
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 28
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 28
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 17.2
+y = 72
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 120,520
+delta = 1.7,1.6
+mask = 1
+id = 29
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 29
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 19.35
+y = 81
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -2.15
+y = -9
+;=================================*3*
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 30
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 30
+[BGCtrl Anim]
+type = Anim
+value = 5
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -23.7
+y = 18.4
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 31
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 31
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -35.55
+y = 27.6
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 32
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 32
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -47.4
+y = 36.8
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 33
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 33
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -59.25
+y = 46
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 34
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 34
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -71.1
+y = 55.2
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 35
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 35
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -82.95
+y = 64.4
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 36
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 36
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -94.8
+y = 73.6
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 37
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 37
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -106.65
+y = 82.8
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 38
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 38
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -118.5
+y = 92
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -495,520
+delta = 1.7,1.6
+mask = 1
+id = 39
+[BGCtrlDef FallingStar1]
+looptime = 95
+ctrlID = 39
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -130.35
+y = 101.2
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11.85
+y = -9.2
+;=================================*4*
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 40
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 40
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 18.6
+y = 18.4
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 41
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 41
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 27.9
+y = 27.6
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 42
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 42
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 37.2
+y = 36.8
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 43
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 43
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 46.5
+y = 46
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 44
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 44
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 55.8
+y = 55.2
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 45
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 45
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 65.1
+y = 64.4
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 46
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 46
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 74.4
+y = 73.6
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 47
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 47
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 83.7
+y = 82.8
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 48
+[BGCtrlDef FallingStar1]
+looptime = 90
+ctrlID = 48
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 93
+y = 92
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 430,520
+delta = 1.7,1.6
+mask = 1
+id = 49
+[BGCtrlDef FallingStar1]
+looptime = 95
+ctrlID = 49
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 102.3
+y = 101.2
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -9.3
+y = -9.2
+;=================================*5*
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 50
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 50
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -58.35
+y = 28.35
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 51
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 51
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -77.8
+y = 37.8
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 52
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 52
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -97.25
+y = 47.25
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 53
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 53
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -116.7
+y = 56.7
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 54
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 54
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -136.15
+y = 66.15
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 55
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 55
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -155.6
+y = 75.6
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 56
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 56
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -175.05
+y = 85.05
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 57
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 57
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -194.5
+y = 94.5
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 58
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 58
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -213.95
+y = 103.95
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = -802,520
+delta = 1.7,1.6
+mask = 1
+id = 59
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 59
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = -233.4
+y = 113.4
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 19.45
+y = -9.45
+;=================================*6*
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 60
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 60
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 50.1
+y = 28.35
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 61
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 61
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 66.8
+y = 37.8
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 62
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 62
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 83.5
+y = 47.25
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 63
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 63
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 100.2
+y = 56.7
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 64
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 64
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 116.9
+y = 66.15
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 65
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 65
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 133.6
+y = 75.6
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 66
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 66
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 150.3
+y = 85.05
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 67
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 67
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 167
+y = 94.5
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 68
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 68
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 183.7
+y = 103.95
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;+++++++++++++++++++++++++++++++++
+[BG Falling Star1]
+type = anim
+actionno = 5
+start = 735,520
+delta = 1.7,1.6
+mask = 1
+id = 69
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 69
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 200.4
+y = 113.4
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.7
+y = -9.45
+;=================================*7*
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -1010,484
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -990,477
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -970,469
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -950,462
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -930,455
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -910,448
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -890,441
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -870,434
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -850,427
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -830,420
+delta = 1.7,1.6
+mask = 1
+id = 70
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 70
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 17
+y = -6
+;=================================*8*
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 1000,504
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 980,496
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 960,488
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 940,480
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 920,472
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 900,464
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 880,456
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 860,448
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 840,440
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 820,432
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 800,424
+delta = 1.7,1.6
+mask = 1
+id = 71
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 71
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -15.1
+y = -6
+;=================================*9*
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -930,379
+delta = 1.7,1.6
+mask = 1
+id = 72
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -910,373
+delta = 1.7,1.6
+mask = 1
+id = 72
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -890,367
+delta = 1.7,1.6
+mask = 1
+id = 72
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -870,361
+delta = 1.7,1.6
+mask = 1
+id = 72
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -850,355
+delta = 1.7,1.6
+mask = 1
+id = 72
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 72
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 15
+y = -4
+;=================================*10*
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 1020,419
+delta = 1.7,1.6
+mask = 1
+id = 73
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 1000,413
+delta = 1.7,1.6
+mask = 1
+id = 73
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 980,407
+delta = 1.7,1.6
+mask = 1
+id = 73
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 960,401
+delta = 1.7,1.6
+mask = 1
+id = 73
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 940,395
+delta = 1.7,1.6
+mask = 1
+id = 73
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 920,389
+delta = 1.7,1.6
+mask = 1
+id = 73
+
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 73
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.5
+y = -5
+;=================================*11*
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -930,340
+delta = 1.7,1.6
+mask = 1
+id = 74
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -910,335
+delta = 1.7,1.6
+mask = 1
+id = 74
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -890,330
+delta = 1.7,1.6
+mask = 1
+id = 74
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 74
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 12.6
+y = -3
+;=================================*12*
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 1010,359
+delta = 1.7,1.6
+mask = 1
+id = 75
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 990,354
+delta = 1.7,1.6
+mask = 1
+id = 75
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 970,349
+delta = 1.7,1.6
+mask = 1
+id = 75
+
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 75
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -16.5
+y = -4
+;=================================*13*
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = -830,295
+delta = 1.7,1.6
+mask = 1
+id = 76
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 76
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 8.5
+y = -2
+;=================================*14*
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 1025,325
+delta = 1.7,1.6
+mask = 1
+id = 77
+[BG Falling Star1]
+type = anim
+actionno = 6
+start = 1045,330
+delta = 1.7,1.6
+mask = 1
+id = 77
+[BGCtrlDef FallingStar1]
+looptime = 37
+ctrlID = 77
+[BGCtrl Anim]
+type = Anim
+value = 6
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -14.5
+y = -3
+
+[Begin Action 5]
+5, 10, 0, 0, 3, , A
+5, 9, 0, 0, 3, , A
+5, 8, 0, 0, 3, , A
+5, 7, 0, 0, 3, , A
+5, 6, 0, 0, 3, , A
+5, 5, 0, 0, 4, , A
+5, 4, 0, 0, 5, , A
+5, 3, 0, 0, 6, , A
+5, 2, 0, 0, 7, , A
+5, 1, 0, 0, -1, , A
+[Begin Action 6]
+5, 10, 0, 0, 3, , A
+5, 9, 0, 0, 3, , A
+5, 8, 0, 0, 3, , A
+5, 7, 0, 0, 3, , A
+5, 6, 0, 0, 3, , A
+5, 5, 0, 0, 4, , A
+5, 4, 0, 0, 5, , A
+5, 3, 0, 0, 6, , A
+5, 2, 0, 0, 6, , A
+5, 1, 0, 0, -1, , A
+;==============Line Thunder============*1*
+;++++++++++++++++LEFT++++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 10
+start = -905,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -875,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -845,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -815,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -785,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -755,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -725,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -695,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -665,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -635,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -605,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -575,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -545,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -515,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -485,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -455,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -425,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -395,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -365,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -335,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -305,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -275,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -245,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -215,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -185,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -155,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -125,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -95,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+[BG Thunder]
+type = anim
+actionno = 10
+start = -65,352
+delta = 1.7,1.6
+mask = 1
+id = 100
+;++++++++++++++++RIGHT++++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 10
+start = -35,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = -5,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 25,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 55,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 85,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 115,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 145,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 175,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 205,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 235,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 265,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 295,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 325,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 355,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 385,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 415,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 445,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 475,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 505,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 535,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 565,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 595,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 625,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 655,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 685,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 715,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 745,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 775,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 805,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+[BG Thunder]
+type = anim
+actionno = 10
+start = 835,352
+delta = 1.7,1.6
+mask = 1
+id = 101
+;==============Line Thunder============*2*
+;++++++++++++++++LEFT++++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = -995,305
+delta = 1.7,1.6
+mask = 1
+id = 105
+[BG Thunder]
+type = anim
+actionno = 15
+start = -965,305
+delta = 1.7,1.6
+mask = 1
+id = 105
+[BG Thunder]
+type = anim
+actionno = 15
+start = -935,305
+delta = 1.7,1.6
+mask = 1
+id = 105
+;++++++++++++++++RIGHT+++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = 745,305
+delta = 1.7,1.6
+mask = 1
+id = 106
+[BG Thunder]
+type = anim
+actionno = 15
+start = 775,305
+delta = 1.7,1.6
+mask = 1
+id = 106
+[BG Thunder]
+type = anim
+actionno = 15
+start = 805,305
+delta = 1.7,1.6
+mask = 1
+id = 106
+;==============Line Thunder============*3*
+;++++++++++++++++LEFT++++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = -995,272
+delta = 1.7,1.6
+mask = 1
+id = 107
+[BG Thunder]
+type = anim
+actionno = 15
+start = -965,272
+delta = 1.7,1.6
+mask = 1
+id = 107
+[BG Thunder]
+type = anim
+actionno = 15
+start = -935,272
+delta = 1.7,1.6
+mask = 1
+id = 107
+;++++++++++++++++RIGHT+++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = 745,272
+delta = 1.7,1.6
+mask = 1
+id = 108
+[BG Thunder]
+type = anim
+actionno = 15
+start = 775,272
+delta = 1.7,1.6
+mask = 1
+id = 108
+[BG Thunder]
+type = anim
+actionno = 15
+start = 805,272
+delta = 1.7,1.6
+mask = 1
+id = 108
+;==============Line Thunder============*4*
+;++++++++++++++++LEFT++++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = -995,245
+delta = 1.7,1.6
+mask = 1
+id = 109
+[BG Thunder]
+type = anim
+actionno = 15
+start = -965,245
+delta = 1.7,1.6
+mask = 1
+id = 109
+[BG Thunder]
+type = anim
+actionno = 15
+start = -935,245
+delta = 1.7,1.6
+mask = 1
+id = 109
+;++++++++++++++++RIGHT+++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = 745,245
+delta = 1.7,1.6
+mask = 1
+id = 110
+[BG Thunder]
+type = anim
+actionno = 15
+start = 775,245
+delta = 1.7,1.6
+mask = 1
+id = 110
+[BG Thunder]
+type = anim
+actionno = 15
+start = 805,245
+delta = 1.7,1.6
+mask = 1
+id = 110
+;==============Line Thunder============*5*
+;++++++++++++++++LEFT++++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = -995,225
+delta = 1.7,1.6
+mask = 1
+id = 111
+[BG Thunder]
+type = anim
+actionno = 15
+start = -965,225
+delta = 1.7,1.6
+mask = 1
+id = 111
+[BG Thunder]
+type = anim
+actionno = 15
+start = -935,225
+delta = 1.7,1.6
+mask = 1
+id = 111
+;++++++++++++++++RIGHT+++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = 745,225
+delta = 1.7,1.6
+mask = 1
+id = 112
+[BG Thunder]
+type = anim
+actionno = 15
+start = 775,225
+delta = 1.7,1.6
+mask = 1
+id = 112
+[BG Thunder]
+type = anim
+actionno = 15
+start = 805,225
+delta = 1.7,1.6
+mask = 1
+id = 112
+;==============Line Thunder============*6*
+;++++++++++++++++LEFT++++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = -995,209
+delta = 1.7,1.6
+mask = 1
+id = 113
+[BG Thunder]
+type = anim
+actionno = 15
+start = -965,209
+delta = 1.7,1.6
+mask = 1
+id = 113
+[BG Thunder]
+type = anim
+actionno = 15
+start = -935,209
+delta = 1.7,1.6
+mask = 1
+id = 113
+;++++++++++++++++RIGHT+++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = 745,209
+delta = 1.7,1.6
+mask = 1
+id = 114
+[BG Thunder]
+type = anim
+actionno = 15
+start = 775,209
+delta = 1.7,1.6
+mask = 1
+id = 114
+[BG Thunder]
+type = anim
+actionno = 15
+start = 805,209
+delta = 1.7,1.6
+mask = 1
+id = 114
+;==============Line Thunder============*6*
+;++++++++++++++++LEFT++++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = -995,195
+delta = 1.7,1.6
+mask = 1
+id = 115
+[BG Thunder]
+type = anim
+actionno = 15
+start = -965,195
+delta = 1.7,1.6
+mask = 1
+id = 115
+[BG Thunder]
+type = anim
+actionno = 15
+start = -935,195
+delta = 1.7,1.6
+mask = 1
+id = 115
+;++++++++++++++++RIGHT+++++++++++++++
+[BG Thunder]
+type = anim
+actionno = 15
+start = 745,195
+delta = 1.7,1.6
+mask = 1
+id = 116
+[BG Thunder]
+type = anim
+actionno = 15
+start = 775,195
+delta = 1.7,1.6
+mask = 1
+id = 116
+[BG Thunder]
+type = anim
+actionno = 15
+start = 805,195
+delta = 1.7,1.6
+mask = 1
+id = 116
+
+[BGCtrlDef Thunder]
+looptime = 50
+ctrlID = 100
+[BGCtrl Anim]
+type = Anim
+value = 10
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 5
+y = 0
+[BGCtrlDef Thunder]
+looptime = 50
+ctrlID = 101
+[BGCtrl Anim]
+type = Anim
+value = 10
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -5
+y = 0
+
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 105
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 15
+y = 0
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 106
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -15
+y = 0
+
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 107
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 14
+y = 0
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 108
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -14
+y = 0
+
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 109
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 13
+y = 0
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 110
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -13
+y = 0
+
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 111
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 12
+y = 0
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 112
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -12
+y = 0
+
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 113
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 11
+y = 0
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 114
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -11
+y = 0
+
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 115
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = 10
+y = 0
+[BGCtrlDef Thunder]
+looptime = 200
+ctrlID = 116
+[BGCtrl Anim]
+type = Anim
+value = 15
+[BGCtrl PosSet]
+type = PosSet
+time = 0
+x = 0
+y = 0
+[BGCtrl VelSet]
+type = VelSet
+time = 0
+x = -10
+y = 0
+
+[Begin Action 10]
+10, 0, 0, 0, 5, , A
+10, 1, 0, 0, 5, , A
+10, 2, 0, 0, 5, , A
+10, 3, 0, 0, 5, , A
+10, 4, 0, 0, 5, , A
+10, 5, 0, 0, 5, , A
+10, 6, 0, 0, 5, , A
+10, 7, 0, 0, 5, , A
+10, 8, 0, 0, 5, , A
+10, 9, 0, 0, 5, , A
+10, 10, 0, 0, 5, , A
+[Begin Action 11]
+10, 10, 0, 0, 5, , A
+10, 9, 0, 0, 5, , A
+10, 8, 0, 0, 5, , A
+10, 7, 0, 0, 5, , A
+10, 6, 0, 0, 5, , A
+10, 5, 0, 0, 5, , A
+10, 4, 0, 0, 5, , A
+10, 3, 0, 0, 5, , A
+10, 2, 0, 0, 5, , A
+10, 1, 0, 0, 5, , A
+10, 0, 0, 0, 5, , A
+[Begin Action 15]
+10, 10, 20, 0, 5, , A

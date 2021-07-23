@@ -1,0 +1,42 @@
+; Definition file for Popeye
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="POPEYE"
+displayname ="POPEYE"
+versiondate =5,19,2007
+mugenversion =04,14,2001
+author ="DDR"
+pal.defaults =1,2,3,4,2,5,6     
+
+; Files for the player
+[Files]
+cmd     =popeye.cmd
+cns     =popeye.cns
+st      =popeye.cns
+stcommon =common1.cns
+sprite  =popeye.sff
+anim    =popeye.air
+sound   =popeye.snd
+pal1=popeye.act
+pal2=popeye2.act
+pal3=popeye3.act
+pal4=popeye4.act
+pal5=popeye5.act
+pal6=popeye6.act
+st1=Assist.cns
+
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def
+
+
+
+
+
+
+
+
+
+

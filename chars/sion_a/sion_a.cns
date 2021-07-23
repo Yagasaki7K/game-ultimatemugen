@@ -1,0 +1,1025 @@
+; var(1)  = CPU専用
+; var(2)  = CPU専用
+
+; var(11) = 音声判定
+; var(12) = イントロ判定
+; var(13) = イントロ判定
+; var(19) = 連続技用
+
+; var(20) = スライドエア・威嚇射撃・タメ攻撃用
+; var(21) = 空中攻撃用
+; var(22) = ジャンプ判定用
+; var(23) = 空中ダッシュ用
+; var(24) = 弾丸用
+; var(25) = HIT数判定
+; var(26) = ジャンプキャンセル用
+
+; var(31) = タイプ用
+; var(32) = BH時間
+; var(33) = BH状態判定
+; var(36) = 強制H判定
+; var(37) = 魔力開放判定
+; var(38) = 聖杯状態判定
+; var(39) = 聖杯時間
+
+; var(46) = サーキットブレイク用
+
+; fvar(21) = コンボ修正用
+; fvar(22) = コンボ修正用
+; fvar(23) = コンボ修正用
+; fvar(24) = コンボ修正用
+; fvar(26) = ヴァイタルソース用
+; fvar(28) = ヴァイタルソース用
+; fvar(29) = ヴァイタルソース用
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+;      基本データ
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; キャラクター基準値の設定
+;------------------------------------------------------------------------------
+[Data]
+life              = 1000
+attack            = 100
+defence           = 100
+power             = 3000
+fall.defence_up   = 50
+liedown.time      = 40
+airjuggle         = 12
+sparkno           = -1
+guard.sparkno     = -1
+KO.echo           = 0
+volume            = 255
+IntPersistIndex   = ;31
+FloatPersistIndex = ;60
+
+;------------------------------------------------------------------------------
+; サイズ指定
+;------------------------------------------------------------------------------
+[Size]
+xscale           = 1
+yscale           = 1
+ground.back      = 13
+ground.front     = 13
+air.back         = 14
+air.front        = 14
+height           = 65
+attack.dist      = 140
+proj.attack.dist = 90
+proj.doscale     = 0
+head.pos         = -5,-85
+mid.pos          = -5,-50
+shadowoffset     = 0
+
+;------------------------------------------------------------------------------
+; 移動速度の設定
+;------------------------------------------------------------------------------
+[Velocity]
+walk.fwd     = 1.6
+walk.back    = -1.2
+run.fwd      = 6,0
+run.back     = -6,3
+jump.neu     = 0,-9.15
+jump.back    = -1.6
+jump.fwd     = 2.4
+runjump.back = -2.7,-9.15
+runjump.fwd  = 2.7,-9.15
+
+airjump.neu  = 0,-7.8
+airjump.back = -1.6,-8
+airjump.fwd  = 2.4,-8
+
+;---------------------------------------------------------------------------
+; 動作の設定
+;------------------------------------------------------------------------------
+[Movement]
+airjump.num     = 1
+airjump.height  = 30
+yaccel          = .49
+stand.friction  = .85
+crouch.friction = .82
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; 基本動作
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; 登場
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 190]
+type    = S
+physics = N
+ctrl = 0
+
+[State 190];「リーズ！」
+type = ChangeState
+triggerall = Time = 0 
+trigger1 = EnemyNear,Name = "Sion TATARI" || Enemy,Name = "Sion TATARI"
+trigger2 = EnemyNear,Name = "Warakia" || Enemy,Name = "Warakia"
+trigger3 = EnemyNear,Name = "White_Len(CPU)" || Enemy,Name = "White_Len(CPU)"
+trigger4 = EnemyNear,Name = "White_Len" || Enemy,Name = "White_Len"
+trigger5 = EnemyNear,Name = "Warachia" || Enemy,Name = "Warachia"
+value = 195
+
+[State 191, 0]
+type = ChangeState
+trigger1 = time = 0
+value = 191+random%3
+
+;------------------------------------------------------------------------------
+; イントロ１（ランダム）
+;------------------------------------------------------------------------------
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 193
+velset = 0,0
+
+[State 192, Intro] ;戦闘開始前のフラグ
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, Voice]
+type = PlaySnd
+trigger1 = Animelem = 8
+value = s10,random%2
+
+[State 191, 1] 
+type = powerset
+trigger1 = time = 1
+value = 1000
+
+[State 193, Intro-2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+;------------------------------------------------------------------------------
+; イントロ２（ランダム）
+;------------------------------------------------------------------------------
+[Statedef 192]
+type = S
+ctrl = 0
+anim = 190
+velset = 0,0
+
+[State 192, Intro] ;戦闘開始前のフラグ
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, Voice]
+type = PlaySnd
+trigger1 = Animelem = 8
+value = s10,2+random%2
+
+[State 191, 1] 
+type = powerset
+trigger1 = time = 1
+value = 1000
+
+[State 193, Intro-2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+;------------------------------------------------------------------------------
+; イントロ３（ランダム）
+;------------------------------------------------------------------------------
+[Statedef 193]
+type = S
+ctrl = 0
+anim = 192
+velset = 0,0
+
+[State 192, Intro] ;戦闘開始前のフラグ
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, Voice]
+type = PlaySnd
+trigger1 = Animelem = 8
+value = s10,4
+
+[State 191, 1] 
+type = powerset
+trigger1 = time = 1
+value = 1000
+
+[State 193, Intro-2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;------------------------------------------------------------------------------
+; イントロ４（タタリに対して）
+;------------------------------------------------------------------------------
+[Statedef 195]
+type = S
+ctrl = 0
+anim = 191
+velset = 0,0
+
+[State 191, Intro] ;戦闘開始前のフラグ 
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 193, Intro-2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+[State 191, 1] 
+type = powerset
+trigger1 = time = 1
+value = 1000
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 2501
+ID = 2501
+Name = "attack"
+Pos = 33,-86
+PosType = P1
+Ownpal = 1
+
+[State 620, Effect]
+type = Explod
+trigger1 = AnimElemTime(5) = 0
+anim = 2504
+scale = 1,1
+postype = p1
+pos = 33,-86
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2504
+
+[State 191, Voice]
+type = PlaySnd
+trigger1 = Animelem = 5
+value = s10,6
+
+;==============================================================================
+;　勝利ポーズ分岐
+;==============================================================================
+[Statedef 180]
+type = S
+physics = N
+ctrl = 0
+
+[State 190]
+type = ChangeState
+triggerall = Time >= 0 
+trigger1 = EnemyNear,Name = "Sion TATARI" || Enemy,Name = "Sion TATARI"
+trigger2 = EnemyNear,Name = "Warakia" || Enemy,Name = "Warakia"
+trigger3 = EnemyNear,Name = "White_Len(CPU)" || Enemy,Name = "White_Len(CPU)"
+trigger4 = EnemyNear,Name = "White_Len" || Enemy,Name = "White_Len"
+trigger5 = EnemyNear,Name = "Warachia" || Enemy,Name = "Warachia"
+value = 182
+
+[State 181, 1]
+type = ChangeState
+trigger1 = time = 1
+value = 181
+
+;------------------------------------------------------------------------------
+;　勝利ポーズ１
+;------------------------------------------------------------------------------
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 180
+velset = 0,0
+
+[State 184, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 184, Flag]
+type = AssertSpecial
+Trigger1 = Time >= 0
+Trigger1 = Time <= 230
+Flag = RoundNotOver
+
+[State 184, voice]
+type = PlaySnd
+trigger1 = time = 25
+value = s11,1+random%5
+
+;------------------------------------------------------------------------------
+;　勝利ポーズ２（タタリに対して）
+;------------------------------------------------------------------------------
+[Statedef 182]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+[State 184, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 184, Flag]
+type = AssertSpecial
+Trigger1 = Time >= 0
+Trigger1 = Time <= 310
+Flag = RoundNotOver
+
+[State 184, voice]
+type = PlaySnd
+trigger1 = animelem = 4
+value = s10,5
+
+;------------------------------------------------------------------------------
+;　挑発（現在未搭載）
+;------------------------------------------------------------------------------
+[Statedef 940]
+Type   = S
+Ctrl   = 0
+VelSet = 0,0
+
+[State -1, ChangeAnim]
+Type = ChangeAnim
+Trigger1 = Time = 0
+Value = 191
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;==============================================================================
+;[statedef -2]定義
+;==============================================================================
+[statedef -2]
+;==============================================================================
+;　ダメージ音声関係
+;==============================================================================
+;------------------------------------------------------------------------------
+; やられボイス
+;------------------------------------------------------------------------------
+[State -1, VarRandom]
+Type = VarRandom
+TriggerAll = Time = 0
+Trigger1 = StateNo = 5000
+Trigger2 = StateNo = 5010
+Trigger3 = StateNo = 5020
+Trigger4 = StateNo = 5070
+V = 11
+Range = -3,7
+IgnoreHitPause = 1
+
+[State -2, PlaySnd]
+Type = PlaySnd
+TriggerAll = Var(11) = [2,7]
+TriggerAll = Time = 0
+Trigger1 = StateNo = 5000
+Trigger2 = StateNo = 5010
+Trigger3 = StateNo = 5020
+Trigger4 = StateNo = 5070
+Value = s21,1+Var(11)
+Channel = 4
+
+;==============================================================================
+;　HEAT状態
+;==============================================================================
+[State -2, DisplayToClipBord]
+Type = DisplayToClipBoard
+Trigger1 = 1
+Text = "26=%f,1=%d,21=%d,39=%d"
+Params = fvar(26),var(1),var(21),var(39)
+IgnoreHitPause = 1
+
+[State -2, AfterImage]
+Type = AfterImage
+Trigger1 = Power != 3000
+Trigger1 = Var(32) = 0
+Trigger1 = Var(31) = 0
+Trigger2 = Var(31) != 0
+Trigger2 = Var(39) = 0 && Var(32) = 0
+;Trigger2 = Var(37) != 0
+trans = add
+TimeGap = 1
+FrameGap = 3
+time = 99999
+PalBright = 0,0,0
+PalContrast = 70,70,70
+PalAdd = 0,0,160
+PalMul = 1,1,1
+
+
+[State -2, VarSet]
+Type = VarSet;Add
+Trigger1 = Var(33) = 0
+Trigger1 = Var(31) = 0
+Trigger1 = Power >= 3000
+V = 33
+Value = 1			;HEAT状態フラグ
+
+[State -2, VarSet]
+Type = VarSet
+Triggerall = var(33) = 1
+TriggerAll = Var(31) = 0
+Trigger1 = var(32) = 2
+Trigger2 = power = 0
+Trigger2 = var(36) = 0;Power <= 2999
+V = 33
+Value = 2
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = power = 0
+Trigger1 = var(33) < 0
+Trigger2 = var(33) > 0
+Trigger2 = var(36) != 0
+FV = 26
+Value = Life
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(31) = 0
+Trigger1 = var(33) = 2
+Trigger1 = power >= 1
+Trigger2 = power = 0
+Trigger2 = var(36) != 0
+V = 33
+Value = 0		;通常状態フラグ
+
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(31) = 0
+Trigger1 = Var(32) = 0
+Trigger1 = var(33) != 0
+V = 32
+Value = ceil(power/5) + 2			;HEAT制限時間設定
+Peresistent = 0
+
+[State -2, VarSet]
+Type = VarAdd
+Trigger1 = Var(32) >= 1
+Trigger1 = StateNo != 900 && StateNo != 910
+V = 32
+Value = -1                      ;HEAT制限時間減少
+
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(31) = 0
+Trigger1 = power = 0
+V = 32
+Value = 0			;通常状態で32 を0 に
+Peresistent = 0
+
+[State -2, VarSet]
+Type = PowerAdd
+TriggerAll = Var(31) = 0
+Trigger1 = Var(32) >= 1
+Trigger1 = StateNo != 900 && StateNo != 910
+Value = -5			;ゲージ減少
+
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(32) = 1
+Trigger1 = Var(33) = 1
+Trigger2 = Var(37) = 1
+V = 32
+Value = 0			;HEAT制限時間終了
+
+[State -2, PowerSet]
+Type = PowerSet
+TriggerAll = Var(31) = 0
+Triggerall = Var(36) = 0
+Triggerall = Var(33) >= 1
+Trigger1 = var(32) = 2
+Trigger2 = power = 0
+Value = 2000			;HEAT後ゲージ２００％
+
+[State -2, PowerSet]
+Type = PowerSet
+TriggerAll = Var(31) = 0
+Trigger1 = stateno = 2500 || stateno = 2000 || (stateno = 2100 && Var(20) = 0)
+triggerall = var(36) = 0
+Value = 1000			;Arc Drive使用後ゲージ１００％
+
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(31) = 0
+trigger1 = var(33) = 0
+Trigger1 = ((power <= 999) && (power >= 100))
+V = 36
+Value = 0			;偽HEAT状態フラグ
+
+[State -2, LifeAdd]
+Type = LifeAdd
+TriggerAll = Var(33) >= 1
+TriggerAll = Life < Const(Data.Life)
+TriggerAll = Life < FVar(26)
+TriggerAll = Var(36) = 1
+TriggerAll = Var(31) = 0
+;TriggerAll = GameTime % 2 = 0
+Trigger1 = Alive = 1
+Trigger1 = MoveType != H
+Value = 1
+
+[State -2, LifeAdd]
+Type = LifeAdd
+TriggerAll = Alive = 1
+TriggerAll = GameTime % 8 = 0
+TriggerAll = Var(31) = 0
+Trigger1 = Var(33) >= 1
+Trigger1 = Var(36) != 1
+Trigger1 = MoveType != H
+Trigger2 = Var(2) = 5
+Value = 2
+
+;==============================================================================
+;　BLOOD HEAT
+;==============================================================================
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(31) = 0
+Trigger1 = var(33) = -1
+Trigger1 = power = 0
+V = 33
+Value = 0
+
+[State -2, LifeAdd]
+Type = LifeAdd
+TriggerAll = Var(31) = 0
+TriggerAll = Var(33) <= -1
+TriggerAll = Life < Const(Data.Life)
+TriggerAll = Life < FVar(26)
+;TriggerAll = GameTime % 1 = 0
+Trigger1 = Alive = 1
+Trigger1 = MoveType != H
+Value = 1
+
+;==============================================================================
+;　魔力開放
+;==============================================================================
+[State -2, VarSet]
+Type = VarSet
+Triggerall = var(37) = 1
+TriggerAll = Var(31) != 0
+Trigger1 = var(32) = 2
+V = 37
+Value = 2
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(31) != 0
+Trigger1 = var(37) = 2
+V = 37
+Value = 0
+
+[State -2, LifeAdd]
+Type = LifeAdd
+TriggerAll = Alive = 1
+TriggerAll = GameTime % 8 = 0
+TriggerAll = Var(31) != 0
+Trigger1 = Var(37) >= 1
+Value = 2
+
+;==============================================================================
+;　聖杯覚醒
+;==============================================================================
+[State -2, VarSet]
+Type = VarSet
+Trigger1 = (Var(38) < 1000) && (Var(38) >= 0)
+Trigger1 = Var(31) != 0
+V = 38
+Value = Const(Data.Life)-Life + EnemyNear,Const(Data.Life)-EnemyNear,Life
+
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(31) != 0
+Trigger1 = Var(38) >= 1000
+Trigger1 = Var(39) = 0
+V = 39
+Value = 1202
+Peresistent = 0
+
+[State -2, VarSet]
+Type = VarAdd
+Trigger1 = Var(39) >= 1
+Trigger1 = StateNo != 920
+V = 39
+Value = -1                      ;HEAT制限時間減少
+
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = Var(39) <= 2
+Trigger1 = Var(31) != 0
+Trigger1 = Var(38) >= 1000
+V = 38
+Value = -1
+[State -2, VarSet]
+Type = Null;VarSet
+TriggerAll = Var(39) < 0
+Trigger1 = Var(31) != 0
+V = 39
+Value = 0
+
+;==============================================================================
+;　状態フラグラウンド持ち越し禁止
+;==============================================================================
+[State -2, LifeAdd]
+Type = PowerSet
+TriggerAll = RoundState = [0,1]
+TriggerAll = Var(31) = 0
+Trigger1 = Var(33) > 0
+Trigger1 = Var(36) = 0
+Value = 2000
+[State -2, LifeAdd]
+Type = PowerSet
+TriggerAll = RoundState = [0,1]
+TriggerAll = Var(31) = 0
+Trigger1 = Var(33) > 0
+Trigger1 = Var(36) != 0
+Trigger2 = Var(33) < 0
+Value = 0
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = RoundState = [0,1]
+TriggerAll = Var(31) = 0
+Trigger1 = Var(33) != 0
+V = 33
+Value = 0
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = RoundState = [0,1]
+TriggerAll = Var(31) = 0
+Trigger1 = Var(32) != 0
+V = 32
+Value = 0
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = RoundState = [0,1]
+TriggerAll = Var(31) = 0
+Trigger1 = Var(36) != 0
+V = 36
+Value = 0
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = RoundState = [0,1]
+TriggerAll = Var(31) != 0
+Trigger1 = Var(37) != 0
+V = 37
+Value = 0
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = RoundState = [0,1]
+TriggerAll = Var(31) != 0
+Trigger1 = Var(38) != 0
+V = 38
+Value = 0
+[State -2, VarSet]
+Type = VarSet
+TriggerAll = RoundState = [0,1]
+TriggerAll = Var(31) != 0
+Trigger1 = Var(39) != 0
+V = 39
+Value = 0
+
+;==============================================================================
+;　ヴァイタルソース
+;==============================================================================
+[State -2, VarSet]
+Type = VarSet
+Trigger1 = RoundState = [0,1]
+FV = 26
+Value = Const(Data.Life)
+IgnoreHitPause = 1
+Persistent = 0
+[State -2, VarSet]
+Type = VarSet
+Trigger1 = FVar(29) != Life
+Trigger1 = (Life)-(FVar(29))<0
+FV = 28
+Value = Life - FVar(29)
+IgnoreHitPause = 1
+Persistent = 0
+[State -2, VarSet]
+Type = VarSet
+Trigger1 = FVar(29) = Life
+Trigger2 = (Life)-(FVar(29))>=0
+FV = 28
+Value = 0
+IgnoreHitPause = 1
+Persistent = 0
+[State -2, VarSet]
+Type = VarSet
+Trigger1 = (Life)!=(FVar(29))
+Trigger1 = 1
+FV = 29
+Value = Life
+IgnoreHitPause = 1
+
+[State -2, VarSet3]
+Type = VarAdd
+Trigger1 = Var(33) = 0 || (Var(33)>0&&Var(36)=0)
+Trigger1 = FVar(28) < Const(Data.Life)
+FV = 26
+Value = FVar(28)*ifelse((StateNo = [130,159]),0.014,0.09)*(random%6+6)/(1+0.03125*GetHitVar(HitCount)+(Const(Data.Life)-Life)*0.002)
+IgnoreHitPause = 1
+Persistent = 0
+[State -2, VarSet3]
+Type = VarAdd
+Trigger1 = Var(33) < 0 || (Var(33)!=0&&Var(36)!=0)
+Trigger1 = FVar(28) < Const(Data.Life)
+FV = 26
+Value = FVar(28)
+IgnoreHitPause = 1
+Persistent = 0
+[State -2, VarSet]
+Type = VarSet
+trigger1 = FVar(26) < Life
+FV = 26
+Value = Life
+IgnoreHitPause = 1
+Persistent = 0
+
+;==============================================================================
+;　ジャンプキャンセル
+;==============================================================================
+[State -2, CS]
+Type = ChangeState
+TriggerAll = Command = "holdup"
+TriggerAll = var(1) != 1
+Trigger1 = StateNo = 200 || StateNo = 210 || StateNo = 215 || StateNo = 220 || StateNo = 223
+trigger1 = MoveContact
+Trigger2 = StateNo = 410 || StateNo = 400 || StateNo = 420 || StateNo = 415
+trigger2 = MoveContact
+Trigger3 = StateNo = 1200 || StateNo = 1210 || StateNo = 1220
+Trigger3 = Var(31) != 0 && Var(26) = 0 && MoveGuarded
+Trigger4 = StateNo = 1000 || StateNo = 1010 || StateNo = 1020 || StateNo = 1021
+Trigger4 = Var(31) != 0 && Var(26) = 0
+Trigger4 = ifelse(NumHelper(1001) != 0,1 ,0)
+Trigger5 = StateNo = 1201 || StateNo = 1211 || StateNo = 1220 || StateNo = 1940
+Trigger5 = Var(31) != 0 && Var(26) = 0 && MoveContact
+Value = 40
+Ctrl = 1
+
+;==============================================================================
+;　コンボ修正用変数管理（怪しい出来）
+;==============================================================================
+[State -1, AttackMulSet]
+Type = AttackMulSet
+Trigger1 = 1
+Value = 1*fvar(21)*fvar(22)*fvar(24)*fvar(23)*ifelse(random%32=0,1.15,1)
+IgnoreHitPause = 1
+
+[State -1, VarSet1]
+Type = VarSet
+Trigger1 = ((roundstate = 2) && (P2MoveType != H))
+FV = 22
+value = 1
+IgnoreHitPause = 1
+[State -1, VarSet1]
+Type = VarSet
+Trigger1 = ((roundstate = 2) && (P2StateType = S))
+FV = 21
+value = 1
+IgnoreHitPause = 1
+[State -1, VarSet1]
+Type = VarSet
+Trigger1 = ((roundstate = 2) && (P2StateType = A))
+FV = 21
+value = 0.88
+IgnoreHitPause = 1
+[State -1, VarSet1]
+Type = VarSet
+Trigger1 = ((roundstate = 2) && (P2StateType = C))
+FV = 21
+value = 1.08
+IgnoreHitPause = 1
+[State -1, VarSet1]
+Type = VarSet
+Trigger1 = ((roundstate = 2) && (P2StateType = L))
+FV = 21
+value = 0.58
+IgnoreHitPause = 1
+
+[State -1, VarSet7]
+Type = VarSet
+trigger1 = var(25) > 0 && var(25) < 30
+FV = 23
+value = 1-0.03125*var(25)
+
+[State -1, VarSet8]
+Type = VarSet
+Trigger1 = ((roundstate = 2) && (P2MoveType != H))
+V = 25
+value = 0
+[State -1, VarSet8]
+Type = VarSet
+Trigger1 = ((roundstate = 2) && (P2MoveType != H))
+fV = 23
+value = 1
+[State -1, VarSet8]
+Type = VarSet
+Trigger1 = ((roundstate = 2) && (P2MoveType != H))
+fV = 24
+value = 1
+IgnoreHitPause = 1
+
+;==============================================================================
+;　根性値
+;==============================================================================
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life >= 761
+Value = 0.9
+IgnoreHitPause = 1
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 760
+Trigger1 = Life >= 501
+Value = 0.871
+IgnoreHitPause = 1
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 500
+Trigger1 = Life >= 251
+Value = 0.843
+IgnoreHitPause = 1
+
+[State -1, DefenceMulSet]
+Type = DefenceMulSet
+Trigger1 = Life <= 250
+Value = 0.815
+IgnoreHitPause = 1
+
+;==============================================================================
+;　カウンター攻撃
+;==============================================================================
+[State -1,]
+type = ChangeState
+value = 1011
+trigger1 = StateType != A
+Trigger1 = ctrl
+trigger1 = var(24) <= 0
+
+[State -1,]
+type = ChangeState
+value = 1960
+trigger1 = (stateno = 150) || (stateno = 151) 
+triggerAll = power >= 1000
+triggerAll = command = "6+zc"
+
+;==============================================================================
+;　敵秋葉　獣を焦がす用
+;==============================================================================
+[State -2]
+Type = LifeAdd
+TriggerAll = Enemy,AuthorName = "⑨" && Enemy,Name = "Akiha_Vermilion"
+Trigger1 = Enemy,Var(47) = 1
+Value = -5
+Kill = 0
+
+[State -2]
+Type = PowerAdd
+TriggerAll = Enemy,AuthorName = "⑨" && Enemy,Name = "Akiha_Vermilion"
+Trigger1 = Enemy,Var(47) = 1
+Value = -26
+
+;==============================================================================
+;　相殺
+;==============================================================================
+[State -2]
+type = ReversalDef
+triggerall = movehit = 0
+TriggerAll = Var(31) = 0
+trigger1 = P2MoveType = A
+trigger1 = enemynear,hitdefattr = SCA, NA,NP
+trigger1 = StateNo = [210,626]
+trigger1 = ((StateNo != 400) && (StateNo != 600))
+reversal.attr = SCA, NA,NP
+numhits = 0
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = -1
+getpower = 20, 0
+hitsound = s2,4+ifelse(StateType = A,1,0)
+
+[State -2]
+Type = Explod
+TriggerAll = Var(31) = 0
+Trigger1 = P2MoveType = A
+Trigger1 = MoveHit = 1
+Trigger1 = (StateNo = [210,239]) || (StateNo = 411) || (StateNo = 421)
+Anim = 167
+ID = 167
+PosType = P1
+Pos = ceil(P2dist x/2),-65
+OwnPal = 1
+SprPriority = 5
+Persistent = 0
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -2]
+Type = Explod
+TriggerAll = Var(31) = 0
+Trigger1 = P2MoveType = A
+Trigger1 = MoveHit = 1
+Trigger1 = (StateNo = 410) || (StateNo = 420)
+Anim = 167
+ID = 167
+PosType = P1
+Pos = ceil(P2dist x/2),-20
+OwnPal = 1
+SprPriority = 5
+Persistent = 0
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -2]
+Type = Explod
+TriggerAll = Var(31) = 0
+Trigger1 = P2MoveType = A
+Trigger1 = MoveHit = 1
+Trigger1 = StateNo = [600,625]
+Anim = 167
+ID = 167
+PosType = P1
+Pos = ceil(P2dist x/2),-72
+OwnPal = 1
+SprPriority = 5
+Persistent = 0
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;==============================================================================
+;　サーキットブレイク
+;==============================================================================
+;　⑨さんの秋葉（紅赤朱）を参考にさせていただきました。未対応のキャラには対応致します。
+
+[State -2]
+Type = VarSet
+TriggerAll = Var(46) = 0
+TriggerAll = MoveType = H && StateNo != [120,159]
+TriggerAll = Var(31) = 0
+Trigger1 = Enemy,AuthorName = "⑨" && Enemy,Name = "Len" && Enemy,StateNo = 3100
+Trigger2 = Enemy,AuthorName = "⑨" && Enemy,Name = "Satsuki_Yumiduka" && Enemy,StateNo = 3101
+Trigger3 = Enemy,AuthorName = "⑨" && Enemy,Name = "Hisui" && Enemy,StateNo = 3100
+Trigger4 = Enemy,AuthorName = "⑨" && Enemy,Name = "White_Len(CPU)" && Enemy,StateNo = 3100
+Trigger5 = Enemy,AuthorName = "⑨" && Enemy,Name = "Akiha_Vermilion" && Enemy,StateNo = 3100
+Trigger6 = Enemy,AuthorName = "⑨" && Enemy,Name = "Sion_Eltnam_Atlasia" && Enemy,StateNo = 3100
+Trigger7 = Enemy,AuthorName = "⑨" && Enemy,Name = "Neco_Arc" && Enemy,StateNo = 2000
+Trigger8 = Enemy,AuthorName = "⑨" && Enemy,Name = "Warachia" && Enemy,StateNo = 3100
+Trigger9 = Enemy,AuthorName = "kuro" && Enemy,Name = "Arcueid Brunestud" && Enemy,StateNo = 3810
+Trigger10 = Enemy,AuthorName = "Chotto-Komaru" && Enemy,Name = "Arcueid Brunestud" && Enemy,StateNo = 3504
+Trigger11 = Enemy,AuthorName = "rouge noir" && Enemy,Name = "shiki_tohno" && Enemy,StateNo = 13500
+Trigger12 = Enemy,AuthorName = "Ina" && Enemy,Name = "tohno shiki" && Enemy,StateNo = 1300
+Trigger13 = Enemy,AuthorName = "Raien Makoto" && Enemy,Name = "Shiki-Satsu" && Enemy,StateNo = 25000
+Trigger14 = Enemy,AuthorName = "nana" && Enemy,Name = "Akiha_Tohno" && Enemy,StateNo = 4100
+Trigger15 = Enemy,AuthorName = "Shiroto" && Enemy,Name = "Sion TATARI" && Enemy,StateNo = 3000
+Trigger16 = Enemy,AuthorName = "Shiroto" && Enemy,Name = "Akaitsuki" && Enemy,StateNo = 3000
+Trigger17 = Enemy,AuthorName = "Shiroto" && Enemy,Name = "Sion Eltnam Atlasia" && Enemy,StateNo = 3000
+Trigger18 = Enemy,AuthorName = "wraith" && Enemy,Name = "Warachia" && Enemy,StateNo = 1500
+Trigger19 = Enemy,AuthorName = "Toma" && Enemy,Name = "Warakia" && Enemy,StateNo = 1202
+Trigger20 = Enemy,AuthorName = "TENE" && Enemy,Name = "Neco-Arc" && Enemy,StateNo = 1065
+Trigger21 = Enemy,AuthorName = "TENE" && Enemy,Name = "Neco-Arc Chaos" && Enemy,StateNo = 2001
+V = 46
+Value = 600
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -2]
+Type = VarAdd
+TriggerAll = Var(31) = 0
+Trigger1 = Var(46) > 0
+V = 46
+Value = -1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -2]
+Type = PowerSet
+TriggerAll = Var(31) = 0
+Trigger1 = Var(46) > 0
+Value = 0
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -2]
+Type = VarSet
+TriggerAll = Var(31) = 0
+Trigger1 = Var(46) < 0
+Trigger2 = RoundState = 0
+V = 46
+Value = 0
+IgnoreHitPause = 1
+Persistent = 0

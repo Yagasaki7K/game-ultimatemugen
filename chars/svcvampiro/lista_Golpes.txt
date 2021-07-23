@@ -1,0 +1,63 @@
+version4 - 31/12/2003        Lord Demitri Maxmov
+   		               SNK vrs CAPCOM
+			   Criado por Ex-Inferis
+	
+			 http://mugenexus.cjb.net
+
+
+-< Fatais   >--<===================================================================>-
+
+executar rapidamente quando a tela escurecer...
+
+TunelHell     : D,F,D,F,   b     
+Coração       : D,F,D,F,   a  
+
+
+-< Supers   >--<===================================================================>-
+
+SuperBliss    : D,B,F,   x/y/z   power > 2000
+SuperMagia    : D,F,D,F, x/y/z   power > 2000  (chão ou Ar)
+SuperCombo    : D,B,D,B, x/y/z   power > 1000
+SuperFilha    : D,F,D,F, x/y/z   power > 1000
+Justiça       : D,F,B,   x/y/z   power > 1000
+ViraBats      : D,F,B,   a/b/c   power > 3000
+
+
+-< Speciais >--<===================================================================>-
+
+Magia         : D,F,   x/y/z
+HandsJedah    : D,B,   x/y/z
+ShouriDemDiag : F,D,F, x/y/z
+ShouriDemReto : B,D,B, x/y/z
+GiraPeao      : D,B,   a/b/c
+FireTorres    : D,F,   a/b/c
+
+BatNuvem      : segure D,B, x/y/z  (no ar)
+SuperChute    : segure D, c  (no ar)
+
+SuperPulo     : D,U
+Aerial Rave   : D + x+y  Depois de atingir o P2 "U" e inicie os golpes.
+
+
+-< Combos   >--<===================================================================>-
+
+No chão       : x,y,z,Magia,SuperMagia
+No chão       : x,y,z,Magia,HandsJedah
+No chão       : a,b,c,ShouriDemDiag,c no ar, b no chao
+No Ar         : x,y,z,Magia, SuperMagia
+No Ar         : a,b,c,GiraPeao fraco
+
+   fique a vontade para criar e descobrir os outros! E mande para mim depois! :)
+
+
+-< Agarrões >--<===================================================================>-
+
+Mordidas      : Frente + x/y/z   (Perto do P2)
+
+
+-< Dash/Run >--<===================================================================>-
+
+Fantasma      : F,F  (atravessa o P2 de perto)   no chão ou AR
+Fantasma      : B,B  (atravessa o P2 de perto)   no chão ou AR
+
+WARP(fuga)    : B,B  (no canto da tela)

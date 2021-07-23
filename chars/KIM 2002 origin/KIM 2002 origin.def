@@ -1,0 +1,27 @@
+;LAST UP DATA- 2006.02.26	Version=H-2		.thank you Maria-Azul
+
+; Player information 
+[Info]
+name = "Kim Kaphwan"        ;Name of character
+displayname = "KIM 2002" ;Name of character to display
+versiondate = 04,14,2001    ;Version date of character
+mugenversion = 04,14,2001   ;Version of M.U.G.E.N character works on
+author = "zzzasd"           ;"zzzasd13@yahoo.co.kr" "www.neo-eye.com" "http://conversion.wo.to/"
+pal.defaults = 6,3,4,2      ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = KIM.cmd   ;Command set
+cns     = KIM.cns   ;Constants
+st      = KIM.cns   ;States
+st1= KIMb.cns
+st2= KIMc.cns
+stcommon=KIMa.cns
+sprite  = KIM.sff   ;Sprite
+anim    = KIM.air   ;Animation
+sound   = KIM.snd   ;Sound
+pal1=2002-B.act
+pal2=2002-D.act
+pal3=KimKOFXI(Maria-Azul).act
+pal4=2002-A.act
+pal5=2002-C.act

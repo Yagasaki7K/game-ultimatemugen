@@ -1,0 +1,264 @@
+[Info]
+name = "Forgotten Island"
+;----------------------------------;
+;author = "Teros"                  ;
+;email = "inlineshadow@yahoo.com"  ;
+;credits = Gio & Mot, they know why;
+;NemesisTheory for the BGM         ;
+;----------------------------------;
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -116
+boundright = 116
+boundhigh = -100
+boundlow = 0
+verticalfollow = .75
+floortension = 60
+tension = 50
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 225
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+HIres = 1
+
+[Shadow]
+intensity = 64
+color = 15,15,15
+yscale = .4
+
+[Music]
+bgmusic = sound/ForgottenIsland.mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/ForgottenIsland.sff
+debugbg = 0
+
+[BG Sky]
+type = normal
+start = 0,0
+spriteno = 1,1
+delta = .4,.9
+mask = 1
+tile = 1,0
+layerno = 0
+
+[BG Sky]
+type = normal
+start = 0,0
+spriteno = 1,2
+delta = .4,.9
+mask = 1
+tile = 1,0
+layerno = 0
+
+[BG Sky]
+type = normal
+start = 0,0
+spriteno = 1,3
+delta = .4,.9
+mask = 1
+tile = 1,0
+layerno = 0
+
+[BG Sky]
+type = normal
+start = 0,0
+spriteno = 1,4
+delta = .4,.9
+mask = 1
+tile = 1,0
+layerno = 0
+
+[BG Sky]
+type = normal
+start = 0,0
+spriteno = 1,5
+delta = .4,.9
+mask = 1
+tile = 1,0
+layerno = 0
+
+[BG Sky]
+type = normal
+start = 0,0
+spriteno = 1,6
+delta = .4,.9
+mask = 1
+tile = 1,0
+layerno = 0
+
+[BG Caves]
+type = normal
+start = 0,0
+spriteno = 1,0
+delta = .5,1
+mask = 1
+tile = 1,0
+layerno = 0
+
+[BG Water]
+type = anim
+actionno = 1
+delta = .5,1
+start = 0,0
+mask = 1
+
+[BG BoatB]
+type = normal
+spriteno = 0,0
+layerno = 0
+start = 0,0
+delta = 2,2
+sin.y = -4,600,-2
+mask = 1
+ID = 1
+
+[BG BoatF]
+type = normal
+spriteno = 0,1
+layerno = 1
+start = 0,0
+delta = 2,2
+sin.y = 7,600,3.5
+mask = 1
+
+[BG Crow]
+type = anim
+actionno = 2
+delta = 1,1
+start = -500,0
+mask = 1
+velocity = 2,-.1
+tile = 1,0
+tilespacing = 900,0
+
+[BG Crow]
+type = anim
+actionno = 2
+delta = 1,1
+start = -600,150
+mask = 1
+velocity = 2.5,-.1
+tile = 1,0
+tilespacing = 900,0
+
+[BG Crow]
+type = anim
+actionno = 2
+delta = 1,1
+start = -700,300
+mask = 1
+velocity = 3,-.1
+tile = 1,0
+tilespacing = 900,0
+
+[BG CrowSit]
+type = normal
+spriteno = 5,0
+layerno = 1
+start = 0,0
+delta = 2,2
+sin.y = 7,600,3.5
+mask = 1
+
+[BG color]
+type = normal
+spriteno = 2,0
+start = 0,0
+delta = 0,0
+mask = 1
+layerno = 1
+trans = addalpha
+alpha = 120,256
+
+[Begin Action 1]
+3,49, 0,0, 2, ,AS130D256
+3,48, 0,0, 2, ,AS130D256
+3,47, 0,0, 2, ,AS130D256
+3,46, 0,0, 2, ,AS130D256
+3,45, 0,0, 2, ,AS130D256
+3,44, 0,0, 2, ,AS130D256
+3,43, 0,0, 2, ,AS130D256
+3,42, 0,0, 2, ,AS130D256
+3,41, 0,0, 2, ,AS130D256
+3,40, 0,0, 2, ,AS130D256
+3,39, 0,0, 2, ,AS130D256
+3,38, 0,0, 2, ,AS130D256
+3,37, 0,0, 2, ,AS130D256
+3,36, 0,0, 2, ,AS130D256
+3,35, 0,0, 2, ,AS130D256
+3,34, 0,0, 2, ,AS130D256
+3,33, 0,0, 2, ,AS130D256
+3,32, 0,0, 2, ,AS130D256
+3,31, 0,0, 2, ,AS130D256
+3,30, 0,0, 2, ,AS130D256
+3,29, 0,0, 2, ,AS130D256
+3,28, 0,0, 2, ,AS130D256
+3,27, 0,0, 2, ,AS130D256
+3,26, 0,0, 2, ,AS130D256
+3,25, 0,0, 2, ,AS130D256
+3,24, 0,0, 2, ,AS130D256
+3,23, 0,0, 2, ,AS130D256
+3,22, 0,0, 2, ,AS130D256
+3,21, 0,0, 2, ,AS130D256
+3,20, 0,0, 2, ,AS130D256
+3,19, 0,0, 2, ,AS130D256
+3,18, 0,0, 2, ,AS130D256
+3,17, 0,0, 2, ,AS130D256
+3,16, 0,0, 2, ,AS130D256
+3,15, 0,0, 2, ,AS130D256
+3,14, 0,0, 2, ,AS130D256
+3,13, 0,0, 2, ,AS130D256
+3,12, 0,0, 2, ,AS130D256
+3,11, 0,0, 2, ,AS130D256
+3,10, 0,0, 2, ,AS130D256
+3,9, 0,0, 2, ,AS130D256
+3,8, 0,0, 2, ,AS130D256
+3,7, 0,0, 2, ,AS130D256
+3,6, 0,0, 2, ,AS130D256
+3,5, 0,0, 2, ,AS130D256
+3,4, 0,0, 2, ,AS130D256
+3,3, 0,0, 2, ,AS130D256
+3,2, 0,0, 2, ,AS130D256
+3,1, 0,0, 2, ,AS130D256
+3,0, 0,0, 2, ,AS130D256
+
+[Begin Action 2]
+4,0, 0,0, 5
+4,1, 0,0, 5
+4,2, 0,0, 5
+4,3, 0,0, 5
+4,4, 0,0, 5
+4,3, 0,0, 5
+4,2, 0,0, 5
+4,1, 0,0, 5

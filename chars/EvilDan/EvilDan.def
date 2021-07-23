@@ -1,0 +1,24 @@
+;Evil Dan
+; Player Information
+[Info]
+name="Evil Dan"
+displayname="Evil Dan"
+author="ilcane87"
+
+; Files for the Player
+pal.defaults=1,2
+[Files]
+cmd=EvilDan.cmd
+cns=EvilDan.cns
+st=EvilDan.cns
+stcommon=common1.cns
+sprite=EvilDan.sff
+anim=EvilDan.air
+sound=EvilDan.snd
+pal1=EvilDan.act
+pal2=Dan2.act
+pal3=Dan3.act
+pal4=dan4.act
+pal5=dan5.act
+pal6=dan6.act
+pal7=dan.act

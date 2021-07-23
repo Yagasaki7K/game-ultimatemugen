@@ -1,0 +1,46 @@
+;------------------------------
+;    Asamiya Athena by Chloe
+;	   KOF2002
+;-----------------------------
+;     Athena public Beta 7
+;-----------------------------
+;      August 29th 2004
+;-----------------------------
+
+
+[Info]
+Name = "Asamiya Athena"
+DisplayName = "Athena 2002"
+VersionDate = 14,06,2003
+MugenVersion = 14,01,2001
+Author = "Chloe"
+Pal.Defaults = 1,2,3,7,10
+
+[Files]
+cmd = athena.cmd
+cns = athena.cns
+st = athena.cns
+st2 = athena-n.cns
+st3 = athena-s.cns
+st4 = athena-h.cns
+st5 = ai.cns
+stcommon = common1.cns
+sprite = athena.sff
+anim = athena.air
+sound = athena.snd
+
+;palettes
+pal1 = pal\athena.act	     ;default pal in KOF2K2
+pal2 = pal\white.act	     ;made by me
+pal3 = pal\athena2.act	     ;2nd pal in KOF2K2
+pal4 = pal\dutch.act         ;requested by Junior Chillage
+pal5 = pal\athena.act	     
+pal6 = pal\cuteathena.act    ;made by Jorge H. Campos
+pal7 = pal\lain.act          ;made by Lain
+pal8 = pal\white.act	     
+        
+       
+
+[Arcade]
+intro.storyboard =
+ending.storyboard = girls.def

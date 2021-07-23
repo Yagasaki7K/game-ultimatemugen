@@ -1,0 +1,614 @@
+;==============================================================================
+;　ヘルパーステート
+;==============================================================================
+
+;==============================================================================
+;　威嚇射撃　弾丸
+;==============================================================================
+[Statedef 1001]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1003
+
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 42
+Range    = -15,10
+
+[State -1]
+Type     = PosAdd
+Trigger1 = time = 0
+x = Var(42)
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 210, V.Sion Voice]
+type = PlaySnd
+trigger1 = animelemtime(1) = 4
+value = s3,4
+
+[State -1, Hit]
+type = HitDef
+trigger1 = animelemtime(1) = 4
+attr              = A, SP
+damage            = ceil(40 *Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 5
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = -1
+hitsound          = s1, 0
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 5
+ground.hittime    = 15
+ground.velocity   = -2,0
+airguard.velocity = -2,0
+air.velocity      = -2,0
+kill              = 1
+fall              = 0
+air.fall          = 0
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State 620, Effect]
+type = Explod
+Trigger1 = time = 1
+Trigger1 = P2movetype != H
+anim = 1004
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+bindtime = -1
+supermove = 1
+ownpal = 1
+ID = 1004
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = -10,-20
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = ChangeState;Destroyself
+trigger1 = animtime = 0
+value = 1003
+;==============================================================================
+;　威嚇射撃　弾丸
+;==============================================================================
+[Statedef 1003]
+Type = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1,end]
+type = Destroyself
+trigger1 = time >= 15;animtime = 0
+
+;==============================================================================
+;　薬莢射出
+;==============================================================================
+[Statedef 1002]
+Type = A
+Physics = N
+VelSet = 0,0
+SprPriority = -1
+Anim = 2506
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = -2
+y = -4
+
+[State 220, Vel]
+type = VelAdd
+trigger1 = 1
+y = 0.5
+
+[State 220, Vel]
+type = VelSet
+trigger1 = Pos Y >= 0
+y = -3
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1,end]
+type = Destroyself
+trigger1 = BackEdgeDist <= -40
+trigger2 = time = 35
+
+;==============================================================================
+;　カートリッジ入れ替え
+;==============================================================================
+[Statedef 1013]
+Type = A
+Physics = N
+VelSet = 0,0
+SprPriority = -1
+Anim = 1007
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = -1
+
+[State 220, Vel]
+type = VelAdd
+trigger1 = 1
+y = 0.5
+
+[State 220, Vel]
+type = VelSet
+trigger1 = Pos Y >= 0
+y = -2
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1,end]
+type = Destroyself
+trigger1 = BackEdgeDist <= -40
+trigger2 = time = 30
+;==============================================================================
+;　ブラックバレル　弾丸
+;==============================================================================
+[Statedef 2501]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 2505
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 0
+y = -6
+
+[State 220, Vel]
+type = VelAdd
+trigger1 = 1
+y = 0.4
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = 1
+attr              = A, NP
+damage            = 10, 0
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = -1
+hitsound          = s1, 0
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 5
+ground.hittime    = 15
+ground.velocity   = 0,-10.5
+airguard.velocity = 0,-6
+air.velocity      = 0,-10
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 40,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 200, Change]
+type = ChangeAnim
+trigger2 = MoveGuarded = 1
+trigger1 = MoveHit = 1
+value = 2506
+
+[State -1,end]
+type = Destroyself
+trigger1 = time = 30
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　通常
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8000]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20000
+ID = 20000
+Postype = back
+Pos = -240+(statetime*12) ,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20000
+ID = 20000
+Postype = back
+Pos = 0,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20001
+ID = 20001
+Postype = back
+Pos = 0,0
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　アークドライブ
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8010]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20002
+ID = 20002
+Postype = back
+Pos = -240+(statetime*12) ,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20002
+ID = 20002
+Postype = back
+Pos = 0,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20003
+ID = 20003
+Postype = back
+Pos = 0,0
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　EX技
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8020]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20004
+ID = 20004
+Postype = back
+Pos = -220+(statetime*12) ,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20004
+ID = 20004
+Postype = back
+Pos = 20,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20005
+ID = 20005
+Postype = back
+Pos = 20,0
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+IgnoreHitPause = 1
+
+;==============================================================================
+;　AI起動用ヘルパー
+;==============================================================================
+[Statedef 9000]
+anim=20012;なにも表示しないｱﾆﾒでもいいけど入れなくても全然問題ない
+ctrl=0
+
+[State 10000,間違いで本体が来たら立ちへ移行]
+type=selfstate
+trigger1=!ishelper
+value=0
+
+[State 10000,プレイヤー判定]
+type=varset
+trigger1=command="up"&&root,command="up"
+trigger2=command="down"&&root,command="down"
+trigger3=command="back"&&root,command="back"
+trigger4=command="fwd"&&root,command="fwd"
+trigger5=command="a"&&root,command="a"
+trigger6=command="b"&&root,command="b"
+trigger7=command="c"&&root,command="c"
+trigger8=command="x"&&root,command="x"
+trigger9=command="y"&&root,command="y"
+trigger10=command="z"&&root,command="z"
+trigger11=command="start"&&root,command="start"
+var(1)=-1
+
+[State 10000,立ったら消失]
+Type = DestroySelf
+triggerAll = isHelper
+Trigger1 = root,var(1)||var(1)=-1
+trigger2=command="up"&&root,command="up"
+trigger3=command="down"&&root,command="down"
+trigger4=command="back"&&root,command="back"
+trigger5=command="fwd"&&root,command="fwd"
+trigger6=command="a"&&root,command="a"
+trigger7=command="b"&&root,command="b"
+trigger8=command="c"&&root,command="c"
+trigger9=command="x"&&root,command="x"
+trigger10=command="y"&&root,command="y"
+trigger11=command="z"&&root,command="z"
+trigger12=command="start"&&root,command="start"
+
+[State 10000,ﾌﾗｸﾞON]
+type=varset
+triggerall=var(1)!=-1
+trigger1=root,command="up"
+trigger2=root,command="down"
+trigger3=root,command="back"
+trigger4=root,command="fwd"
+trigger5=root,command="a"
+trigger6=root,command="b"
+trigger7=root,command="c"
+trigger8=root,command="x"
+trigger9=root,command="y"
+trigger10=root,command="z"
+trigger11=root,command="start"
+var(1)=1

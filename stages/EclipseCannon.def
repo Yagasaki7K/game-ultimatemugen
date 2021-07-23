@@ -1,0 +1,127 @@
+[Info]
+name = "Eclipse Cannon"
+author = "Teros"
+email = "inlineshadow@yahoo.com"
+versiondate = 11/19/2007
+mugenversion = 04,14,2001
+credits = http://mkw.mortalkombatonline.com, Deviantart
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -250
+boundright = 220
+boundhigh = -146
+boundlow = 0
+verticalfollow = 1
+floortension = 0
+tension = 60
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 38,38,38
+yscale = -.4
+
+[Music]
+bgmusic = sound/EclipseCannon.mp3
+bgvolume = +999
+
+[BGdef]
+spr = stages/EclipseCannon.sff
+debugbg = 0
+
+[BG Galaxy]
+type = normal
+start = -150,280
+spriteno = 3,0
+mask = 1
+delta = .5,.8
+tile = 1,0
+layerno = 0
+
+[BG Stars]
+type  = normal
+layerno = 0
+start = 50, 20
+spriteno = 5,0
+delta = 1, 1
+velocity = 10, 10
+tile = 1,1
+mask = 1
+trans = add
+
+[BG Fog]
+type = normal
+start = -150,280
+spriteno = 2,2
+mask = 1
+delta = 1,1
+trans = add
+tile = 1,0
+layerno = 0
+velocity = 10, 0
+
+[BG Wall]
+type = normal
+spriteno = 4,0
+start = 0,0
+delta = .8,.8
+mask = 1
+trans = none
+
+[BG Platform]
+type = normal
+spriteno = 0,0
+start = 0,0
+delta = 1,1
+mask = 1
+trans = none
+
+[BG Spikes]
+type = normal
+spriteno = 0,1
+layerno = 1
+start = 0,0
+delta = 1,1
+mask = 1
+trans = none
+
+[BG Mist]
+type = normal
+start = 0,0
+spriteno = 2,3
+mask = 1
+delta = 1,1
+trans = add
+tile = 1,0
+layerno = 1
+velocity = 10, 0

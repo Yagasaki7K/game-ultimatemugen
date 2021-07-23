@@ -1,0 +1,55 @@
+;---------------------------
+; RYUJI YAMAZAKI X VER.2
+;---------------------------
+
+;General Information
+
+[Info]
+Name         ="Ryuji Yamazaki"
+DisplayName  ="Ryuji Yamazaki"
+Author       ="Sander71113"
+VersionDate  = 08,23,2004
+MugenVersion = 4,14,2001
+Pal.Defaults = 4,8
+
+;Files for the player
+
+[Files]
+cmd      = ryuji.cmd      ;Hard ai
+;cmd     = medai.cmd      ;Defensive
+;cmd     = noai.cmd       ;no ai
+cns      = ryuji.cns      ;Constants
+stcommon = common1.cns    ;Common states (in data/)
+st       = ryuji.cns      ;States
+st1      = rspecials.cns
+st2      = rdustknife.cns
+st3      = reversal.cns
+st4      = rdm1.cns
+st5      = rdm2.cns
+st6      = rhits.cns
+st7      = rSDM2.cns
+sprite   = ryuji.sff      ;Sprite
+anim     = ryuji.air      ;Animation
+sound    = yamazaki.snd   ;Sound
+pal1     = violeta.act      ;Palettes
+pal2     = dugo.act
+pal3     = puti.act
+pal4     = yamazaki.act
+pal5     = berde.act
+pal6     = asul.act
+pal7     = bleed.act
+
+;Arcade mode
+[Arcade]
+;intro.storyboard  = intro.def
+ending.storyboard = ending.def
+
+
+;NOTE:
+;PLS READ README.TXT and AISHIFT.TXT
+
+;Product of Sander71113
+;http://go.to/sander71113
+;http://www.angelfire.com/jazz/sander71113
+;http://sander71113.mgbr.net
+;sander71113@yahoo.com

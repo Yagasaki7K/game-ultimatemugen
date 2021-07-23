@@ -1,0 +1,78 @@
+Version 4 - 31/12/2003       Lord Demitri Maxmov
+   		               SNK vrs CAPCOM
+			   Criado por Ex-Inferis
+	
+			 http://mugenexus.cjb.net
+
+
+-<+===================================================================>-
+  versão 4 - 150%  
+  
+  Novo Fatal - tunnel to Hell!
+  Filha adicionada!?!... uma ajudante anti combos.
+  Novo Super - Poder da Filha.
+  Novo Super - Vira Morcegos.
+  Nova Intro com a filha.
+  Novo especial - torres de fogo.
+  Novo especial - Morceguinhos Teleguiados.
+  Pose de derrota especial versus God Athena e Red Arremer.
+  Pose de derrota versus outros chars... Sobrevive.
+  Carregamento infernal de Power. Burn Baby Burn.
+  Mais efeitos adicionados.
+  Mais sprites adicionados.	
+  Mais sons.
+  Menos Combos Infinitos.
+  Menos Bugs. Mas algum possivel bug na Hora dos fatais
+              no modo Simultaneo. 
+
+  M.Bliss versus: 22 SvC chars e todos outros do seu Mugen!
+    
+
+-<+===================================================================>-
+  versão 3 - Beta 110%  
+
+  Novo Super original adicionado por Ilusionista - Justiça. Thanks!
+  Um Fatal criado - Coração Satânico.
+  Novo sistema de fuga dos cantos, WARP.
+  Corrida Aerea.
+  AI melhorada.
+  Nova intro e Win pose.
+  Vários Bugs corrigidos.
+  Mais sons e sprites adicionados.
+  Tela de Vitória criada! Só aparece se você der o fatal no oponente.
+  Midnight Bliss versus 15 SvC chars! thanks BlackJack.
+
+
+-<+===================================================================>-
+  versão 1 - Beta 60%
+
+  Tem todos os sprites e golpes originais! Todos alterados para
+     um melhor estilo de luta. Layout 6 botões.
+  Possui um golpe novo editado Hands of Jedah.
+  Tem uma AI interessante.
+
+  Para o proximo update terá mais sangue, mais golpes editados,
+  algum fatal e mais efeitos. Tela de vitoria, interações contra
+  Ravenous e Isabeau... Caminho longo até os 100%.
+
+
+-<+====================================================================>-
+  Obrigado ao Iusionista por sempre me ajudar na AI e outras.
+  Obrigado a Z sabre User que criou os sprites do KFM woman.
+    no proximo upd farei tudo para ela aparecer. :)
+
+  Thanks a lot to BlackJack! He sent me the TIP and the code for
+  the opponents to display the correct anim when affected by
+  Demitri's Midnight Bliss.
+
+
+  A meus Beta-Testers, ILUSIONISTA e BLACKJACK.
+
+
+  Coloquem todos os arquivos descompactados em uma pasta
+  chamada SvCVampiro.
+
+
+  E SUPER OBRIGADO a minha amada MARCELA, por sempre estar me motivando
+  e ajudando nas decisões do dia dia! TE AMO! 
+-<=====================================================================>-

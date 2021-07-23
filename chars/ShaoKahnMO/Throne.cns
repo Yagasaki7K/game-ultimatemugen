@@ -1,0 +1,31 @@
+; Shao Kahn's throne intro. Only affects player 2.
+;---------------------------------------------------------------------------
+; Choose intro
+; CNS difficulty: basic
+[Statedef 190]
+type = S
+
+[State 190, 1]
+type = VarRandom
+trigger1 = time = 0
+v = 11
+range = 1, 95
+
+[State 190, CheerVar]
+type = VarSet
+trigger1 = time = 0
+V = 8
+value = 1
+
+[State 190, SIntro1]
+type = ChangeState
+trigger1 = time = 0
+trigger1 = facing = -1
+value = 193
+
+[State 190, 1]
+type = ChangeState
+trigger1 = Time = 0
+trigger1 = facing = 1
+value = 191
+

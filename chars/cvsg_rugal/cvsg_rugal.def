@@ -1,0 +1,32 @@
+[Info]
+name ="cvsg_rugal"
+displayname ="God Rugal"
+versiondate=11,18,2005
+mugenversion=06,14,2003
+author="Warusaki3"
+Pal.Defaults=4,5
+
+[Files]
+cmd=cvsg_rugal.cmd
+cns=cvsg_rugal.cns
+st=cvsg_rugal.cns
+stcommon=common1.cns
+sprite=cvsg_rugal.sff
+anim=cvsg_rugal.air
+sound=cvsg_rugal.snd
+pal1=act104.act
+pal2=act105.act
+pal3=act106.act
+pal4=act101.act
+pal5=act102.act
+pal6=act103.act
+pal7=act107.act
+pal8=act108.act
+pal9=act109.act
+pal10=act110.act
+pal11=act111.act
+pal12=act112.act
+st1=config.txt
+[Arcade]
+intro.storyboard=
+ending.storyboard=

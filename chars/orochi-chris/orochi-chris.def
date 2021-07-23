@@ -1,0 +1,33 @@
+[Info]
+name     = "Chris O."
+versiondate = 8,04,2003
+author = "∞À…Ò‘≥"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd      = chris.cmd
+cns      = chris.cns
+st       = chris.cns
+st1      = AIsoft.cns
+stcommon = common4.cns
+sprite   = chris.sff
+anim     = chris.air
+sound    = chris.snd
+pal1     = chris2.act
+pal2     = chris9.act
+pal3     = chris3.act
+pal4     = chris4.act
+pal5     = chris5.act
+pal6     = chris6.act
+pal7     = chris7.act
+pal8     = chris8.act
+pal9     = chris1.act
+pal10    = chris10.act
+pal11    = chris11.act
+pal12    = chris12.act
+
+;------------------------------------------------------------------
+; Intro Cutscene and Ending
+[Arcade]
+;intro.storyboard  = 
+ending.storyboard = orochi.def

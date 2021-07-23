@@ -1,0 +1,294 @@
+;===========================================================================
+; 入力用ヘルパーステート
+;===========================================================================
+
+; 入力ヘルパー用変数
+
+; ボタン入力保持
+;	var(0)		x
+;	var(1)		y
+;	var(2)		z
+;	var(3)		a
+;	var(4)		b
+;	var(5)		c
+
+;	var(6)		U
+;	var(7)		D
+;	var(8)		F
+;	var(9)		B
+
+
+; コマンド入力保持
+;	var(10)		FF
+;	var(11)		BB
+
+;	var(20)		236
+;	var(21)		214
+;	var(22)		623
+;	var(23)		421
+;	var(24)		63214
+;	var(25)		41236
+;	var(26)		22
+;	var(27)		236236
+;	var(28)		214214
+;	var(29)		632146
+;	var(30)		412364
+;	var(31)		4646
+;	var(32)		6464
+;	var(33)		46
+;	var(34)		64
+;	var(35)		2363214
+;	var(36)		2141236
+;	var(37)		6321463214
+;	var(38)		4123641236
+;	var(39)		aa6bc
+;	var(40)		aa4bc
+;	var(41)		2rolling
+
+;-------------------------------------------------------------------------------
+; 入力用ヘルパー
+;-------------------------------------------------------------------------------
+[Statedef 10000]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+velset		= 0, 0
+anim		= 9999
+
+[State 10000, NotHitBy] ; 無敵
+type		= NotHitBy
+trigger1	= 1
+value		= SCA, AA, AT, AP
+time		= 2
+ignorethitpause	= 1
+supermovetime	= 99999
+pausemovetime	= 99999
+
+[State 10000, Turn] ; 向き補正
+type		= Turn
+trigger1	= Root,Facing != Facing
+ignorethitpause	= 1
+supermovetime	= 99999
+pausemovetime	= 99999
+
+[State 10000, Input Special Reset] ; 入力特殊リセット
+type		= Null
+ignorethitpause	= 1
+supermovetime	= 99999
+pausemovetime	= 99999
+trigger1	= var(10) > 0
+trigger1	= Root,StateNo = [100, 115]
+trigger1	= Root,Time <= 2
+trigger1	= var(10) := 0 && 0
+trigger2	= var(11) > 0
+trigger2	= Root,StateNo = [100, 115]
+trigger2	= Root,Time <= 2
+trigger2	= var(11) := 0 && 0
+trigger3	= var(22) > 0
+trigger3	= Root,StateNo = [1200, 1210]
+trigger3	= Root,Time <= 2
+trigger3	= var(22) := 0 && 0
+trigger4	= var(23) > 0
+trigger4	= Root,StateNo = [1200, 1210]
+trigger4	= Root,Time <= 2
+trigger4	= var(23) := 0 && 0
+
+[State 10000, Input Special Reset] ; 入力特殊リセット
+type		= VarRangeSet
+value		= 0
+first		= 0
+last		= 59
+ignorethitpause	= 1
+supermovetime	= 99999
+pausemovetime	= 99999
+triggerall	= Root,Time <= 2
+trigger1	= Root,StateNo = [920, 921]
+trigger2	= Root,StateNo = 1220
+trigger3	= Root,StateNo = 1250
+trigger4	= Root,StateNo = 2210
+trigger5	= Root,StateNo = 2250
+
+[State 10000, Input Time Course 1] ; 時間経過
+type		= Null
+triggerall	= Root,HitPauseTime = 0
+trigger1	= var(0) > 0
+trigger1	= var(0) := var(0) - 1 && 0
+trigger2	= var(1) > 0
+trigger2	= var(1) := var(1) - 1 && 0
+trigger3	= var(2) > 0
+trigger3	= var(2) := var(2) - 1 && 0
+trigger4	= var(3) > 0
+trigger4	= var(3) := var(3) - 1 && 0
+trigger5	= var(4) > 0
+trigger5	= var(4) := var(4) - 1 && 0
+trigger6	= var(5) > 0
+trigger6	= var(5) := var(5) - 1 && 0
+trigger7	= var(6) > 0
+trigger7	= var(6) := var(6) - 1 && 0
+trigger8	= var(7) > 0
+trigger8	= var(7) := var(7) - 1 && 0
+trigger9	= var(8) > 0
+trigger9	= var(8) := var(8) - 1 && 0
+trigger10	= var(9) > 0
+trigger10	= var(9) := var(9) - 1 && 0
+
+[State 10000, Input Time Course 2] ; 時間経過2
+type		= Null
+triggerall	= Root,HitPauseTime = 0
+trigger1	= var(10) > 0
+trigger1	= var(10) := var(10) - 1 && 0
+trigger2	= var(11) > 0
+trigger2	= var(11) := var(11) - 1 && 0
+trigger3	= var(12) > 0
+trigger3	= var(12) := var(12) - 1 && 0
+trigger4	= var(13) > 0
+trigger4	= var(13) := var(13) - 1 && 0
+
+[State 10000, Input Time Course 3] ; 時間経過3
+type		= Null
+triggerall	= Root,HitPauseTime = 0
+trigger1	= var(20) > 0
+trigger1	= var(20) := var(20) - 1 && 0
+trigger2	= var(21) > 0
+trigger2	= var(21) := var(21) - 1 && 0
+trigger3	= var(22) > 0
+trigger3	= var(22) := var(22) - 1 && 0
+trigger4	= var(23) > 0
+trigger4	= var(23) := var(23) - 1 && 0
+trigger5	= var(24) > 0
+trigger5	= var(24) := var(24) - 1 && 0
+trigger6	= var(25) > 0
+trigger6	= var(25) := var(25) - 1 && 0
+trigger7	= var(26) > 0
+trigger7	= var(26) := var(26) - 1 && 0
+trigger8	= var(27) > 0
+trigger8	= var(27) := var(27) - 1 && 0
+trigger9	= var(28) > 0
+trigger9	= var(28) := var(28) - 1 && 0
+trigger10	= var(29) > 0
+trigger10	= var(29) := var(29) - 1 && 0
+trigger11	= var(30) > 0
+trigger11	= var(30) := var(30) - 1 && 0
+trigger12	= var(31) > 0
+trigger12	= var(31) := var(31) - 1 && 0
+trigger13	= var(32) > 0
+trigger13	= var(32) := var(32) - 1 && 0
+trigger14	= var(33) > 0
+trigger14	= var(33) := var(33) - 1 && 0
+trigger15	= var(34) > 0
+trigger15	= var(34) := var(34) - 1 && 0
+trigger16	= var(35) > 0
+trigger16	= var(35) := var(35) - 1 && 0
+trigger17	= var(36) > 0
+trigger17	= var(36) := var(36) - 1 && 0
+trigger18	= var(37) > 0
+trigger18	= var(37) := var(37) - 1 && 0
+trigger19	= var(38) > 0
+trigger19	= var(38) := var(38) - 1 && 0
+trigger20	= var(39) > 0
+trigger20	= var(39) := var(39) - 1 && 0
+trigger21	= var(40) > 0
+trigger21	= var(40) := var(40) - 1 && 0
+trigger22	= var(41) > 0
+trigger22	= var(41) := var(41) - 1 && 0
+
+
+[State 10000, Button Input Set] ; ボタン入力保持
+type		= Null
+ignorethitpause	= 1
+supermovetime	= 99999
+pausemovetime	= 99999
+trigger1	= Command = "x"
+trigger1	= var(0) := 3 && 0
+trigger2	= Command = "y"
+trigger2	= var(1) := 3 && 0
+trigger3	= Command = "z"
+trigger3	= var(2) := 3 && 0
+trigger4	= Command = "a"
+trigger4	= var(3) := 3 && 0
+trigger5	= Command = "b"
+trigger5	= var(4) := 3 && 0
+trigger6	= Command = "c"
+trigger6	= var(5) := 3 && 0
+
+[State 10000, Lever Input Set] ; レバー入力保持
+type		= Null
+ignorethitpause	= 1
+supermovetime	= 99999
+pausemovetime	= 99999
+trigger1	= Command = "up" || Command = "holdup"
+trigger1	= var(6) := 15 && 0
+trigger2	= Command = "down" || Command = "holddown"
+trigger2	= var(7) := 15 && 0
+trigger3	= Command = "fwd" || Command = "holdfwd"
+trigger3	= var(8) := 15 && 0
+trigger4	= Command = "back" || Command = "holdback"
+trigger4	= var(9) := 15 && 0
+
+
+[State 10000, Command Input Set 1] ; コマンド入力保持1
+type		= Null
+ignorethitpause	= 1
+supermovetime	= 99999
+pausemovetime	= 99999
+trigger1	= Command = "FF"
+trigger1	= var(10) := 15 && 0
+trigger2	= Command = "BB"
+trigger2	= var(11) := 15 && 0
+
+[State 10000, Command Input Set 2] ; コマンド入力保持2
+type		= Null
+ignorethitpause	= 1
+supermovetime	= 99999
+pausemovetime	= 99999
+trigger1	= Command = "236"
+trigger1	= var(20) := 15 && 0
+trigger2	= Command = "214"
+trigger2	= var(21) := 15 && 0
+trigger3	= Command = "623"
+trigger3	= var(22) := 15 && 0
+trigger4	= Command = "421"
+trigger4	= var(23) := 15 && 0
+trigger5	= Command = "63214"
+trigger5	= var(24) := 15 && 0
+trigger6	= Command = "41236"
+trigger6	= var(25) := 15 && 0
+trigger7	= Command = "22"
+trigger7	= var(26) := 15 && 0
+trigger8	= Command = "236236"
+trigger8	= var(27) := 15 && 0
+trigger9	= Command = "214214"
+trigger9	= var(28) := 15 && 0
+trigger10	= Command = "632146"
+trigger10	= var(29) := 15 && 0
+trigger11	= Command = "412364"
+trigger11	= var(30) := 15 && 0
+trigger12	= Command = "4646"
+trigger12	= var(31) := 15 && 0
+trigger13	= Command = "6464"
+trigger13	= var(32) := 15 && 0
+trigger14	= Command = "46"
+trigger14	= var(33) := 15 && 0
+trigger15	= Command = "64"
+trigger15	= var(34) := 15 && 0
+trigger16	= Command = "2363214"
+trigger16	= var(35) := 15 && 0
+trigger17	= Command = "2141236"
+trigger17	= var(36) := 15 && 0
+trigger18	= Command = "6321463214"
+trigger18	= var(37) := 15 && 0
+trigger19	= Command = "4123641236"
+trigger19	= var(38) := 15 && 0
+trigger20	= Command = "aa6bc"
+trigger20	= var(39) := 15 && 0
+trigger21	= Command = "aa4bc"
+trigger21	= var(40) := 15 && 0
+trigger22	= Command = "2rolling"
+trigger22	= var(41) := 15 && 0
+
+
+[State 10000, DestroySelf]
+type		= DestroySelf
+triggerall	= IsHelper
+trigger1	= NumHelper(10000) > 1

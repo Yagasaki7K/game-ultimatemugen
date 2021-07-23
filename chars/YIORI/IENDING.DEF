@@ -1,0 +1,131 @@
+[SceneDef]
+spr = Introend.sff
+startscene = 0
+
+[Scene 0]
+clearcolor = 0,0,0
+layerall.pos = 0,0
+bgm = iend.mp3
+bgm.loop = 0
+end.time = 50
+
+[Scene 1]
+clearcolor = 255,255,255
+layerall.pos = 0,0
+layer0.anim =  24
+layer0.offset = 0,0
+layer0.starttime = 0
+layer1.anim =  23
+layer1.offset = 50,18
+layer1.starttime = 7
+layer2.anim =  2
+layer2.offset = 0,0
+layer2.starttime = 0
+layer3.anim =  3
+layer3.offset = 0,0
+layer3.starttime = 0
+layer4.anim =  4
+layer4.offset = 0,0
+layer4.starttime = 0
+layer5.anim =  5
+layer5.offset = 0,0
+layer5.starttime = 0
+end.time = 20
+
+[Scene 2]
+clearcolor = 0,176,136
+layerall.pos = 0,0
+layer0.anim =  24
+layer0.offset = 0,0
+layer0.starttime = 0
+layer1.anim =  22
+layer1.offset = 50,18
+layer1.starttime = 0
+layer2.anim =  25
+layer2.offset = 36,190
+layer2.starttime = 30
+layer3.anim =  6
+layer3.offset = 36,190
+layer3.starttime = 30
+end.time = 330
+
+[Begin Action 24]
+0,24,0,0,-1
+
+[Begin Action 25]
+0,25,0,0,-1
+
+[Begin Action 23]
+0,23,-270,0,1
+0,23,-230,0,1
+0,23,-190,0,1
+0,23,-150,0,1
+0,23,-110,0,1
+0,23,-70,0,1
+0,23,-30,0,1
+0,23,10,0,1
+0,23,15,0,1
+0,23,7,0,2
+0,23,0,0,-1
+
+[Begin Action 22]
+0,23,0,0,1
+
+[Begin Action 6]
+0,2,0,0,4
+0,2,16,0,4
+0,2,32,0,4
+0,2,48,0,4
+0,2,64,0,4
+0,2,80,0,4
+0,2,96,0,4
+0,2,112,0,4
+0,2,128,0,4
+0,2,144,0,4
+0,2,160,0,4
+0,2,176,0,4
+0,2,192,0,4
+0,2,208,0,4
+0,2,224,0,4
+0,2,240,0,4
+0,99,0,0,-1
+
+[Begin Action 2]
+0,2,0,-120,1
+0,2,0,-137,1
+0,2,0,-154,1
+0,2,0,-171,1
+0,2,0,-188,1
+0,2,0,-205,1
+0,2,0,-222,1
+0,2,0,-239,1
+0,99,0,0,-1
+
+[Begin Action 3]
+0,2,0,-150,1
+0,2,0,-167,1
+0,2,0,-184,1
+0,2,0,-201,1
+0,2,0,-218,1
+0,2,0,-235,1
+0,99,0,0,-1
+
+[Begin Action 4]
+0,2,0,120,1
+0,2,0,137,1
+0,2,0,154,1
+0,2,0,171,1
+0,2,0,188,1
+0,2,0,205,1
+0,2,0,222,1
+0,2,0,239,1
+0,99,0,0,-1
+
+[Begin Action 5]
+0,2,0,150,1
+0,2,0,167,1
+0,2,0,184,1
+0,2,0,201,1
+0,2,0,218,1
+0,2,0,235,1
+0,99,0,0,-1

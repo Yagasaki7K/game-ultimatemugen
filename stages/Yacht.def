@@ -1,0 +1,137 @@
+;Web : http://www.freewebs.com/sangkalaza/
+;My mail : KgohanT@yahoo.com
+
+[Info]
+name = "Yacht"
+author = "KGT"
+;********************************
+[Camera]
+startx = 0
+starty = 0
+boundleft = -116
+boundright = 116
+boundhigh = -700
+boundlow = 0
+tension =50
+verticalfollow =.93
+floortension = 109
+;********************************
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+;********************************
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+;********************************
+[Bound]
+screenleft = 10
+screenright = 10
+;********************************
+[StageInfo]
+zoffset = 225
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+HIres = 1
+;********************************
+[Shadow]
+intensity = 64
+color = 15,15,15
+yscale = .4
+;********************************
+[Music]
+bgmusic = stages/Yacht.mp3
+bgvolume = 255
+;********************************
+[BGdef]
+spr = stages/Yacht.sff
+debugbg = 0
+;===******===Background===******===
+[BG Background]
+type = normal
+spriteno = 1,0
+start = 0,0
+delta = .5,0.5
+mask = 1
+tile = 1,1
+velocity = -1,0
+layerno = 0
+
+;===******===Boat===******===
+[BG BoatA]
+type = normal
+spriteno = 0,0
+layerno = 0
+start = 0,0
+delta = 2,2
+sin.y = -4,600,-2
+mask = 1
+ID = 1
+[BG BoatB]
+type = normal
+spriteno = 0,1
+layerno = 1
+start = 0,0
+delta = 2,2
+sin.y = 7,600,3.5
+mask = 1
+
+;===******===Crow===******===
+[BG Crow]
+type = anim
+actionno = 5
+delta = 1,1
+start = -500,0
+mask = 1
+velocity = 2,-.1
+tile = 1,0
+tilespacing = 900,0
+[BG Crow]
+type = anim
+actionno = 5
+delta = 1,1
+start = -600,150
+mask = 1
+velocity = 2.5,-.1
+tile = 1,0
+tilespacing = 900,0
+[BG Crow]
+type = anim
+actionno = 5
+delta = 1,1
+start = -700,300
+mask = 1
+velocity = 3,-.1
+tile = 1,0
+tilespacing = 900,0
+[BG CrowSit]
+type = normal
+spriteno = 5,0
+layerno = 1
+start = 0,0
+delta = 2,2
+sin.y = 7,600,3.5
+mask = 1
+
+[Begin Action 5]
+4,0, 0,0, 5
+4,1, 0,0, 5
+4,2, 0,0, 5
+4,3, 0,0, 5
+4,4, 0,0, 5
+4,3, 0,0, 5
+4,2, 0,0, 5
+4,1, 0,0, 5

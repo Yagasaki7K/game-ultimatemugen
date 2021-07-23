@@ -1,0 +1,430 @@
+
+[Info]
+name = "Ice Palace"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -222
+boundright = 222
+boundhigh = -120
+boundlow = 0
+verticalfollow = .4
+tension = 90
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 225
+autoturn = 1
+resetBG = 0
+HIRes = 1
+
+[Shadow]
+color = 32,32,32
+yscale = .-2
+reflect = 0
+
+[Reflection]
+reflect=1
+scale=1
+intensity=64
+
+[Music]
+bgmusic = 
+bgvolume = 0
+
+[BGdef]
+spr = stages/icepalace.sff
+debugbg = 0
+
+
+[BG Sky]
+type = normal
+spriteno = 28,0
+start = -129,-45
+delta = 0.28,2
+mask = 1
+actionno =0
+
+
+[BG Sky2]
+type = normal
+spriteno = 29,0
+start = -385,-45
+delta = 0.28,2
+mask = 1
+actionno =0
+
+[BG Sky3]
+type = normal
+spriteno = 30,0
+start = 127,-45
+delta = 0.28,2
+mask = 1
+actionno =0
+
+
+[BG Sky4]
+type = normal
+spriteno = 31,0
+start = -129,-301
+delta = 0.28,2
+mask = 1
+actionno =0
+
+[BG Sky5]
+type = normal
+spriteno = 32,0
+start = -385,-301
+delta = 0.28,2
+mask = 1
+actionno =0
+
+[BG Sky6]
+type = normal
+spriteno = 33,0
+start = 127,-301
+delta = 0.28,2
+mask = 1
+actionno =0
+
+[BG MoutainLeft5]
+type = normal
+spriteno = 25,0
+start = -215,145
+delta = 0.9,2
+mask = 1
+actionno =0
+
+[BG MoutainLeft3]
+type = normal
+spriteno = 24,1
+start = -445,125
+delta = 1,2
+mask = 1
+actionno =0
+
+[BG MoutainLeft4]
+type = normal
+spriteno = 24,0
+start = -494,138
+delta = 1,2
+mask = 1
+actionno =0
+
+[BG MoutainRight]
+type = normal
+spriteno = 20,0
+start = 90,59
+delta = 1.2,2
+mask = 1
+actionno =0
+
+[BG MoutainLeft]
+type = normal
+spriteno = 22,0
+start = -355,220
+delta = 1.2,2
+mask = 1
+actionno =0
+
+[BG MoutainLeft2]
+type = normal
+spriteno = 23,0
+start = -609,97
+delta = 1.2,2
+mask = 1
+actionno =0
+
+[BG MoutainRight2]
+type = normal
+spriteno = 21,0
+start = -84,191
+delta = 1.2,2
+mask = 1
+actionno =0
+
+
+[BG CrystalBack]
+type = normal
+spriteno = 10,0
+start = 222,192
+delta = 1.46,2
+mask = 1
+actionno =0
+
+[BG Crystal]
+type = normal
+spriteno = 5,0
+start = 148,174
+delta = 1.55,2
+mask = 1
+actionno =0
+
+[BG Tower]
+type = normal
+spriteno = 4,0
+start = 95,179
+delta = 1.5,2
+mask = 1
+actionno =0
+
+
+[BG Steaple]
+type = normal
+spriteno = 7,0
+start = 290,105
+delta = 1.46,2
+mask = 1
+actionno =0
+
+[BG SteapleTop]
+type = normal
+spriteno = 7,1
+start = 315,-80
+delta = 1.46,2
+mask = 1
+actionno =0
+
+[BG Twisted]
+type = normal
+spriteno = 11,0
+start = 385,110
+delta = 1.53,2
+mask = 1
+actionno =0
+
+[BG Top]
+type = normal
+spriteno = 6,0
+start = 228,204
+delta = 1.58,2
+mask = 1
+actionno =0
+
+
+[BG Globe]
+type = normal
+spriteno = 8,0
+start = 453,246
+delta = 1.55,2
+mask = 1
+actionno =0
+
+[BG Tower5]
+type = normal
+spriteno = 12,0
+start = 493,166
+delta = 1.52,2
+mask = 1
+actionno =0
+
+[BG Tower2]
+type = normal
+spriteno = 9,0
+start = 623,169
+delta = 1.5,2
+mask = 1
+actionno =0
+
+
+
+[BG Wall]
+type = normal
+spriteno = 3,0
+start = 277,243
+delta = 1.6,2
+mask = 1
+actionno =0
+
+[BG GuyPunch]
+type = anim
+spriteno = 26,0
+start = 192,217
+delta = 1.6,2
+mask = 1
+actionno =1
+
+
+[BG Wall2]
+type = normal
+spriteno = 2,0
+start = 635,197
+delta = 1.6,2
+mask = 1
+actionno =0
+
+[BG Kids]
+type = anim
+spriteno = 34,0
+start = -153,328
+delta = 1,2
+mask = 1
+actionno =3
+
+
+[BG GuyPunch2]
+type = anim
+spriteno = 27,0
+start = 556,231
+delta = 1.6,2
+mask = 1
+actionno =2
+
+
+[BG Floor1]
+type = normal
+spriteno = 1,0
+start = -510,274
+delta = 2,2
+mask = 1
+actionno =0
+
+
+[BG Floor2]
+type = normal
+spriteno = 1,1
+start = -2,279
+delta = 2,2
+mask = 1
+actionno =0
+
+[BG Floor3]
+type = normal
+spriteno = 1,2
+start = 510,304
+delta = 2,2
+mask = 1
+actionno =0
+
+[BG StatueBehind]
+type = normal
+spriteno = 18,0
+start = -448,152
+delta = 2,2
+mask = 1
+actionno =0
+
+
+[BG Statuebottom]
+type = normal
+spriteno = 13,0
+start = -513,83
+delta = 2,2
+mask = 1
+actionno =0
+
+
+
+[BG StatueTop]
+type = normal
+spriteno = 13,1
+start = -513,-22
+delta = 2,2
+mask = 1
+actionno =0
+
+[BG StatueCircle]
+type = normal
+spriteno = 14,0
+start = -656,-49
+delta = 2,2
+mask = 1
+actionno =0
+
+
+
+[BG Statueleft]
+type = normal
+spriteno = 15,0
+start = -765,-26
+delta = 2,2
+mask = 1
+actionno =0
+
+
+
+[BG Statue2]
+type = normal
+spriteno = 16,0
+start = -284,118
+delta = 2,2
+mask = 1
+actionno =0
+
+
+[BG StatueCross]
+type = normal
+spriteno = 17,0
+start = -373,40
+delta = 2,2
+mask = 1
+actionno =0
+
+
+[BG StatueStaff]
+type = normal
+spriteno = 19,0
+start = -287,-4
+delta = 2,2
+mask = 1
+actionno =0
+
+[Begin action 1]
+
+26,0, 0,0, 9
+26,1, 0,0, 9
+26,2, 0,0, 9
+26,3, 0,0, 9
+26,4, 0,0, 9
+26,5, 0,0, 9
+26,6, 0,0, 9
+26,7, 0,0, 9
+
+[Begin action 2]
+
+27,0, 0,0, 10
+27,1, 0,0, 10
+27,2, 0,0, 10
+27,3, 0,0, 10
+
+
+[Begin action 3]
+
+34,0, 0,0, 9
+34,1, 0,0, 9
+34,2, 0,0, 9
+34,3, 0,0, 9
+34,4, 0,0, 9
+34,5, 0,0, 9
+34,6, 0,0, 9
+34,7, 0,0, 9
+34,8, 0,0, 9
+34,9, 0,0, 9
+34,10, 0,0, 9
+34,11, 0,0, 9
+34,12, 0,0, 9
+34,13, 0,0, 9

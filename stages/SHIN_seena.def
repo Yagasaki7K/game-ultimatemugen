@@ -1,0 +1,124 @@
+;神鳳拳  人魚姫 シーナステージ  NO.11
+; from 蒼月 光 (Hikaru Aotsuki)
+;------------------------------------------------
+[Info]
+name = "SHIN_seena stage"
+;------------------------------------------------
+[Music]
+bgmusic  = 
+bgvolume = 0
+;------------------------------------------------
+[BGdef]
+spr     = stages/SHIN_seena.sff
+debugbg = 1
+;------------------------------------------------
+[Camera]
+startx         = 0
+starty         = 0
+boundleft = -380
+boundright = 380
+boundhigh = -289
+boundlow = 0
+verticalfollow = 0.30
+tension        = 60
+;------------------------------------------------
+[PlayerInfo]
+p1startx   = -100
+p1starty   = 0
+p1startz   = 0
+p1facing   = 1
+p2startx   = 88
+p2starty   = 0
+p2startz   = 0
+p2facing   = -1
+leftbound  = -1000
+rightbound =  1000
+topbound   =  0   
+botbound   =  0   
+;------------------------------------------------
+[Scaling]    
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.1
+;------------------------------------------------
+[Bound]  
+screenleft  = 15
+screenright = 15
+;------------------------------------------------
+[StageInfo]
+zoffset  = 211 
+autoturn = 1
+resetBG  = 0
+;------------------------------------------------
+[Shadow]
+color = 220, 215, 240 
+yscale = 0.2    
+reflect = 0  
+;------------------------------------------------
+;[BG 背景]
+[BG background]
+type  = normal
+spriteno = 0,0
+layerno= 0
+mask     = 1
+delta = 0.420,0.83
+start    =-168,-110
+
+;[BG オブジェ1]
+[BG object1]
+type  = normal
+spriteno = 10,0
+layerno= 0
+mask     = 1
+delta = 0.65,1.0
+start    =-160,0
+
+;[BG 滝]
+[BG waterfall]
+type  = anim
+actionno = 20
+layerno= 0
+mask     = 1
+delta = 0.65,1.0
+start    =-160,0
+
+[Begin Action 20] 
+-1,0,0,0,8
+20,0,0,0,8
+20,1,0,0,8
+20,2,0,0,8
+20,3,0,0,8
+20,4,0,0,8
+20,5,0,0,8
+20,6,0,0,8
+
+;[BG ベース]
+[BG base]
+type  = normar
+spriteno = 30,0
+layerno= 0
+mask     = 1
+delta = 0.80,1.0
+start    =-160,0
+
+;[BG 噴水]
+[BG fountain]
+type  = anim
+actionno = 30
+layerno= 0
+mask     = 1
+delta = 0.80,1.0
+start    =-160,0
+
+[Begin Action 30] 
+-1,0,0,0,8
+30,1,0,0,8
+30,2,0,0,8
+30,3,0,0,8
+30,4,0,0,8
+30,5,0,0,8
+30,6,0,0,8
+30,7,0,0,8
+
+

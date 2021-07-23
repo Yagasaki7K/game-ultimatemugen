@@ -1,0 +1,115 @@
+------ * MANUAL ver.2005.2.19 * -----------------------------------------
+1.5 update : (When Vs kyo) MAX2's voice added.
+             Sunflower cancel is Disabled.
+1.56 up : 'MAX 8 maiden rush' is availabled while Ghost scorch.
+
+ AI Level Change : First, open 'IORIAI.CNS' file. Then, there is a part
+                   that 'var(58) = ?'.Change this number.
+                   0 - baby , 1 - beginner , 2 - normal
+                   3 - expert(AI don't use dodge)
+                   4 - expert(AI use dodge)
+
+ ST bar option   : 'var(59) = ?' is AI striker(or striker) bar ON/OFF
+                   setting.
+                  1 : AI use striker by use 'striker bomb'
+                  0 : AI use striker by use Power
+                  -1 : AI don't use striker
+                  -2 : Both player&AI can't use striker(a+y is MAX mode)
+                       striker bar ON/OFF option isn't available, too.
+                                  
+(If you want to use YIORI in training mode with no AI, switch to MANUAL
+ and press any key. Then YIORI's AI don't act.)
+
+ (When intro) If you push D key, striker bar is show out. If you push U key
+, striker bar is show on. When striker bar is not exist, call striker requi
+re 1000 power.
+
+***************************************************************************
+ UB U UF                     x - light punch      y - heavy punch
+ B  .  F    b c z            a - light kick       b - heavy kick
+ DB D DF    x a y            c,z - hot key        start - start button
+
+                             P - Punch      K - Kick
+
+***** SKILL(1p situation) *************************************************
+F,F,F                   95 version dash
+F,F                     dash
+B,B                     back step
+a+b                     turning(only in team battle)
+start button            taunt(charge 1 striker bomb)
+                          (but if striker bar isn't exist, this is 99 ver.)
+z or x+a+y              power charge
+x+a or c                slide,dodge(back,forward,stand)
+(in air) y+b or c       air knock down(guard cancel possible:power 1000)
+y+b or D+c             knock down( " )
+                        ('cancel guard dodge' or 'knock down'is only can
+                        "x+a","y+b")
+                        (guard cancel roll forward : require 1000 power
+                         guard cancel roll back    : require 500 power
+                         basic attack cancel r.f   : require 500 power )
+(in stand dodge)anykey(except c,z)  cancel dodge attack
+(in roll forward)anykey(except c,z) cancel dodge attack(only in counter
+                                                        mode can combo)
+                       
+******* counter & armor mode **********************************************
+x+a+y or F+z  (20 sec)   counter mode (require lv3 power)
+b+a+y or B+z  (16 sec)   armor mode   ( " )
+x+b   or D+z             2k2+SVC MAX mode (require lv1 power)
+                                      (but when cancel, require lv2 power)
+                         (When striker don't use, a+y is available,too)
+
+******** catch ************************************************************
+(near) F+y or B+y        Reverse peel the back(can ground recover)(95 ver)
+(near) F+b or B+b        Peel the back( " )
+
+****** special skills *****************************************************
+F+a                      2001Negative God of death
+F+b                      2002Negative God of death(when cancel: 2000 ver.)
+F+x(x2)                  Dream grief  
+(in air) B+a             Rily break
+
+****** skills *************************************************************
+a+y                       call 'shadow iori'
+                        (require 1 striker bomb)
+                        (but if striker bar isn't exist,require 1000 power)
+(in catching) a+y         (only in catching)call s-iori
+                        (require 1000 power & 1 striker bomb)
+                        (but if striker bar isn't exist,require 2000 power)
+(during guard)F,F or a+y  Guard cancel dash(a+y is require more power
+                                            than F,F)
+D,DF,F+P                  Darkness stalk
+F,D,DF+P                  Ghost scorch
+F,D,DF+K                  Claw scorch(can connect to 'blue flower')
+D,B,F +P                  Dust wind
+D,B +P(x3)                Sunflower(+95 ver.)
+D,B +K                    Moon Harp Negative(95 ver.)(in Sf cancel,not 95.)
+F,DF,D,B +K               SVC&2002 Moon Harp Negative
+F,D,DF +x+y or F,D,DF +c  Heavy Ghost scorch(require 500 power)
+                               (but when D,B +P cancel, require 1000 power)
+********** super skills ***************************************************
+D,DF,F,D,F +K(or c):Hungry Ghost scorch(light:require lv1 power, heavy: lv2
+                                power, light+heavy or c: require lv3 power)
+                              (While light, holding "a" and then low jump.)
+D,B,D,F +P             :Eight Wine Cup( " )(can saving)(lv3 deleted)
+D,DF,F,DF,D,B +P(or x+y):Eight Maiden ( " )
+|-(in Lv1 Eight Maiden Rush)D,F,D,F,D,F,D,F + x+y(or c): Jackal flower
+                                                        (require lv1 power)
+
+D,B,D,F  +K          95version Eight Maiden (require 1.5power)
+D,DF,F,D,F +P        Darkness scorch(require lv1 power)
+------------------------------------------------------------
+2002ver. MAX : (When MAX mode)D,DF,F,D,B +x+y           (require lv1 power)
+MAX2 flame strike : (When Life is lower than 1/4 & MAX mode)
+                    D,B,D,F,B,F +x+y(or c)              (require lv1 power)
+
+----exceed(in one stage, only one-time available, only one of two)----
+ Blood's overcrowding : (When Life is lower than 1/2)D,B,D,B +x+y(or c)
+ Self flame           : (When Life is lower than 1/2)D,F,D,B +a+b(or c)
+
+***************************************************************************
+                 -- I can't speak english well. sorry. --
+
+
+          Home page : http://myhome.naver.com/ihoo1836
+
+                   ***** Do not modify my char *****

@@ -1,0 +1,39 @@
+;********************************************************************
+;*** Kintaro's DEF File v. 1.1 for MUGEN 11.32                    ***
+;*** By: The Mike Obrecht 0/0/2001                                ***
+;********************************************************************
+
+; Player information
+[Info]
+name = "Shao Kahn"             ;Name of character
+displayname = "Shao Kahn"      ;Name of character to display
+versiondate = 4,10,2001    ;Version date of character
+mugenversion = 4,10,2001   ;Version of M.U.G.E.N character works on
+author = "Mike Obrecht"      ;Character author name
+pal.defaults = 12, 12, 12   ;Default palettes in order of preference
+
+[Files]
+cmd=kahn.cmd
+cns=kahn.cns
+st=throne.cns
+st2=kahn.cns
+st3=blood.cns
+st4=kahnAI.cns
+st5=kahncommon1.cns
+st6=stones.cns
+stcommon=common1.cns
+sprite=shaokahn.sff
+sound=shaokahn.snd
+anim=kahn.air
+pal1=kahn1.act              
+pal2=kahn2.act              
+pal3=kahn3.act              
+pal4=kahn4.act              
+pal5=kahn1.act              
+pal6=kahn2.act              
+pal7=kahn3.act              
+pal8=kahn4.act              
+pal9=kahn1.act              
+pal10=kahn2.act              
+pal11=kahn3.act              
+pal12=kahn4.act              

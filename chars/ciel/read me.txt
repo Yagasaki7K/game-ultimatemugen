@@ -1,0 +1,114 @@
+
+*character data*
+
+Name		Ciel
+Original Game	MELTY BLOOD Re.Act
+Author		Shiroto
+Version		1.500
+Last Update	2008/12/30
+
+*another character data*
+
+Name		Chie Rumiko
+Original Game	Higurashi No Nakukoroni
+
+*move list*
+
+=button configration=
+  a	light attack
+　b	middle attack
+  c	hard attack
+  x	skill only
+  y	skill only
+  z	Shield
+start	no used
+
+=sub system=
+  Shield		: z
+  Shield Counter	: (while Shield hitting) 236+z
+  Shield Banker		: 214+z
+　(Last Arc)		: (while BLOOD HEAT and Shield hitting)
+  Dash			: 66
+  Back Step		: 44
+  Second Jump		: (in air) 7 or 8 or 9
+  Air Dash		: (in air) 66
+  Air Back Dash		: (in air) 44
+　High Jump		: 19
+  (Charged Attack)	: ??
+  HEAT			: if 300% power, automatic movement
+　Compulsion HEAT	: 222+z
+　BLOOD HEAT		: (while HEAT(not Compulsion HEAT))222+z
+　Counter Attack	: (while guarding) 6+cz
+　(Dodge)		: (while opponent attacking) 4)
+　Cross Counter		: ??
+
+*Skill*
+
+=Basic Moves=
+  Black Key Attack		: (in air) 2+c
+　Knife Attack			: 4+c
+　Heel				: 4+b
+　Throw				: (While Heel) 236+b
+　Aerial Rave			:（while hard crouch attack hitting）3+c
+　Kick				:（while middle crouch attack）3+b
+　Throw Black Key 		: (while hard stand attack）3+b
+  Body Blow			: (short distance and while light stand attack hitting) 6+a
+  Panch				: (while Body Blow hitting) 6+a
+
+=Special Moves=
+  Halo(?) start			: 236+a or b
+  Throw Black Key (Halo(?))1	:（while Halo(?) and on wall）214+a or b
+  Throw Black Key (Halo(?))2	: (while Throw Black Key (Halo(?))1) 214+attack
+  Halo(?) Move			:（while Halo(?) and on wall) 236+attack
+  Halo(?) Jumping		:（while Halo(?) and on wall) attack
+  Bird Ritual(?)		:（while Halo(?) and in air) 214+attack
+  Halo(?) Throw			:（while Halo(?) and in air and short distance) a
+  Halo(?) Attack		:（while Halo(?) and in air) b or c
+				  (in air) 236+attack
+  Throw Black Key (Halo(?))3	:（while Halo(?) and in air) 214+x
+  Throw Black Key Un		: 214+a or b
+  Throw Black Key Deux		: (while Throw Black Key Un) 4+a
+  Throw Black Key Trois		: (while Throw Black Key Deux) 4+b
+  Throw Black Key Quatre	: (while Throw Black Key Deux or Trois) 4+b
+  Throw Black Key Sept		: (while Throw Black Key Deux or Trois) 4+a
+  Throw Black Key Neuf		: (while Throw Black Key Sept) 4+a
+  Air Throw Black Key Un	: (in air) 214+a or b
+  Air Throw Black Key Deux	: (while Air Throw Black Key Un) 4+a
+  Air Throw Black Key Trois	: (while Air Throw Black Key Un) 4+a
+  Blade ??			: 623+attack
+  Ciel's Somersault		: 22+attack (ground or air)
+
+=Super Moves=
+  Throw Black Key Grand Finish(?)	: 214+c
+  Air Throw Black Key Grand Finish(?)	: (in air) 214+c
+  Seventh Heaven			: 236+c
+  Throw Black Key Short Finish(?)	: 214+zc
+  Air Throw Black Key Checkmate		: (in air) 214+zc
+　Angel Halo(?)				: (in air) 236+zc
+                                   	 （while Halo(?) and in air) zc
+  Burial Ritual(?)			:（while Halo(?) and in air) 214+y
+
+=Arc Drive=
+  Cremation Ritual		: (in air) 41236+c
+  Saint Healing			: 63214+c (Another Arc Drive only)
+  The Seventh Scripture		: 41236+c
+  ?				: 2363214+c
+  ?				: 236236236236+c (Another Arc Drive only)
+
+=Last Arc=
+　??				: (in air and Shield hitting)
+
+;===========================================================================
+
+*Special thanks for*
+ netgozzang
+ momoru
+ some Japanese person
+
+ TYPE-MOON
+
+Thank you for your download.
+
+;===========================================================================
+ e-mail:salvafate-srt01@yahoo.co.jp
+ web:	http://page.freett.com/elemental_t/index.html

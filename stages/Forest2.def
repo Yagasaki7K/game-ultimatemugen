@@ -1,0 +1,348 @@
+;Web : http://www.freewebs.com/sangkalaza/
+;My mail : sang_kalaza@yahoo.com
+
+[Info]
+name = "Forest2"
+author = "EX"
+;********************************
+[Camera]
+startx = 0
+starty = 0
+boundleft = -350
+boundright = 350
+boundhigh = -350
+boundlow = 0
+tension =50
+verticalfollow =.93
+floortension = 109
+;********************************
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+;********************************
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+;********************************
+[Bound]
+screenleft = 10
+screenright = 10
+;********************************
+[StageInfo]
+zoffset = 225
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+HIres = 1
+;********************************
+[Shadow]
+intensity = 64
+color = 15,15,15
+yscale = .4
+;********************************
+[Music]
+bgmusic = stages/Forest.mp3
+bgvolume = 255
+;********************************
+[BGdef]
+spr = stages/Forest2.sff
+debugbg = 0
+
+;===******===Background===******===
+[BG Background]
+type = normal
+spriteno = 1,0
+start = 0,-100
+delta = 1.5,1.5
+mask = 1
+layerno = 0
+
+;===******===Waterfall===******===
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -265,225
+layerno = 0
+trans = add
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -230,370
+layerno = 0
+trans = add
+
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -275,270
+layerno = 0
+trans = add
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -288,300
+layerno = 0
+trans = add
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -310,360
+layerno = 0
+trans = add
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -330,430
+layerno = 0
+trans = add
+
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -230,250
+layerno = 0
+trans = add
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -210,290
+layerno = 0
+trans = add
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -180,320
+layerno = 0
+trans = add
+[BG Waterfall]
+type  = anim
+actionno = 2
+delta = 1.5,1.5
+start = -155,365
+layerno = 0
+trans = add
+
+[Begin Action 2]
+2, 0, 0, 0, 3, , a
+2, 1, 0, 0, 3, , a
+2, 2, 0, 0, 3, , a
+2, 3, 0, 0, 3, , a
+2, 4, 0, 0, 3, , a
+2, 5, 0, 0, 3, , a
+2, 6, 0, 0, 3, , a
+2, 7, 0, 0, 3, , a
+2, 8, 0, 0, 3, , a
+2, 9, 0, 0, 3, , a
+2, 10, 0, 0, 3, , a
+2, 11, 0, 0, 3, , a
+2, 12, 0, 0, 3, , a
+2, 13, 0, 0, 3, , a
+2, 14, 0, 0, 3, , a
+2, 15, 0, 0, 3, , a
+2, 16, 0, 0, 3, , a
+2, 17, 0, 0, 3, , a
+2, 18, 0, 0, 3, , a
+2, 19, 0, 0, 3, , a
+2, 20, 0, 0, 3, , a
+2, 21, 0, 0, 3, , a
+2, 22, 0, 0, 3, , a
+2, 23, 0, 0, 3, , a
+2, 24, 0, 0, 3, , a
+2, 25, 0, 0, 3, , a
+2, 26, 0, 0, 3, , a
+2, 27, 0, 0, 3, , a
+2, 28, 0, 0, 3, , a
+2, 29, 0, 0, 3, , a
+2, 31, 0, 0, 3, , a
+2, 31, 0, 0, 3, , a
+2, 32, 0, 0, 3, , a
+2, 33, 0, 0, 3, , a
+2, 34, 0, 0, 3, , a
+2, 35, 0, 0, 3, , a
+2, 36, 0, 0, 3, , a
+2, 37, 0, 0, 3, , a
+2, 38, 0, 0, 3, , a
+2, 39, 0, 0, 3, , a
+2, 40, 0, 0, 3, , a
+2, 41, 0, 0, 3, , a
+2, 42, 0, 0, 3, , a
+2, 43, 0, 0, 3, , a
+2, 44, 0, 0, 3, , a
+2, 46, 0, 0, 3, , a
+2, 46, 0, 0, 3, , a
+2, 47, 0, 0, 3, , a
+2, 49, 0, 0, 3, , a
+2, 50, 0, 0, 3, , a
+2, 50, 0, 0, 3, , a
+2, 51, 0, 0, 3, , a
+2, 52, 0, 0, 3, , a
+2, 53, 0, 0, 3, , a
+2, 54, 0, 0, 3, , a
+2, 55, 0, 0, 3, , a
+2, 56, 0, 0, 3, , a
+2, 57, 0, 0, 3, , a
+2, 58, 0, 0, 3, , a
+2, 59, 0, 0, 3, , a
+2, 60, 0, 0, 3, , a
+2, 61, 0, 0, 3, , a
+2, 62, 0, 0, 3, , a
+2, 63, 0, 0, 3, , a
+2, 64, 0, 0, 3, , a
+2, 65, 0, 0, 3, , a
+2, 66, 0, 0, 3, , a
+2, 67, 0, 0, 3, , a
+2, 68, 0, 0, 3, , a
+2, 69, 0, 0, 3, , a
+2, 70, 0, 0, 3, , a
+2, 71, 0, 0, 3, , a
+2, 72, 0, 0, 3, , a
+2, 73, 0, 0, 3, , a
+2, 74, 0, 0, 3, , a
+2, 75, 0, 0, 3, , a
+2, 76, 0, 0, 3, , a
+2, 77, 0, 0, 3, , a
+2, 78, 0, 0, 3, , a
+2, 79, 0, 0, 3, , a
+2, 81, 0, 0, 3, , a
+2, 81, 0, 0, 3, , a
+2, 82, 0, 0, 3, , a
+2, 83, 0, 0, 3, , a
+2, 84, 0, 0, 3, , a
+2, 85, 0, 0, 3, , a
+2, 86, 0, 0, 3, , a
+2, 87, 0, 0, 3, , a
+2, 88, 0, 0, 3, , a
+2, 89, 0, 0, 3, , a
+2, 90, 0, 0, 3, , a
+2, 91, 0, 0, 3, , a
+2, 92, 0, 0, 3, , a
+2, 93, 0, 0, 3, , a
+2, 94, 0, 0, 3, , a
+2, 95, 0, 0, 3, , a
+2, 96, 0, 0, 3, , a
+2, 97, 0, 0, 3, , a
+2, 98, 0, 0, 3, , a
+2, 99, 0, 0, 3, , a
+2, 100, 0, 0, 3, , a
+2, 101, 0, 0, 3, , a
+2, 102, 0, 0, 3, , a
+2, 103, 0, 0, 3, , a
+2, 104, 0, 0, 3, , a
+2, 105, 0, 0, 3, , a
+2, 107, 0, 0, 3, , a
+2, 107, 0, 0, 3, , a
+2, 108, 0, 0, 3, , a
+2, 109, 0, 0, 3, , a
+2, 110, 0, 0, 3, , a
+2, 111, 0, 0, 3, , a
+2, 112, 0, 0, 3, , a
+2, 114, 0, 0, 3, , a
+2, 114, 0, 0, 3, , a
+2, 115, 0, 0, 3, , a
+2, 116, 0, 0, 3, , a
+2, 117, 0, 0, 3, , a
+2, 118, 0, 0, 3, , a
+2, 119, 0, 0, 3, , a
+2, 120, 0, 0, 3, , a
+2, 121, 0, 0, 3, , a
+2, 122, 0, 0, 3, , a
+2, 123, 0, 0, 3, , a
+2, 124, 0, 0, 3, , a
+2, 126, 0, 0, 3, , a
+2, 126, 0, 0, 3, , a
+2, 127, 0, 0, 3, , a
+2, 128, 0, 0, 3, , a
+2, 129, 0, 0, 3, , a
+2, 130, 0, 0, 3, , a
+
+;===******===Land===******===
+[BG Background]
+type = normal
+spriteno = 0,0
+start = 0,300
+delta = 2,2
+mask = 1
+layerno = 0
+
+;===******===Crow===******===
+[BG Crow]
+type = anim
+actionno = 5
+delta = 1.5,1.5
+start = -500,0
+mask = 1
+velocity = 2,-.1
+tile = 1,0
+tilespacing = 900,0
+[BG Crow]
+type = anim
+actionno = 5
+delta = 1.5,1.5
+start = -600,150
+mask = 1
+velocity = 2.5,-.1
+tile = 1,0
+tilespacing = 900,0
+[BG Crow]
+type = anim
+actionno = 5
+delta = 1.5,1.5
+start = -700,300
+mask = 1
+velocity = 3,-.1
+tile = 1,0
+tilespacing = 900,0
+
+[BG CrowSit]
+type = normal
+spriteno = 5,0
+layerno = 0
+start = -350,-148
+delta = 1.5,1.5
+sin.y = 1,400,0.5
+mask = 1
+[BG CrowSit]
+type = normal
+spriteno = 5,0
+layerno = 0
+start = -20,-60
+delta = 2,2
+mask = 1
+[BG CrowSit]
+type = normal
+spriteno = 5,0
+layerno = 0
+start = 700,-95
+delta = 2,2
+mask = 1
+
+[Begin Action 5]
+4,0, 0,0, 5
+4,1, 0,0, 5
+4,2, 0,0, 5
+4,3, 0,0, 5
+4,4, 0,0, 5
+4,3, 0,0, 5
+4,2, 0,0, 5
+4,1, 0,0, 5

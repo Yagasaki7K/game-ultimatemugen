@@ -1,0 +1,31 @@
+[Info]
+name ="Iron Man -MGMX-"
+displayname ="Iron Man"
+versiondate = 07,05,2015
+mugenversion = 04,14,2002
+author = "Duracelleur"
+pal.defaults = 1, 2, 3, 4, 5, 6
+
+[Files]
+sprite		= ironman.sff
+anim		= ironman.air
+sound		= ironman.snd
+cmd			= ironman.cmd
+cns			= ironman.cns
+stcommon	= marvel1.cns
+st			= ironman.cns
+st1			= specials.st
+st2			= hypers.st
+st3			= basics.st
+st4			= basicswm.st
+
+pal1		= iron_00.act
+pal2		= iron_01.act
+pal3		= mark_05.act
+pal4		= mark_01.act
+pal5		= iron_11.act
+pal6		= mark_04.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,66 @@
+;===============================================================================
+;	Option File for "BlueMary"
+;===============================================================================
+
+; Initialize (at the start of the round)
+[Statedef 5900]
+type			= S
+
+[State 5900, Clear Vars] ; 整数型変数初期化
+type		= VarRangeSet
+trigger1	= roundsexisted = 0
+value		= 0
+first		= 0
+last		= 59
+
+
+[State 5900, Clear Fvars] ; 浮動小数点変数初期化
+type		= VarRangeSet
+trigger1	= roundsexisted = 0
+fvalue		= 0
+first		= 0
+last		= 39
+
+;-------------------------------------------------------------------------------
+; ここから
+;-------------------------------------------------------------------------------
+; システム表示位置調整
+[State 5900, Gage 1 Setup X]
+type		= VarSet
+trigger1	= Time = 0
+fvar(10)	= 10.0		; X座標
+[State 5900, Gage 1 Setup Y]
+type		= VarSet
+trigger1	= Time = 0
+fvar(11)	= 70.0		; Y座標
+
+
+
+
+
+
+;---------------------------------------------------------------------------
+;ここまで
+;---------------------------------------------------------------------------
+[State 5900, MAX reset]
+type		= Null
+trigger1	= Time = 0
+trigger1	= var(20) := 0 || 1
+trigger1	= var(21) := 0 || 1
+trigger1	= var(22) := 0 || 1
+
+
+
+
+
+[State 5900, to 1st Round] ; Round1のイントロへ
+type		= ChangeState
+Trigger1	= RoundNo = 1
+Trigger2	= TeamMode = Turns
+Trigger2	= RoundsExisted = 0
+value		= 190
+
+[State 5900, to Intro] ;Intro
+type		= ChangeState
+Trigger1	= RoundNo > 1
+value		= 0

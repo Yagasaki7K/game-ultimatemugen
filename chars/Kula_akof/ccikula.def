@@ -1,0 +1,40 @@
+;==========================================================
+; Definition file for CCI Kula Diamond
+; For Ultimate Garou only
+; Ironmugen
+;==========================================================
+
+; Player information
+[Info]
+name = "Kula Diamond"
+displayname = "Kula Diamond"
+versiondate = 12,11,2005 ;Started
+mugenversion = 04,01,2001
+author = "David Demianoff"
+pal.defaults = 12
+
+; Files for the player
+[Files]
+cmd      = kula.cmd        ;Config
+cns      = kula.cns        ;Constants
+st       = kula.cns        ;States
+st1      = attacks.cns    ;States
+st2      = supers.cns     ;States
+st3      = hypers.cns     ;States
+st4      = misc.cns       ;States
+stcommon = common1.cns    ;Common states
+sprite   = kula.sff        ;Sprite
+anim     = kula.air        ;Animation
+sound    = kula.snd        ;Sound
+pal1     = SNK_Kula_01.act
+pal2     = SNK_Kula_02.act
+pal3     = SNK_Kula_03.act
+pal4     = SNK_Kula_04.act
+pal5     = SNK_Kula_05.act
+pal6     = SNK_Kula_06.act
+pal7     = SNK_Kula_07.act
+pal8     = SNK_Kula_08.act
+pal9     = SNK_Kula_09.act
+pal10    = SNK_Kula_10.act
+pal11    = SNK_Kula_11.act
+pal12    = SNK_Kula_12.act

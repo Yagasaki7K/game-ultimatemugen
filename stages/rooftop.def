@@ -1,0 +1,177 @@
+;stage template by Eternaga , Email: Eternaga@hotmail.com
+
+[Info]
+name = "Rooftop"
+
+[BGdef]
+spr = rooftop.sff
+debugbg = 0
+
+[Music]
+bgmusic = 
+bgvolume = 255
+
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -200
+boundright = 200
+boundhigh = -350
+boundlow = 0
+verticalfollow = 0.1
+floortension = 30
+tension = 60
+
+[PlayerInfo]
+p1startx = -70          
+p1starty = 0            
+p1startz = 0            
+p1facing = 1        
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+[Scaling] 
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 15    
+screenright = 15  
+
+[StageInfo]
+zoffset = 225
+autoturn = 1
+resetBG = 1
+
+[shadow]
+Intensity = 110
+color = 70,90,0
+yscale = .2
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+;----------------------------------------[PCX IMAGE]
+[BG 0]
+type  = normal
+spriteno = 4, 0
+layerno = 0                
+start = -360, 0
+tile = 1,1
+delta = 0.2,0.1
+trans = none
+mask = 1
+
+[BG 1] ;Scrolling background
+type=parallax
+spriteno=3,0
+layerno=0
+start=0,-20
+delta=.25,0
+width=740,185
+tile=1,0
+tilespacing=0
+velocity=.15,0
+mask=1
+
+[BG 2]
+type=normal
+spriteno=3,0
+layerno=0
+start=370,-16
+delta=.25,0
+tile=1,0
+tilespacing=0
+velocity=.275,0
+trans=addalpha
+alpha=160,256
+mask=1
+
+
+[bg 3]
+type = normal
+spriteno = 5,0
+layerno = 0
+start = 0,25
+delta = .2,.2
+tile = 1,0
+mask = 1
+
+;---------------------------------------
+[BG Fighting Ground]
+type  = normal
+spriteno = 1,0
+start = -366,-50  
+mask = 1
+;--------------------------------------
+[BG Rain]
+type = anim
+actionno = 1
+start = -95,-10
+delta = 1.1, 1.1
+mask = 1
+layerno = 0
+;--------------------------------------
+[BG Rain 2]
+type = anim
+actionno = 1
+start = -110,1
+delta = 1.1, 1.1
+mask = 1
+layerno = 1
+;--------------------------------------
+[BG Rain 3]
+type = anim
+actionno = 1
+start = -110,12
+delta = 1.1, 1.1
+mask = 1
+layerno = 1
+;--------------------------------------
+[BG Rain 4]
+type = anim
+actionno = 1
+start = -605,-10
+delta = 1.1, 1.1
+mask = 1
+layerno = 0
+;--------------------------------------
+[BG Rain 5]
+type = anim
+actionno = 1
+start = -620,1
+delta = 1.1, 1.1
+mask = 1
+layerno = 1
+;--------------------------------------
+[BG Rain 6]
+type = anim
+actionno = 1
+start = -620,12
+delta = 1.1, 1.1
+mask = 1
+layerno = 1
+;---------------------------------------[/PCX IMAGE]
+
+[Begin Action 1]
+7,0, 0,0, 3,,A
+7,1, 0,0, 3,,A
+7,2, 0,0, 3,,A
+7,3, 0,0, 3,,A
+7,4, 0,0, 3,,A
+7,5, 0,0, 3,,A
+7,6, 0,0, 3,,A
+7,7, 0,0, 3,,A
+7,8, 0,0, 3,,A

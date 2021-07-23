@@ -1,0 +1,1268 @@
+;---------------------------------------------------------------------------
+; ここからは超必殺技のステート
+;---------------------------------------------------------------------------
+; バニッシュ
+; CNS レベル: 中級
+
+[Statedef 2000]
+type     = S
+movetype = I
+physics  = S
+juggle   = 0
+velset   = 0,0
+anim     = 2000
+ctrl     = 0
+sprpriority = 2
+
+[State 1100, ]
+type = PowerAdd
+trigger1 = AnimElem = 1
+value = -1000
+
+[State 1000, 音を鳴らす]
+type = PlaySnd
+trigger1 = AnimElem = 7
+value = s7,6
+
+[State 1000, 音を鳴らす]
+type = PlaySnd
+trigger1 = AnimElem = 9
+value = s8,7
+
+[State 1100, ]
+type = Varadd
+trigger1 = AnimTime = 0
+var(30) = 600
+
+[State 1100, エフェクト表示]
+type = Explod
+trigger1 = AnimElem = 1
+persistent = 0
+anim = 2005
+postype = P1
+pos = 0,0
+sprpriority = 10
+bindtime = -1
+
+[State 2000, ステート変更]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; ユニバース・ディストーション
+
+[Statedef 3000]
+type     = S
+movetype = A
+physics  = S
+juggle   = 0
+velset   = 0,0
+anim     = 3000
+ctrl     = 0
+sprpriority = 3
+
+[State 3500, 1]
+type = Explod
+trigger1 = (prevstateno = 2110) && time = 0
+anim = F8600
+pos = -3,68
+postype = Left
+facing = 1
+vfacing = 1
+bindtime = 50
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 40
+supermovetime = 50
+pausemovetime = 50
+scale = .5,.5
+sprpriority = 9998
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 3500, 2]
+type = Explod
+trigger1 = (prevstateno = 2110) && time = 0
+anim = F8605
+pos = -5,65
+postype = Left
+facing = 1
+vfacing = 1
+bindtime = 65
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 58
+supermovetime = 65
+pausemovetime = 65
+scale = 1.5,1
+sprpriority = 9999
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 3500, 3]
+type = Explod
+trigger1 = (prevstateno = 2110) && time = 0
+anim = F8610
+pos = -150,100
+postype = Left
+facing = 1
+vfacing = 1
+bindtime = 65
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 58
+supermovetime = 65
+pausemovetime = 65
+scale = 1.5,1
+sprpriority = 9997
+ownpal = 1
+trans = addalpha
+alpha = 256, 135
+removeongethit = 0
+ignorehitpause = 1
+persistent = 1
+
+
+[State 2000, 超必殺技発動の時間停止]
+type = SuperPause
+trigger1 = time = 0
+anim = -1
+poweradd = -2000
+movetime = 30
+time = 30
+
+[State 2001, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA, AA, AT, AP
+
+[State 2000]
+type = Explod
+trigger1 = AnimElem = 1
+anim = F7651
+pos = 0,-120
+sprpriority = -1
+ownpal = 1
+bindtime = 1
+supermove = 1
+
+[State 2000]
+type = Explod
+trigger1 = AnimElem = 1
+anim = F7650
+pos = 0,-120
+sprpriority = 4
+ownpal = 1
+bindtime = 1
+supermove = 1
+
+[State 2000,]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s9,1
+
+[State 2000,]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = s7,7
+volume = 220
+
+[State 2000,]
+type = PlaySnd
+trigger1 = AnimElem = 6
+trigger2 = AnimElemtime(8) = 44
+trigger3 = AnimElemtime(8) = 94
+value = s8,10
+volume = -180
+
+[State 2000,]
+type = PlaySnd
+trigger1 = AnimElemtime(8) = 136
+value = s8,11
+
+[State 2000,]
+type = PlaySnd
+trigger1 = Movehit = 1
+value = s1,4
+volume = -130
+
+[State 2000]
+type = AssertSpecial
+trigger1 = 1
+flag = NoFG
+flag2 = NOBG
+ignorehitpause = 1
+
+[State 1100, エフェクト表示]
+type = Explod
+trigger1 = AnimElem = 2
+persistent = 0
+anim = 3005
+postype = P1
+pos = 0,0
+sprpriority = 5
+bindtime = -1
+removetime = -1
+removeongethit = 1
+supermove = 1
+ID = 3000
+
+[State 1100, エフェクト表示]
+type = Explod
+trigger1 = AnimElem = 6
+persistent = 0
+anim = 3010
+postype = front
+pos = ifelse(facing=-1,0,-320),0
+sprpriority = 0
+bindtime = -1
+removetime = -1
+removeongethit = 1
+;scale = 1.15,1.15
+ID = 3001
+
+[State 1100, エフェクト表示]
+type = Explod
+trigger1 = AnimElem = 9
+persistent = 0
+anim = 3006
+postype = P1
+pos = 0,0
+sprpriority = 5
+bindtime = -1
+removeongethit = 1
+
+[State 1100, エフェクト表示]
+type = Explod
+trigger1 = AnimElemtime(8) = 180
+persistent = 0
+anim = 3011
+postype = front
+pos = ifelse(facing=-1,0,-320),0
+sprpriority = 0
+bindtime = -1
+removeongethit = 1
+;scale = 1.15,1.15
+
+[State 1001,]
+type = RemoveExplod
+trigger1 = AnimElem = 9
+ID = 3000
+
+[State 1001,]
+type = RemoveExplod
+trigger1 = AnimElemtime(8) = 180
+ID = 3001
+
+[State 1950]
+type = HitDef
+trigger1 = AnimElemtime(8) = 0
+trigger2 = AnimElemtime(8) = 10
+trigger3 = AnimElemtime(8) = 20
+trigger4 = AnimElemtime(8) = 30
+trigger5 = AnimElemtime(8) = 40
+trigger6 = AnimElemtime(8) = 50
+trigger7 = AnimElemtime(8) = 60
+trigger8 = AnimElemtime(8) = 70
+trigger9 = AnimElemtime(8) = 80
+trigger10 = AnimElemtime(8) = 90
+trigger11 = AnimElemtime(8) = 100
+trigger12 = AnimElemtime(8) = 110
+trigger13 = AnimElemtime(8) = 120
+trigger14 = AnimElemtime(8) = 130
+trigger15 = AnimElemtime(8) = 140
+trigger16 = AnimElemtime(8) = 150
+trigger17 = AnimElemtime(8) = 160
+trigger18 = AnimElemtime(8) = 170
+trigger19 = AnimElemtime(8) = 180
+attr = S,HA
+getpower = 0
+damage = 18,9
+animtype = Hard
+hitflag = MAFD
+guardflag = M
+priority = 5
+pausetime = 0,5
+sparkno = s4020
+sparkxy = -15,-65 + (floor(p2bodydist Y))
+hitsound = -1;s1,4
+guardsound = s2,1
+guard.sparkno = s4120
+ground.type = High
+ground.slidetime = 10
+ground.hittime = 25
+ground.velocity = -1,-2
+guard.velocity = -10
+air.velocity = -1,-2
+p2facing = 1
+p2stateno = 3020
+fall = 1
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+
+[State 3000]
+type = Projectile
+trigger1 = AnimElem = 8
+projID = 3030
+projanim = 3030
+projremove = 0
+projpriority = 10
+projhitanim = -1
+projremanim = -1
+projsprpriority = 8
+projshadow = 0,0,0
+projremovetime = 190
+offset = 0,0
+velocity = 0,0
+attr = S, HP
+animtype = Hard
+damage = 0,0
+hitflag = MAF
+guardflag = M
+
+[State 1000, ステート変更]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;相手動作
+[Statedef 3020]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 2
+
+[State 2120]
+type = null;ScreenBound
+trigger1 = 1
+movecamera = 1,0
+value = 1
+
+[State 871, 速度加算]
+type = Velset
+trigger1 = time = 0
+x = 0
+y = 0
+
+[State 871, 速度加算]
+type = Velset
+trigger1 = time = 3
+x = -1
+y = -2
+
+[State 871, 速度加算]
+type = VelAdd
+trigger1 = 1
+y = .2
+
+[State 1830]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 3020
+
+[State 1830]
+type = SelfState
+trigger1 = Animtime = 0
+value = 5050
+
+;---------------------------------------------------------------------------
+; ブロッサム
+
+[Statedef 2100]
+type     = S
+movetype = A
+physics  = S
+juggle   = 0
+velset   = 0,0
+ctrl     = 0
+anim     = 2100
+sprpriority = 2
+
+[State 2000, 超必殺技発動の時間停止]
+type = SuperPause
+trigger1 = time = 0
+anim = -1
+poweradd = -1000
+movetime = 30
+time = 30
+
+[State 2000]
+type = AssertSpecial
+trigger1 = Time = [0,30]
+flag = NoFG
+flag2 = NOBG
+ignorehitpause = 1
+
+[State 2000]
+type = Explod
+trigger1 = AnimElem = 1
+anim = F7641
+pos = 0,-100
+sprpriority = -3
+ownpal = 1
+bindtime = 1
+supermove = 1
+
+[State 2000]
+type = Explod
+trigger1 = AnimElem = 1
+anim = F7640
+pos = 0,-100
+sprpriority = 20
+ownpal = 1
+bindtime = 1
+supermove = 1
+
+[State 2000,]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = s9,0
+
+[State 800, ヒット定義（投げ用）]
+type = HitDef
+trigger1 = Time = 0
+trigger1 = p2stateno != [120,159]
+attr = S, HT
+hitflag = M
+priority = 1, Miss
+sparkno = -1
+p1sprpriority = 1
+p2sprpriority = 0
+p1facing = 1
+p2facing = 1
+p1stateno = 2110
+p2stateno = 2120
+guard.dist = 0
+fall = 1
+numhits = 0
+
+[State 2001, 無敵]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA
+time = 34
+
+[State 800, ステート変更]
+type = null;ChangeState
+Triggerall = MoveHit
+Trigger1 = AnimElem = 3
+value = 2110
+
+[State 800, ステート変更]
+type = ChangeState
+Trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----------------------------------------------------------------------------
+;投げ１・投げている（自分）
+
+[Statedef 2110]
+type    = S
+movetype= A
+physics = N
+anim = 2110
+
+[State 2000]
+type = AssertSpecial
+trigger1 = AnimElemtime(1) >= 0 && AnimElemtime(8) <= 0
+flag = NoFG
+flag2 = NOBG
+ignorehitpause = 1
+
+[State 810, 物理的なキャラの幅]
+type = Width
+trigger1 = AnimElem = 1
+edge = 60,0
+
+[State 810, 物理的なキャラの幅]
+type = Width
+trigger1 = AnimElem = 3
+edge = 100,0
+
+[State 1100, エフェクト表示]
+type = Explod
+trigger1 = Time = 0
+persistent = 0
+anim = 4030
+postype = P1
+pos = 20,-80
+sprpriority = 5
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 20
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 30
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 40
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 50
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 58
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 66
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 73
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 80
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 86
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 92
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 97
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 102
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 107
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 112
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 117
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 122
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 127
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 132
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 137
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 142
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 147
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 152
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 157
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 162
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 167
+persistent = 0
+anim = 1025
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 20
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 30
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 40
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 50
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 58
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 66
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 73
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 80
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 86
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 92
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 97
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 102
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 107
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 112
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 117
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 122
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 127
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 132
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 137
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 142
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 147
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 152
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 157
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 162
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 1100, エフェクト表示]
+type = Explod
+Trigger1 = AnimElemtime(5) = 167
+persistent = 0
+anim = 4010
+postype = P1
+pos = 90,-140
+random = 60,70
+sprpriority = 10
+
+[State 810, 1]
+type = PlaySnd
+Trigger1 = time = 0
+value = s1,5
+
+[State 810, 1]
+type = PlaySnd
+Trigger1 = AnimElem = 3
+value = s7,8
+
+[State 810, 1]
+type = PlaySnd
+Trigger1 = AnimElemtime(5) = 20
+Trigger2 = AnimElemtime(5) = 30
+Trigger3 = AnimElemtime(5) = 40
+Trigger4 = AnimElemtime(5) = 50
+Trigger5 = AnimElemtime(5) = 58
+Trigger6 = AnimElemtime(5) = 66
+Trigger7 = AnimElemtime(5) = 73
+Trigger8 = AnimElemtime(5) = 80
+Trigger9 = AnimElemtime(5) = 86
+Trigger10 = AnimElemtime(5) = 92
+Trigger11 = AnimElemtime(5) = 97
+Trigger12 = AnimElemtime(5) = 102
+Trigger13 = AnimElemtime(5) = 107
+Trigger14 = AnimElemtime(5) = 112
+Trigger15 = AnimElemtime(5) = 117
+Trigger16 = AnimElemtime(5) = 122
+Trigger17 = AnimElemtime(5) = 127
+Trigger18 = AnimElemtime(5) = 132
+Trigger19 = AnimElemtime(5) = 137
+Trigger20 = AnimElemtime(5) = 142
+Trigger21 = AnimElemtime(5) = 147
+Trigger22 = AnimElemtime(5) = 152
+Trigger23 = AnimElemtime(5) = 157
+Trigger24 = AnimElemtime(5) = 162
+Trigger25 = AnimElemtime(5) = 167
+value = s8,1
+
+[State 810, 1]
+type = PlaySnd
+Trigger1 = AnimElemtime(5) = 20
+Trigger2 = AnimElemtime(5) = 30
+Trigger3 = AnimElemtime(5) = 40
+Trigger4 = AnimElemtime(5) = 50
+Trigger5 = AnimElemtime(5) = 58
+Trigger6 = AnimElemtime(5) = 66
+Trigger7 = AnimElemtime(5) = 73
+Trigger8 = AnimElemtime(5) = 80
+Trigger9 = AnimElemtime(5) = 86
+Trigger10 = AnimElemtime(5) = 92
+Trigger11 = AnimElemtime(5) = 97
+Trigger12 = AnimElemtime(5) = 102
+Trigger13 = AnimElemtime(5) = 107
+Trigger14 = AnimElemtime(5) = 112
+Trigger15 = AnimElemtime(5) = 117
+Trigger16 = AnimElemtime(5) = 122
+Trigger17 = AnimElemtime(5) = 127
+Trigger18 = AnimElemtime(5) = 132
+Trigger19 = AnimElemtime(5) = 137
+Trigger20 = AnimElemtime(5) = 142
+Trigger21 = AnimElemtime(5) = 147
+Trigger22 = AnimElemtime(5) = 152
+Trigger23 = AnimElemtime(5) = 157
+Trigger24 = AnimElemtime(5) = 162
+Trigger25 = AnimElemtime(5) = 167
+value = s1,1
+
+[State 810, 1]
+type = PlaySnd
+Trigger1 = AnimElemtime(5) = 165
+value = s7,1
+volume = 200
+
+[State 810, 1]
+type = PlaySnd
+Trigger1 = AnimElem = 6
+value = s8,12
+volume = 250
+
+[State 810, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(1) >= 0 && AnimElemtime(2) <= 0
+pos = 25, 0
+
+[State 810, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(2) >= 0 && AnimElemtime(3) <= 0
+pos = 35, 0
+
+[State 810, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(3) >= 0 && AnimElemtime(4) <= 0
+pos = 75, -130
+
+[State 810, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(4) >= 0 && AnimElemtime(5) <= 0
+pos = 85, -150
+
+[State 810, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(5) >= 0 && AnimElemtime(6) <= 1
+pos = 85, -155
+
+[State 810, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(6) = 1
+pos = 85, -100
+
+[State 810, エフェクト表示]
+type = Explod
+trigger1 = AnimElem = 5
+persistent = 0
+anim = 2111
+postype = P1
+pos = 0,0
+sprpriority = 5
+bindtime = -1
+
+[State 810, エフェクト表示]
+type = Explod
+trigger1 = AnimElem = 6
+persistent = 0
+anim = 812
+postype = P1
+pos = 90,-140
+sprpriority = 10
+
+[State 810,]
+type = EnvShake
+trigger1 = AnimElem = 6
+time = 15
+ampl = 8
+freq = 100
+
+[State 810, 1]
+type = TargetLifeAdd
+Trigger1 = AnimElemtime(5) = 20
+Trigger2 = AnimElemtime(5) = 30
+Trigger3 = AnimElemtime(5) = 40
+Trigger4 = AnimElemtime(5) = 50
+Trigger5 = AnimElemtime(5) = 58
+Trigger6 = AnimElemtime(5) = 66
+Trigger7 = AnimElemtime(5) = 73
+Trigger8 = AnimElemtime(5) = 80
+Trigger9 = AnimElemtime(5) = 86
+Trigger10 = AnimElemtime(5) = 92
+Trigger11 = AnimElemtime(5) = 97
+Trigger12 = AnimElemtime(5) = 102
+Trigger13 = AnimElemtime(5) = 107
+Trigger14 = AnimElemtime(5) = 112
+Trigger15 = AnimElemtime(5) = 117
+Trigger16 = AnimElemtime(5) = 122
+Trigger17 = AnimElemtime(5) = 127
+Trigger18 = AnimElemtime(5) = 132
+Trigger19 = AnimElemtime(5) = 137
+Trigger20 = AnimElemtime(5) = 142
+Trigger21 = AnimElemtime(5) = 147
+Trigger22 = AnimElemtime(5) = 152
+Trigger23 = AnimElemtime(5) = 157
+Trigger24 = AnimElemtime(5) = 162
+Trigger25 = AnimElemtime(5) = 167
+value = -6
+kill = 0
+absolute = 1
+
+[State 810, ヒット数]
+type = Hitadd
+Trigger1 = AnimElemtime(5) = 20
+Trigger2 = AnimElemtime(5) = 30
+Trigger3 = AnimElemtime(5) = 40
+Trigger4 = AnimElemtime(5) = 50
+Trigger5 = AnimElemtime(5) = 58
+Trigger6 = AnimElemtime(5) = 66
+Trigger7 = AnimElemtime(5) = 73
+Trigger8 = AnimElemtime(5) = 80
+Trigger9 = AnimElemtime(5) = 86
+Trigger10 = AnimElemtime(5) = 92
+Trigger11 = AnimElemtime(5) = 97
+Trigger12 = AnimElemtime(5) = 102
+Trigger13 = AnimElemtime(5) = 107
+Trigger14 = AnimElemtime(5) = 112
+Trigger15 = AnimElemtime(5) = 117
+Trigger16 = AnimElemtime(5) = 122
+Trigger17 = AnimElemtime(5) = 127
+Trigger18 = AnimElemtime(5) = 132
+Trigger19 = AnimElemtime(5) = 137
+Trigger20 = AnimElemtime(5) = 142
+Trigger21 = AnimElemtime(5) = 147
+Trigger22 = AnimElemtime(5) = 152
+Trigger23 = AnimElemtime(5) = 157
+Trigger24 = AnimElemtime(5) = 162
+Trigger25 = AnimElemtime(5) = 167
+value = 1
+
+[State 810, ヒット定義]
+type = HitDef
+trigger1 = AnimElem = 6
+attr = S, HT
+damage = 120,0
+animtype = Diagup
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0,1
+sparkno = -1
+getpower = 0
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 20
+ground.velocity = -4.5,-4.8
+air.velocity = -4.5,-4.8
+air.type = High
+air.hittime = 12
+fall = 1
+fall.recover = 0
+palfx.time = 60
+palfx.add = 50,0,170
+palfx.mul = 170,170,170
+palfx.sinadd = 95,95,95,15
+palfx.color = 0
+palfx.invertall = 1
+
+[State 2100,]
+type = Envcolor
+trigger1 = AnimElem = 6
+time = 2
+value = 255,255,255
+under = 0
+
+[State 810, 1]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;投げ１・投げられている（相手の動作）動作
+[Statedef 2120]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 2120]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 1,0
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2120
+
+[State 820, 1]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5100
+
+
+
+;この下、一行以上空ける事。
+
+;

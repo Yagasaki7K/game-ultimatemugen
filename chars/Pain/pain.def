@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Pain"
+displayname = "Pain"
+versiondate = 20 Mar 2011
+mugenversion = 06,14,2003
+author = "narukimugen.blogspot"
+pal.defaults = 1,2,3,4
+
+[Files]
+sprite = pain.sff
+anim = pain.air
+sound = pain.snd
+cmd = pain.cmd
+cns = pain.cns
+stcommon = common1.cns
+st = pain.cns
+pal1 = pain.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

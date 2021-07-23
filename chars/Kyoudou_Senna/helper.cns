@@ -1,0 +1,2911 @@
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;超必殺技
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;(HELPER)Pゲージ
+[Statedef 8000]
+type = A
+ctrl = 0
+anim = 8000
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 5 ;10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+[state a]
+type = PalFx
+trigger1 = root,var(57)
+trigger1 = root,var(56) = -258*(root,LifeMax-root,Life)/root,LifeMax
+time = 1
+add = (-12*(time+10))%240+240,(-12*(time+10))%240+240,(-12*(time+10))%240+240
+
+[state a]
+type = PalFx
+trigger1 = root,var(56) > 205
+time = 1
+add = (14*time)%252,0,0
+mul = 256,256-(14*time)%252,256-(14*time)%252
+
+[state a]
+type = PalFx
+trigger1 = !root,var(57)
+trigger1 = time = 0
+time = -1
+add = 128,128,128
+sinadd = 128,128,128,60
+
+;---------------------[]
+[state -2,a];ゲージ枠
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(8000) = 0
+anim = 8001
+id = 8000
+postype = left
+bindtime = -1
+pos = 70,45+root,var(19)
+sprpriority = 5 ;98
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ゲージ枠
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(8000) = 0
+anim = 8002
+id = 8000
+postype = right
+bindtime = -1
+pos = -70,45+root,var(19)
+sprpriority = 5 ;98
+ownpal = 1
+scale = 0.5,0.5
+facing = 1
+
+[state -2,a];エンハンス枠
+type = Explod
+trigger1 = numexplod(8004) = 0
+anim = 8004
+id = 8004
+pos = 41+238*(root,facing=-1),57+root,var(19)
+postype = left
+facing = root,facing
+bindtime = -1
+sprpriority = 5 ;98
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ゲージ
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(8005) = 0
+anim = 8005
+id = 8005
+postype = left
+bindtime = -1
+pos = 70,45+root,var(19)
+sprpriority = 6 ;99
+ownpal = 0
+scale = 0.5,0.5
+removetime = -1
+
+[state -2,a];ゲージ
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(8005) = 0
+anim = 8005
+id = 8005
+postype = right
+bindtime = -1
+pos = -70,45+root,var(19)
+sprpriority = 6 ;99
+ownpal = 0
+scale = 0.5,0.5
+facing = -1
+removetime = -1
+
+[state -2,a];ゲージ減少
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(8010) = 0
+trigger1 = root,var(56) > 0
+anim = 8010
+id = 8010
+postype = left
+bindtime = -1
+pos = 6,45+root,var(19) ;6
+sprpriority = 7 ;100
+ownpal = 1
+;scale = 0.5,0.5
+removetime = -1
+
+[state -2,a];ゲージ減少
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(8010) = 0
+trigger1 = root,var(56) > 0
+anim = 8010
+id = 8010
+postype = right
+bindtime = -1
+pos = -6,45+root,var(19)
+sprpriority = 17 ;100
+ownpal = 1
+;scale = 0.5,0.5
+facing = -1
+removetime = -1
+
+[state -2,a];Life減少分増加
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(8011) = 0
+trigger1 = root,var(56) < 0
+anim = 8011
+id = 8011
+postype = left
+bindtime = -1
+pos = 6,48+root,var(19) ;45
+sprpriority = 8 ;100
+ownpal = 0
+removetime = -1
+
+[state -2,a];Life減少分増加
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(8011) = 0
+trigger1 = root,var(56) < 0
+anim = 8011
+id = 8011
+postype = right
+bindtime = -1
+pos = -6,48+root,var(19)
+sprpriority = 8 ;100
+ownpal = 0
+facing = -1
+removetime = -1
+
+[state a]
+type = ModifyExplod
+trigger1 = root,var(56) > 0
+ID = 8010
+scale = 0.5*(root,var(56))/258,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,var(56) <= 0
+ID = 8010
+
+[state a]
+type = ModifyExplod
+trigger1 = root,var(56) < 0
+ID = 8011
+scale = -0.5*(root,var(56))/258,0.5
+
+[state a]
+type = RemoveExplod
+trigger1 = root,var(56) >= 0
+ID = 8011
+
+;---------------------[]
+[state -2,a];100
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(8020) = 0
+anim = 8021
+id = 8020
+postype = left
+bindtime = -1
+pos = 122,45+root,var(19)
+sprpriority = 8 ;110
+ownpal = 1
+scale = 0.5,0.5
+removetime = -1
+
+[state -2,a];100
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(8020) = 0
+anim = 8021
+id = 8020
+postype = right
+bindtime = -1
+pos = -132,45+root,var(19)
+sprpriority = 7 ;100
+ownpal = 1
+scale = 0.5,0.5
+facing = 1
+removetime = -1
+
+[state -2,a];10
+type = Explod
+trigger1 = Facing = 1
+;trigger1 = numexplod(8021) = 0
+anim = 8020+Floor(root,var(53)*0.1)
+id = 8021
+postype = left
+bindtime = -1
+pos = 127,45+root,var(19)
+sprpriority = 8 ;110
+ownpal = 1
+scale = 0.5,0.5
+removetime = 1
+
+[state -2,a];10
+type = Explod
+trigger1 = Facing = -1
+;trigger1 = numexplod(8021) = 0
+anim = 8020+Floor(root,var(53)*0.1)
+id = 8021
+postype = right
+bindtime = -1
+pos = -127,45+root,var(19)
+sprpriority = 7 ;100
+ownpal = 1
+scale = 0.5,0.5
+facing = 1
+removetime = 1
+
+[state -2,a];1
+type = Explod
+trigger1 = Facing = 1
+;trigger1 = numexplod(8022) = 0
+anim = 8020+root,var(53)-(Floor(root,var(53)*0.1))*10
+id = 8022
+postype = left
+bindtime = -1
+pos = 132,45+root,var(19)
+sprpriority = 8 ;110
+ownpal = 1
+scale = 0.5,0.5
+removetime = 1
+
+[state -2,a];1
+type = Explod
+trigger1 = Facing = -1
+;trigger1 = numexplod(8022) = 0
+anim = 8020+root,var(53)-(Floor(root,var(53)*0.1))*10
+id = 8022
+postype = right
+bindtime = -1
+pos = -122,45+root,var(19)
+sprpriority = 7 ;100
+ownpal = 1
+scale = 0.5,0.5
+facing = 1
+removetime = 1
+
+;---------------------[]
+[state -2,a];0
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(8030) = 0
+trigger1 = root,var(55) <= 2
+anim = 8030
+id = 8030
+postype = left
+bindtime = -1
+pos = 95,59+root,var(19)
+sprpriority = 8 ;110
+ownpal = 1
+scale = 0.5,0.5
+removetime = -1
+
+[state -2,a];0
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(8030) = 0
+trigger1 = root,var(55) <= 2
+anim = 8030
+id = 8030
+postype = right
+bindtime = -1
+pos = -95,59+root,var(19)
+sprpriority = 7 ;100
+ownpal = 1
+scale = 0.5,0.5
+facing = 1
+removetime = -1
+
+[state -2,a];1
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(8031) = 0
+trigger1 = root,var(55) <= 1
+anim = 8030
+id = 8031
+postype = left
+bindtime = -1
+pos = 82,59+root,var(19)
+sprpriority = 8 ;110
+ownpal = 1
+scale = 0.5,0.5
+removetime = -1
+
+[state -2,a];1
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(8031) = 0
+trigger1 = root,var(55) <= 1
+anim = 8030
+id = 8031
+postype = right
+bindtime = -1
+pos = -82,59+root,var(19)
+sprpriority = 7 ;100
+ownpal = 1
+scale = 0.5,0.5
+facing = 1
+removetime = -1
+
+[state -2,a];1
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(8032) = 0
+trigger1 = root,var(55) = 0
+anim = 8030
+id = 8032
+postype = left
+bindtime = -1
+pos = 69,59+root,var(19)
+sprpriority = 8 ;110
+ownpal = 1
+scale = 0.5,0.5
+removetime = -1
+
+[state -2,a];1
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(8032) = 0
+trigger1 = root,var(55) = 0
+anim = 8030
+id = 8032
+postype = right
+bindtime = -1
+pos = -69,59+root,var(19)
+sprpriority = 7 ;100
+ownpal = 1
+scale = 0.5,0.5
+facing = 1
+removetime = -1
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+id = 8000
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+id = 8004
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+id = 8005
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+id = 8010
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+id = 8011
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+id = 8020
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+id = 8021
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+id = 8022
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+trigger2 = root,var(55) = 3
+id = 8030
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+trigger2 = root,var(55) = 2
+id = 8031
+
+[state a]
+type = removeexplod
+trigger1 = RoundState = [3,4]
+trigger2 = root,var(55) = 1
+id = 8032
+
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;勝利演出
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;---------------------------------------------------------------------------
+;決着
+[Statedef 8500]
+type = A
+ctrl = 0
+velset = 0,0
+movetype = I
+physics = N
+anim = 6500
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = nobardisplay
+flag2 = noFG
+
+[state a]
+type = AssertSpecial
+trigger1 = root,var(49) = 2
+flag = nomusic
+
+[state a]
+type = PosSet
+trigger1 = 1
+y = pos Y - screenpos Y
+
+[state a]
+type = PlaySnd
+triggerall = root,var(49) = 2
+trigger1 = time = 20
+value = 8500,0
+volume = 255
+
+[state a]
+type = PlaySnd
+triggerall = root,var(49) = 1
+trigger1 = time = 25
+value = 8500,1
+
+[state a]
+type = BGPalFx
+trigger1 = time = 0
+time = 210+10*(root,var(49)=1)
+sinadd = 384,384,384,420+20*(root,var(49)=1)
+
+[state p]
+type = Helper
+trigger1 = time = 15 ;20
+id = 8502
+name = "win1"
+pos = 162-5*(root,facing=-1),-177
+postype = back
+facing = root,facing
+stateno = 8502
+helpertype = normal
+pausemovetime = 9999
+supermovetime = 9999
+bindtime = -1
+keyctrl = 0 
+ownpal = 1
+
+[state p]
+type = Helper
+trigger1 = time = 21 ;26
+id = 8501
+name = "name"
+pos = 160,-86
+postype = back
+facing = root,facing
+stateno = 8502
+helpertype = normal
+pausemovetime = 9999
+supermovetime = 9999
+bindtime = -1
+keyctrl = 0
+ownpal = 1
+
+[state p]
+type = Helper
+triggerall = root,var(49) = 2
+trigger1 = root,var(29) != LifeMax
+trigger1 = time = 200
+id = 8504
+name = "bar"
+pos = -350,-210 ;-10,-210
+postype = right
+;facing = root,facing
+stateno = 8510
+helpertype = normal
+pausemovetime = 9999
+supermovetime = 9999
+bindtime = -1
+keyctrl = 0 
+ownpal = 1
+
+[state p]
+type = Helper
+triggerall = root,var(49) = 2
+trigger1 = root,var(29) != LifeMax
+trigger1 = time = 200
+id = 8505
+name = "bar"
+pos = -60,2 ;-290,2
+postype = left
+;facing = root,facing
+stateno = 8510
+helpertype = normal
+pausemovetime = 9999
+supermovetime = 9999
+bindtime = -1
+keyctrl = 0 
+ownpal = 1
+
+[state p]
+type = Helper
+triggerall = root,var(49) = 2
+trigger1 = time = 200
+id = 8510
+name = "portrait"
+pos = ifelse((root,var(29)!=LifeMax),-150+620*(root,facing=-1),320*(root,facing=-1)),-210
+postype = back
+facing = root,facing
+stateno = 8510
+helpertype = normal
+pausemovetime = 9999
+supermovetime = 9999
+bindtime = -1
+keyctrl = 0 
+ownpal = 1
+scale = 0.535,0.535
+
+;---------------------------------------------------------------------------
+;勝利
+[Statedef 8502]
+type = A
+ctrl = 0
+velset = 0,0
+movetype = I
+physics = N
+anim = 8502
+sprpriority = 10007
+
+[state a]
+type = ChangeAnim
+trigger1 = ishelper(8501)
+trigger1 = time = 0
+value = 8501
+
+[state a]
+type = ChangeAnim
+trigger1 = ishelper(8503)
+trigger1 = time = 0
+value = 8503
+
+[state a]
+type = SprPriority
+trigger1 = ishelper(8502)
+trigger1 = time = 0
+value = 10006
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = PosSet
+trigger1 = !ishelper(8503)
+trigger1 = time = 0
+y = pos Y - screenpos Y +27*ishelper(8502)+118*ishelper(8501)
+
+[state a]
+type = AngleDraw
+trigger1 = time = [0,5]
+scale = (2.0-0.3*time)/const(size.xscale),(2.0-0.3*time)/const(size.yscale)
+
+[state a]
+type = AngleDraw
+trigger1 = !ishelper(8501) || (root,var(49) = 1)
+trigger1 = time > 5
+trigger2 = ishelper(8501)
+trigger2 = root,var(49) = 2
+trigger2 = time = (5,184)
+scale = 0.5/const(size.xscale),0.5/const(size.yscale)
+
+[state a]
+type = AngleDraw
+triggerall = ishelper(8501)
+trigger1 = root,var(49) = 2
+trigger1 = time = [184,206] ;(109,134]
+scale = (0.5-0.01*(time-183))/const(size.xscale),(0.5-0.01*(time-184))/const(size.yscale)
+
+[state a]
+type = AngleDraw
+triggerall = ishelper(8501)
+trigger1 = root,var(49) = 2
+trigger1 = time > 206
+scale = 0.25/const(size.xscale),0.25/const(size.yscale) ;0.28
+
+[state a]
+type = VelSet
+triggerall = time = 185
+triggerall = root,var(49) = 2
+trigger1 = ishelper(8502)
+trigger2 = ishelper(8503)
+y = -10
+
+[state a]
+type = VelSet
+trigger1 = ishelper(8501)
+trigger1 = root,var(49) = 2
+trigger1 = time = 184
+x = 3.3
+y = 3.5 ;3.3
+
+[state a]
+type = VelSet
+trigger1 = ishelper(8501)
+trigger1 = time = 209
+x = 0
+y = 0
+
+[state p]
+type = Helper
+trigger1 = ishelper(8502)
+trigger1 = time = 3
+id = 8503
+name = "win2"
+sprpriority = 10007
+pos = -20,-5
+postype = p1
+stateno = 8502
+helpertype = normal
+pausemovetime = 9999
+supermovetime = 9999
+bindtime = -1
+keyctrl = 0 
+ownpal = 1
+
+;---------------------------------------------------------------------------
+;勝利画面
+[Statedef 8510]
+type = A
+ctrl = 0
+velset = 0,1 ;-10,0
+movetype = I
+physics = N
+anim = 8504
+sprpriority = 10005
+
+[state a]
+type = null;AssertSpecial
+trigger1 = anim = 8514
+flag = invisible
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = ChangeAnim
+trigger1 = ishelper(8510)
+trigger1 = time = 0
+value = 8514
+
+[state a]
+type = ChangeAnim
+triggerall = ishelper(8510)
+trigger1 = numexplod(8520)
+trigger2 = numexplod(8521)
+trigger3 = numexplod(8522)
+trigger4 = numexplod(8524)
+trigger5 = numexplod(8525)
+trigger6 = numexplod(8526)
+trigger7 = numexplod(8527)
+trigger8 = numexplod(8529)
+trigger9 = numexplod(8533)
+trigger10 = numexplod(8536)
+value = 8510
+
+[state a]
+type = ChangeAnim
+triggerall = ishelper(8510)
+trigger1 = numexplod(8523)
+trigger2 = numexplod(8528)
+trigger3 = numexplod(8530)
+trigger4 = numexplod(8531)
+trigger5 = numexplod(8535)
+value = 8511
+
+[state a]
+type = ChangeAnim
+triggerall = ishelper(8510)
+trigger1 = root,var(51) != -1
+trigger1 = root,var(53) >= 25-10*(root,var(51)=LifeMax)
+trigger1 = Anim != 8514
+trigger2 = numexplod(8534)
+value = 8512
+
+[state a]
+type = ChangeAnim
+trigger1 = ishelper(8510)
+trigger1 = root,var(29) = LifeMax
+value = 8513
+
+[state a]
+type = Trans
+trigger1 = Anim = 8513
+trigger1 = time < 30
+trans = addalpha
+alpha = 16+8*time,256-8*time
+
+[state a]
+type = PosSet
+trigger1 = time = 0
+trigger2 = ishelper(8510)
+y = pos Y - screenpos Y -35*ishelper(8504) +240*ishelper(8505) -8*ishelper(8510)*(Anim!=8513) ;-67 225
+
+[state a]
+type = AngleDraw
+trigger1 = ishelper(8504)
+trigger2 = ishelper(8505)
+scale = 1.0/const(size.xscale),0.5/const(size.yscale)
+
+[state a]
+type = AngleDraw
+trigger1 = ishelper(8510)
+trigger1 = Anim != 8513
+scale = 0.45/const(size.xscale),0.45/const(size.yscale)
+
+[state a]
+type = AngleDraw
+trigger1 = ishelper(8510)
+trigger1 = Anim = 8513
+scale = 0.5/const(size.xscale),0.5/const(size.yscale)
+
+[state a]
+type = null;VelSet
+trigger1 = ishelper(8505)
+trigger1 = time = 0
+x = 10
+
+[state a]
+type = VelSet
+trigger1 = ishelper(8505)
+trigger1 = time = 0
+y = -1
+
+[state a]
+type = VelSet
+trigger1 = ishelper(8510)
+trigger1 = Anim != 8513
+trigger1 = time = 0
+x = 5
+
+[state a]
+type = VelSet
+trigger1 = time = 30
+trigger2 = Anim = 8513
+x = 0
+y = 0
+
+[state a];草模様
+type = Explod
+triggerall = ishelper(8510)
+trigger1 = Anim != 8513
+trigger1 = time = 30
+anim = 8506
+ID = 8506
+pos = -320,185 ;175
+postype = front
+sprpriority = 10009
+bindtime = -1
+removetime = -2
+scale = 0.2,0.2
+
+[state a];ふきだし
+type = Explod
+triggerall = ishelper(8510)
+trigger1 = time = 30
+anim = 8500
+ID = 8500
+pos = -275,155
+postype = front
+sprpriority = 10006
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+ownpal = 1
+
+[state a];対狼牙
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "Rouga_Zanma"
+trigger2 = enemy,name = "ROUGA"
+anim = 8521
+ID = 8521
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対久那妓
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "kunagi tenrou"
+trigger2 = enemy,name = "Tenrou_Kunagi"
+trigger3 = enemy,name = "Kunagi_Tenrou"
+anim = 8522
+ID = 8522
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対扇奈
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "KYOUDOU SENNA"
+trigger2 = enemy,name = "SENNA"
+trigger3 = enemy,name = "senna kyoudou"
+trigger4 = enemy,name = "MKSenna"
+anim = 8523
+ID = 8523
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対兵太
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "Heita Zin nai"
+anim = 8524
+ID = 8524
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対スーパー兵太
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "Super Heita"
+anim = 8525
+ID = 8525
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対糸目男爵
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "burai yamamoto"
+trigger2 = enemy,name = "Kaori Misaka & Shiori Misaka"
+trigger3 = enemy,name = "Hong_Meirin"
+trigger4 = enemy,name = "Feng Xiaoyen"
+trigger5 = enemy,name = "JHONS_LEE"
+trigger6 = enemy,name = "Arima_Miyako"
+anim = 8526
+ID = 8526
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対剣道＆弓道
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "kendo nakanishi&kyudo nakanishi"
+anim = 8527
+ID = 8527
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対闇のアギト
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "Agito_Of_The_Dark"
+anim = 8528
+ID = 8528
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対三蔵
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "Sanzou_Kongoumaru"
+anim = 8529
+ID = 8529
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対大悟
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "Daigo Hotta"
+anim = 8530
+ID = 8530
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対デビル大悟
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "Donald"
+trigger2 = enemy,name = "SPY-DAMA"
+trigger3 = enemy,name = "Red Arremer"
+anim = 8531
+ID = 8531
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];対まんぼう
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+trigger1 = enemy,name = "Manbou"
+anim = 8533
+ID = 8533
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];羅刹汎用「どけっ！」
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+triggerall = root,var(51) != -1
+triggerall = root,var(53) >= 25-10*(root,var(51)=LifeMax)
+trigger1 = !numexplod(8521) && !numexplod(8522) && !numexplod(8523)
+trigger1 = !numexplod(8524) && !numexplod(8525) && !numexplod(8526)
+trigger1 = !numexplod(8527) && !numexplod(8528) && !numexplod(8529)
+trigger1 = !numexplod(8530) && !numexplod(8531) && !numexplod(8532)
+trigger1 = !numexplod(8533)
+anim = 8534
+ID = 8534
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];汎用1「京へと続く道」
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+triggerall = root,var(58)%3 = 0
+trigger1 = !numexplod(8521) && !numexplod(8522) && !numexplod(8523)
+trigger1 = !numexplod(8524) && !numexplod(8525) && !numexplod(8526)
+trigger1 = !numexplod(8527) && !numexplod(8528) && !numexplod(8529)
+trigger1 = !numexplod(8530) && !numexplod(8531) && !numexplod(8532)
+trigger1 = !numexplod(8533) && !numexplod(8534)
+anim = 8520
+ID = 8520
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];汎用2「なぜ…！」
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+triggerall = root,var(58)%3 = 1
+trigger1 = !numexplod(8521) && !numexplod(8522) && !numexplod(8523)
+trigger1 = !numexplod(8524) && !numexplod(8525) && !numexplod(8526)
+trigger1 = !numexplod(8527) && !numexplod(8528) && !numexplod(8529)
+trigger1 = !numexplod(8530) && !numexplod(8531) && !numexplod(8532)
+trigger1 = !numexplod(8533) && !numexplod(8534)
+anim = 8535
+ID = 8535
+pos = -257,172
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+[state a];汎用3「どんな敵であろうとも」
+type = Explod
+triggerall = ishelper(8510)
+triggerall = time = 30
+triggerall = root,var(58)%3 = 2
+trigger1 = !numexplod(8521) && !numexplod(8522) && !numexplod(8523)
+trigger1 = !numexplod(8524) && !numexplod(8525) && !numexplod(8526)
+trigger1 = !numexplod(8527) && !numexplod(8528) && !numexplod(8529)
+trigger1 = !numexplod(8530) && !numexplod(8531) && !numexplod(8532)
+trigger1 = !numexplod(8533) && !numexplod(8534)
+anim = 8536
+ID = 8536
+pos = -262,169
+postype = front
+sprpriority = 10008
+bindtime = -1
+removetime = -2
+scale = 0.5,0.5
+
+
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)打撃エフェクト用ヘルパー
+[Statedef 7000]
+type = A
+ctrl = 0
+anim = 7000
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 1
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 1
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト2
+type = Helper
+trigger1 = time = 0
+id = 7002
+name = "hit3"
+sprpriority = 2
+pos = 10,6
+postype = p1
+stateno = 7002
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;----------------------------------------------------------------------------
+; 火の玉系
+[Statedef 7001]
+type = A
+ctrl = 0
+anim = 7001
+movetype = I
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = varRandom
+trigger1 = time = 0
+v = 1
+range = 0,10
+
+[state a]
+type = varadd
+trigger1 = 1
+v = 1
+value = 1
+
+;---------------------[速度]
+[state a]
+type = VelSet
+trigger1 = !ishelper(7003)
+trigger1 = time = 0
+x = -10+(Random%200)/10
+y = -10+(Random%200)/10
+
+[state a]
+type = VelSet
+trigger1 = ishelper(7003)
+trigger1 = time = 0
+x = -10
+y = -1+(Random%20)/10
+
+[state a]
+type = VelSet
+trigger1 = ishelper(7004)
+trigger1 = time = 0
+x = -5+(Random%100)/10
+y = -1+(Random%20)/10
+
+[state a]
+type = VelSet
+trigger1 = ishelper(7005)
+trigger1 = time = 0
+x = 10
+y = -1+(Random%20)/10
+
+[state a]
+type = VelSet
+trigger1 = ishelper(7006)
+trigger1 = time = 0
+x = (-2+(Random%10)/10)*(-1)**Random
+y = (-2+(Random%10)/10)*(-1)**Random
+
+[state a]
+type = VelMul
+trigger1 = !ishelper(7003)
+trigger1 = !ishelper(7004)
+trigger1 = !ishelper(7005)
+trigger1 = !ishelper(7006)
+x = 0.95
+y = 0.95
+
+[state a]
+type = VelMul
+trigger1 = ishelper(7003)
+trigger2 = ishelper(7004)
+trigger3 = ishelper(7005)
+trigger4 = ishelper(7006)
+trigger4 = abs(vel X) > 1
+trigger4 = abs(vel Y) > 0.5
+x = 0.99
+y = 0.95
+
+;---------------------[透過、拡縮]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[state a]
+type = AngleDraw
+trigger1 = ishelper(7001)
+trigger2 = ishelper(7002)
+scale = 1.0-var(1)*0.03,1.0-var(1)*0.03
+
+[state a]
+type = AngleDraw
+trigger1 = ishelper(7003)
+trigger2 = ishelper(7004)
+trigger3 = ishelper(7005)
+scale = 2.0-0.1*Time,2.0-0.1*Time
+
+[state a]
+type = AngleDraw
+trigger1 = ishelper(7006)
+scale = 0.2-0.02*((root,stateno=2305)||(root,stateno=2301))*(root,time),0.2-0.02*((root,stateno=2305)||(root,stateno=2301))*(root,time)
+
+[state a];BBB用火の粉
+type = Helper
+triggerall = root,time < 16
+triggerall = time%5 = [1,3]
+trigger1 = ishelper(7003)
+trigger2 = ishelper(7004)
+trigger3 = ishelper(7005)
+id = 7006
+name = "hit2"
+sprpriority = 2
+pos = 50-Random%40,20-Random%40
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[]
+[state a]
+type = DestroySelf
+trigger1 = ishelper(7001) || ishelper(7002)
+trigger1 = var(1) >= 25
+trigger2 = ishelper(7006)
+trigger2 = (root,stateno = 2305) || (root,stateno = 2301)
+trigger2 = root,time >= 10
+trigger3 = ishelper(7003) || ishelper(7004) || ishelper(7005)
+trigger3 = time = 20
+
+
+;----------------------------------------------------------------------------
+;(HELPER)打撃エフェクト用ヘルパー3
+[Statedef 7002]
+type = A
+ctrl = 0
+anim = 7002
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)ガードエフェクト用ヘルパー
+[Statedef 7010]
+type = A
+ctrl = 0
+anim = 7010
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = VelSet
+trigger1 = Time = 0
+x = 1
+
+[state a]
+type = VelSet
+trigger1 = AnimElemTime(3) = 0
+x = 0
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = AnimElemTime(4) < 4
+trans = addalpha
+alpha = 256,256
+
+[state a]
+type = Trans
+trigger1 = AnimElemTime(4) >= 4
+trigger1 = AnimElemTime(5) < 0
+trans = addalpha
+alpha = 256-42*(Time-12),256
+
+[state a]
+type = AfterImage
+trigger1 = time = 0
+time = 12
+length = 6
+palcontrast = 30,30,150
+timegap = 1
+framegap = 4
+trans = addalpha
+
+[state a];ガード青蛍
+type = Helper
+triggerall = numhelper(6071) < 2
+trigger1 = AnimElemTime(2) = 0
+id = 7011
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];ガード青蛍
+type = Helper
+trigger1 = AnimElemTime(3) = 0
+id = 7014
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];ガード青蛍
+type = Helper
+triggerall = numhelper(6071) < 2
+trigger1 = AnimElemTime(4) = 0
+id = 7017
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+;----------------------------------------------------------------------------
+; ガード青蛍
+[Statedef 7011]
+type = A
+ctrl = 0
+anim = 6005
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[速度]
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7011)
+x = 2+0.1*(Random%6)
+y = 1-0.5*(Random%5)
+
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7012)
+x = 1.5+0.1*(Random%6)
+y = 4-0.5*(Random%5)
+
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7013)
+x = 1.5+0.1*(Random%6)
+y = -4+0.5*(Random%5)
+
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7014)
+x = 1+0.1*(Random%6)
+y = 1-0.5*(Random%5)
+
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7015)
+x = 0.5+0.1*(Random%6)
+y = 4-0.5*(Random%5)
+
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7016)
+x = 0.5+0.1*(Random%6)
+y = -4+0.5*(Random%5)
+
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7017)
+x = 0.1*(Random%6)
+y = 1-0.5*(Random%5)
+
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7018)
+x = -0.5+0.1*(Random%6)
+y = 4-0.5*(Random%5)
+
+[state a]
+type = VelSet
+triggerall = time = 0
+trigger1 = ishelper(7019)
+x = -0.5+0.1*(Random%6)
+y = -4+0.5*(Random%5)
+
+[state a]
+type = VelAdd
+trigger1 = ishelper(7011)
+trigger2 = ishelper(7012)
+trigger3 = ishelper(7013)
+x = -0.1
+
+[state a]
+type = VelAdd
+trigger1 = ishelper(7014)
+trigger2 = ishelper(7015)
+trigger3 = ishelper(7016)
+x = -0.2
+
+[state a]
+type = VelAdd
+trigger1 = ishelper(7017)
+trigger2 = ishelper(7018)
+trigger3 = ishelper(7019)
+x = -0.3
+
+;---------------------[透過、拡縮]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 128,256
+
+[state a]
+type = AngleDraw
+trigger1 = Time <= 10
+scale = 0.2,0.2
+
+[state a]
+type = AngleDraw
+trigger1 = Time > 10
+scale = 0.2-0.01*(Time-10),0.2-0.01*(Time-10)
+
+[state a]
+type = PalFX
+trigger1 = time = 0
+time = -1
+mul = 30,30,150
+
+[state a]
+type = AfterImage
+trigger1 = time = 0
+time = -1
+length = 4
+palcontrast = 30,30,150
+timegap = 1
+framegap = 1
+trans = addalpha
+
+[state a];青蛍上昇系
+type = Helper
+triggerall = time = 0
+trigger1 = ishelper(7011)
+id = 7012
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];青蛍上昇系
+type = Helper
+triggerall = time = 0
+trigger1 = ishelper(7014)
+id = 7015
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];青蛍上昇系
+type = Helper
+triggerall = time = 0
+trigger1 = ishelper(7017)
+id = 7018
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];青蛍下降系
+type = Helper
+triggerall = Time = 0
+trigger1 = ishelper(7011)
+id = 7013
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];青蛍下降系
+type = Helper
+triggerall = Time = 0
+trigger1 = ishelper(7014)
+id = 7016
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];青蛍下降系
+type = Helper
+triggerall = Time = 0
+trigger1 = ishelper(7017)
+id = 7019
+name = "guardB"
+sprpriority = 2
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+stateno = 7011
+helpertype = normal
+pausemovetime = 9999
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[]
+[state a]
+type = DestroySelf
+trigger1 = Time = 30
+
+
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)斬撃エフェクト用ヘルパー
+[Statedef 7003]
+type = A
+ctrl = 0
+anim = 7003
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+triggerall = time < 5
+trigger1 = root,stateno != 2100
+trigger1 = root,stateno != 2305
+trigger2 = root,stateno = 2100
+trigger2 = root,AnimElemTime(8) > 0
+trigger3 = root,stateno = 2305
+trigger3 = time < 3
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = -20,floor((helper(7003),pos Y)-((p2bodydist Y)+(pos Y)))
+postype = p2
+facing = -1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト2
+type = Helper
+triggerall = time = 0
+trigger1 = root,stateno != 2100
+trigger2 = root,stateno = 2100
+trigger2 = root,AnimElemTime(8) > 0
+id = 7002
+name = "hit3"
+sprpriority = 2
+pos = -20,floor((helper(7003),pos Y)-((p2bodydist Y)+(pos Y)))
+postype = p2
+facing = -1
+stateno = 7002
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];出血
+type = Helper
+trigger1 = time = 0
+id = 7004
+name = "blood"
+sprpriority = 2
+pos = -20,floor((helper(7003),pos Y)-((p2bodydist Y)+(pos Y)))
+postype = p2
+facing = -1
+stateno = 7004
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+;---------------------[]
+[state a]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+
+;----------------------------------------------------------------------------
+;(HELPER)出血エフェクト用ヘルパー
+[Statedef 7004]
+type = A
+ctrl = 0
+anim = 7004
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+triggerall = time <= 1
+trigger1 = root,stateno != 2100
+trigger1 = root,stateno != 2305
+trigger2 = root,stateno = 2100
+trigger2 = root,AnimElemTime(8) > 0
+trigger3 = root,stateno = 2305
+trigger3 = time = 0
+id = 7005
+name = "blood2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7005
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+triggerall = time <= 1
+trigger1 = root,stateno != 2100
+trigger1 = root,stateno != 2305
+trigger2 = root,stateno = 2100
+trigger2 = root,AnimElemTime(8) > 0
+trigger3 = root,stateno = 2305
+trigger3 = time = 0
+id = 7006
+name = "blood2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7005
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+triggerall = time <= 2
+trigger1 = root,stateno != 2100
+trigger1 = root,stateno != 2305
+trigger2 = root,stateno = 2100
+trigger2 = root,AnimElemTime(8) > 0
+trigger3 = root,stateno = 2305
+trigger3 = time = 0
+id = 7007
+name = "blood2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7005
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;----------------------------------------------------------------------------
+;(HELPER)飛び散る血エフェクト用ヘルパー
+[Statedef 7005]
+type = A
+ctrl = 0
+anim = 7005
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = varRandom
+trigger1 = time = 0
+v = 1
+range = 0,10
+
+[state a]
+type = varadd
+trigger1 = 1
+v = 1
+value = 1
+
+;---------------------[速度]
+[state a]
+type = VelSet
+trigger1 = time = 0
+trigger1 = ishelper(7005)
+x = -4-(Random%20)/10
+y = -7+(Random%20)/10
+
+[state a]
+type = VelSet
+trigger1 = time = 0
+trigger1 = ishelper(7006)
+x = -4+(Random%80)/10
+y = -7+(Random%20)/10
+
+[state a]
+type = VelSet
+trigger1 = time = 0
+trigger1 = ishelper(7007)
+x = 4+(Random%20)/10
+y = -7+(Random%20)/10
+
+[state a]
+type = Veladd
+trigger1 = 1
+y = 0.45
+
+;---------------------[透過]
+[state a]
+type = angleadd
+trigger1 = 1
+value = 25
+
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 226,156
+
+[state a]
+type = angledraw
+trigger1 = 1
+scale = 1.0-var(1)*0.015,1.0-var(1)*0.015
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = var(1) >= 30
+
+
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)必殺ヒットエフェクト用ヘルパー
+[Statedef 7025]
+type = A
+ctrl = 0
+anim = 7025
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+triggerall = time <= 2
+trigger1 = root,stateno != 2100
+trigger2 = root,stateno = 2100
+trigger2 = root,AnimElemTime(8) > 0
+id = 7021
+name = "hit2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7021
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-8*Time,256
+
+[state a]
+type = AngleDraw
+trigger1 = 1
+scale = 1.0+0.06*Time,1.0+0.06*Time
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+;----------------------------------------------------------------------------
+;(HELPER)必殺ヒットエフェクト用ヘルパー2
+[Statedef 7021]
+type = A
+ctrl = 0
+anim = 6005
+movetype = I
+physics = N
+sprpriority = 1
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[速度]
+[state a]
+type = VelSet
+trigger1 = time = 0
+x = (-10+(Random%90)/10)*(-1)**Random
+y = (-10+(Random%90)/10)*(-1)**Random
+
+;---------------------[透過、拡縮]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 192,256
+
+[state a]
+type = AngleDraw
+trigger1 =  Time <= 10
+scale = 1.2,1.2
+
+[state a]
+type = AngleDraw
+triggerall = root,stateno != [2400,2402]
+trigger1 = Time > 10
+scale = 1.2-0.06*(Time-10),1.2-0.06*(Time-10)
+
+[state a]
+type = AngleDraw
+triggerall = root,stateno = [2400,2402]
+trigger1 = Time > 10
+scale = 1.2-0.03*(Time-10),1.2-0.03*(Time-10)
+
+[state a]
+type = PalFX
+trigger1 = time = 0
+time = -1
+mul = 130,130,240
+
+[state a]
+type = null;AfterImage
+trigger1 = time = 0
+time = -1
+length = 4
+palcontrast = 45,45,100
+timegap = 1
+framegap = 4
+trans = add1
+
+;---------------------[]
+[state a]
+type = DestroySelf
+trigger1 = time >= 30+20*(root,stateno = [2400,2402])
+
+
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)月華攻撃エフェクト用ヘルパー1(残像)
+[Statedef 6050]
+type = A
+ctrl = 0
+anim = 6050
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 1
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = bindtoparent
+trigger1 = time = 0
+pos = 0,0
+
+[state a]
+type = AngleDraw
+trigger1 = ishelper(6053)
+scale = 1.2,1.2
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 128-10*Time,256
+
+;---------------------[]
+[state a]
+type = DestroySelf
+trigger1 = Time = 11
+
+
+;----------------------------------------------------------------------------
+;(HELPER)月華攻撃エフェクト用ヘルパー2
+[Statedef 6051]
+type = A
+ctrl = 0
+anim = 6051
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 5
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = bindtoparent
+trigger1 = time = 0
+pos = 30*(root,stateno=[2100,2101]),-60
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-4*Time,256
+
+[state a]
+type = Helper
+trigger1 = AnimElemTime(4) = 0
+id = 6050
+name = "hit"
+pos = 0,0
+postype = p1
+stateno = 6050
+helpertype = normal
+pausemovetime = 0
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;----------------------------------------------------------------------------
+;(HELPER)強月華追加攻撃用ヘルパー1
+[Statedef 1220]
+type = A
+ctrl = 0
+anim = 1220
+VelSet = 0,0
+movetype = A
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = bindtoparent
+trigger1 = time = 0
+pos = 0,-60
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = Time = [0,36]
+trans = addalpha
+alpha = 256-7*Time,256
+
+[state a]
+type = angledraw
+trigger1 = Time = [0,36]
+scale = 1.0+0.0054*(Time+1),1.0+0.0054*(Time+1)
+
+;---------------------[攻撃]
+[State 1220, 3]
+type = HitDef
+;triggerall = root,var(50) > 0
+trigger1 = AnimElem = 3
+attr = A, SP
+damage    = ceil(48*root,fvar(0)),0 ;47
+priority = 8, Hit
+hitflag = MAF
+guardflag = MA
+getpower = 26*(4+var(58)%4-(Random%5=0)),13*(4+var(58)%4-(Random%5=0))
+givepower = 26*(6-var(58)%4-(Random%5=0)),13*(6-var(58)%4-(Random%5=0))
+pausetime = 11,11
+sparkno = s-1
+sparkxy = 0,0
+hitsound   = s400,2
+guard.sparkno = s-1
+guardsound = s120,1
+animtype = hard
+ground.type = high
+ground.slidetime = 19
+ground.hittime  = 19
+ground.velocity = -10,25
+air.velocity = -10,25
+fall = 1
+fall.recover = ifelse((root,var(20)<10),0,1)
+fall.xvelocity = 0
+fall.yvelocity = -3
+yaccel = 0.38
+p2facing = ifelse(facing*(enemynear,facing)*(p2dist X)>0,facing*(enemynear,facing),0)
+ID = 600
+nochainID = 9999
+envshake.time = 8
+envshake.freq = 100
+envshake.ampl = 4
+
+[state a]
+type = ParentVarAdd
+trigger1 = movehit = 1
+var(25) = 1
+
+;---------------------[ヘルパー]
+[state a];ヒットエフェクト2
+type = Helper
+trigger1 = movehit
+id = 7025
+name = "hit"
+pos = floor(p2dist x/2 + 25) , floor(p2dist y/2 -45)-(random%20)
+postype = p1
+stateno = 7025
+helpertype = normal
+pausemovetime = 0
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];ガードエフェクト
+type = Helper
+trigger1 = moveguarded
+id = 7010
+name = "hit"
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+facing = -1
+stateno = 7010
+helpertype = normal
+pausemovetime = 0
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0
+ownpal = 1
+
+[state a];強月華追加攻撃用ヘルパー2
+type = Helper
+trigger1 = AnimElemTime(2) = 7
+id = 6052
+name = "hit2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 6052
+helpertype = normal
+pausemovetime = 30
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[相手制御]
+[state a]
+type = TargetState
+trigger1 = movehit = 1
+value = ifelse((root,var(20)=[10,100)),1231,1230)
+
+;---------------------[]
+[state a]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+
+;----------------------------------------------------------------------------
+;(HELPER)強月華追加攻撃用ヘルパー2
+[Statedef 6052]
+type = A
+ctrl = 0
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = ChangeAnim
+trigger1 = time = 0
+value = 6051
+elem = 2
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = bindtoparent
+trigger1 = time = 0
+pos = 0,0
+
+[state a]
+type = Helper
+trigger1 = AnimElemTime(4) = 0
+id = 6053
+name = "hit"
+pos = 0,0
+postype = p1
+stateno = 6050
+helpertype = normal
+pausemovetime = 0
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 128,256
+
+[state a]
+type = angledraw
+trigger1 = 1
+scale = 1.2,1.2
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)椿攻撃待機用ヘルパー
+[Statedef 6070]
+type = A
+ctrl = 0
+anim = 6070
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = -3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = varset
+trigger1 = time = 0
+trigger1 = root,var(5) = 0
+v = 1
+value = 0
+
+[state a]
+type = varset
+trigger1 = time = 0
+trigger1 = root,var(5) = 1
+v = 1
+value = 1
+
+[state a]
+type = varset
+trigger1 = time = 0
+trigger1 = root,var(5) = 2
+v = 1
+value = 2
+
+[state a]
+type = varset
+trigger1 = time = 0
+trigger1 = root,stateno = 260
+v = 1
+value = 3
+
+[state a]
+type = varset
+trigger1 = time = 0
+var(2) = 0
+
+[state a]
+type = varset
+trigger1 = root,stateno = [5000,6000)
+trigger1 = root,prevstateno != 860
+var(2) = 1
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 36,256 ;256,256
+
+[state a]
+type = angledraw
+trigger1 = Time = [0,50]
+scale = 1.0-0.02*Time,0.5-0.01*Time
+
+[state a]
+type = angledraw
+trigger1 = Time = (50,60)
+scale = 0.02*(Time-50),0.01*(Time-50)
+
+[state a]
+type = angledraw
+trigger1 = Time = [60,110]
+scale = 1.0-0.02*(Time-60),0.5-0.01*(Time-60)
+
+[state a]
+type = angledraw
+trigger1 = Time = (110,120)
+scale = 0.02*(Time-110),0.01*(Time-110)
+
+[state a]
+type = angledraw
+trigger1 = Time = [120,170]
+scale = 1.0-0.02*(Time-120),0.5-0.01*(Time-120)
+
+[state a]
+type = angledraw
+trigger1 = Time = (170,180)
+scale = 0.02*(Time-170),0.01*(Time-170)
+
+[State 50, 4];残像
+type = AfterImage
+trigger1 = time = 0
+time = 180
+trans = addalpha
+timegap = 1
+framegap = 1
+length = 21
+palbright = 0,0,0
+palcontrast = 10,10,10
+palpostbright = 0,0,0
+paladd = 0,-40,-40
+palmul = 1,1,1
+
+[state a]
+type = Helper
+trigger1 = time = 0 && var(1) = 0
+trigger2 = time = 60 && var(1) = 1
+trigger3 = time = 180 && var(1) = 2
+id = 6072
+name = "tsubakiA"
+pos = 0,0
+postype = p1
+stateno = 6071
+helpertype = normal
+pausemovetime = 0
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0
+ownpal = 1
+
+;---------------------[]
+[state a]
+type = DestroySelf
+triggerall = (Time = 59) || (Time = 119) || (Time = 179)
+trigger1 = var(1) = 3
+trigger2 = var(2) = 1
+trigger3 = numhelper(6070) >= 2
+
+[state a]
+type = DestroySelf ;ChangeState
+trigger1 = time = 0 && var(1) = 0
+trigger2 = time = 60 && var(1) = 1
+trigger3 = time = 180 && var(1) = 2
+;value = 6071
+
+;----------------------------------------------------------------------------
+;(HELPER)椿攻撃用ヘルパー
+[Statedef 6071]
+type = A
+ctrl = 0
+anim = 6071
+VelSet = 0,0
+movetype = A
+physics = N
+sprpriority = 3
+
+[state a]
+type = posadd
+trigger1 = time = 0
+x = -10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[効果音]
+[state a];斬る
+type = playsnd
+trigger1 = time = 0
+value = 1300,1
+
+[state a];斬る
+type = playsnd
+trigger1 = time = 0
+value = 1300,2
+
+;---------------------[攻撃]
+[State 6071, 2];中強＆弱椿
+type = HitDef
+triggerall = root,var(50) > 0
+triggerall = ishelper(6070) || ishelper(6072)
+trigger1 = animelem = 4
+attr = S, SP
+damage    = ceil(58*root,fvar(0)),0
+priority = 7, Hit
+animtype  = hard
+hitflag = MAFD
+guardflag = MA
+getpower = 52*(4+var(58)%4-(Random%5=0)),26*(4+var(58)%4-(Random%5=0))
+givepower = 52*(6-var(58)%4-(Random%5=0)),26*(6-var(58)%4-(Random%5=0))
+pausetime = 1,11
+guard.pausetime = 9,9
+sparkno = s-1
+sparkxy = -20,-30
+hitsound   = s400,2
+guard.sparkno = s-1
+guardsound = s120,1
+ground.type = low
+ground.slidetime = 10
+guard.slidetime = 10
+ground.hittime  = 10
+yaccel = 0.38
+ground.velocity = -0.5,-7.5
+guard.velocity = -7
+air.velocity = -0.5,-6
+airguard.velocity = -2,-1.23
+fall = 1
+fall.recover = 1
+fall.recovertime = 36 ;25
+fall.xvelocity = 0
+fall.yvelocity = -3
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+ID = 6072
+nochainID = 9999
+envshake.time = 8
+envshake.freq = 100
+envshake.ampl = 4
+
+[State 2000, 2];椿・乱
+type = HitDef
+triggerall = root,var(50) > 0
+triggerall = ishelper(6071) || ishelper(6073)
+trigger1 = animelem = 4
+attr = S, HP
+damage    = ceil(38.5*root,fvar(0)),0   ;46
+priority = 7, Hit
+animtype  = hard
+hitflag = MAFD
+guardflag = MA
+getpower = 14*(4+var(58)%4-(Random%5=0)),7*(4+var(58)%4-(Random%5=0))
+givepower = 14*(6-var(58)%4-(Random%5=0)),7*(6-var(58)%4-(Random%5=0))
+pausetime = ifelse((p2statetype=A),2,2),ifelse((p2statetype=A),2,9)
+guard.pausetime = 2,2
+sparkno = s7025
+sparkxy = -20,-30
+hitsound   = s400,2
+guard.sparkno = s-1
+guardsound = s120,1
+ground.type = low
+ground.slidetime = 10
+guard.slidetime = 10
+ground.hittime  = 10
+yaccel = 0.38
+ground.velocity = -6
+guard.velocity = -6
+air.velocity = -0.5,-4
+airguard.velocity = -2,-1.23
+air.fall = 1
+fall.recover = 1
+fall.recovertime = 27 ;25
+fall.xvelocity = 0
+fall.yvelocity = -3
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+ID = 200
+nochainID = 9999
+envshake.time = 4
+envshake.freq = 100
+envshake.ampl = 2
+
+[state a]
+type = VarAdd
+trigger1 = movehit
+var(1) = 1
+ignorehitpause = 1
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[State 50, 4];残像
+type = AfterImage
+triggerall = ishelper(6070) || ishelper(6072)
+trigger1 = time = 0
+time = 120
+trans = addalpha
+timegap = 1
+framegap = 4
+length = 20
+palbright = 0,0,0
+palcontrast = 36,10,10
+palpostbright = 0,0,0
+paladd = -40,-40,-40
+palmul = 1,1,1
+
+[State 2000, 4];残像(椿・乱)
+type = AfterImage
+triggerall = ishelper(6071) || ishelper(6073)
+trigger1 = time = 0
+time = 30
+trans = addalpha
+timegap = 1
+framegap = 1
+length = 20
+palbright = 0,0,0
+palcontrast = 70,70,70 ;150,150,150
+palpostbright = 0,0,0
+paladd = -10,-10,-10
+palmul = 1,1,1
+
+;---------------------[ヘルパー]
+[state a];
+type = Helper
+trigger1 = ishelper(6071)
+trigger1 = Time = 7
+trigger1 = frontedgedist >= -300
+id = 6073
+pos = 13*((GameTime-root,var(3))/6),0
+postype = p1
+stateno = 6071
+helpertype = normal
+pausemovetime = 9999
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+size.xscale = 1.2*root,const(size.xscale)
+size.yscale = 1.2*root,const(size.yscale)
+
+[state a];
+type = Helper
+trigger1 = ishelper(6073)
+trigger1 = Time = 7
+trigger1 = frontedgedist >= -300
+id = 6071
+pos = 13*((GameTime-root,var(3))/6),0
+postype = p1
+stateno = 6071
+helpertype = normal
+pausemovetime = 9999
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+size.xscale = 1.2*root,const(size.xscale)
+size.yscale = 1.2*root,const(size.yscale)
+
+[state a];ヒットエフェクト
+type = Helper
+trigger1 = movehit
+id = 7025
+name = "hit"
+pos = floor(p2dist x/2 + 10) , floor(p2dist y/2 -30)-(random%30)
+postype = p1
+stateno = 7025
+helpertype = normal
+pausemovetime = 0
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];ガードエフェクト
+type = Helper
+trigger1 = moveguarded = 1
+id = 7010
+name = "hit"
+pos = 0,-70+30*(p2statetype=C)
+postype = p2
+facing = -1
+stateno = 7010
+helpertype = normal
+pausemovetime = 0
+persistent = 9999
+ignorehitpause = 1
+keyctrl = 0
+ownpal = 1
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;----------------------------------------------------------------------------
+;(HELPER)枯れ椿エフェクト発生用ヘルパー
+[Statedef 6074]
+type = A
+ctrl = 0
+anim = 6074
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 0
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];
+type = Helper
+trigger1 = time = 0
+id = 6075
+name = "hit"
+pos = -5+random%10 , -5+random%10
+postype = p1
+stateno = 6075
+helpertype = normal
+pausemovetime = 0
+persistent = 4
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];
+type = Helper
+trigger1 = time = 0
+id = 6075
+name = "hit"
+pos = -5+random%10 , -5+random%10
+postype = p1
+stateno = 6075
+helpertype = normal
+pausemovetime = 0
+persistent = 4
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];
+type = Helper
+trigger1 = time = 0
+id = 6076
+name = "hit"
+pos = -5+random%10 , -5+random%10
+postype = p1
+stateno = 6075
+helpertype = normal
+pausemovetime = 0
+persistent = 4
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state a];
+type = Helper
+trigger1 = time = 0
+id = 6076
+name = "hit"
+pos = -5+random%10 , -5+random%10
+postype = p1
+stateno = 6075
+helpertype = normal
+pausemovetime = 0
+persistent = 4
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;----------------------------------------------------------------------------
+;(HELPER)枯れ椿花びらエフェクト用ヘルパー
+[Statedef 6075]
+type = A
+ctrl = 0
+anim = 6075
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 3
+
+[State 860];緋空閃用
+type = PalFX
+triggerall = time = 0
+trigger1 = root,var(9)
+trigger2 = root,stateno = [2400,2402]
+time = 256
+add = 256,30,30
+mul = 256,256,256
+sinadd = 50,-100,-100,90
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = VelSet
+trigger1 = time = 0
+trigger1 = ishelper(6075)
+x =  -(random%20)*0.1
+y = -5 +random%3
+
+[state a]
+type = VelSet
+trigger1 = time = 0
+trigger1 = ishelper(6076)
+x =  (random%20)*0.1
+y = -5 +random%3
+
+[state a]
+type = velmul
+trigger1 = vel y <= -0.2
+y = 0.9
+
+[state a]
+type = veladd
+trigger1 = vel y > -0.2
+trigger1 = vel y <= 4
+y = 0.2
+
+;---------------------[]
+[State 00]
+type = ChangeState
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 6076
+
+
+;----------------------------------------------------------------------------
+;(HELPER)枯れ椿花びら消去用ヘルパー
+[Statedef 6076]
+type = A
+ctrl = 0
+anim = 6076
+VelSet = 0,0
+movetype = I
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = varset
+trigger1 = time = 0
+v = 1
+value = 0
+
+[state a]
+type = varadd
+trigger1 = 1
+v = 1
+value = 8
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(1),var(1)
+
+;---------------------[]
+[State 00]
+type = destroyself
+trigger1 = var(1) >= 256
+
+
+;---------------------------------------------------------------------------
+; Recovery Helper
+[Statedef 6521]
+type = U
+physics = N
+anim = 6521
+
+[State H]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State H]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-16*Time,256
+
+[State H]
+type = AngleDraw
+trigger1 = 1
+scale = 1+0.1*Time,1+0.1*Time
+
+[State H]
+type = VelSet
+trigger1 = Time = 0
+y = 3.5
+
+[State H]
+type = DestroySelf
+trigger1 = Time > 10
+
+
+;----------------------------------------------------------------------------
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+

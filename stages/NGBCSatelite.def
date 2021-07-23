@@ -1,0 +1,313 @@
+;Creator Nono
+[Info]
+name = "NGBC Antenna"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -224
+boundright = 224
+boundhigh = -112
+boundlow = 0
+verticalfollow = .4
+tension = 60
+floortenstion = 30
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 222
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0
+reflect = 0
+
+[Reflection]
+intensity = 60
+
+[Music]
+bgmusic = 
+bgvolume = 255
+
+[BGdef]
+spr = stages/NGBCSatelite.sff
+debugbg = 1
+
+[BG Sat1]
+
+type = normal
+spriteno =1,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 1.16, 1.7
+
+[BG Sat2]
+
+type = normal
+spriteno =1,1
+start =0, 240
+trans = none
+mask  = 1
+delta = 1.16, 1.7
+
+[BG Sat3]
+
+type = normal
+spriteno =1,2
+start =0, 240
+trans = none
+mask  = 1
+delta = 1.16, 1.7
+
+[BG Sat4]
+
+type = normal
+spriteno =4,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 1.16, 1.7
+
+[BG Cloud 1]
+
+type = normal
+spriteno =8,0
+start =0, 240
+trans = addalpha
+alpha = 75,170
+mask  = 1
+delta = 1, 1.6
+
+[BG Cloud 2]
+
+type = normal
+spriteno =8,1
+start =0, 240
+trans = addalpha
+alpha = 75,170
+mask  = 1
+delta = 1, 1.6
+
+[BG Balloon 1]
+
+type = normal
+spriteno =9,0
+start =0, 240
+trans = none
+velocity = -.1,-.1
+mask  = 1
+delta = 1.8, 1.8
+
+[BG Balloon 2]
+
+type = normal
+spriteno =9,1
+start =0, 240
+trans = none
+velocity = -.08,-.08
+mask  = 1
+delta = 1.6, 1.9
+
+[BG Floor1]
+
+type = normal
+spriteno =2,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Floor2]
+
+type = normal
+spriteno =2,1
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Floor3]
+
+type = normal
+spriteno =2,2
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Roof1]
+
+type = normal
+spriteno =3,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Roof2]
+
+type = normal
+spriteno =3,1
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Roof3]
+
+type = normal
+spriteno =3,2
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Tower1]
+
+type = normal
+spriteno =5,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Tower2]
+
+type = normal
+spriteno =5,1
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG cameraman 1]
+
+type = normal
+spriteno =6,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG cameraman 2]
+type  = anim
+actionno = 1
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 1]
+7,0,0,0,8
+7,1,0,0,8
+7,2,0,0,8
+7,3,0,0,8
+7,4,0,0,8
+7,5,0,0,8
+7,0,0,0,50
+7,1,0,0,8
+7,2,0,0,8
+7,3,0,0,8
+7,4,0,0,8
+7,5,0,0,8
+
+[BG Ralf 1]
+
+type = normal
+spriteno =10,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Ralf 2]
+type  = anim
+actionno = 2
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 2]
+10,1,0,0,11
+10,2,0,0,11
+
+[BG Clark 1]
+
+type = normal
+spriteno =11,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Clark 2]
+type  = anim
+actionno = 3
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 3]
+11,1,0,0,12
+11,2,0,0,12
+11,3,0,0,12
+11,4,0,0,12
+11,5,0,0,12
+11,1,0,0,30
+11,2,0,0,10
+11,3,0,0,10
+11,4,0,0,10
+11,5,0,0,10
+11,1,0,0,50
+11,2,0,0,12
+11,3,0,0,12
+11,4,0,0,12
+11,5,0,0,12
+
+[BG Leona 1]
+
+type = normal
+spriteno =12,0
+start =0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Leona 2]
+type  = anim
+actionno = 4
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 4]
+12,1,0,0,12
+12,2,0,0,12
+12,3,0,0,12
+12,4,0,0,12

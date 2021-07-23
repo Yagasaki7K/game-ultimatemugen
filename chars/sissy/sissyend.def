@@ -1,0 +1,70 @@
+;Sissy' Ending
+;----------------------------
+[SceneDef]
+spr = sissyend.sff
+startscene = 0
+;----------------------------
+[Scene 0]
+fadein.time = 100    
+fadein.col = 0,0,0
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 8,8
+layer0.anim =  0
+layer0.offset = -8,0
+layer0.starttime = 0
+layer1.anim =  1
+layer1.offset = -8,166
+layer1.starttime = 0
+end.time = 1111
+;-----------------------------------
+[Scene 1]
+fadein.time = 100
+fadein.col = 255,255,255
+fadeout.time = 200
+fadeout.col = 0,0,0
+clearcolor = 128,128,128
+layerall.pos = 0,0
+layer0.anim =  2 ;congrats
+layer0.offset = 40,7
+layer0.starttime = 0
+layer1.anim =  3 ;char big
+layer1.offset = 0,16
+layer1.starttime = 0
+layer2.anim =  4 ;char small
+layer2.offset = 169,80
+layer2.starttime = 0
+layer3.anim =  5 ;site
+layer3.offset = 70,210
+layer3.starttime = 0
+end.time = 500
+;------------------------------------
+;Ending Text
+[Begin Action 1]
+0,0, 0,0, 250
+0,1, 0,0, 200
+0,2, 0,0, 200
+0,3, 0,0, 200
+0,4, 0,0, -1
+
+;Scenes
+[Begin Action 0]
+1,0, 0,0, 450
+1,1, 0,0, -1
+
+; congrats
+[Begin Action 2]
+2,0, 0,0, -1
+
+; reiji big
+[Begin Action 3]
+2,1, 0,0, -1
+
+; reiji small
+[Begin Action 4]
+2,2, 0,0, -1
+
+; site
+[Begin Action 5]
+2,3, 0,0, -1

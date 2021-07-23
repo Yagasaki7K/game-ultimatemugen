@@ -1,0 +1,696 @@
+[Info]
+name = "Burning_Osaka_CVS2"
+
+[Music]
+bgmusic = sound/The_Lord_God.mp3
+bgvolume = 255
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -103
+boundright = 103
+boundhigh = -100
+boundlow = 0
+verticalfollow = 0.8
+tension = 70
+floortension = 100
+
+[PlayerInfo]
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+Hires = 1
+
+[Shadow]
+color = 80,80,80
+yscale = 0.3
+reflect = 0
+intensity = 64
+fade.range = -335,-5
+
+[Reflection]
+intensity = 0
+
+[BGdef]
+spr = Burning_Osaka_CVS2.sff
+debugbg = 0
+
+[BG b]
+type        = Normal
+spriteNo    = 0,0
+layerNo     = 0
+start       = 0,0
+delta       = 0,0
+trans       = None
+mask        = 0
+tile        = 1,0
+tilespacing = 0,0
+ActionNo    = 0
+velocity    = -0.3,0
+
+[BG 01]
+type        = Anim 
+spriteNo    = 1,0
+layerNo     = 0
+start       = 0,0
+delta       = 0,0
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 01
+velocity    = 0,0
+
+[Begin Action 01]
+1,0,0,0,4,,AS10D156
+1,0,0,0,4,,AS10D166
+1,0,0,0,4,,AS10D176
+1,0,0,0,4,,AS10D186
+1,0,0,0,4,,AS10D196
+1,0,0,0,4,,AS10D206
+1,0,0,0,4,,AS10D216
+1,0,0,0,4,,AS10D226
+1,0,0,0,4,,AS10D236
+1,0,0,0,4,,AS20D246
+1,0,0,0,4,,AS10D236
+1,0,0,0,4,,AS10D226
+1,0,0,0,4,,AS10D216
+1,0,0,0,4,,AS10D206
+1,0,0,0,4,,AS10D196
+1,0,0,0,4,,AS10D186
+1,0,0,0,4,,AS10D176
+1,0,0,0,4,,AS10D166
+1,0,0,0,4,,AS10D156
+1,0,0,0,4,,AS10D146
+
+[BG 02]
+type        = normal
+spriteNo    = 1543,0
+layerNo     = 0
+start       = -1, -1
+delta       = 0.09,0.3
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0 
+velocity    = 0,0
+
+[BG 02]
+type        = normal
+spriteNo    = 2,0
+layerNo     = 0
+start       = -1, -1
+delta       = 0.09,0.3
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 0
+
+[BG 03]
+type        = Anim
+layerNo     = 0
+start    = -114,244
+delta    =  0.2, 0.7
+trans       = none
+mask        = 1
+tile        = 0,0 
+tilespacing = 0,0
+ActionNo    = 15
+velocity    = 0,0
+
+[BG 04]
+type        = Anim
+layerNo     = 0
+start    = 42,320
+delta    = 0.09,0.3
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 915
+velocity    = 0,0
+
+[BG 05]
+type        = Anim
+layerNo     = 0
+start    = 41,340
+delta    = 0.09,0.3
+trans       = none
+mask        = 1
+tile        = 0,0 
+tilespacing = 0,0
+ActionNo    = 15
+velocity    = 0,0
+
+[BG 06]
+type        = Anim 
+layerNo     = 0
+start    = 20,255
+delta    = 0.09,0.3
+trans       = none 
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 916
+velocity    = 0,0
+
+[Begin Action 03]
+7,0,-31,102,8,,AS100D256
+7,1,-31,102,8,,AS100D256
+7,2,-31,102,8,,AS100D256
+7,3,-31,102,8,,AS100D256
+7,4,-31,102,9,,AS100D256
+7,5,-31,102,8,,AS100D256
+7,6,-31,102,8,,AS100D256
+7,7,-31,102,8,,AS100D256
+7,8,-31,102,8,,AS100D256
+7,9,-31,102,8,,AS100D256
+7,10,-31,102,9,,AS100D256
+7,11,-31,102,8,,AS100D256
+7,12,-31,102,8,,AS100D256
+7,13,-31,102,8,,AS100D256
+7,14,-31,102,9,,AS100D256
+7,15,-31,102,8,,AS100D256
+
+[Begin Action 04]
+7,2,-6,122,9,,AS100D256
+7,3,-6,122,8,,AS100D256
+7,4,-6,122,8,,AS100D256
+7,5,-6,122,8,,AS100D256
+7,6,-6,122,9,,AS100D256
+7,7,-6,122,8,,AS100D256
+7,8,-6,122,8,,AS100D256
+7,9,-6,122,8,,AS100D256
+7,10,-6,122,9,,AS100D256
+7,11,-6,122,8,,AS100D256
+7,12,-6,122,8,,AS100D256
+7,13,-6,122,8,,AS100D256
+7,14,-6,122,8,,AS100D256
+7,15,-6,122,8,,AS100D256
+7,0,-6,122,9,,AS100D256
+7,1,-6,122,8,,AS100D256
+
+[Begin Action 05]
+7,8,-5,101,8,,AS100D256
+7,9,-5,101,8,,AS100D256
+7,10,-5,101,8,,AS100D256
+7,11,-5,101,8,,AS100D256
+7,12,-5,101,8,,AS100D256
+7,13,-5,101,8,,AS100D256
+7,14,-5,101,8,,AS100D256
+7,15,-5,101,8,,AS100D256
+7,0,-5,101,8,,AS100D256
+7,1,-5,101,8,,AS100D256
+7,2,-5,101,8,,AS100D256
+7,3,-5,101,8,,AS100D256
+7,4,-5,101,8,,AS100D256
+7,5,-5,101,8,,AS100D256
+7,6,-5,101,8,,AS100D256
+7,7,-5,101,8,,AS100D256
+
+[Begin Action 06]
+7,12,-4,120,8,,AS100D256
+7,13,-4,120,8,,AS100D256
+7,14,-4,120,7,,AS100D256
+7,15,-4,120,8,,AS100D256
+7,0,-4,120,8,,AS100D256
+7,1,-4,120,8,,AS100D256
+7,2,-4,120,8,,AS100D256
+7,3,-4,120,8,,AS100D256
+7,4,-4,120,7,,AS100D256
+7,5,-4,120,8,,AS100D256
+7,6,-4,120,8,,AS100D256
+7,7,-4,120,8,,AS100D256
+7,8,-4,120,8,,AS100D256
+7,9,-4,120,8,,AS100D256
+7,10,-4,120,7,,AS100D256
+7,11,-4,120,8,,AS100D256
+
+[BG 07]
+type        = Anim 
+spriteNo    = 8,0
+layerNo     = 0
+start    = 15, 80
+delta    = 0.09,0.3
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 07
+velocity    = 0,0
+
+[Begin Action 07]
+8,1,-28,137,7,,AS220D256
+8,2,-28,137,7,,AS210D256
+8,3,-28,137,8,,AS220D256
+8,4,-28,137,7,,AS220D256
+8,5,-28,137,7,,AS220D256
+8,6,-28,137,7,,AS210D256
+8,7,-28,137,8,,AS210D256
+8,8,-28,137,7,,AS210D256
+8,9,-28,137,7,,AS210D256
+8,10,-28,137,7,,AS210D256
+8,11,-28,137,8,,AS210D256
+8,12,-28,137,7,,AS210D256
+8,13,-28,137,7,,AS210D256
+8,14,-28,137,7,,AS210D256
+8,15,-28,137,8,,AS210D256
+8,0,-28,137,7,,AS210D256
+
+[BG 08]
+type        = Anim
+spriteNo    = 8,0
+layerNo     = 0
+start    = -26, 240
+delta    = 0.09,0.3
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 08
+velocity    = 0,0
+
+[Begin Action 08]
+8,8,0,0,8,,AS240D256
+8,9,0,0,7,,AS240D256
+8,10,0,0,7,,AS240D256
+8,11,0,0,8,,AS240D256
+8,12,0,0,7,,AS244D256
+8,13,0,0,7,,AS240D256
+8,14,0,0,8,,AS240D256
+8,15,0,0,7,,AS240D256
+8,0,0,0,7,,AS240D256
+8,1,0,0,7,,AS240D256
+8,2,0,0,8,,AS240D256
+8,3,0,0,7,,AS240D256
+8,4,0,0,7,,AS240D256
+8,5,0,0,8,,AS240D256
+8,6,0,0,7,,AS240D256
+8,7,0,0,7,,AS240D256
+
+
+[BG 11]
+type        = Anim
+layerNo     = 0
+start    = -52, 231
+delta    = 0.09,0.3
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 11
+velocity    = 0,0
+
+[BG 11]
+type        = Anim
+layerNo     = 0
+start    = 52, 241
+delta    = 0.09,0.3
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 11
+velocity    = 0,0
+
+[Begin Action 11]
+8,6,0,0,5,,AS240D256
+8,7,0,0,5,,AS240D256
+8,8,0,0,5,,AS240D256
+8,9,0,0,5,,AS240D256
+8,10,0,0,5,,AS240D256
+8,11,0,0,5,,AS240D256
+8,12,0,0,5,,AS240D256
+8,13,0,0,5,,AS240D256
+8,14,0,0,5,,AS240D256
+8,15,0,0,5,,AS240D256
+8,0,0,0,5,,AS240D256
+8,1,0,0,5,,AS240D256
+8,2,0,0,5,,AS240D256
+8,3,0,0,5,,AS240D256
+8,4,0,0,5,,AS240D256
+8,5,0,0,5,,AS240D256
+
+[BG 12]
+type        = normal
+spriteNo    = 4,0
+layerNo     = 0
+start    = -1, -1
+delta    = 0.2, 0.4
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 0
+velocity    = 0,0
+
+[BG 12]
+type        = Anim
+layerNo     = 0
+start    = -1, -1
+delta    = 0.2, 0.4
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 108
+velocity    = 0,0
+
+[Begin Action 108]
+4,0,0,0,1,,AS15D216
+4,0,0,0,1,,AS10D210
+4,0,0,0,1,,AS10D206
+4,0,0,0,1,,AS10D200
+4,0,0,0,1,,AS10D196
+4,0,0,0,1,,AS10D190
+4,0,0,0,1,,AS10D186
+4,0,0,0,1,,AS10D180
+4,0,0,0,1,,AS10D186
+4,0,0,0,1,,AS10D190
+4,0,0,0,1,,AS10D196
+4,0,0,0,1,,AS10D200
+4,0,0,0,1,,AS15D206
+4,0,0,0,2,,AS15D216
+4,0,0,0,2,,AS10D226
+4,0,0,0,2,,AS10D246
+4,0,0,0,2,,AS10D256
+4,0,0,0,2,,AS10D246
+4,0,0,0,2,,AS10D226
+4,0,0,0,1,,AS15D220
+
+[BG 13]
+type        = Anim
+spriteNo    = 5,0
+layerNo     = 0
+start    = -1, -1
+delta    = 0.4, 1.0
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 13
+velocity    = 0,0
+
+[BG 13]
+type        = Anim
+spriteNo    = 5,0
+layerNo     = 0
+start    = -1, -1
+delta    = 0.4, 1.0
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 107
+velocity    = 0,0
+
+[Begin Action 107]
+5,0,0,0,2,,AS15D216
+5,0,0,0,2,,AS10D210
+5,0,0,0,2,,AS10D206
+5,0,0,0,2,,AS10D200
+5,0,0,0,2,,AS10D196
+5,0,0,0,2,,AS10D190
+5,0,0,0,2,,AS10D180
+5,0,0,0,2,,AS10D170
+5,0,0,0,2,,AS10D166
+5,0,0,0,2,,AS10D176
+5,0,0,0,2,,AS10D180
+5,0,0,0,2,,AS10D190
+5,0,0,0,2,,AS15D200
+5,0,0,0,3,,AS15D210
+5,0,0,0,3,,AS10D220
+5,0,0,0,3,,AS10D246
+5,0,0,0,3,,AS10D256
+5,0,0,0,3,,AS10D246
+5,0,0,0,3,,AS10D226
+5,0,0,0,2,,AS15D220
+
+[BG 14]
+type        = Anim
+spriteNo    = 5,1
+layerNo     = 0
+start    = -1, -1
+delta    = 1, 1.4
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 14
+velocity    = 0,0
+
+[Begin Action 13]
+5,0,0,0,5;00
+5,0,0,1,2
+5,0,0,0,2
+5,0,0,1,2
+
+[Begin Action 14]
+5,1,0,0,5;00
+5,1,0,1,2
+5,1,0,0,2
+5,1,0,1,2
+
+[BG 09]
+type        = Anim
+spriteNo    = 3,0
+layerNo     = 0
+start    = -1, -1
+delta    = 0.6, 1.3
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 09
+velocity    = 0,0
+
+[BG 09]
+type        = Anim
+layerNo     = 0
+start    = -1, -1
+delta    = 0.6, 1.3
+trans       = none 
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 109
+velocity    = 0,0
+
+[Begin Action 109]
+3,0,0,0,2,,AS10D156
+3,0,0,0,2,,AS10D166
+3,0,0,0,2,,AS10D176
+3,0,0,0,2,,AS10D186
+3,0,0,0,2,,AS10D196
+3,0,0,0,2,,AS15D206
+3,0,0,0,2,,AS25D216
+3,0,0,0,2,,AS30D226
+3,0,0,0,2,,AS40D246
+3,0,0,0,2,,AS50D256
+3,0,0,0,2,,AS40D246
+3,0,0,0,2,,AS50D226
+3,0,0,0,2,,AS25D216
+3,0,0,0,2,,AS15D206
+3,0,0,0,2,,AS10D196
+3,0,0,0,2,,AS10D186
+3,0,0,0,2,,AS10D176
+3,0,0,0,2,,AS10D166
+3,0,0,0,2,,AS10D156
+3,0,0,0,2,,AS10D146
+
+[Begin Action 09]
+3,0,0,0,4;00
+3,0,0,1,2
+3,0,0,0,2
+3,0,0,1,2
+
+[Begin Action 10]
+3,1,0,0,4;00
+3,1,0,1,2
+3,1,0,0,2
+3,1,0,1,2
+
+[BG 15]
+type        = Anim
+layerNo     = 0
+start    = -600, -77
+delta    = 1, 1.4
+trans       = none 
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 666
+velocity    = 0,0
+
+[Begin Action 15]
+9,0,0,0,4,,A
+9,1,0,0,4,,A
+9,2,0,0,4,,A
+9,3,0,0,4,,A
+9,4,0,0,4,,A
+9,5,0,0,4,,A
+9,6,0,0,4,,A
+9,7,0,0,4,,A
+9,8,0,0,4,,A
+9,9,0,0,4,,A
+9,10,0,0,4,,A
+9,11,0,0,4,,A
+9,12,0,0,4,,A
+9,13,0,0,4,,A
+9,14,0,0,4,,A
+9,15,0,0,4,,A
+
+[Begin Action 666]
+666,0,0,0,4,,A
+666,1,0,0,4,,A
+666,2,0,0,4,,A
+666,3,0,0,4,,A
+666,4,0,0,4,,A
+666,5,0,0,4,,A
+666,6,0,0,4,,A
+666,7,0,0,4,,A
+666,8,0,0,4,,A
+666,9,0,0,4,,A
+666,10,0,0,4,,A
+666,11,0,0,4,,A
+666,12,0,0,4,,A
+666,13,0,0,4,,A
+666,14,0,0,4,,A
+666,15,0,0,4,,A
+
+[Begin Action 915]
+9,0,0,0,3,H,A
+9,1,0,0,4,H,A
+9,2,0,0,3,H,A
+9,3,0,0,4,H,A
+9,4,0,0,3,H,A
+9,5,0,0,4,H,A
+9,6,0,0,2,H,A
+9,7,0,0,2,H,A
+9,8,0,0,4,H,A
+9,9,0,0,5,H,A
+9,10,0,0,4,H,A
+9,11,0,0,5,H,A
+9,12,0,0,4,H,A
+9,13,0,0,3,H,A
+9,14,0,0,2,H,A
+9,15,0,0,2,H,A
+
+[Begin Action 916]
+9,0,0,0,2,,A
+9,1,0,0,3,,A
+9,2,0,0,3,,A
+9,3,0,0,3,,A
+9,4,0,0,3,,A
+9,5,0,0,4,,A
+9,6,0,0,3,,A
+9,7,0,0,3,,A
+9,8,0,0,3,,A
+9,9,0,0,3,,A
+9,10,0,0,3,,A
+9,11,0,0,4,,A
+9,12,0,0,4,,A
+9,13,0,0,3,,A
+9,14,0,0,3,,A
+9,15,0,0,3,,A
+
+[BG 18]
+type        = Anim 
+spriteNo    = 9,10
+layerNo     = 0
+start    = -149, 280
+delta    = 0.7,1.3
+trans       = none 
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 180
+velocity    = 0,0
+
+[BG 18]
+type        = Anim
+spriteNo    = 9,10
+layerNo     = 0
+start    = 49, 280
+delta    = 0.7,1.3
+trans       = none 
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 181
+velocity    = 0,0
+
+[Begin Action 180]
+238,0,0,0,5,,A
+238,1,0,-30,5,,A
+238,2,0,-60,5,,A
+238,3,0,-90,5,,A
+238,0,0,-120,5,H,A
+238,1,0,-150,5,H,A
+238,2,0,-180,5,H,A
+238,3,0,-210,5,H,A
+13,0,0,0,15
+[Begin Action 181]
+13,0,0,0,11
+238,0,0,0,6,,A
+238,1,0,-30,6,,A
+238,2,0,-60,5,,A
+238,3,0,-90,5,,A
+238,0,0,-120,5,H,A
+238,1,0,-150,6,H,A
+238,2,0,-180,5,H,A
+238,3,0,-210,5,H,A
+
+[BG 10]
+type        = Anim
+spriteNo    = 3,1
+layerNo     = 0
+start    = -1, -1
+delta    = 1.6, 1.3
+trans       = none
+mask        = 1
+tile        = 0,0 
+tilespacing = 0,0
+ActionNo    = 10
+velocity    = 0,0
+
+[BG 19]
+type        = normal
+spriteNo    = 6,0
+layerNo     = 0 
+start       = -1, -1
+delta       = 2.0, 2.0
+trans       = none
+mask        = 1
+tile        = 0,0
+tilespacing = 0,0
+ActionNo    = 0
+velocity    = 0,0

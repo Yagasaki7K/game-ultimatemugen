@@ -1,0 +1,44 @@
+[Info]
+Name         = "Donald"
+DisplayName  = "Donald"
+VersionDate  = 06,02,2008
+MugenVersion = 04,14,2002
+Author       = "kishio"
+Pal.Defaults = 1
+
+
+
+[Files]
+Cmd      = Donald.cmd
+Cns      = Donald.cns
+St       = Donald.cns
+StCommon = common1.cns
+Sprite   = Donald.sff
+Anim     = Donald.air
+Sound    = Donald.snd
+
+
+Pal1 = Donald1.act             ;Ａボタンで決定
+Pal2 = Donald2.act             ;Ｂボタンで決定
+Pal3 = Donald3.act             ;Ｃボタンで決定
+Pal4 = Donald4.act             ;Ｘボタンで決定
+Pal5 = Donald5.act             ;Ｙボタンで決定
+Pal6 = Donald6.act             ;Ｚボタンで決定
+;Pal11 = Donald11.act           ;start押しながらＹボタンで決定
+;Pal12 = Donald12.act           ;start押しながらＺボタンで決定
+
+
+
+;黒ドナルドの仕様について簡単に解説。
+
+;体力が半分を切るまではノーマルとさほど変わりません。
+;半分を切ると技性能が変化。基本性能がさらに強化されます。
+;基本的にピンチになるほど狂ってきます。
+;受けているヒット数が30以上になると自然に体が動いちゃいます。（3ゲージ必要）
+;また一定以上のダメージを一回で受けても自然に体が（ｒｙ（3ゲージ必要）
+;ライフが少なくなるとダウンからの起き上がりの際に高く飛び上がり犯ヴァーガーを落とします。（3ゲージ必要）
+;3ゲージ必要とか言ってますがピンチになると一瞬でゲージがMAXまで回復するのであんま関係ないです。
+:ライフが200あたりを切ると異常に硬くなる＋超回復で殆ど減らなくなります。
+;ただ200以上あると回復のスピードが緩やかになるので時間切れで負けることが多いです。
+:ステートが奪われたときの対応はしていないのでその手のキャラにはあっさり負けると思います。
+

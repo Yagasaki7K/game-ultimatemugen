@@ -1,0 +1,589 @@
+
+[Characters]
+2002_rugal\2002_rugal.def,random,order=6,music=sound/Dying_age.ogg,includestage=0
+chizuru\chizuru.def,random,order=6,music=sound/the_midnight_carnival.mp3,includestage=0
+cell\cell.def,random,order=7,music=,Includestage=0
+-
+-
+-
+-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+Shin
+KENSHIROU
+Thouther
+YIORI\YIORI.def,random,order=3,music=,includestage=0
+claire\claire.def,random,order=3,music=,includestage=0
+whip
+-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+Deadpool
+chipp\chipp.def,random,order=6,music=sound/suck_a_sage.mp3,includestage=0
+Wei_MA\Wei_MA.def,random,order=2,music=,includestage=0
+Kula_akof\Kula_akof.def,random,order=8,music=sound/Defeat.ogg,includestage=0
+Magaki\Magaki.def,random,order=9,music=sound/one_day_you_will_cry.ogg,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-
+-
+annie\annie.def,random,order=3,music=sound/holy_orders.ogg,includestage=0
+millia rage\millia rage.def,random,order=6,music=sound/Writhe_in_pain.ogg,includestage=0
+Krizalid\Krizalid.def,random,order=6,music=sound/penetrate_illuminate.ogg,includestage=0
+Goenitz\Goenitz.def,random,order=2,music=,includestage=0
+-
+-
+-
+-
+-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+testa\testa.def,random,order=5,music=,includestage=0
+venom_ggxx
+lucky\lucky.def,random,order=7,music=sound/Existence_VS_Assassin's.ogg,includestage=0
+Okina\Okina.def,random,order=6,music=,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+justice
+K'(MKJ)\K'(MKJ).def,random, order=6,includestage=0
+mukai\mukai.def,random,order=8,music=sound/One_From_The_Stands.ogg,includestage=0
+ryuji\ryuji.def,random,order=8,music=sound/The_last_day.ogg,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+ciel\ciel.def,random,order=10,music=sound/Skulltwister.ogg,includestage=0
+sion_t\sion_t.def,random,order=9,music=sound/failure.ogg,includestage=0
+Saisyu\Saisyu.def,random,order=1,music=,includestage=0
+MC'Chris\MC'Chris.def,random,order=1,music=,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+sion_a\sion_a.def,random,order=5,music=,includestage=0
+dragonclaw\dragonclaw.def,random,order=1,music=,includestage=0
+zantetsu\zantetsu.def,random,order=4,music=,includestage=0
+Daimon\Daimon.def,random,order=10,music=sound/smiley_pretty_for_the_devil.ogg,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+mizuka_mvc2
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+terry2001\Terry2001.def,random,order=7,music=sound/bring_out_your_dead.ogg,includestage=0
+ccikasumi
+Ralf
+KIM 2002 origin\KIM 2002 origin.def,random,order=2,music=,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+Donald/Donald.def,random,order=2,music=,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+0414setsuna\0414setsuna.def,random,order=7,music=sound/Imprisoned_freedom.ogg,includestage=0
+amano\amano.def,random,order=1,music=,includestage=0
+igniz
+vanessa 2002\vanessa 2002.def,random,order=1,music=,includestage=0
+athena02/athena02.def,random,order=3,music=,includestage=0
+clone benimaru
+BlueMary_BC
+-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-
+Popeye
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+dchunli/dchunli.def,random,order=3,music=,includestage=0
+EvilDan
+Evilryu
+evilken HR,random,order=3,music=,includestage=0
+sakura\sakura.def,random,order=4,music=,includestage=0
+kazuki\kazuki.def,random,order=3,music=,includestage=0
+sogetsu
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+god_slayer_ken-4.5,includestage=0;randomselect
+ShinGouki\ShinGouki.def,random,order=9,music=sound/Behind_Silence_And_Solitude.ogg,includestage=0
+svcvampiro\svcvampiro.def,random,order=7,music=sound/Endless_evil.ogg,includestage=0
+Ella\Ella.def,random,order=5,music=sound/Bitter_Metallic_Side.ogg,includestage=0
+gokuHR\gokuHR.def,random,order=7,music=,includestage=0
+Karin
+cvsg_rugal\cvsg_rugal.def,random,order=9,music=sound/Venom.ogg,includestage=0
+Vegaç/Vegaç.def,random,order=3,music=,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-
+Kyoudou_senna\Kyoudou_senna.def,random,order=9,music=sound/Empty_Inside.ogg,includestage=0
+iceman\iceman.def,random,order=5,music=,includestage=0
+InfinityBatman
+thor
+wonder_woman/wonder_woman.def,random,order=7,music=,includestage=0
+sandman
+-,,includestage=0;-
+-,,includestage=0;-
+RazorClaws
+predator_W/predator_W.def,random,order=5,music=,includestage=0
+android18\android18.def,random,order=8,music=,includestage=0
+Gohan-SSJ2\Gohan-SSJ2.def,random,order=10,music=,includestage=0
+Haoumaru\Haoumaru.def,random,order=3,music=,includestage=0
+great saiyaman\great saiyaman.def,random,order=5,music=,includestage=0
+wind
+leona_akof
+ShaoKahnMO/ShaoKahnMO.def,random,order=10,music=,includestage=0
+Kintaro/kintaro.def,random,order=8,music=,includestage=0
+-,,includestage=0;-
+-,,includestage=0;-
+Colossus/Colossus.def,random,order=8,music=,includestage=0
+Cyclops
+ironman-mgmx-
+Shocker
+Mongul/Mongul.def,random,order=2,music=,includestage=0
+Spiderman/Spiderman.def,random,order=4,music=,includestage=0
+MVC2_DrDoom1
+-
+-
+-
+-
+Mr.Karate\Mr.Karate.def,random,order=10,music=,includestage=0
+Raditz\Raditz.def,random,order=8,music=,includestage=0
+Ftrunks-b\Ftrunks-b.def,random,order=9,music=,includestage=0
+sissy\sissy.def,random,order=5,music=,includestage=0
+android16
+BroliT\BroliT.def,random,order=10,music=,includestage=0
+SSJ3songoku\SSJ3songoku.def,random,order=10,music=,includestage=0
+mrsatan	
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+Pain
+sasuke-kun
+naruto-kun/naruto-kun.def,random,order=4,music=,includestage=0
+-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-------
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+-,,includestage=0;-
+ ;How to add characters
+ ;---------------------
+ ;Use the format:
+ ;    charname, stagefilename
+ ;
+ ;eg. For a player with filename "kfm", 
+ ;    and stage filename "stages/mybg.def"
+ ;type (without the semicolon):
+ ;    kfm, stages/mybg.def
+ ;
+ ;If you want to load a different def file, you can enter it
+ ;as a directory plus the def file. This example loads up
+ ;chars/kfm/alt-kfm.def:
+ ;    kfm/alt-kfm.def, stages/mybg.def
+ ;
+ ;If you put "random" as the stagefilename, then a random stage will
+ ;be selected for that player. eg.
+ ;    kfm, random
+ ;
+ ;Zipped characters are also supported (experimental).
+ ;Place the ZIP file in the chars/ directory. The name of the
+ ;character's .def must match the name of the .zip. For example, if
+ ;you have suave.def, then the zip file should be named suave.zip:
+ ;    suave.zip, stages/mybg.def
+ ;
+ ;Optional parameters may follow on the same line, separated
+ ;by commas. Each parameter has the form:
+ ;    paramname = paramvalue
+ ;where paramname is the name of the parameter type, and
+ ;paramvalue is the value to assign that parameter.
+ ;The optional parameters are:
+ ;
+ ; - music
+ ;   Set the paramvalue to the name of the music file to use
+ ;   as the BGM for that character. This overrides the bgmusic
+ ;   parameter in the stage's .def file, so you can re-use the
+ ;   same stage for multiple characters, but have a different
+ ;   BGM playing for each person.
+ ;
+ ; - includestage
+ ;   Set the paramvalue to 0 to avoid including this stage
+ ;   in the stage select list (in VS, training modes, etc)
+ ;
+ ; - order
+ ;   Set the paramvalue to the ordering priority to give the
+ ;   character. Valid values are from 1 to 10. A smaller value
+ ;   means you will fight the character sooner. You will never
+ ;   fight an order 2 character before an order 1 character,
+ ;   and never an order 3 character before an order 2 one.
+ ;   For example, you might want to set your boss character
+ ;   to have order=3. The default order value is 1 if you omit
+ ;   this param. See *.maxmatches under [Options] for how to
+ ;   limit the number of matches per order priority.
+ ;
+ ;   Some examples:
+ ;        kfm, stages/mybg.def, includestage=0
+ ;        kfm, stages/mybg.def, music=sound/song.mp3
+ ;        kfm, stages/mybg.def, music=sound/song.mp3, includestage=0
+ ;        kfm, stages/mybg.def, order=3
+ ;
+ ;You can also add a randomize icon to the select screen. To do
+ ;this, put the word "randomselect" on a line of its own, with no
+ ;extra parameters.
+
+; =================================
+; Character Installation
+; =================================
+; To install characters, overwrite a "randomselect;" line with your character.
+; DO NOT overwrite "blank;" lines, otherwise, your select screen will look messed up.
+
+
+
+;-----------------------
+[ExtraStages]
+stages/Cvs2K-kamuikotan.def;stages/Cvs2K-kamuikotan.def
+stages/cvssdragon.def;stages/cvssdragon.def
+stages/GG_zato.def;stages/GG_zato.def
+stages/GGISK_WildemessGravemarker.def;stages/GGISK_WildemessGravemarker.def
+stages/Hokuto_jagi_stage.def;stages/Hokuto_jagi_stage.def
+stages/Hokuto_mamiya'svillage.def;stages/Hokuto_mamiya'svillage.def
+stages/Hokuto_raoh_stage.def;stages/Hokuto_raoh_stage.def
+stages/kofex2_parking.def;stages/kofex2_parking.def
+stages/dewa.def;stages/dewa.def
+stages/AC_Miyako.def;stages/AC_Miyako.def
+stages/GGXX_KLIFF.def;stages/GGXX_KLIFF.def
+stages/GGXX_SLAYER.def;stages/GGXX_SLAYER.def
+stages/GGXXAC_PARIS.def;stages/GGXXAC_PARIS.def
+stages/GGXXS_FRASCO.def;stages/GGXXS_FRASCO.def
+stages/mbac_neco_c_black666.def;stages/mbac_neco_c_black666.def
+stages/SHIN_seena.def;stages/SHIN_seena.def
+stages/sin.def;stages/sin.def
+stages/sou_night.def;stages/sou_night.def
+stages/yoshino.def;stages/yoshino.def
+stages/C_stage.def;stages/C_stage.def
+stages/crimson.def;stages/crimson.def
+stages/FlamingDoom.def;stages/FlamingDoom.def
+stages/HTEmple_in_mountains.def;stages/HTEmple_in_mountains.def
+stages/Huenco_Mundo.def;stages/Huenco_Mundo.def
+stages/mkvsdc.def;stages/mkvsdc.def
+stages/Monopoly.def;stages/Monopoly.def
+stages/NGBCImage2.def;stages/NGBCImage2.def
+stages/sikview.def;stages/sikview.def
+stages/sky_battle_hires.def;stages/sky_battle_hires.def
+stages/sky_battle_day_hires.def;stages/sky_battle_day_hires.def
+stages/Vista_Desktop.def;stages/Vista_Desktop.def
+stages/DarkSector.def;stages/DarkSector.def
+stages/DMC3-Temen-Ni-Gru.def;stages/DMC3-Temen-Ni-Gru.def
+stages/EclipseCannon.def;stages/EclipseCannon.def
+stages/ForgottenIsland.def;stages/ForgottenIsland.def
+stages/FuryTiger.def;stages/FuryTiger.def
+stages/icepalace.def;stages/icepalace.def
+stages/KI-Cinder.def;stages/KI-Cinder.def
+stages/onewingedangel.def;stages/onewingedangel.def
+stages/paopao.def;stages/paopao.def
+stages/rooftop.def;stages/rooftop.def
+stages/sewer2.def;stages/sewer2.def
+stages/Forest2.def;stages/Forest.def
+stages/Horizen.def;stages/Horizen.def
+stages/Ice Bridge.def;stages/Ice Bridge.def
+stages/Moon.def;stages/Moon.def
+stages/North Pole.def;stages/North Pole.def
+stages/Region Dragon.def;stages/Region Dragon.def
+stages/Yacht.def;stages/Yacht.def
+stages/[betohac]SFIII NG Gill.def
+stages/AmericaXI.def
+stages/BasaraX_osakahuyunojin.def
+stages/basilica.def
+stages/Battle of Hasedo.def
+stages/beat_from_melty_blood.def
+stages/Burning_Osaka_CVS2.def
+stages/CambodiaXI.def
+stages/castle1.def
+stages/cemetery_d4.def
+stages/Cs-X-TR.def
+stages/d4_ggxxac_China.def
+stages/Deserted_woods_hi.def
+stages/Dragon City.def
+stages/Foreign_General_CemeteryD.def
+stages/Forest.def
+stages/Front_School.def
+stages/ggxx_colony.def
+stages/ngbc-lastresort-hi.def
+stages/ngbc-pillars-hi.def
+stages/tenkaichiHR.def
+stages/The_walls.def
+stages/TK3_NYC_HR.def
+
+
+
+
+
+
+ ;Put extra stages here. They will be available in VS and Watch modes.
+ ;For example, you can insert "stages/mybg.def".
+
+;---------------------------------------------------------------------
+ ;Here you set the maximum number of matches to fight before game ends
+ ;in Arcade Mode. The first number is the number of matches against
+ ;characters with order=1, followed by order=2 and order=3 respectively.
+ ;For example, for 4,3,1 you will fight up to 4 randomly-picked
+ ;characters who have order=1, followed by 3 with order=2 and 1 with
+ ;order=3.
+
+ ;Maximum number of matches to fight before game ends in Team Mode.
+ ;Like arcade.maxmatches, but applies to Team Battle.
+[Options]
+arcade.maxmatches=2,2,2,2,1,1,1,1,2,3
+team.maxmatches=2,2,2,2,1,1,1,1,2,3

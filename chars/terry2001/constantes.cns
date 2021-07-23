@@ -1,0 +1,49 @@
+
+[Data]
+life = 1000    		      ;Amount of life to start with
+attack = 100         		;100% attack power (more is stronger)
+defence = 100       	      ;100% defensive power (more is stronger)
+fall.defence_up = 90 		;Def goes up by 50% everytime player is hit on ground
+liedown.time = 60    		;Time player takes before getting up from HIT_LIEDOWN
+airjuggle = 15       		;Can do 15 points of juggling
+sparkno = 0          		;Default spark number
+guard.sparkno = 0 	      ;Default guard spark number
+volume = 150
+IntPersistIndex=1
+FloatPersistIndex=0
+KO.echo = 0 	            ;1 to enable echo on KO
+power = 3000
+
+[Size]
+xscale = 1                   ;Horizontal scaling factor.
+yscale = 1           	     ;Vertical scaling factor.
+ground.back = 21     	     ;Player width (back, ground)
+ground.front = 14    	     ;Player width (front, ground)
+air.back = 16        	     ;Player width (back, air)
+air.front = 18       	     ;Player width (front, air)
+z.width = 3          	     ;Player width (into and out)
+attack.width = 0    	     ;Default attack width: back, front
+attack.dist = 160    	     ;Default attack distance
+proj.attack.dist = 90        ;Default attack distance for projectiles
+head.pos = -6, -105          ;Approximate position of head
+mid.pos = -5, -62            ;Approximate position of midsection
+
+[Velocity]
+walk.fwd  = 3.0625           ;Walk forward
+walk.back = -2.0625          ;Walk backward
+run.fwd  = 6.1667            ;Run forward (x, y)  - if y<0, player will hop
+run.back = -5.2,-3.02        ;Run backward (x, y) - if y=0, player will run
+jump.neu = 0,-9.65           ;Neutral jumping velocity (x, y)
+jump.back = -3.21, -10.4     ;Jump back Speed (x, y)
+jump.fwd = 3.21,-10.4        ;Jump forward Speed (x, y)
+runjump.fwd = 4.1,-9.7      
+airjump.neu = 0,-9.7      
+airjump.back = -2.55,-9.7    ;Air jump speeds (opt)
+airjump.fwd = 2.5,-9.7    
+
+[Movement]
+airjump.num = 0       ;Number of air jumps allowed (opt)
+airjump.height = 35   ;Minimum distance from ground before you can air jump (opt)
+yaccel = .54          ;Vertical acceleration
+stand.friction = .82  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching

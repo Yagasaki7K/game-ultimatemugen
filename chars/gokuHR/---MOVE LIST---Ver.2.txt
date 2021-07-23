@@ -1,0 +1,123 @@
+
+------------------------------------------------------------------------------------------
+-----------------------------<GOKU HR -Version 2.0>---------------------------------------
+------------------------------------------------------------------------------------------
+
+          ------------<> BASIC MOVES <>---------------Buttons=  A,B,C
+								X,Y,Z
+------------------------------------------------------------------------------------------
+
+
+*PUNCH* 		----> * "A"  	
+*PUNCH 2* 		----> * Left  + A 
+*PUNCH 3* 		----> * Right + A 
+*THUMP*			----> * Down  + A (in AIR ).
+*PUNCH 4*		----> * Down+Right(diagonal right)  + A 
+
+*KICK*   		----> * "B" 	
+*GROUND KICK*  		----> * Down  + B
+*KNEE PUSH * 		----> * Down+Right(diagonal right)  + B
+
+*KI SHOOT*		----> *"C"   
+*AIR KI SHOOT*		----> *"C"   (in AIR).*
+
+*FLY FORWARD* 		----> * Right 2 times
+*FLY BACK* 		----> * Left  2 times
+*TELETRANSPORT*		----> * "X".(any direction)*
+*Charge*		----> * "Z"	
+
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+          ------------<> SPECIALS <>---------------
+------------------------------------------------------------------------------------------
+
+
+*AHHhhh.....*		----> *Left, Down, Forward,  + A (power=1700)
+*DOUBLE PUNCH* 		----> *Down, Left, 	"A"; ---> Push 4 or + times to AIR SEQUENCE .(power=1400)
+*ENVESTIDA*		----> *Hold  Left 0.1 seconds, Forward, "A".*
+
+*FLYING KICK* 		----> *Down, Forward, 	"B".* -->HOLD left to ZANZOKEN kick, Mohevit.(power=1000,2 times in round ) 
+*DOUBLE KICK* 		----> *Down, Left, 	"B".*
+*SLIDING KICK* 		----> *Hold  Left 0.1 seconds, Forward, "B".*
+
+*FURY EXPLOSION*	----> *Down, Forward,	"C".*(power=1000)
+
+
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+       ------------<> SUPER MOVES <>---------------
+------------------------------------------------------------------------------------------
+
+
+*FLYING KAMEHAMEHA *(in AIR).*		----> *Left, Forward, "C"       (power=2000)
+*KAMEHAMEHA*				----> *Left, Forward, "C".*     (power=3000)
+
+*TAIOKEN* (2 times in round ) 		----> *Down ,Left,    "C".*     (power=4000)
+*KAIOKEN* (2 times in round ) 		----> *Down ,Forward, "Y".*     (power=5000)
+
+*GENKIDAMA* CHAO 			----> *Down ,Down ,       "Y".* (power=6000)
+*METEOR ATTACK* ( 1 times in round )	----> *Down ,Down ,Down   "Y".* (power=8000)
+
+
+------------------------------------------------------------------------------------------
+            ------------<> COMBOS <>---------------
+------------------------------------------------------------------------------------------	
+
+Here some combos or moves.
+------------------------------------------------------------------------------------------
+--> A,B
+
+--> A,( Hold right),A,A
+
+--> A,( Hold left ),A,A
+
+--> Down+A,( Hold Down ),A,A  + Right, Right, A
+
+--> Down+A,( Hold Down ),A,A  + HOLD left to ZANZOKEN punch, Mohevit.(power=1000,2 times in round ) 
+
+--> Left+A, Down+A
+
+--> Left+A, Right+A 
+
+--> Left+A, Down+B, quick B
+
+--> Right+B, ( Hold Right ), B
+
+--> Right+B, ( Hold Right ), B  + Right, Right, B, Left+A 
+
+--> Right+B, ( Hold Right ), B  + Right, Right, B, Right+A 
+
+--> Left+B,( Hold left ),B, Down+B
+
+--> Left+B,( Hold left ),B, Right+A
+
+--> Down+B, quick B
+
+--> Down+Right(diagonal right)  + A , Down  + A (in AIR )
+
+--> Down+Right(diagonal right)  + B , Down  + A (in AIR )
+
+--> Right+A, B, ( Hold Left )+ B
+
+--> Right+A, C (P2 in air)
+
+--> Combine Right+A to Kamehameha.(P2 in air)
+
+--> A,( Hold right),A,A,(Down,Back,"B")
+
+--> Down+Right(Diagonal right)+ A, then in air A,A,A.....to ratatatat.... 
+
+--> FLY FORWARD, Right+A or Left+A or...
+
+--> C,C,C,c... (power=1000)
+
+
+-->Etc,... Try!
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+

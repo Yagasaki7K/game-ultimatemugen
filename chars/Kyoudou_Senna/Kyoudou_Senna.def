@@ -1,0 +1,39 @@
+[Info]
+name         = "KYOUDOU SENNA"
+displayname  = "Kyoudou Senna"
+versiondate  = 12,30,2008
+mugenversion = 11,22,2000
+author       = "Songfu"
+pal.defaults = 3
+
+[Files]
+cmd      = Senna_Kyoudou.cmd
+cns      = Senna_Kyoudou.cns
+st       = Senna_Kyoudou.cns
+st1      = -2.cns
+st2      = AI.cns
+st3      = Senna_Kyoudou2.cns
+st4      = helper.cns
+stcommon = Senna_common1.cns
+sprite   = Senna_Kyoudou.sff
+anim     = Senna_Kyoudou.air
+sound    = Senna_Kyoudou.snd
+
+pal1  = act/Senna_Kyoudou1b.act
+pal2  = act/Senna_Kyoudou2b.act
+pal3  = act/Senna_Kyoudou3b.act
+pal4  = act/Senna_Kyoudou4b.act
+pal5  = act/Senna_Kyoudou1.act
+pal6  = act/Senna_Kyoudou2.act
+pal7  = act/Senna_Kyoudou1b.act
+pal8  = act/Senna_Kyoudou2b.act
+pal9  = act/Senna_Kyoudou3b.act
+pal10 = act/Senna_Kyoudou4b.act
+pal11 = act/Senna_Kyoudou3.act
+pal12 = act/Senna_Kyoudou4.act
+
+;1b`4b‚Í‘N–¾FVer.A1`4‚Í’ÊíVer.‚Å‚·B
+
+[Arcade]
+intro.storyboard  =
+ending.storyboard =

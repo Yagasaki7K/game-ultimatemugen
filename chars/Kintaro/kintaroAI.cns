@@ -1,0 +1,615 @@
+;*****************Kintaro's STATES***********************
+
+
+[Statedef -2]
+
+[State -2, NoGuard1]
+type = AssertSpecial
+trigger1 = var(21) != 1
+trigger1 = 1
+flag = nostandguard
+
+[State -2, NoGuard2]
+type = AssertSpecial
+trigger1 = var(21) != 1
+trigger1 = 1
+flag = nocrouchguard
+
+[State -2, NoGuard3]
+type = AssertSpecial
+trigger1 = 1
+flag = noairguard
+
+[State -2, NOSimulFatals ]
+type = VarSet
+trigger1 = var(9) != 0
+trigger1 = TeamMode = Simul ;Turns
+v = 9
+value = 0
+
+[State -2, stageID ]
+type = VarSet
+trigger1 = var(51) = 0
+trigger1 = ScreenPos Y >= 26000
+v = 51
+value = floor( ScreenPos Y )
+
+[State -1,stumbleshake] ;Kintaro's stumble animation shakes the earth
+type = EnvShake
+triggerall = anim = 5300 || anim = 5301 || anim = 100 || anim = 105 || anim = 29900
+trigger1 = animelem = 2
+trigger2 = animelem = 5
+time = 5
+
+[State -1,walkshake] ;Kintaro's walk animation shakes the earth
+type = EnvShake
+triggerall = anim = 20 || anim = 21
+trigger1 = animelem = 8
+trigger2 = animelem = 14
+time = 4
+
+[State -2, 1] ;Kintaro cannot be thrown. Except by those on this list;)
+type = HitOverride
+trigger1 = 1
+trigger1 = p2name != "Zangief"
+trigger1 = p2name != "Zangiefpf"
+trigger1 = p2name != "SF2'ÉUÉìÉMÉGÉt" ;<--Another version of Zangief
+trigger1 = p2name != "ox"
+trigger1 = p2name != "Mouser"
+trigger1 = p2name != "Metroid"
+trigger1 = p2name != "M"
+trigger1 = p2name != "Astro"
+trigger1 = p2name != "Hugo"
+trigger1 = p2name != "Hugo Andore"
+trigger1 = p2name != "Haggar"
+trigger1 = p2name != "Mike Haggar"
+trigger1 = p2name != "Reflector"
+trigger1 = p2name != "Kintaro"
+trigger1 = p2name != "Goro"
+trigger1 = p2name != "GoroMO"
+trigger1 = p2name != "Motaro"
+trigger1 = p2name != "Shao Kahn"
+trigger1 = p2name != "ShaoKahn"
+trigger1 = p2name != "KingpinMTO"
+trigger1 = p2name != "abubo"
+trigger1 = p2name != "Tin's Marstrius"
+trigger1 = p2name != "Marstrius"
+trigger1 = p2name != "Mika"
+trigger1 = p2name != "Raiden" ;Intended for the SNK character, not the MK one.
+trigger1 = p2name != "BigBear"
+trigger1 = p2name != "Big Bear"
+trigger1 = p2name != "Andore Jr"
+time = 1
+hitflag = MAF                    
+attr = SCA, AT, NT, ST, HT
+
+[State -2, BlockChange]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = stateno != 9010
+triggerall = P2MoveType = A
+triggerall = P2StateType = C
+triggerall = Life > 5
+;trigger1 = p2BodyDist X <= 90
+;trigger1 = StateType != A
+trigger1 = stateNo = 120
+trigger1 = Random <= 200
+value = 131
+
+[State -2, stageID ]
+type = VarSet
+trigger1 = var(51) = 0
+trigger1 = ScreenPos Y >= 26000
+v = 51
+value = floor( ScreenPos Y )
+
+;FINISH SOUND SAMPLE
+[State -2, 5.999]
+type = Playsnd
+trigger1 = p2life <= 1
+trigger1 = p2stateno != 5080
+trigger1 = p2stateno != 5090
+trigger1 = p2stateno != 5100
+trigger1 = p2stateno != 5110
+trigger1 = p2stateno != 5120
+trigger1 = p2stateno != [9100, 9999]
+trigger1 = stateno != [9010, 9999]
+trigger1 = p2movetype != H
+trigger1 = p2statetype != A
+trigger1 = Var(9) = 1
+trigger1 = p2name != "Omake: Mr. Wood"
+value = 2200, 0
+persistent = 1
+
+
+;FATALITY TIME BEGINS.  This activates when P2 is on the ground and has a small amount of live left.
+[State -2, 6]
+type = Helper
+trigger1 = p2life <= 1
+trigger1 = p2movetype != H
+trigger1 = Pos Y = 0
+trigger1 = p2stateno != 5080
+trigger1 = p2stateno != 5090
+trigger1 = p2stateno != 5100
+trigger1 = p2stateno != 5110
+trigger1 = p2stateno != 5120
+trigger1 = p2stateno != [9100, 9999]
+trigger1 = stateno != [9010, 9999]
+trigger1 = Var(9) = 1
+trigger1 = p2name != "Omake: Mr. Wood"
+stateno = 9000
+name = "Fatality"
+id = 9000
+pos = 0, 0
+helpertype = normal
+sprpriority = 1
+keyctrl = 1
+ownpal = 1
+under = 1
+
+;[State -2, 7.6]
+;type = Varset
+;trigger1 = time >= 0
+;v = 9
+;value = 1
+
+;THIS CHANGES MOVES FROM KILL TO NON-KILL, VERY IMPORTANT
+;[State -2, 7.6]
+;type = Varset
+;trigger1 = power != 0
+;trigger1 = Roundno != 1
+;trigger1 = p2name != "Omake: Mr. Wood"
+;v = 9
+;value = 1
+
+;MAKES IT SO IF YOU HIT THE PERSON, MOVES KILL AGAIN...
+[State -2, 7.9]
+type = Varset
+trigger1 = p2stateno = 9010
+v = 9
+value = 0
+
+[Statedef -3]
+
+[State -3, VarRandom]
+type = VarRandom
+triggerall = var(21) = 1
+;triggerall = PalNo = 12
+trigger1 = TimeMod = 5,0
+v = 0
+range = 5
+
+:****************KNOCK 'EM OUTTA THE SKY********************
+[State -3, Punch]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = StateType != A
+triggerall = NumProj = 0
+triggerall = Random <= 200
+triggerall = ctrl = 1
+triggerall = var(0) = [1,2]
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = p2bodydist X <= 100
+trigger1 = p2dist Y < 0
+value = 1000
+
+[State -3, Uppercut]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = StateType != A
+triggerall = NumProj = 0
+triggerall = Random <= 200
+triggerall = ctrl = 1
+triggerall = var(0) = [3,5]
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = p2bodydist X < 65
+trigger1 = p2dist Y < 0
+value = 1030
+
+;***************************TICK AWAY AT A DISTANCE***********************
+[State -3, Fire]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = StateType != A
+triggerall = ctrl = 1
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+;triggerall = StateNo != [1000, 1030]
+trigger1 = Random <= 200
+trigger1 = p2MoveType = A
+trigger1 = p2bodydist X >= 80
+trigger1 = p2bodydist X <= 140
+value = 1040
+
+[State -3, Stomp]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = StateType != A
+triggerall = ctrl = 1
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+;triggerall = StateNo != [1000, 1020]
+triggerall = var(0) = [1,3]
+triggerall = Life > 5
+trigger1 = Random <= 200
+trigger1 = p2MoveType = A
+trigger1 = p2BodyDist X >= 141
+value = 2500
+
+[State -3, GroundPound]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = StateType != A
+triggerall = ctrl = 1
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+;triggerall = StateNo != [1000, 1020]
+triggerall = var(0) = [4,5]
+triggerall = Life > 5
+trigger1 = Random <= 200
+trigger1 = p2MoveType = A
+trigger1 = p2BodyDist X >= 141
+value = 2400
+
+;*********************DEFENCE*******************************
+
+[State -3, Blocking]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = P2bodydist X <= 70
+triggerall = random <= 200
+triggerall = statetype = S
+triggerall = ctrl = 1
+triggerall = stateno != 9010
+triggerall = Pos Y >= 0
+triggerall = Life > 5
+;triggerall = StateType != A
+trigger1 = P2MoveType = A
+trigger1 = stateno != 120
+value = 130
+
+[State -3, Crouch Blocking]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = P2bodydist X <= 80
+triggerall = random <= 200
+triggerall = ctrl = 1
+triggerall = P2MoveType = A
+triggerall = stateno != 9010
+;triggerall = StateType != A
+triggerall = Pos Y >= 0
+triggerall = Life > 5
+;trigger1 = statetype = C
+trigger1 = stateno != 121
+trigger1 = P2StateType = C
+value = 131
+
+[State -3, Blocking2]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = random <= 120
+triggerall = statetype = S
+triggerall = ctrl = 1
+triggerall = stateno != 9010
+triggerall = stateno != [1600,1606]
+triggerall = stateno != [5110,5129]
+triggerall = stateno != 195
+triggerall = Pos Y >= 0
+triggerall = Life > 5
+;triggerall = StateType != A
+trigger1 = P2StateType != C
+trigger1 = P2MoveType = A
+trigger1 = stateno != 120
+value = 130
+
+[State -3, Crouch Blocking2]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = random <= 120
+triggerall = ctrl = 1
+triggerall = P2MoveType = A
+triggerall = stateno != 9010
+triggerall = stateno != [1600,1606]
+triggerall = stateno != [5110,5129]
+triggerall = stateno != 195
+triggerall = Pos Y >= 0
+triggerall = Life > 5
+;triggerall = StateType != A
+;trigger1 = statetype = C
+trigger1 = stateno != 121
+trigger1 = P2StateType = C
+value = 131
+
+;******************COUNTER!***********************
+[State -3, Uppercut]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+;triggerall = ctrl = 1
+triggerall = var(0) = 3
+triggerall = stateno != 9010
+triggerall = Life > 5
+trigger1 = p2BodyDist X <= 90
+trigger1 = StateType != A
+trigger1 = stateNo = 130
+trigger1 = Random <= 555
+trigger2 = p2BodyDist X <= 90
+trigger2 = StateType != A
+trigger2 = stateNo = 131
+trigger2 = Random <= 5
+value = 1030
+
+[State -3, Punch]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+;triggerall = ctrl = 1
+triggerall = var(0) = 1
+triggerall = stateno != 9010
+triggerall = Life > 5
+trigger1 = p2BodyDist X <= 90
+trigger1 = StateType != A
+trigger1 = stateNo = 130
+trigger1 = Random <= 555
+value = 1000
+
+;******************KEEP 'EM IN CHECK***********************
+[State -3, Uppercut]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = ctrl = 1
+triggerall = var(0) = 3
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = p2BodyDist X <= 190
+trigger1 = StateType != A
+trigger1 = p2StateNo = 121
+trigger1 = Random <= 5
+value = 1030
+
+[State -3, Punch]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = ctrl = 1
+triggerall = var(0) = 1
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = p2BodyDist X <= 190
+trigger1 = StateType != A
+trigger1 = p2StateNo = 121
+trigger1 = Random <= 5
+value = 1000
+
+[State -3, Fire]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = ctrl = 1
+triggerall = var(0) = [4,5]
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = p2BodyDist X <= 190
+trigger1 = StateType != A
+trigger1 = p2StateNo = 121
+trigger1 = Random <= 5
+value = 1040
+
+[State -3, Throw 'EM]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = ctrl = 1
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = p2BodyDist X <= 190
+trigger1 = StateType != A
+trigger1 = p2StateNo = 121
+trigger1 = Random <= 5
+value = 800
+
+[State -3, GroundPound]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = ctrl = 1
+triggerall = var(0) = 2
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = p2BodyDist X <= 190
+trigger1 = StateType != A
+trigger1 = p2StateNo = 121
+trigger1 = Random <= 5
+value = 2400
+
+[State -3, Stomp]
+type = ChangeState
+triggerall = MatchOver = 0
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = ctrl = 1
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = p2BodyDist X <= 190
+trigger1 = StateType != A
+trigger1 = p2StateNo = 121
+trigger1 = Random <= 5
+value = 2500
+
+;STANDING KOMBOS***************************************
+;**********************KOMBO 1*************************
+[State -3, KOMBO 1]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = StateType != A
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = StateNo = 0
+trigger1 = p2BodyDist X <= 3
+trigger1 = MoveContact = 1
+trigger1 = Random <= 256
+value = 1010
+
+[State -3, KOMBO 1]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+triggerall = StateType != A
+triggerall = stateno != 9010
+triggerall = stateno != 130
+triggerall = stateno != 131
+triggerall = Life > 5
+trigger1 = StateNo = 1010
+trigger1 = p2BodyDist X <= 3
+trigger1 = MoveContact = 1
+trigger1 = Random <= 256
+value = 1011
+
+*******************FATALITY RANDOM*******************
+[State -3, Random]
+type = VarRandom
+trigger1 = p2stateno = 9010
+trigger1 = stateno != 3100
+trigger1 = stateno != 3200
+trigger1 = stateno != 3300
+trigger1 = stateno != 3400
+trigger1 = stateno != 3500
+;trigger1 = stateno != 3600
+trigger1 = ctrl = 1
+v = 6
+Range = 1, 50
+
+[State -3, Fire Fatality]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+trigger1 = p2stateno = 9010
+trigger1 = var(6) = [1,10]
+trigger1 = stateno != 3100
+trigger1 = stateno != 3200
+trigger1 = stateno != 3300
+trigger1 = stateno != 3400
+trigger1 = stateno != 3500
+;trigger1 = stateno != 3600
+trigger1 = ctrl = 1
+value = 3100
+
+[State -3, Stomp]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+trigger1 = p2stateno = 9010
+trigger1 = var(6) = [11,20]
+trigger1 = stateno != 3100
+trigger1 = stateno != 3200
+trigger1 = stateno != 3300
+trigger1 = stateno != 3400
+trigger1 = stateno != 3500
+;trigger1 = stateno != 3600
+trigger1 = ctrl = 1
+value = 3300
+
+[State -3, Slam]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+trigger1 = p2stateno = 9010
+trigger1 = var(6) = [21,30]
+trigger1 = stateno != 3100
+trigger1 = stateno != 3200
+trigger1 = stateno != 3300
+trigger1 = stateno != 3400
+trigger1 = stateno != 3500
+;trigger1 = stateno != 3600
+trigger1 = ctrl = 1
+value = 7001
+
+[State -3, Eat'Em]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+trigger1 = p2stateno = 9010
+trigger1 = var(6) = [31,40]
+trigger1 = stateno != 3100
+trigger1 = stateno != 3200
+trigger1 = stateno != 3300
+trigger1 = stateno != 3400
+trigger1 = stateno != 3500
+;trigger1 = stateno != 3600
+trigger1 = ctrl = 1
+value = 7002
+
+[State -3, PowerPunch]
+type = ChangeState
+;triggerall = PalNo = 12
+triggerall = var(21) = 1
+triggerall = MatchOver = 0
+trigger1 = p2stateno = 9010
+trigger1 = var(6) = [41,50]
+trigger1 = stateno != 3100
+trigger1 = stateno != 3200
+trigger1 = stateno != 3300
+trigger1 = stateno != 3400
+trigger1 = stateno != 3500
+;trigger1 = stateno != 3600
+trigger1 = ctrl = 1
+value = 7003

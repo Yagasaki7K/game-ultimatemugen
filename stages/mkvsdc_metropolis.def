@@ -1,0 +1,583 @@
+;METROPOLIS Stage 
+;from the game: MORTAL KOMBAT VS DC (WORLDS COLLIDE)
+;console: PLAYSTATION 3
+
+[Info]
+name = "Metropolis"
+author= "Sam"
+;thanx to kronos for the major effects an Mantovao for the fog sprite
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -171
+boundright = 171
+boundhigh = -157
+boundlow = 0
+verticalfollow = .9
+floortension = 40
+tension=50
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 25
+screenright= 25
+
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 1
+hires = 1
+
+[Shadow]
+color = 80,80,80
+yscale = .05
+reflect = 0
+
+[Music]
+bgmusic = 
+bgvolume = 255
+
+[BGdef]
+spr = stages/mkvsdc_metropolis.sff
+debugbg= 0
+;============================================
+[BG frente 1]
+type = normal
+spriteno = 0,0
+start = -662, -314
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,1
+start = -441, -314
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,2
+start = -220, -314
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,3
+start = 1, -314
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,4
+start = 222, -314
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,5
+start = 443, -314
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,6
+start = -662, 83
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,7
+start = -441, 83
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,8
+start = -220, 83
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,9
+start = 1, 83
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,10
+start = 222, 83
+delta = 2, 2 
+mask = 0
+
+[BG frente 1]
+type = normal
+spriteno = 0,11
+start = 443, 83
+delta = 2, 2 
+mask = 0
+
+[BG Fumaça 1]                  
+type = normal           
+spriteno = 6, 0              
+start = 0, 0
+delta = 2, 2
+trans = add
+tile = 1,0
+velocity = -5,0
+
+[BG frente 1]
+type = normal
+spriteno = 1, 0
+start = -662, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+
+[BG frente 1]
+type = normal
+spriteno = 1, 1
+start = -441, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+
+[BG frente 1]
+type = normal
+spriteno = 1, 2
+start = -220, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+
+[BG frente 1]
+type = normal
+spriteno = 1, 3
+start = 1, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+
+[BG frente 1]
+type = normal
+spriteno = 1, 4
+start = 222, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+
+[BG frente 1]
+type = normal
+spriteno = 1, 5
+start = 443, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+
+[BG frente 1]
+type = normal
+spriteno = 1, 0
+start = -662, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+trans = sub
+
+[BG frente 1]
+type = normal
+spriteno = 1, 1
+start = -441, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+trans = sub
+
+[BG frente 1]
+type = normal
+spriteno = 1, 2
+start = -220, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+trans = sub
+
+[BG frente 1]
+type = normal
+spriteno = 1, 3
+start = 1, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+trans = sub
+
+[BG frente 1]
+type = normal
+spriteno = 1, 4
+start = 222, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+trans = sub
+
+[BG frente 1]
+type = normal
+spriteno = 1, 5
+start = 443, 83
+delta = 2, 2 
+mask = 1
+layerno = 0
+trans = sub
+
+[BG frente 1]
+type = normal
+spriteno = 1, 0
+start = -662, 83
+delta = 2, 2 
+mask = 1
+layerno = 1
+trans = add1
+
+[BG frente 1]
+type = normal
+spriteno = 1, 1
+start = -441, 83
+delta = 2, 2 
+mask = 1
+layerno = 1
+trans = add1
+
+[BG frente 1]
+type = normal
+spriteno = 1, 2
+start = -220, 83
+delta = 2, 2 
+mask = 1
+layerno = 1
+trans = add1
+
+[BG frente 1]
+type = normal
+spriteno = 1, 3
+start = 1, 83
+delta = 2, 2 
+mask = 1
+layerno = 1
+trans = add1
+
+[BG frente 1]
+type = normal
+spriteno = 1, 4
+start = 222, 83
+delta = 2, 2 
+mask = 1
+layerno = 1
+trans = add1
+
+[BG frente 1]
+type = normal
+spriteno = 1, 5
+start = 443, 83
+delta = 2, 2 
+mask = 1
+layerno = 1
+trans = add1
+
+
+[BG animation Ambulancia]
+type = anime 
+actionno = 1     
+start = -440, 80
+delta = 2, 2 
+mask = 1
+
+
+[Begin action 1]
+Loopstart
+2,0, 0,0, 2,,
+99,0, 0,0, 5,,
+2,0, 0,0, 2,,
+99,0, 0,0, 3,,
+2,0, 0,0, 2,,
+99,0, 0,0, 7,,
+
+
+[BG animation back]
+type = anime 
+actionno = 3     
+start = -441, 108
+delta = 2, 2 
+mask = 1
+
+
+[Begin action 3]
+Loopstart
+2,1, 0,0, 3,,
+9,0, 0,0, 3,,
+
+
+[BG animation carro1]
+type = anime 
+actionno = 4     
+start = 441, 81
+delta = 2, 2 
+mask = 1
+layerno = 1
+
+[Begin action 4]
+Loopstart
+2,2, 0,0, 3,,
+9,0, 0,0, 1,,
+
+
+[BG animation autobus]
+type = anime 
+actionno = 5     
+start = 443, 85
+delta = 2, 2 
+mask = 1
+
+
+[Begin action 5]
+Loopstart
+2,3, 0,0, 2,,
+9,0, 0,0, 1,,
+2,3, 0,0, 9,,
+9,0, 0,0, 8,,
+2,3, 0,0, 2,,
+9,0, 0,0, 5,,
+2,3, 0,0, 9,,
+9,0, 0,0, 8,,
+2,3, 0,0, 2,,
+9,0, 0,0, 8,,
+2,3, 0,0, 2,,
+
+
+
+
+
+[BG animation ELECTRICIDAD ]
+type = anime 
+actionno = 6     
+start = -5, -350
+delta = 2, 2 
+mask = 1
+
+
+[Begin action 6]
+Loopstart
+3,0, 0,0, 1,, A
+3,1, 0,0, 6,, A
+99,9, 0,0, 4,, A
+3,2, 0,0, 2,, A
+3,3, 0,0, 2,, A
+3,4, 0,0, 8,, A
+3,5, 0,0, 2,, A
+99,9, 0,0, 4,, A
+3,6, 0,0, 6,, A
+3,7, 0,0, 4,, A
+3,8, 0,0, 2,, A
+3,9, 0,0, 4,, A
+3,10, 0,0, 8,, A
+3,11, 0,0, 2,, A
+3,12, 0,0, 2,, A
+3,13, 0,0, 6,, A
+3,14, 0,0, 2,, A
+3,15, 0,0, 1,, A
+99,9, 0,0, 4,, A
+3,16, 0,0, 2,, A
+99,9, 0,0, 4,, A
+3,3, 0,0, 2,, A
+3,4, 0,0, 8,, A
+3,5, 0,0, 2,, A
+99,9, 0,0, 4,, A
+3,6, 0,0, 6,, A
+3,7, 0,0, 4,, A
+3,8, 0,0, 2,, A
+3,9, 0,0, 4,, A
+3,10, 0,0, 8,, A
+3,11, 0,0, 2,, A
+3,12, 0,0, 2,, A
+3,13, 0,0, 6,, A
+3,14, 0,0, 2,, A
+3,15, 0,0, 1,, A
+99,9, 0,0, 50,, A
+
+
+
+
+[BG animation FUEGO]
+type = anime 
+actionno = 2     
+start = 440, 80
+delta = 2, 2 
+;mask = 1
+
+
+[Begin action 2]
+Loopstart
+4,0, 0,0, 2,, A
+4,1, 0,0, 2,, A
+4,2, 0,0, 2,, A
+4,3, 0,0, 2,, A
+4,4, 0,0, 2,, A
+4,5, 0,0, 2,, A
+4,6, 0,0, 2,, A
+4,7, 0,0, 2,, A
+4,8, 0,0, 2,, A
+4,9, 0,0, 2,, A
+4,10, 0,0, 2,, A
+4,11, 0,0, 2,, A
+4,12, 0,0, 2,, A
+4,13, 0,0, 2,, A
+4,14, 0,0, 2,, A
+4,15, 0,0, 2,, A
+4,16, 0,0, 2,, A
+4,17, 0,0, 2,, A
+
+
+
+[BG animation carro 2]
+type = anime 
+actionno = 7     
+start = 445, 87
+delta = 2, 2 
+mask = 1
+layerno = 1
+
+[Begin action 7]
+Loopstart
+2,4, 0,0, 2,,
+9,0, 0,0, 1,,
+2,4, 0,0, 9,,
+9,0, 0,0, 8,,
+2,4, 0,0, 2,,
+9,0, 0,0, 5,,
+2,4, 0,0, 9,,
+9,0, 0,0, 8,,
+2,4, 0,0, 2,,
+9,0, 0,0, 8,,
+2,4, 0,0, 2,,
+
+
+[BG semaforo]
+type = anime 
+actionno = 8     
+start = -441, -314
+delta = 2, 2 
+mask = 1
+
+
+[Begin action 8]
+Loopstart
+3,20, 0,0, 2,,
+9,0, 0,0, 2,,
+
+
+[BG semaforo-apagado]
+type = anime 
+actionno = 10     
+start = -441, -314
+delta = 2, 2 
+mask = 1
+
+
+[Begin action 10]
+Loopstart
+3,21, 14,0, 200,,
+3,21, 28,0, 260,,
+3,21, -1,0, 250,,
+
+
+
+[BG semaforo-apagado]
+type = anime 
+actionno = 11     
+start = -441, -314
+delta = 2, 2 
+mask = 1
+
+[Begin action 11]
+Loopstart
+3,21, -1,0, 250,,
+3,21, 14,0, 200,,
+3,21, 28,0, 260,,
+
+
+
+[BG semaforo-apagado]
+type = anime 
+actionno = 12     
+start = -441, -314
+delta = 2, 2 
+mask = 1
+
+
+[Begin action 12]
+Loopstart
+3,21, -1,0, 250,,
+3,21, 14,0, 200,,
+
+
+[BG bandera]
+type = anime 
+actionno = 13     
+start = 198, -16
+delta = 2, 2 
+
+
+[Begin action 13]
+Loopstart
+5,0, 0,0, 2
+5,1, 0,0, 2
+5,2, 0,0, 2
+5,3, 0,0, 2
+5,4, 0,0, 2
+5,5, 0,0, 2
+5,6, 0,0, 2
+5,7, 0,0, 2
+5,8, 0,0, 2
+5,9, 0,0, 2
+5,10, 0,0, 2
+5,11, 0,0, 2
+5,12, 0,0, 2
+5,13, 0,0, 2
+5,14, 0,0, 2
+5,15, 0,0, 2
+5,16, 0,0, 2
+5,17, 0,0, 2
+5,18, 0,0, 2
+5,19, 0,0, 2
+5,20, 0,0, 2
+5,21, 0,0, 2
+5,22, 0,0, 2
+
+
+

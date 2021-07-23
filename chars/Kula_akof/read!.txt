@@ -1,0 +1,256 @@
+KULA DIAMOND ~ the Anti-K'
+King of fighters XI
+By CCIRocky aka Ironmugen aka David D.
+http://deltapark.i-xcell.com
+
+
+
+
+Beta release 1 - 02/07/2006
+
+WARNING: This char may have bugs. Thanks for reporting any bugs you find.
+
+
+INDEX:
+
+1- What's done
+2- Random notes
+3- System
+4- Movelist
+5- Who?
+6- Thnx and fvx
+
+
+-------------------------------------------------------------------------------
+1- What's done?
+-------------------------------------------------------------------------------
+
+* Time over lose pose
+* Basics + requireds
+* Taunt
+* 1 normal intro
+* 2 Win poses
+* All basic attacks
+* 3 command moves.
+* 2 Throws
+* All specials from KofXI
+* Hypers from KofXI + 1 original
+* Sexy KO
+* Cheese KO
+* AI
+
+
+-------------------------------------------------------------------------------
+2- Random notes
+-------------------------------------------------------------------------------
+
+
+Since her Diamond Edge  SDM uses lot of projectiles, it was impossible to put
+juggle limits. So there you have a Kula with cheap SDM. :P
+
+You can open the SFF file and change the big 2002 portrait to the 2000 one.
+
+
+-------------------------------------------------------------------------------
+3- System
+-------------------------------------------------------------------------------
+
+Basic moves:
+-----------
+
+
+Kula 's system is simple, she rolls like in KOF96~98/2K~2K3, she hasn't got
+any extra modes (armor mode and counter mode) nor the advanced mode.
+Well, she works like all my KOF chars.
+
+You can run, you can "long jump", "short jump" too. You can recover instead
+of falling on the floor after some attacks.
+
+To roll forward, press weak punch + weak kick. To roll backward, do the
+same command, but hold back.
+Emergency escape use 1 power bar, you just dodge during you guard an
+attack.
+
+Knock down attacks can be done by pressing both strong attacks at the
+same time. If you do it during you block an attack, it will use 1 Power bar
+but will send your opponent pretty far.
+
+The counter system works like KOF, since I used Sander 's code (with permission)
+since I made Kusanagi. Though I didn't add the "COUNTER" explod.
+
+
+Hypers attacks:
+--------------
+
+A Hyper attack requires 1 Power bar.
+A stress shot requires 2 Power bars.
+
+And the desperation moves requires 3 Power bars.
+
+
+-------------------------------------------------------------------------------
+4- Movelist
+-------------------------------------------------------------------------------
+
+X Y Z   start
+A B C
+
+I'll use the Arcade language for the movelist. So:
+A = weak punch (X in Mugen)
+B = weak kick (A in Mugen)
+C = strong punch (Y in Mugen)
+D = strong kick (B in Mugen)
+
+
+Command moves:
+-------------
+
+One Inch
+
+-O + A
+
+
+
+Slider Shoot
+
+\  + B
+ O
+
+
+Critical Ice
+
+\  + C
+ O
+
+
+Custom combos:
+-------------
+
+- No custom combos made for Kula.
+
+
+Special attacks:
+---------------
+
+
+Counter Shell
+
+|  / O- + A/C
+O O
+
+
+Diamond Breath
+
+| \ -O + A/C
+O  O
+
+
+Ray Spin
+
+|  / O- + B/D  then  -O + B/D
+O O
+
+
+Crow Bites
+
+-O  | \  + A/C  then -O + D (only after C version)
+    O  O
+
+
+Diamond Shoot (in air)
+
+| \ -O + B/D
+O  O
+
+
+
+Hyper attack:
+------------
+
+
+Diamond Edge (requires 1 power bar)
+
+| \ -O | \ -O + A/C
+O  O   O  O
+
+
+Ice Block (requires 1 power bar)
+
+-O O- / | \ -O + A/C
+     O  O  O
+
+
+Diamond Edge (requires 2 power bars)
+
+| \ -O | \ -O + A+C
+O  O   O  O
+
+
+Shingan Kuzu Otoshi (requires 2 power bars)
+
+-O \  |  / O- -O \  |  / O- + A+C
+    O O O         O O O
+
+
+-------------------------------------------------------------------------------
+5- Who?
+-------------------------------------------------------------------------------
+
+
+- Who is Kula? (as I see her)
+
+
+ Was on mission to kill K' in Kof2000. But later her mission changed to destroy
+the Proton Cannon.... I mean the ZERO Cannon.
+
+ In Kof2001 Kula was back with a team, still to kill K', but her friend Foxy got
+killed by K9999, then Kula got friend with K'.
+
+ In Kof XI she teams up with K' and Maxima. Diana is still around her.
+
+
+Profile of Kula:
+---------------
+
+(Taken from www.kof10th.com)
+
+Fighting style: Anti-K' Arts.
+Birthday: 29 of May.
+Height: 169cm
+Weight: 48kg
+Blood type: ?
+Sizes: 81cm, 57cm, 83cm
+Birthplace: ?
+Hobby: Collecting some parts for amending "Candy".
+Personal Tresures: "Candy.
+Fav food: Strawberry sorbet, Sweet.
+Hates: Crows of people and Blaze.
+
+
+Special Thanks:
+--------------
+
+Misamu for the KOF XI sprites!
+[E]dgar for 1 edit of sexy Ko.
+
+Dark Saviour for his usefull progs.
+Neogouki (his Joe made me like MUGEN)
+Sander for the Counter system coding.
+Orochi KOf97 for helping out on timings years ago.
+Rumiko for the Andy review which was helpfull.
+Big Eli King, Dreamslayer, @ndroide for hostings.
+Chloe and Smogon for unknown reasons.
+Shin Dio, Walter, UltraJP/Kami.
+O Experto, Ice.
+
+Sion for installing my new UG forum.
+
+SNK for creating the KOF saga and that cute girl. RIP.
+Elecbyte for Mugen.
+
+Special Fucks:
+-------------
+
+Pacific Angra.
+AznMystik.
+@ndroide -> "No para que eres imbecil y lo pierdes" Thank you for my pass reminder.

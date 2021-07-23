@@ -1,0 +1,213 @@
+[SceneDef]
+spr = amano2.sff
+startscene = 0         ;Starting scene number (for debugging)
+
+[Scene 0]
+fadein.time = 60       
+fadein.col = 0,0,0     
+fadeout.time = 60
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0   
+layer0.anim =  0     
+layer0.offset = 48,130  
+layer0.starttime = 0 
+layer1.anim =  1     
+layer1.offset = 88,130  
+layer1.starttime = 0 
+layer2.anim =  2     
+layer2.offset = 48,170  
+layer2.starttime = 0 
+bgm = MP3/BGM.mp3  
+bgm.loop = 1
+end.time = 1220
+
+[Scene 1]
+fadein.time = 0       
+fadein.col = 0,0,0     
+fadeout.time = 0
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0   
+layer0.anim =  3     
+layer0.offset = 48,130  
+layer0.starttime = 0 
+layer1.anim =  4     
+layer1.offset = 88,130  
+layer1.starttime = 0 
+layer2.anim =  5     
+layer2.offset = 48,170  
+layer2.starttime = 0 
+bgm.loop = 1
+end.time = 2040
+
+[Scene 2]
+fadein.time = 0       
+fadein.col = 0,0,0     
+fadeout.time = 0
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+window = 48,0,300,130
+layerall.pos = 0,0   
+layer0.anim =  3     
+layer0.offset = 48,130  
+layer0.starttime = 0 
+layer1.anim =  6     
+layer1.offset = 88,130  
+layer1.starttime = 0 
+layer2.anim =  7     
+layer2.offset = 88,170  
+layer2.starttime = 0 
+bgm.loop = 1
+end.time = 41
+
+[Scene 3]
+fadein.time = 0       
+fadein.col = 0,0,0     
+fadeout.time = 60
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+window = 0,0,300,239
+layerall.pos = 0,0   
+layer0.anim =  3     
+layer0.offset = 48,130  
+layer0.starttime = 0 
+layer1.anim =  8     
+layer1.offset = 88,130  
+layer1.starttime = 0 
+layer2.anim =  9     
+layer2.offset = 88,130  
+layer2.starttime = 0 
+layer3.anim =  10     
+layer3.offset = 48,170  
+layer3.starttime = 0 
+bgm.loop = 1
+end.time = 300
+
+[Begin Action 0]
+1,0, 0,0, 8
+1,1, 0,0, 8
+1,2, 0,0, 8
+1,1, 0,0, 8
+
+[Begin Action 1]
+2,0, 0,0, 60
+2,0, 0,0, 960
+2,1, 0,0, -1
+
+[Begin Action 2]
+-1,0, 0,0, 60
+0,0, 0,0, 120
+-1,0, 0,0, 20
+0,1, 0,0, 120
+-1,0, 0,0, 20
+0,2, 0,0, 120
+-1,0, 0,0, 20
+0,3, 0,0, 120
+-1,0, 0,0, 20
+0,4, 0,0, 120
+-1,0, 0,0, 20
+0,5, 0,0, 120
+-1,0, 0,0, 20
+0,6, 0,0, 120
+-1,0, 0,0, 20
+0,7, 0,0, -1
+
+[Begin Action 3]
+3,0, 0,0, 1
+
+[Begin Action 4]
+4,0, 0,0, 200
+4,1, 0,0, 140
+4,2, 0,0, 280
+4,3, 0,0, 140
+4,4, 0,0,  20
+4,5, 0,0, 400
+4,6, 0,0, 400
+4,7, 0,0,  60
+4,8, 0,0, 300
+4,9, 0,0, 100
+
+[Begin Action 5]
+-1,0, 0,0, 200
+0,8, 0,0, 120
+-1,0, 0,0, 20
+0,9, 0,0, 120
+-1,0, 0,0, 20
+0,10, 0,0, 120
+-1,0, 0,0, 20
+0,11, 0,0, 120
+-1,0, 0,0, 20
+0,12, 0,0, 120
+-1,0, 0,0, 20
+0,13, 0,0, 120
+-1,0, 0,0, 20
+0,14, 0,0, 120
+-1,0, 0,0, 20
+0,15, 0,0, 120
+-1,0, 0,0, 20
+0,16, 0,0, 120
+-1,0, 0,0, 20
+0,17, 0,0, 120
+-1,0, 0,0, 60
+0,18, 0,0, 120
+-1,0, 0,0, 20
+0,19, 0,0, 120
+-1,0, 0,0, 20
+0,20, 0,0, 120
+
+[Begin Action 6]
+4,9, 0,0, 1
+
+[Begin Action 7]
+5,0, 20,0, 1
+5,0, 20,-1, 1
+5,0, 20,-2, 1
+5,0, 20,-3, 1
+5,0, 20,-4, 1
+5,0, 20,-5, 1
+5,0, 20,-6, 1
+5,0, 20,-7, 1
+5,0, 20,-8, 1
+5,0, 20,-9, 1
+5,0, 20,-10, 1
+5,0, 20,-11, 1
+5,0, 20,-12, 1
+5,0, 20,-13, 1
+5,0, 20,-14, 1
+5,0, 20,-15, 1
+5,0, 20,-16, 1
+5,0, 20,-17, 1
+5,0, 20,-18, 1
+5,0, 20,-19, 1
+5,0, 20,-20, 1
+5,0, 20,-21, 1
+5,0, 20,-22, 1
+5,0, 20,-23, 1
+5,0, 20,-24, 1
+5,0, 20,-25, 1
+5,0, 20,-26, 1
+5,0, 20,-27, 1
+5,0, 20,-28, 1
+5,0, 20,-29, 1
+5,0, 20,-30, 1
+5,0, 20,-31, 1
+5,0, 20,-32, 1
+5,0, 20,-33, 1
+5,0, 20,-34, 1
+5,0, 20,-35, 1
+5,0, 20,-36, 1
+5,0, 20,-37, 1
+5,0, 20,-38, 1
+5,0, 20,-39, 1
+5,0, 20,-40, 1
+
+[Begin Action 8]
+4,10, 0,0, 1
+
+[Begin Action 9]
+5,0, 20,0, 1
+
+[Begin Action 10]
+0,21, 0,0, 200
+-1,0, 0,0, -1

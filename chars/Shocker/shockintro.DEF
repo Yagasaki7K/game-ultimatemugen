@@ -1,0 +1,36 @@
+shocker intro by nick
+;------------------------------------
+[SceneDef]; 
+spr = shockintro.sff
+
+startscene = 0
+
+;------------------------------------
+[Scene 0]
+bgm = shock.mid
+bgm.loop = 1 
+fadein.time = 30
+fadout.time = 30 
+fadein.col = 0,0,0 
+
+fadeout.col = 0,0,0 
+
+clearcolor = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 0 
+layer0.starttime = 0
+end.time = 3250
+
+
+[Begin Action 0]
+0,0, 0, 0, 400
+0,1, 0, 0, 400
+0,2, 0, 0, 400
+0,3, 0, 0, 400
+0,4, 0, 0, 400
+0,5, 0, 0, 400
+0,6, 0, 0, 400
+0,7, 0, 0, 450
+
+
+

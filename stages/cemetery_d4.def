@@ -1,0 +1,76 @@
+
+[Info]
+name = "cemetery"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -470
+boundright = 550
+boundhigh = -100
+boundlow = 0
+verticalfollow = 0.5
+tension = 100
+floortension = 100 
+
+[PlayerInfo]
+p1startx = -85
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 85
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1400
+rightbound =  1400
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+HIres = 1
+
+[Shadow]
+color = 0,0,0
+yscale = .1
+
+[Music]
+bgmusic = sound/11 Trauma.mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/cemetery_d4.sff
+debugbg = 1
+
+;îwåi
+[BG haikei]
+type  = normal
+spriteno = 0, 0
+start = 0, 0
+layerno = 0
+delta = 2,2
+mask     = 0
+
+[BG 1]
+type            = normal
+spriteno        = 0, 1
+layerno         = 1
+start           = 0,0
+delta           = 2,2
+trans           = None
+mask            = 1

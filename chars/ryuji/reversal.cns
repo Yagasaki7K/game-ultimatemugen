@@ -1,0 +1,597 @@
+;==============================================================
+;---<> Reversal (SPECIAL MOVES CODING CONTINUATION..) <>---
+;==============================================================
+;START
+[Statedef 2100]
+type = S
+movetype = I
+physics = N
+anim = 2100
+velset = 0,0
+poweradd = 53
+ctrl = 0
+
+[State 2100, reversal]
+type = PlaySnd
+trigger1 = Time = 1
+value = 5,7
+channel = 0
+volume = 30
+
+[State 2100,rev]
+type = ReversalDef
+trigger1 = Time > 1
+reversal.attr = SCA, NA,SA,HA
+pausetime = 9,16
+sparkno = S1039
+sparkxy = 5, -65
+hitsound = S3,6
+numhits = 0
+p1stateno = 2105
+
+[State 2100, Cancel]
+type = ChangeState
+trigger1 = Time = 56
+value = 2101
+ctrl = 0
+;-----------------------------
+;End
+[Statedef 2101]
+type = S
+movetype = I
+physics = N
+anim = 2101
+velset = 0,0
+ctrl = 0
+
+[State 2101, END]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-----------------------------
+
+;Attack
+[Statedef 2105]
+type = S
+movetype = A
+physics = N
+anim = 2105
+velset = 0,0
+juggle = 12
+ctrl = 0
+
+[State 2105, reversal]
+type = PlaySnd
+trigger1 = Time = 0
+value = 5,9
+channel = 0
+volume = 100
+
+[State 2105, Explod1]
+type = Explod
+trigger1 = AnimElem = 5
+id = 2106
+anim = 2106
+pos = 0,0
+sprpriority = 2
+ownpal = 1
+removeongethit = 1
+removetime = 1
+
+[State 2105, Explod2]
+type = Explod
+trigger1 = AnimElem = 6
+id = 2107
+anim = 2107
+pos = 0,0
+sprpriority = 2
+ownpal = 1
+removeongethit = 1
+removetime = 2
+
+[State 2105, Explod3]
+type = Explod
+trigger1 = AnimElem = 7
+id = 2108
+anim = 2108
+pos = 0,0
+sprpriority = 2
+ownpal = 1
+removeongethit = 1
+bindtime = -1
+removetime = 10
+
+[State 2105, VelSet1]
+type = VelSet
+trigger1 = AnimElem = 7, =2
+x = 6
+
+[State 2105, Velset2]
+type = VelSet
+trigger1 = AnimElem = 9
+x = 0
+
+[State 2105, HitDef1]
+type = HitDef
+trigger1 = var(10) <=0
+trigger1 = AnimElem = 7
+attr = S, SA
+damage = 134
+animtype = back
+hitflag = MAF
+guardflag = MA
+pausetime = 12,12
+sparkno = S1041
+guard.sparkno = S1042
+sparkxy = -10,-115
+hitsound = S280,0
+guardsound = S200,3
+ground.velocity = -4,-6
+air.velocity = -4,-4
+guard.velocity = -11
+fall = 1
+guard.velocity = -8.9
+getpower = 30,10
+givepower = 30,10
+
+[State 2105, HITDEF2]
+type = HitDef
+trigger1 = var(10) >0
+trigger1 = AnimElem = 7
+attr = S, SA
+damage = 134
+animtype = diagup
+hitflag = MAF
+guardflag = MA
+pausetime = 12,12
+sparkno = S1041
+guard.sparkno = S1042
+sparkxy = 6,-115
+hitsound = S280,0
+guardsound = S200,3
+ground.velocity = -4,-6
+air.velocity = -4,-4
+guard.velocity = -11
+fall = 1
+fall.recover = 0
+guard.velocity = -8.9
+getpower = 30,10
+givepower = 30,10
+
+[State 2105, AFTRIMAGE]
+type = AfterImage
+trigger1 = Time = 5
+time = 39
+palbright = 0,0,0
+palcontrast = 250,250,250
+paladd = 0,0,0
+palmul = 0.6,0.6,0.6
+timegap = 1
+framegap = 2
+length = 5
+
+[State 2105, END]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;----------------------------------------
+
+;START REVERSAL 2
+[Statedef 2150]
+type = S
+movetype = I
+physics = N
+anim = 2100
+velset = 0,0
+poweradd = 53
+ctrl = 0
+
+[State 2150, SND]
+type = PlaySnd
+trigger1 = Time = 1
+value = 5,7
+channel = 0
+volume = 30
+
+[State 2150, rev1]
+type = ReversalDef
+trigger1 = Time > 1
+reversal.attr = SCA, NA, SA, HA 
+pausetime = 9,16
+sparkno = S1039
+sparkxy = 5, -65
+hitsound = S3,6
+numhits = 0
+p1stateno = 2105
+
+[State 2150, MISS]
+type = ChangeState
+trigger1 = Time = 80
+value = 2101
+ctrl = 0
+;-----------------------------
+
+
+
+
+;================
+;---<SWAT1>---
+;================ 
+
+;START
+[Statedef 2200]
+type = S
+movetype = A
+physics = N
+anim = 2200
+velset = 0,0
+poweradd = 53
+ctrl = 0
+
+[State 2200, swat]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 3,2
+channel = 0
+volume = 30
+
+[State 2200, swat2]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 3,3
+volume = 10
+
+[State 2200, Projcancel]
+type = Projectile
+trigger1 = AnimElem = 4
+hitflag = P
+attr = S, SP
+persistent = 1
+ignorehitpause = 1
+persistent = 1
+projanim = 2201
+projid = 2201
+projremovetime = 15
+offset= 0, 0
+postype = P1
+bindtime = 1
+Vel = .0001
+projsprpriority = 2
+projpriority = 9999
+ownpal = 1
+poweradd = 300
+
+[State 2200, 2]
+type = HitDef
+trigger1 = AnimElem = 4
+attr = S, SA
+hitflag = MAF
+animtype = hard
+damage = 59,0
+guardflag = MA
+pausetime = 12,12
+sparkno = S1041
+guard.sparkno = S1042
+sparkxy = -10,-80
+hitsound = S240,0
+guardsound = S200,3
+ground.type = low
+ground.slidetime = 16
+ground.hittime = 16
+ground.velocity = -4
+air.velocity = -6,-2.5
+airguard.velocity = -6,-1.5
+guard.velocity = -11
+ground.cornerpush.veloff = -4
+air.cornerpush.veloff = -4
+guard.cornerpush.veloff = -4
+getpower = 30,10
+givepower = 30,10
+air.juggle = 10
+
+[State 2200, 3]
+type = HitDef
+trigger1 = AnimElem = 5
+attr = S, SA
+hitflag = MAF
+animtype = hard
+damage = 59,0
+guardflag = MA
+pausetime = 12,12
+sparkno = S1041
+guard.sparkno = S1042
+sparkxy = -10,-80
+hitsound = S240,0
+guardsound = S200,3
+ground.type = high
+ground.slidetime = 24
+ground.hittime = 22
+ground.velocity = -11
+air.velocity = -6,-2.5
+airguard.velocity = -6,-1.5
+guard.velocity = -11
+ground.cornerpush.veloff = -18
+air.cornerpush.veloff = -11
+guard.cornerpush.veloff = -16
+getpower = 30,10
+givepower = 30,10
+air.juggle = 10
+
+[State 2200,Projeater]
+type = Helper
+trigger1 = AnimElem = 4
+name = "ProjEater"
+id = 2201
+stateno = 2201
+pos = 0,0
+postype = p1
+helpertype = normal
+keyctrl = 0
+ownpal = 1
+
+[State 2200, END]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----------------------------
+
+;-------------------------------------------------
+
+;Illusion reflector
+[Statedef 2201]
+type = S
+movetype = A
+physics = S
+sprpriority = 1
+anim = 2201
+juggle = 10
+velset = 0,0
+ctrl = 0
+
+[State 2201, 1]
+type = HitBy	
+trigger1 = Time >= 0
+value = SCA, AP
+
+[State 2201, 2]
+type = HitOverride
+trigger1 = Time = 0
+attr = SCA, NP, SP, HP
+stateno = 2201
+time = -1
+slot = 0
+
+[State 2201, 3]
+type = MoveHitReset
+trigger1 = parent, StateNo = 1000 && MoveContact
+
+[State 2201, 4]
+type = PowerAdd
+trigger1 = Time = 0
+value = 30
+
+[State 2201, 5]
+type = DestroySelf
+trigger1 = Time = 10
+trigger2 = root, MoveType = H
+;-------------------------
+
+;================
+;---<SWAT2>---
+;================ 
+
+;START
+[Statedef 2250]
+type = S
+movetype = A
+physics = N
+anim = 2250
+velset = 0,0
+poweradd = 53
+ctrl = 0
+
+[State 2250, swat1]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 3,2
+channel = 0
+volume = 30
+
+[State 2250, swat2]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 3,3
+volume = 10
+
+[State 2250, return ordinary projectiles]
+type = HitDef
+trigger1 = Time >= 0
+attr = SA, SP                  
+hitflag = P                    
+priority = 7, Hit 
+p1stateno = 2251
+sparkno = -1
+guard.sparkno = -1
+
+[State 2250, Returns Helper Projectiles ]
+type = ReversalDef
+trigger1 = Time >= 0
+trigger1 = AnimElem = 5 || AnimElem = 7
+reversal.attr = SCA, AP 
+pausetime = 9,22
+sparkno = S1039
+guardsparkno = S1039
+sparkxy = 5, -65
+hitsound = S5,1
+numhits = 0
+p1stateno = 2251
+
+[State 2250, 3]
+type = HitDef
+trigger1 = AnimElem = 4
+attr = S, SA
+hitflag = MAF
+animtype = hard
+damage = 59,0
+guardflag = MA
+pausetime = 12,12
+sparkno = S1041
+guard.sparkno = S1042
+sparkxy = -10,-80
+hitsound = S240,0
+guardsound = S200,3
+ground.type = low
+ground.slidetime = 16
+ground.hittime = 16
+ground.velocity = -4
+air.velocity = -6,-2.5
+airguard.velocity = -6,-1.5
+guard.velocity = -11
+ground.cornerpush.veloff = -4
+air.cornerpush.veloff = -4
+guard.cornerpush.veloff = -4
+getpower = 30,10
+givepower = 30,10
+air.juggle = 10
+
+[State 2250, 4]
+type = HitDef
+trigger1 = AnimElem = 6
+attr = S, SA
+hitflag = MAF
+animtype = hard
+damage = 59,0
+guardflag = MA
+pausetime = 12,12
+sparkno = S1041
+guard.sparkno = S1042
+sparkxy = -10,-80
+hitsound = S240,0
+guardsound = S200,3
+ground.type = high
+ground.slidetime = 24
+ground.hittime = 22
+ground.velocity = -11
+air.velocity = -6,-2.5
+airguard.velocity = -6,-1.5
+guard.velocity = -11
+ground.cornerpush.veloff = -18
+air.cornerpush.veloff = -11
+guard.cornerpush.veloff = -16
+getpower = 30,10
+givepower = 30,10
+air.juggle = 10
+
+[State 2250, END]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----------------------------
+
+;RETURN FIRE
+[Statedef 2251]
+type = S
+movetype = A
+physics = N
+anim = 2251
+poweradd = 50
+velset = 0,0
+ctrl = 0
+
+[State 2251,1]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 3,4
+channel = 0
+volume = 30
+
+[State 2251,2]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 3,5
+volume = 10
+
+[State 2251,3]
+type = Projectile
+trigger1 = AnimElem = 3, = 1
+attr = S, SP
+projID = 2253
+projanim = 2253
+projhitanim = 2254
+projshadow = 68,68,68
+projsprpriority = 1
+projpriority = 9999
+offset = 32,-80
+velocity = 10
+ownpal = 1
+damage = 154,10
+animtype = Hard
+hitflag = MFADP
+guardflag = MA
+pausetime = 0,14
+sparkno = S1041
+guard.sparkno = S1042
+hitsound   = S280,0
+guardsound = S200,3
+ground.type = high
+ground.slidetime = 14
+ground.hittime  = 19
+air.hittime = 100
+ground.velocity = -4,-6
+air.velocity = -4,-4
+down.velocity = -4
+palfx.time = 45
+palfx.add = 7,-200,-200
+palfx.sinadd = 30,30,0,10
+palfx.color = 0
+palfx.invertall = 1
+fall = 1
+getpower = 40,40
+givepower = 30,30
+
+[State 2251,4]
+type = Explod
+trigger1 = AnimElem = 3
+id = 2252
+anim = 2252
+pos = 0,0
+sprpriority = 3
+ownpal = 1
+removeongethit = 1
+bindtime = -1
+removetime = 19
+
+[State 2251,5]
+type = Projectile
+trigger1 = Time = 0
+hitflag = MAP
+attr = S, SP
+persistent = 1
+ignorehitpause = 1
+persistent = 1
+projanim = 2255
+projid = 2255
+projremovetime = 15
+offset= 0, 0
+postype = P1
+bindtime = 1
+Vel = .0001
+projsprpriority = 2
+projpriority = 9999
+ownpal = 1
+sparkno = -1
+guard.sparkno = -1
+
+[State 2251,6]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-----------------------------

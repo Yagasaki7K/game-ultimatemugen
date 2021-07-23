@@ -1,0 +1,133 @@
+;stage template by Eternaga , Email: Eternaga@hotmail.com
+
+[Info]
+name = "Sewer"
+Author = SeanAltly
+
+[BGdef]
+spr = Sewer2.sff
+debugbg = 0
+
+[Music]
+bgmusic = sound/weallsee.mp3
+bgvolume = 255
+
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -220
+boundright = 220
+boundhigh = -244
+boundlow = 0
+verticalfollow = 0.1
+floortension = 30
+tension = 60
+
+[PlayerInfo]
+p1startx = -70          
+p1starty = 0            
+p1startz = 0            
+p1facing = 1        
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+[Scaling] 
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 15    
+screenright = 15  
+
+[StageInfo]
+zoffset = 225
+autoturn = 1
+resetBG = 1
+
+[shadow]
+Intensity = 130
+color = 0,0,0
+yscale = .15
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+;----------------------------------------[PCX IMAGE]
+[BG 0]
+type  = anim
+actionno = 2, 0
+layerno = 0                
+start = -384, -51
+delta = 0.8,1
+trans = none
+;---------------------------------------
+[BG Fighting Ground]
+type  = anim
+actionno = 1,0
+start = -384,-238  
+mask = 1
+;---------------------------------------[/PCX IMAGE]
+
+[Begin Action 1]
+0,0,0,0,150
+0,1,0,0,2
+0,2,0,0,3
+0,1,0,0,2
+0,0,0,0,5
+0,1,0,0,5
+0,2,0,0,5
+0,1,0,0,5
+0,0,0,0,350
+0,1,0,0,2
+0,2,0,0,3
+0,1,0,0,2
+0,0,0,0,5
+0,1,0,0,5
+0,2,0,0,5
+0,1,0,0,5
+0,0,0,0,50
+0,1,0,0,2
+0,2,0,0,3
+0,1,0,0,2
+0,0,0,0,5
+0,1,0,0,5
+0,2,0,0,5
+0,1,0,0,5
+
+[Begin Action 2]
+0,3,0,0,150
+0,4,0,0,2
+0,5,0,0,3
+0,4,0,0,2
+0,3,0,0,5
+0,4,0,0,5
+0,5,0,0,5
+0,4,0,0,5
+0,3,0,0,350
+0,4,0,0,2
+0,5,0,0,3
+0,4,0,0,2
+0,3,0,0,5
+0,4,0,0,5
+0,5,0,0,5
+0,4,0,0,5
+0,3,0,0,50
+0,4,0,0,2
+0,5,0,0,3
+0,4,0,0,2
+0,3,0,0,5
+0,4,0,0,5
+0,5,0,0,5
+0,4,0,0,5

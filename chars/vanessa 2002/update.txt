@@ -1,0 +1,91 @@
+---------------------------
+SANDER71113's UPDATE NOTES:
+---------------------------
+
+DVanessa Version 1.0
+
+January 11, 2005
+
+ WinMugen Patch made by Winane, compiled all files in 1 rar file. ^^
+
+FEBRUARY 28, 2002
+--------------------------------------------------------------------------------------------
+ *** ARTIFICIAL INTELLIGENCE SYSTEM ***
+
+ DVanessa has a 3 level AI. All you have to do is edit dvanessa.def using notepad.
+
+ DEUCE's BUTTON LAYOUT:
+ ;cmd   = vanessa.cmd        ;Hard Ai
+ ;cmd   = vanmedai.cmd       ;Medium level Ai
+ cmd    = vannoai.cmd        ;Low level Ai
+
+ CAPCOM BUTTON LAYOUT:
+ ;cmd   = vanessa-cap.cmd        ;Hard Ai
+ ;cmd   = vanmedai-cap.cmd       ;Medium level Ai
+ cmd    = vannoai-cap.cmd        ;Low level Ai
+
+ Just remove the semicolon AT THE START OF THE LINE before the ai level of your choice and make
+ sure the unwanted levels have semicolon before them. In the example above, it is setup to use
+ low level AI.
+
+
+--------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------
+
+ *** SPECIAL SYSTEMS ***
+
+   * COUNTER HIT  - Allows for another free hit. This is most obvious when using knockdown
+                    attacks. Some moves does not produce a counter hit (ex. Dms). Use it
+                    to your advantage.
+
+   * GUARD CRUSH  - DaimonX can be Guard Crushed. So don't block too much :P. My Guard Crush
+                    System is not KOF accurate since it is still not built into the M.U.G.E.N.
+                    engine itself. This is just a "work around". It works much like SFA3.
+                    You can see the guard crush points in debug display.
+
+   * DIZZY        - DaimonX Can be dizzied. Again this is not KOF accurate. You can also check
+                    the dizzy points in Debug Display.
+
+   * THROW CANCEL - Tired of being thrown around? You cancel daimonX's BASIC throws by pressing
+                    any punch button during the first few frames of his throw, KOF98 style.
+
+
+---------------------------------------------------------------------------------------------
+
+*** Extra Credits: *** 
+
+ [Deuce] - For entrusting his some of his work to me. Thanks :)
+
+ [E]dgar Aguilar - For Beta testing help.
+
+---------------------------------------------------------------------------------------------
+
+ *** ABOUT ***
+
+ For bugs and comments suggestions whatever email me at:
+
+ EMAIL   :   sander71113@yahoo.com
+
+ WEB PAGE:   http://go.to/sander71113
+             http://sander71113.mgbr.net
+             http://www.angelfire.com/jazz/sander71113
+
+ TRY MY OTHER WORKS:
+
+ IoriX      --- Pathetic Conversion of Iori.. (For now that is...)
+
+ ChizuruX   --- Fancy illusion stuff.
+
+ LuckyX     --- Balls and Balls
+
+ SasquatchX --- Cute and cool.
+
+ RyujiX     --- Bloody Violence.
+
+ (Neo)KyoX  --- Ultimate conversion of Kyo Kusanagi
+
+ RamonX     --- High flying and Wall clinging action hero :P
+
+ Daimon X   --- Earth shaking, Bone breaking muscle brain
+ ---------------------------------------------------------------------------------------------

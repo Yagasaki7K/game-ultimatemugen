@@ -1,0 +1,350 @@
+
+[Info]
+name = "Pao Pao Alley"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -222
+boundright = 222
+boundhigh = -100
+boundlow = 0
+verticalfollow = .4
+tension = 80
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 225
+autoturn = 1
+resetBG = 0
+HIRes = 1
+
+[Shadow]
+color = 32,32,32
+yscale = .1
+reflect = 0
+
+[Music]
+bgmusic = 
+bgvolume = 0
+
+[BGdef]
+spr = stages/paopao.sff
+debugbg = 1
+
+[BG Sky]
+type = normal
+spriteno = 22,0
+start = -358,-378
+delta = 1.95,2
+mask = 1
+actionno =0
+
+
+
+[BG Shop]
+type = normal
+spriteno = 11,0
+start = 318,178
+delta = 1.95,2
+mask = 1
+actionno =0
+
+
+[BG Background2]
+type = normal
+spriteno = 8,0
+start = -322,-89
+delta = 1.83,2
+mask = 1
+actionno =0
+
+[BG Background3]
+type = normal
+spriteno = 9,0
+start = -265,101
+delta = 1.92,2
+mask = 1
+actionno =0
+
+
+[BG Background1]
+type = normal
+spriteno = 7,0
+start = -509,139
+delta = 1.92,2
+mask = 1
+actionno =0
+
+[BG FloorMid]
+type = normal
+spriteno = 1,0
+start = -255,288
+delta = 2,2
+mask = 1
+actionno =0
+
+[BG Floorleft]
+type = normal
+spriteno = 2,0
+start = -767,288
+delta = 2,2
+mask = 1
+actionno =0
+
+[BG Floorright]
+type = normal
+spriteno = 3,0
+start = 257,288
+delta = 2,2
+mask = 1
+actionno =0
+
+
+[BG TopMid]
+type = normal
+spriteno = 4,0
+start = -255,-224
+delta = 2,2
+mask = 1
+actionno =0
+
+[BG Topleft]
+type = normal
+spriteno = 5,0
+start = -767,-224
+delta = 2,2
+mask = 1
+actionno =0
+
+
+[BG Topright]
+type = normal
+spriteno = 6,0
+start = 257,-224
+delta = 2,2
+mask = 1
+actionno =0
+
+[BG Window]
+type = normal
+spriteno = 10,0
+start = 340,178
+delta = 2,2
+mask = 1
+actionno =0
+
+
+[BG Talker]
+type = anim
+spriteno = 12,0
+start = 261,262
+delta = 2,2
+mask = 1
+actionno =1
+
+[BG Talker1]
+type = anim
+spriteno = 13,0
+start = 303,279
+delta = 2,2
+mask = 1
+actionno =2
+
+[BG Jumper]
+type = anim
+spriteno = 14,0
+start = -206,279
+delta = 2,2
+mask = 1
+actionno =3
+
+[BG Puncher]
+type = anim
+spriteno = 15,0
+start = -207,279
+delta = 2,2
+mask = 1
+actionno =4
+
+
+[BG Neon]
+type = anim
+spriteno = 16,0
+start = 49,63
+delta = 2,2
+mask = 1
+actionno =5
+
+[BG Head]
+type = anim
+spriteno = 17,0
+start = -545,314
+delta = 2,2
+mask = 1
+actionno =6
+
+[BG Lights1]
+type = anim
+spriteno = 18,0
+start = -631,127
+delta = 2,2
+mask = 1
+actionno =7
+
+[BG Lights2]
+type = anim
+spriteno = 19,0
+start = -768,109
+delta = 2,2
+mask = 1
+actionno =8
+
+[BG Puncher]
+type = anim
+spriteno = 20,0
+start = 122,283
+delta = 2,2
+mask = 1
+actionno =9
+
+[BG Girl]
+type = anim
+spriteno = 21,0
+start = -521,328
+delta = 2,2
+mask = 1
+actionno =10
+
+
+[Begin action 1]
+
+12,0, 0,0, 35
+12,1, 0,0,  7
+12,2, 0,0,  7
+12,3, 0,0,  7
+12,4, 0,0,  85
+12,5, 0,0,  7
+12,6, 0,0,  7
+12,7, 0,0,  7
+
+[Begin action 2]
+
+13,0, 0,0, 186
+13,1, 0,0,  7
+13,2, 0,0,  7
+13,3, 0,0,  7
+13,4, 0,0,  35
+13,5, 0,0,  7
+13,6, 0,0,  7
+13,7, 0,0,  7
+
+[Begin action 3]
+
+14,0, 0,0, 10
+14,1, 0,0,  10
+14,2, 0,0,  10
+14,3, 0,0,  10
+
+[Begin action 4]
+
+15,0, 0,0, 10
+15,1, 0,0,  10
+15,2, 0,0,  10
+15,3, 0,0,  10
+
+[Begin action 5]
+
+16,0, 0,0, 3
+16,1, 0,0, 280
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 175
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 20
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+16,0, 0,0, 3
+16,1, 0,0, 3
+
+[Begin action 6]
+
+17,0, 0,0, 86
+17,1, 0,0,  7
+17,2, 0,0,  7
+17,3, 0,0,  7
+17,4, 0,0,  7
+17,5, 0,0,  7
+17,6, 0,0,  7
+17,7, 0,0,  7
+
+[Begin action 7]
+
+18,0, 0,0, 3
+18,1, 0,0, 3
+
+[Begin action 8]
+
+19,0, 0,0, 3
+19,1, 0,0, 3
+
+
+[Begin action 9]
+
+20,0, 0,0, 6
+20,1, 0,0,  6
+20,2, 0,0,  6
+20,3, 0,0,  6
+20,4, 0,0,  6
+20,5, 0,0,  6
+20,6, 0,0,  6
+20,7, 0,0,  6
+
+[Begin action 10]
+
+21,0, 0,0, 90
+21,1, 0,0,  8
+21,2, 0,0,  8
+21,3, 0,0,  8
+21,4, 0,0,  8
+21,5, 0,0,  8

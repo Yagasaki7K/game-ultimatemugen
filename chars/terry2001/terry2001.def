@@ -1,0 +1,46 @@
+;---------------------------
+;  E TERRY BOGARD X
+;      1.0
+; BY: SANDER 71113
+;---------------------------
+
+;General Information
+
+[Info]
+Name         ="Terry Bogard"
+DisplayName  ="Terry Bogard"
+Author       ="Sander71113 & Maximillian J[E]nus"
+VersionDate  = 08,23,2004
+MugenVersion = 04,14,2001
+Pal.Defaults = 1,7
+
+;Files for the player
+[Files]
+cmd       = terry.cmd             ;Hard Ai
+;cmd      = terrymedai.cmd        ;Medium level Ai
+;cmd      = terrynoai.cmd         ;Low level Ai
+cns       = constantes.cns        ;Constants
+stcommon  = common1.cns     ;Common states (in data/)
+st        = terry.cns       ;States
+st1       = terrya.cns
+st2	  = specials.st
+sprite    = spr.sff         ;Sprite
+anim      = anim.air        ;Animation
+sound     = bogardt.snd     ;Sound
+pal1      = pal1.act
+pal2      = pal2.act
+pal3      = pal3.act
+pal4      = pal4.act
+pal5      = pal6.act
+
+;Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = terryend.def
+
+;NOTE:
+;PLS READ README.TXT
+
+;Product of Sander71113
+;http://go.to/sander71113
+;sander71113@yahoo.com

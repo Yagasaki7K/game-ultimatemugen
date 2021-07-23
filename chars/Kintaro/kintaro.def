@@ -1,0 +1,26 @@
+;********************************************************************
+;*** Kintaro's DEF File v. 1.1 for MUGEN 11.32                    ***
+;*** By: The Mike Obrecht 0/0/2001                                ***
+;********************************************************************
+
+; Player information
+[Info]
+name = "Kintaro"             ;Name of character
+displayname = "Kintaro"      ;Name of character to display
+versiondate = 4,10,2001    ;Version date of character
+mugenversion = 4,10,2001   ;Version of M.U.G.E.N character works on
+author = "Mike Obrecht"      ;Character author name
+pal.defaults = 12, 12, 12   ;Default palettes in order of preference
+
+[Files]
+cmd=kintaro.cmd
+cns=kintaro.cns
+st=kintaro.cns
+st2=blood.cns
+st3=kintaroAI.cns
+stcommon=kintcommon1.cns
+sprite=kintaro.sff
+anim=kintaro.air
+sound=kintaro.snd
+pal1=kintaro1.act              ;Red
+pal12=kintaro1.act              ;Red

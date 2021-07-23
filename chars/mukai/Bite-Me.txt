@@ -1,0 +1,58 @@
+Mukai's read-me
+
+Mukai is the final boss to KoF2k3. The one you get if you defeat Kusanagi with either
+a DM or and LDM.
+
+Onto the bits and pieces
+
+Moves
+a = light kick (hits low)
+b = heavy punch
+x = light kick (hits low)
+y = heavy kick
+start = taunt
+
+Command moves
+Crouch + B = anti air uppercut
+Crouch + y = sliding kick
+
+Touha
+Throw, close and hold fwd or back and press y or b.
+
+Specials
+Touha
+QCF + A/B Throws a rock with a downwards slant
+
+Chishou
+QCB+any Stamps the ground causing a pillar to rise up beneath the enemy
+
+Tenshou
+F DF F + A/B Stamps the ground an a pillar drops on the opponent (homing)
+
+Shikai
+QCBx2 + A/B Close grabs the enemy and turns them to stone. Cannot be chained into itself
+
+Desperation Move
+Goushou
+1 power stock
+QCFx2 + A/B Stamps the ground causing 2 pillars to rise and one to fall.
+
+Leader Desperation Move
+Shikai
+2 power stocks
+QCB, HCF, A+B Full screen attack turning the enemy to stone. Can be chained with itself
+
+Bugs
+I can't think of any
+
+Thanks
+Ragnarok, MEE
+SeS, MCM
+Elecbyte, mugen/pal2act
+Jasc, PSP
+NeoGeo/SNK, King of Fighters 2003
+The people who write the FaQs at Gamefaqs
+Roken, testing, sounds
+Anuubis, Sounds, testing
+Neocide, Testing
+Forum Go'ers, hope you like him

@@ -1,0 +1,639 @@
+;======================================================
+;\-------------\    SANDMAN ENDING CREDITS   /--------------------------/
+;Sprite Edits ----------------------------->  McCready  and  Loganir 
+;Layout,  Programming----------------->  Loganir
+;=======================================================
+;;  loganir@gmail.com            mccready171@yahoo.com
+
+[SceneDef]
+spr = int-end.sff
+startscene = 0         ;Starting scene number (for debugging)
+
+
+[Scene 0] ;--------- background
+clearcolor = 0,0,0
+; Music
+; Total time
+end.time =100
+
+
+[Scene 1] ;--------- music fix?
+clearcolor = 0,0,0
+; Music
+; Total time
+end.time =100
+bgm = in.mp3        ;Name of music file to play
+bgm.loop = 1     ;Name of music file to play
+
+
+[Scene 2]; -------------------------------- saga
+fadein.time =60       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+;fadeout.time =60
+;fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  50
+layer0.offset = 0,0
+layer0.starttime = 0  
+layer1.anim =  25
+layer1.offset = 0,0
+layer1.starttime = 0  
+layer2.anim =61       ;Anim action number
+layer2.offset = 0,0   ;Position offset
+layer2.starttime = 0   ;Time to start display
+end.time =522
+
+
+
+[Scene 3]; ------------------------- flashback
+;fadein.time =60       ;Time to take for fading in
+;fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+;fadeout.time =60
+;fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  51
+layer0.offset = 0,0
+layer0.starttime = 0  
+layer1.anim =  52
+layer1.offset = 0,0
+layer1.starttime = 0
+layer2.anim =  25
+layer2.offset = 0,0
+layer2.starttime = 0  
+layer3.anim = 62       ;Anim action number
+layer3.offset = 0,0   ;Position offset
+layer3.starttime = 0   ;Time to start display
+end.time = 970
+
+
+
+[Scene 4]; --------------------------------avengers
+clearcolor = 0,0,0
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  500
+layer0.offset = 0,0
+layer0.starttime = 0  
+layer1.anim =  25
+layer1.offset = 0,0
+layer1.starttime = 0  
+layer2.anim =600       ;Anim action number
+layer2.offset = 0,0   ;Position offset
+layer2.starttime = 0   ;Time to start display
+end.time = 800
+
+[Scene 5]; --------------------------------avengers scroll
+clearcolor = 0,0,0
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  501
+layer0.offset = 0,0
+layer0.starttime = 0  
+layer1.anim =  25
+layer1.offset = 0,0
+layer1.starttime = 0  
+layer2.anim =601       ;Anim action number
+layer2.offset = 0,0   ;Position offset
+layer2.starttime = 0   ;Time to start display
+end.time = 570
+
+
+[Scene 6]; --------------------------------avengers assemble
+clearcolor = 0,0,0
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  502
+layer0.offset = 0,0
+layer0.starttime = 0  
+layer1.anim =  25
+layer1.offset = 0,0
+layer1.starttime = 0  
+layer2.anim =602       ;Anim action number
+layer2.offset = 0,0   ;Position offset
+layer2.starttime = 0   ;Time to start display
+end.time = 400
+
+
+[Scene 7]; --------------------------------ultron defeated
+clearcolor = 0,0,0
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  505
+layer0.offset = 0,0
+layer0.starttime = 0  
+layer1.anim =  25
+layer1.offset = 0,0
+layer1.starttime = 0  
+layer2.anim =605       ;Anim action number
+layer2.offset = 0,0   ;Position offset
+layer2.starttime = 0   ;Time to start display
+end.time = 400
+
+
+
+[Scene 8]; -------------------------------thumbs
+fadeout.time =150
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0   ;Default position for all layers
+layer0.anim =  503
+layer0.offset = 0,0
+layer0.starttime = 0  
+layer1.anim =  25
+layer1.offset = 0,0
+layer1.starttime = 0  
+layer2.anim =603       ;Anim action number
+layer2.offset = 0,0   ;Position offset
+layer2.starttime = 0   ;Time to start display
+end.time = 800
+
+
+[Scene 9] ;credits
+; Fade
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 150
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = credit
+end.time = 3200
+
+[creditdef]
+
+[credit]; sheet back
+type = normal
+spriteno = 0,0
+start = -160,0
+layer = 0
+mask = 0
+velocity = 0, 0
+iD =10
+;tile = 0,1
+;tilespacing = 0, 0
+
+[credit]; sheet 1 up
+type = normal
+spriteno = 80,0
+iD =11
+start = -155, 100
+mask = 1
+layer = 1
+velocity = 0,0 ; -0.4
+
+[credit]; sheetf
+type = normal
+spriteno = 5,0
+start = -160,0
+layer = 4
+mask = 1
+velocity = 0, -1
+iD =7
+tile = 0,1
+tilespacing = 0, 0
+[credit]; sheetf
+type = normal
+spriteno = 5,0
+start = -160,0
+layer = 5
+mask = 1
+velocity = 0, -3
+iD =8
+tile = 0,1
+tilespacing = 0, 0
+
+
+
+[creditCtrlDef]
+CtrlID = 11
+layer = 1
+
+[creditCtrl]
+type = VelSet
+time = 50
+y = -0.25
+
+;Fundo
+[Begin Action 0] 
+0,0, 0,0, -1
+
+
+;back
+[Begin Action 25]
+25,0, 0,0,-1
+
+
+
+[Begin Action 61] 
+-1,-1, 0,0, 32
+60,0, 0,0,450    ;1
+-1,-1, 0,0, -1
+
+[Begin Action 62] 
+-1,-1, 0,0,20
+60,1, 0,0,460    ;2
+-1,-1, 0,0, 20
+60,2, 0,0,460    ;2a
+-1,-1, 0,0, -1
+
+
+
+[Begin Action 50] ;522
+50, 0, 0, 0, 4, , AS106D256
+50, 0, 0, 0, 4, , AS116D256
+50, 0, 0, 0, 4, , AS126D256
+50, 0, 0, 0, 4, , AS136D256
+50, 0, 0, 0, 4, , AS146D256
+50, 0, 0, 0, 4, , AS156D256
+50, 0, 0, 0, 4, , AS176D256
+50, 0, 0, 0, 4, , AS186D256
+50, 0, 0, 0, 4, , AS196D256
+50, 0, 0, 0, 450, , 
+50, 0, 0, 0, 4, , AS196D256
+50, 0, 0, 0, 4, , AS186D256
+50, 0, 0, 0, 4, , AS176D256
+50, 0, 0, 0, 4, , AS166D256
+50, 0, 0, 0, 4, , AS156D256
+50, 0, 0, 0, 4, , AS146D256
+50, 0, 0, 0, 4, , AS136D256
+50, 0, 0, 0, 4, , AS126D256
+50, 0, 0, 0, 4, , AS116D256
+50, 0, 0, 0, 4, , AS106D256
+
+
+
+[Begin Action 51] ;922-72
+50, 1, 0, 0, 4, , AS106D256
+50, 1, 0, 0, 4, , AS116D256
+50, 1, 0, 0, 4, , AS126D256
+50, 1, 0, 0, 4, , AS136D256
+50, 1, 0, 0, 4, , AS146D256
+50, 1, 0, 0, 4, , AS156D256
+50, 1, 0, 0, 4, , AS176D256
+50, 1, 0, 0, 4, , AS186D256
+50, 1, 0, 0, 4, , AS196D256
+50, 1, 0, 0, 850, , 
+50, 1, 0, 0, 4, , AS196D256
+50, 1, 0, 0, 4, , AS186D256
+50, 1, 0, 0, 4, , AS176D256
+50, 1, 0, 0, 4, , AS166D256
+50, 1, 0, 0, 4, , AS156D256
+50, 1, 0, 0, 4, , AS146D256
+50, 1, 0, 0, 4, , AS136D256
+50, 1, 0, 0, 4, , AS126D256
+50, 1, 0, 0, 4, , AS116D256
+50, 1, 0, 0, 4, , AS106D256
+-1,-1, 0,0, -1
+
+[Begin Action 52] 
+-1,-1, 0,0, 20
+51, 0, 0, 0, 2, , AS106D256
+51, 0, 0, 0, 2, , AS116D256
+51, 0, 0, 0, 2, , AS126D256
+51, 0, 0, 0, 2, , AS136D256
+51, 0, 0, 0, 2, , AS146D256
+51, 0, 0, 0, 2, , AS156D256
+51, 0, 0, 0, 2, , AS176D256
+51, 0, 0, 0, 2, , AS186D256
+51, 0, 0, 0, 2, , AS196D256
+51, 0, 0, 0, 160, ,A
+51, 0, 0, 0, 2, , AS196D256
+51, 0, 0, 0, 2, , AS186D256
+51, 0, 0, 0, 2, , AS176D256
+51, 0, 0, 0, 2, , AS166D256
+51, 0, 0, 0, 2, , AS156D256
+51, 0, 0, 0, 2, , AS146D256
+51, 0, 0, 0, 2, , AS136D256
+51, 0, 0, 0, 2, , AS126D256
+51, 0, 0, 0, 2, , AS116D256
+51, 0, 0, 0, 2, , AS106D256
+-1,-1, 0,0, 20
+51, 1, 0, 0, 2, , AS106D256
+51,1, 0, 0, 2, , AS116D256
+51, 1, 0, 0, 2, , AS126D256
+51, 1, 0, 0, 2, , AS136D256
+51, 1, 0, 0, 2, , AS146D256
+51, 1, 0, 0, 2, , AS156D256
+51, 1, 0, 0, 2, , AS176D256
+51, 1, 0, 0, 2, , AS186D256
+51, 1, 0, 0, 2, , AS196D256
+51, 1, 0, 0, 160, ,A
+51, 1, 0, 0, 2, , AS196D256
+51, 1, 0, 0, 2, , AS186D256
+51, 1, 0, 0, 2, , AS176D256
+51, 1, 0, 0, 2, , AS166D256
+51, 1, 0, 0, 2, , AS156D256
+51, 1, 0, 0, 2, , AS146D256
+51, 1, 0, 0, 2, , AS136D256
+51, 1, 0, 0, 2, , AS126D256
+51, 1, 0, 0, 2, , AS116D256
+51, 1, 0, 0, 2, , AS106D256
+-1,-1, 0,0, 20
+51, 3, 0, 0, 2, , AS106D256
+51, 3, 0, 0, 2, , AS116D256
+51, 3, 0, 0, 2, , AS126D256
+51, 3, 0, 0, 2, , AS136D256
+51, 3, 0, 0, 2, , AS146D256
+51, 3, 0, 0, 2, , AS156D256
+51, 3, 0, 0, 2, , AS176D256
+51, 3, 0, 0, 2, , AS186D256
+51, 3, 0, 0, 2, , AS196D256
+51, 3, 0, 0, 160, ,A
+51, 3, 0, 0, 2, , AS196D256
+51, 3, 0, 0, 2, , AS186D256
+51, 3, 0, 0, 2, , AS176D256
+51, 3, 0, 0, 2, , AS166D256
+51, 3, 0, 0, 2, , AS156D256
+51, 3, 0, 0, 2, , AS146D256
+51, 3, 0, 0, 2, , AS136D256
+51, 3, 0, 0, 2, , AS126D256
+51, 3, 0, 0, 2, , AS116D256
+51, 3, 0, 0, 2, , AS106D256
+-1,-1, 0,0, 20
+51, 2, 0, 0, 2, , AS106D256
+51, 2, 0, 0, 2, , AS116D256
+51, 2, 0, 0, 2, , AS126D256
+51, 2, 0, 0, 2, , AS136D256
+51, 2, 0, 0, 2, , AS146D256
+51, 2, 0, 0, 2, , AS156D256
+51, 2, 0, 0, 2, , AS176D256
+51, 2, 0, 0, 2, , AS186D256
+51, 2, 0, 0, 2, , AS196D256
+51, 2, 0, 0, 160, ,A
+51, 2, 0, 0, 2, , AS196D256
+51, 2, 0, 0, 2, , AS186D256
+51, 2, 0, 0, 2, , AS176D256
+51, 2, 0, 0, 2, , AS166D256
+51, 2, 0, 0, 2, , AS156D256
+51, 2, 0, 0, 2, , AS146D256
+51, 2, 0, 0, 2, , AS136D256
+51, 2, 0, 0, 2, , AS126D256
+51, 2, 0, 0, 2, , AS116D256
+51, 2, 0, 0, 2, , AS106D256
+-1,-1, 0,0, -1
+
+
+
+
+
+
+[Begin Action 500]  ;avengers
+50, 2, 0, 0, 4, , AS106D256
+50, 2, 0, 0, 4, , AS116D256
+50, 2, 0, 0, 4, , AS126D256
+50, 2, 0, 0, 4, , AS136D256
+50, 2, 0, 0, 4, , AS146D256
+50, 2, 0, 0, 4, , AS156D256
+50, 2, 0, 0, 4, , AS176D256
+50, 2, 0, 0, 4, , AS186D256
+50, 2, 0, 0, 4, , AS196D256
+50, 2, 0, 0, 700, , 
+50, 2, 0, 0, 4, , AS196D256
+50, 2, 0, 0, 4, , AS186D256
+50, 2, 0, 0, 4, , AS176D256
+50, 2, 0, 0, 4, , AS166D256
+50, 2, 0, 0, 4, , AS156D256
+50, 2, 0, 0, 4, , AS146D256
+50, 2, 0, 0, 4, , AS136D256
+50, 2, 0, 0, 4, , AS126D256
+50, 2, 0, 0, 4, , AS116D256
+50, 2, 0, 0, -1, , AS106D256
+
+[Begin Action 600] 
+-1,-1, 0,0, 20
+60,3, 0,0, 250    ;3
+-1,-1, 0,0, 40
+60,4, 0,0, -1    ;3a
+
+
+
+
+
+[Begin Action 501]  ;avengers scroll
+50, 3,90, 0, 4, , AS106D256
+50, 3,90, 0, 4, , AS116D256
+50, 3, 90, 0, 4, , AS126D256
+50, 3, 90, 0, 4, , AS136D256
+50, 3, 90, 0, 4, , AS146D256
+50, 3, 90, 0, 4, , AS156D256
+50, 3, 90, 0, 4, , AS176D256
+50, 3, 90, 0, 4, , AS186D256
+50, 3, 90, 0, 4, , AS196D256
+50, 3, 90, 0,50, ,
+50, 3, 89, 0, 2, ,
+50, 3, 88, 0, 2, ,
+50, 3, 87, 0, 2, ,
+50, 3, 86, 0, 2, ,
+50, 3, 85, 0, 2, ,
+50, 3, 84, 0, 2, ,
+50, 3, 83, 0, 2, ,
+50, 3, 82, 0, 2, ,
+50, 3, 81, 0, 2, ,
+50, 3, 80, 0, 2, ,
+50, 3, 79, 0, 2, ,
+50, 3, 78, 0, 2, ,
+50, 3, 77, 0, 2, ,
+50, 3, 76, 0, 2, ,
+50, 3, 75, 0, 2, ,
+50, 3, 74, 0, 2, ,
+50, 3, 73, 0, 2, ,
+50, 3, 72, 0, 2, ,
+50, 3, 71, 0, 2, ,
+50, 3, 70, 0, 2, ,
+50, 3, 69, 0, 2, ,
+50, 3, 68, 0, 2, ,
+50, 3, 67, 0, 2, ,
+50, 3, 66, 0, 2, ,
+50, 3, 65, 0, 2, ,
+50, 3, 64, 0, 2, ,
+50, 3, 63, 0, 2, ,
+50, 3, 62, 0, 2, ,
+50, 3, 61, 0, 2, ,
+50, 3, 60, 0, 2, ,
+50, 3, 59, 0, 2, ,
+50, 3, 58, 0, 2, ,
+50, 3, 57, 0, 2, ,
+50, 3, 56, 0, 2, ,
+50, 3, 55, 0, 2, ,
+50, 3, 54, 0, 2, ,
+50, 3, 53, 0, 2, ,
+50, 3, 52, 0, 2, ,
+50, 3, 51, 0, 2, ,
+50, 3, 50, 0, 2, ,
+50, 3, 49, 0, 2, ,
+50, 3, 48, 0, 2, ,
+50, 3, 47, 0, 2, ,
+50, 3, 46, 0, 2, ,
+50, 3, 45, 0, 2, ,
+50, 3, 44, 0, 2, ,
+50, 3, 43, 0, 2, ,
+50, 3, 42, 0, 2, ,
+50, 3, 41, 0, 2, ,
+50, 3, 40, 0, 2, ,
+50, 3, 39, 0, 2, ,
+50, 3, 38, 0, 2, ,
+50, 3, 37, 0, 2, ,
+50, 3, 36, 0, 2, ,
+50, 3, 35, 0, 2, ,
+50, 3, 34, 0, 2, ,
+50, 3, 33, 0, 2, ,
+50, 3, 32, 0, 2, ,
+50, 3, 31, 0, 2, ,
+50, 3, 30, 0, 2, ,
+50, 3, 29, 0, 2, ,
+50, 3, 28, 0, 2, ,
+50, 3, 27, 0, 2, ,
+50, 3, 26, 0, 2, ,
+50, 3, 25, 0, 2, ,
+50, 3, 24, 0, 2, ,
+50, 3, 23, 0, 2, ,
+50, 3, 22, 0, 2, ,
+50, 3, 21, 0, 2, ,
+50, 3, 20, 0, 2, ,
+50, 3, 19, 0, 2, ,
+50, 3, 18, 0, 2, ,
+50, 3, 17, 0, 2, ,
+50, 3, 16, 0, 2, ,
+50, 3, 15, 0, 2, ,
+50, 3, 14, 0, 2, ,
+50, 3, 13, 0, 2, ,
+50, 3, 12, 0, 2, ,
+50, 3, 11, 0, 2, ,
+50, 3, 10, 0, 2, ,
+50, 3, 9, 0, 2, ,
+50, 3, 8, 0, 2, ,
+50, 3, 7, 0, 2, ,
+50, 3, 6, 0, 2, ,
+50, 3, 5, 0, 2, ,
+50, 3, 4, 0, 2, ,
+50, 3, 3, 0, 2, ,
+50, 3, 2, 0, 2, ,
+50, 3, 1, 0, 2, ,
+50, 3, 0, 0, 270, , 
+50, 3, 0, 0, 4, , AS196D256
+50, 3, 0, 0, 4, , AS186D256
+50, 3, 0, 0, 4, , AS176D256
+50, 3, 0, 0, 4, , AS166D256
+50, 3, 0, 0, 4, , AS156D256
+50, 3, 0, 0, 4, , AS146D256
+50, 3, 0, 0, 4, , AS136D256
+50, 3, 0, 0, 4, , AS126D256
+50, 3, 0, 0, 4, , AS116D256
+50, 3, 0, 0, -1, , AS106D256
+
+
+[Begin Action 601] 
+-1,-1, 0,0, 50
+60,5, 0,0,250    ;4
+-1,-1, 0,0, 60
+60,6, 0,0,-1    ;4
+
+
+
+
+
+[Begin Action 502]  ;avengers assemble
+50, 4, -1, 0, 4, , AS106D256
+50, 4,1, 0, 4, , AS116D256
+50, 4, -1, 0, 4, , AS126D256
+50, 4, 1, 0, 4, , AS136D256
+50, 4, -1, 0, 4, , AS146D256
+50, 4, 1, 0, 4, , AS156D256
+50, 4, -1, 0, 4, , AS176D256
+50, 4, 1, 0, 4, , AS186D256
+50, 4, -1, 0, 4, , AS196D256
+50, 4, 1, 0,4, , 
+50, 4, -1, 0,4, , 
+50, 4, 1, 0,4, , 
+50, 4, -1, 0,4, , 
+50, 4, 1, 0,4, , 
+50, 4, -1, 0,4, , 
+50, 4, 1, 0,4, , 
+50, 4, -1, 0,4, , 
+50, 4, 1, 0,4, , 
+50, 4, -1, 0,4, , 
+50, 4, 1, 0,4, , 
+50, 4, -1, 0,4, , 
+50, 4, 1, 0,4, , 
+50, 4, -1, 0,4, , 
+50, 4, 1, 0,4, , 
+50, 4, -1, 0,4, , 
+50, 4, 0, 0, 240, , 
+50, 4, 0, 0, 4, , AS196D256
+50, 4, 0, 0, 4, , AS186D256
+50, 4, 0, 0, 4, , AS176D256
+50, 4, 0, 0, 4, , AS166D256
+50, 4, 0, 0, 4, , AS156D256
+50, 4, 0, 0, 4, , AS146D256
+50, 4, 0, 0, 4, , AS136D256
+50, 4, 0, 0, 4, , AS126D256
+50, 4, 0, 0, 4, , AS116D256
+50, 4, 0, 0, -1, , AS106D256
+
+
+
+[Begin Action 602] 
+-1,-1, 0,0, 50
+60,8, 0,0,-1    ;4a
+
+
+
+
+
+[Begin Action 503]  ;thumbs up
+50, 5, 0, 0, 4, , AS106D256
+50, 5, 0, 0, 4, , AS116D256
+50, 5, 0, 0, 4, , AS126D256
+50, 5, 0, 0, 4, , AS136D256
+50, 5, 0, 0, 4, , AS146D256
+50, 5, 0, 0, 4, , AS156D256
+50, 5, 0, 0, 4, , AS176D256
+50, 5, 0, 0, 4, , AS186D256
+50, 5, 0, 0, 4, , AS196D256
+50, 5, 0, 0, -1, , 
+
+[Begin Action 603] 
+-1,-1, 0,0, 50
+60,7, 0,0,-1    ;5
+
+
+[Begin Action 505] 
+50, 6, 0, 0, 4, , AS106D256
+50, 6, 0, 0, 4, , AS116D256
+50, 6, 0, 0, 4, , AS126D256
+50, 6, 0, 0, 4, , AS136D256
+50, 6, 0, 0, 4, , AS146D256
+50, 6, 0, 0, 4, , AS156D256
+50, 6, 0, 0, 4, , AS176D256
+50, 6, 0, 0, 4, , AS186D256
+50, 6, 0, 0, 4, , AS196D256
+50, 6, 0, 0, 370, , 
+50, 6, 0, 0, 4, , AS196D256
+50, 6, 0, 0, 4, , AS186D256
+50, 6, 0, 0, 4, , AS176D256
+50, 6, 0, 0, 4, , AS166D256
+50, 6, 0, 0, 4, , AS156D256
+50, 6, 0, 0, 4, , AS146D256
+50, 6, 0, 0, 4, , AS136D256
+50, 6, 0, 0, 4, , AS126D256
+50, 6, 0, 0, 4, , AS116D256
+50, 6, 0, 0, -1, , AS106D256
+
+[Begin Action 605] 
+-1,-1, 0,0, 40
+60,9, 0,0, -1    ;3a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

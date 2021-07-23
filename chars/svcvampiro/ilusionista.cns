@@ -1,0 +1,939 @@
+[Statedef 10000]  ; SuperjUSTIÇA ---------------------------------------------
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= -1000
+velset = 0,0
+anim = 10000
+ctrl = 0
+sprpriority = 2
+
+
+[State 10000, sombras] 
+type = Afterimage
+trigger1 = TIME = 0
+trans = add
+PalContrast =  250, 150, 150
+PalBright = 0,0,0
+time    =  50
+length  = 20
+TimeGap = 2
+FrameGap = 1
+
+
+;------bloco Super pause
+[State 3000, PauseComSpark1]
+type = SuperPause
+trigger1 = AnimElem = 1
+pos = -35, -78
+anim = -1
+sound = s99,0
+
+[State 3000, Super PEQ frente]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7011
+pos = -40, -92
+postype = P1
+bindtime = 2
+pausemovetime = 100
+supermovetime = 100
+scale = .6,.6
+sprpriority = 30
+
+[State 3000, Super grand tras]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7010
+pos = -40, -92
+postype = P1
+bindtime = 2
+pausemovetime = 100
+supermovetime = 100
+scale = .8,.8
+sprpriority = -10
+
+[State 3000, Super Peq Frent 2]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7011
+pos = 15, -110
+postype = P1
+bindtime = 2
+pausemovetime = 100
+supermovetime = 100
+scale = .4,.4
+sprpriority = 10
+
+[State 3000, Super Grand tras 2]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7010
+pos = 15, -110
+postype = P1
+bindtime = 2
+pausemovetime = 100
+supermovetime = 100
+scale = .6,.6
+sprpriority = -10
+
+
+[State 3000, NaoApanha]
+type = NotHitBy
+trigger1 = AnimElem = 1
+value = , NA, SA, ATC , NA
+time = 20
+;---- fim Bloco
+
+[State 1000, 2.1]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 18
+
+[State 1000, 2.2]
+type = VelAdd
+trigger1 = AnimElem = 3
+x = -0.5
+
+[State 220, 2]
+type = HitDef
+trigger1 = time = 0
+attr = S, NA
+animtype  = Hard ;Medium
+damage    = 67
+guardflag = MA
+pausetime = 5,12
+sparkno = 1
+sparkxy = -10,-75
+hitsound   = s3,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 0
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+P1STATENO = 10010
+SNAP = 20,0
+kill = !var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 3202, 1]
+type = Envcolor  
+trigger1 = MoveHit
+persistent = 1
+ignorehitpause = 1
+value = 245,0,0
+time = 3
+
+[State 1000, 6.2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[Statedef 10010]  ; SuperjUSTIÇA ---------------------------------------------
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+;velset = 2,0
+anim = 10010
+ctrl = 0
+sprpriority = 2
+
+[State 10000, sombras] 
+type = Afterimage
+trigger1 = TIME = 0
+trans = add
+PalContrast =  250, 150, 150
+PalBright = 0,0,0
+time    =  50
+length  = 20
+TimeGap = 2
+FrameGap = 1
+
+[State 3210, 6]
+type = Envcolor  
+triggerall = MoveHit
+trigger1 = Time >= 0 && HitPauseTime = 2
+persistent = 1
+ignorehitpause = 1
+value = 245,0,0
+time = 3
+
+
+[State 200, 1]
+type = HitDef
+trigger1 = ANIMELEM = 2
+attr = S, NA                     ;Attribute: Standing, Normal Attack
+damage = 23, 0                   ;Damage that move inflicts, guard damage
+animtype = Light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF                    ;Flags of conditions that move can hit
+priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 4, 8                 ;Time attacker pauses, time opponent shakes
+sparkno = 0                      ;Spark anim no (Def: set above)
+sparkxy = -10, -95               ;X-offset for the "hit spark" rel. to p2,;Y-offset for the spark rel. to p1
+hitsound = s3, 0                  ;Sound to play on hit
+guardsound = 6, 0                ;Sound to play on guard
+ground.type = High               ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 2             ;Time that the opponent slides back
+ground.hittime  = 12             ;Time opponent is in hit state
+ground.velocity = 0,0             ;Velocity at which opponent is pushed
+airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -1.4,-3           ;X-velocity at which opponent is pushed,;Y-velocity at which opponent is pushed
+air.hittime = 12                 ;Time before opponent regains control in air
+envshake.time = 5
+envshake.ampl = 3
+SNAP = 20,0
+kill = !var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 230, 2]
+type = HitDef
+trigger1 = ANIMELEM = 6
+attr = S, NA
+animtype  = Medium
+damage    = 26
+guardflag = MA
+pausetime = 6,12
+sparkno = 0
+sparkxy = -10,-67
+hitsound   = s3,0
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 15
+ground.velocity = 0,0
+air.velocity = -2.5,-3.5
+envshake.time = 5
+envshake.ampl = 3
+SNAP = 25,0
+kill = !var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 210, 2]
+type = HitDef
+trigger1 = ANIMELEM = 10
+attr = S, NA
+animtype  = Medium
+damage    = 57
+guardflag = MA
+pausetime = 6,12
+sparkno = 1
+sparkxy = 5,-95
+hitsound   = s3,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 0,0
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+SNAP = 40,0
+kill = !var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 245, 2]
+type = HitDef
+trigger1 = ANIMELEM = 16
+attr = S, NA
+animtype  = Medium
+damage    = 70
+guardflag = MA
+pausetime = 6,12
+sparkno = 1
+sparkxy = -30,-100
+hitsound   = s3,4
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 17
+ground.velocity = 0,0
+air.velocity = -2.2,-3.2
+envshake.time = 7
+envshake.ampl = 4
+SNAP = 40,0
+kill = !var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 240, 2]
+type = HitDef
+trigger1 = ANIMELEM = 25
+attr = S, NA
+animtype  = Medium
+damage    = 63
+guardflag = MA
+pausetime = 6,12
+sparkno = 1
+sparkxy = 10,-68
+hitsound   = s3,4
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 17
+ground.velocity = 0,0
+air.velocity = -2.2,-3.2
+envshake.time = 7
+envshake.ampl = 4
+SNAP = 40,0
+kill = !var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 240, 2]
+type = HitDef
+trigger1 = ANIMELEM = 26
+attr = S, NA
+animtype  = Medium
+damage    = 63
+guardflag = MA
+pausetime = 6,12
+sparkno = 1
+sparkxy = 10,-68
+hitsound   = s3,4
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 10
+ground.hittime  = 17
+ground.velocity = 0,0
+air.velocity = 0,-3.2
+envshake.time = 7
+envshake.ampl = 4
+SNAP = 40,0
+kill = !var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 425, 3]
+type = HitDef
+trigger1 = ANIMELEM = 35
+attr = C, NA
+damage    = 40
+animtype  = Hard
+hitflag = MAF
+guardflag = MA
+pausetime = 7,14
+sparkxy = -10,-83
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 6
+ground.hittime  = 15
+ground.velocity = 0,0
+air.velocity = 0,-8
+envshake.time = 7
+envshake.ampl = 4
+air.recovery = 0
+P2STATENO = 10012
+forcestand = 1
+snap = 30,0
+kill = !var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 1000, 6.2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 10011
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 39
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 39
+anim = 7003
+pos = 10, 20
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 39
+anim = 7003
+pos = -5, 50
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 39
+anim = 7003
+pos = 0, 80
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+
+[Statedef 10011]  ; SuperjUSTIÇA SOME---------------------------------------------
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+;velset = 2,0
+anim = 10011
+ctrl = 0
+sprpriority = 2
+
+[State 1040, fala]
+type = PlaySnd
+trigger1 = Time = 4
+value = 1000, 5
+
+[State 1040, som vento]
+type = PlaySnd
+trigger1 = Time = 15
+value = 4, 4
+
+[state 3000, Chama] ;chama DEMITRIS
+type = helper
+trigger1 = TIME = 0
+ID = 10020
+pos = (ENEMYNEAR, POS X - 60),(ENEMYNEAR, POS Y - 40)
+postype = p1
+stateno = 10020
+helpertype = normal
+sprpriority = 10
+ownpal = 1
+bindtime = -1
+sprpriority = 10
+keyctrl = 0
+
+[state 3000, Chama] ;chama DEMITRIS 2
+type = helper
+trigger1 = TIME = 0
+ID = 10020
+pos = (ENEMYNEAR, POS X + 140),(ENEMYNEAR, POS Y - 40)
+postype = p1
+stateno = 10030
+helpertype = normal
+sprpriority = 10
+ownpal = 1
+bindtime = -1
+sprpriority = 10
+keyctrl = 0
+
+[state 3000, Chama] ;chama DEMITRIS
+type = helper
+trigger1 = TIME = 0
+ID = 10020
+pos = (ENEMYNEAR, POS X - 60),(ENEMYNEAR, POS Y - 10)
+postype = p1
+stateno = 10040
+helpertype = normal
+sprpriority = 10
+ownpal = 1
+bindtime = -1
+sprpriority = 10
+keyctrl = 0
+
+[state 3000, Chama] ;chama DEMITRIS
+type = helper
+trigger1 = TIME = 0
+ID = 10020
+pos = (ENEMYNEAR, POS X + 140),(ENEMYNEAR, POS Y - 10)
+postype = p1
+stateno = 10050
+helpertype = normal
+sprpriority = 10
+ownpal = 1
+bindtime = -1
+sprpriority = 10
+keyctrl = 0
+
+[State 1000, 6.2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 195
+
+[Statedef 10012]  ; SuperjUSTIÇA P2---------------------------------------------
+type    = S
+movetype= I
+physics = N
+anim = 5030
+ctrl = 0
+sprpriority = 2
+
+[State 3052, 1]
+type = posSet
+trigger1 = time = 0
+Y = 0
+
+[State 1000, 2.1]
+type = VelSet
+trigger1 = TIME = 5
+y = - 4
+
+[State 1000, 2.1]
+type = VelADD
+trigger1 = TIME > 5
+y = .1
+
+[State 1000, 6.2]
+type = ChangeState
+trigger1 = Time > 50
+value = 5050
+
+
+[Statedef 10020]  ; SuperjUSTIÇA DEM 1---------------------------------------------
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+anim = 10020
+ctrl = 0
+sprpriority = 2
+
+[State 1000, 2.1]
+type = VelSet
+trigger1 = AnimElem = 7
+X = 4
+y = 4
+
+[State 10000, sombras] 
+type = Afterimage
+trigger1 = TIME = 0
+trans = add
+PalContrast =  250, 150, 150
+PalBright = 0,0,0
+time    =  50
+length  = 20
+TimeGap = 2
+FrameGap = 1
+
+[State 3210, 6]
+type = Envcolor  
+triggerall = MoveHit
+trigger1 = Time >= 0 && HitPauseTime = 2
+persistent = 1
+ignorehitpause = 1
+value = 245,0,0
+time = 3
+
+[State 1040, Acertaperto]
+type = HitDef
+triggerAll = time < 40
+trigger1 = animElem = 7 || animElem = 9 || animElem = 11 || animElem = 13 || animElem = 15
+attr = S, NA
+animtype  = Medium
+damage    = var(11),10
+guardflag = MA
+pausetime = 4,4
+sparkno = 1
+sparkxy = -10,-50
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 60
+ground.hittime  = 40
+ground.velocity = -1
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+snap = 90,0
+kill = !parent,var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 1040, Acertaperto]
+type = HitDef
+trigger1 = HitCount > 3 && time < 40
+attr = S, NA
+animtype  = Medium
+damage    = var(11),20
+guardflag = MA
+pausetime = 4,4
+sparkno = 1
+sparkxy = -10,-50
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 60
+ground.hittime  = 40
+ground.velocity = -1
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+fall = 1
+kill = !parent,var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 22
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, Acertaperto]
+type = DESTROYSELF
+TRIGGER1 = ANIMTIME = 0
+
+[Statedef 10030]  ; SuperjUSTIÇA DEM 2---------------------------------------------
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+anim = 10030
+ctrl = 0
+sprpriority = 2
+
+[State 1000, 2.1]
+type = VelSet
+trigger1 = AnimElem = 7
+X = -4
+y = 4
+
+[State 10000, sombras] 
+type = Afterimage
+trigger1 = TIME = 0
+trans = add
+PalContrast =  250, 150, 150
+PalBright = 0,0,0
+time    =  50
+length  = 20
+TimeGap = 2
+FrameGap = 1
+
+[State 3210, 6]
+type = Envcolor  
+triggerall = MoveHit
+trigger1 = Time >= 0 && HitPauseTime = 2
+persistent = 1
+ignorehitpause = 1
+value = 245,0,0
+time = 3
+
+[State 1040, Acertaperto]
+type = HitDef
+triggerAll = time < 40
+trigger1 = animElem = 7 || animElem = 9 || animElem = 11 || animElem = 13 || animElem = 15
+attr = S, NA
+animtype  = Medium
+damage    = var(11),10
+guardflag = MA
+pausetime = 4,4
+sparkno = 1
+sparkxy = -10,-50
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 60
+ground.hittime  = 40
+ground.velocity = -1
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+snap = -90,0
+kill = !parent,var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+
+[State 1040, Acertaperto]
+type = HitDef
+trigger1 = HitCount > 3 && time < 40
+attr = S, NA
+animtype  = Medium
+damage    = var(11),20
+guardflag = MA
+pausetime = 4,4
+sparkno = 1
+sparkxy = -10,-50
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 60
+ground.hittime  = 40
+ground.velocity = -1
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+fall = 1
+kill = !parent,var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 22
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, Acertaperto]
+type = DESTROYSELF
+TRIGGER1 = ANIMTIME = 0
+
+[Statedef 10040]  ; SuperjUSTIÇA DEM 3---------------------------------------------
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+anim = 10040
+ctrl = 0
+sprpriority = 2
+
+[State 1000, 2.1]
+type = VelSet
+trigger1 = AnimElem = 7
+X = 4
+y = -4
+
+[State 10000, sombras] 
+type = Afterimage
+trigger1 = TIME = 0
+trans = add
+PalContrast =  250, 150, 150
+PalBright = 0,0,0
+time    =  50
+length  = 20
+TimeGap = 2
+FrameGap = 1
+
+[State 3210, 6]
+type = Envcolor  
+triggerall = MoveHit
+trigger1 = Time >= 0 && HitPauseTime = 2
+persistent = 1
+ignorehitpause = 1
+value = 245,0,0
+time = 3
+
+
+[State 1040, Acertaperto]
+type = HitDef
+triggerAll = time < 40
+trigger1 = animElem = 7 || animElem = 9 || animElem = 11 || animElem = 13 || animElem = 15
+attr = S, NA
+animtype  = Medium
+damage    = var(11),10
+guardflag = MA
+pausetime = 4,4
+sparkno = 1
+sparkxy = -10,-50
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 60
+ground.hittime  = 40
+ground.velocity = -1
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+kill = !parent,var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 1040, Acertaperto]
+type = HitDef
+trigger1 = HitCount > 3 && time < 40
+attr = S, NA
+animtype  = Medium
+damage    = var(11),20
+guardflag = MA
+pausetime = 4,4
+sparkno = 1
+sparkxy = -10,-50
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 60
+ground.hittime  = 40
+ground.velocity = -1
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+fall = 1
+kill = !parent,var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 22
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, Acertaperto]
+type = DESTROYSELF
+TRIGGER1 = ANIMTIME = 0
+
+[Statedef 10050]  ; SuperjUSTIÇA DEM 4---------------------------------------------
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+anim = 10050
+ctrl = 0
+sprpriority = 2
+
+[State 1000, 2.1]
+type = VelSet
+trigger1 = AnimElem = 7
+X = -4
+y = -4
+
+[State 10000, sombras] 
+type = Afterimage
+trigger1 = TIME = 0
+trans = add
+PalContrast =  250, 150, 150
+PalBright = 0,0,0
+time    =  50
+length  = 20
+TimeGap = 2
+FrameGap = 1
+
+[State 3210, 6]
+type = Envcolor  
+triggerall = MoveHit
+trigger1 = Time >= 0 && HitPauseTime = 2
+persistent = 1
+ignorehitpause = 1
+value = 245,0,0
+time = 3
+
+[State 1040, Acertaperto]
+type = HitDef
+triggerAll = time < 40
+trigger1 = animElem = 7 || animElem = 9 || animElem = 11 || animElem = 13 || animElem = 15
+attr = S, NA
+animtype  = Medium
+damage    = var(11),10
+guardflag = MA
+pausetime = 4,4
+sparkno = 1
+sparkxy = -10,-50
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 60
+ground.hittime  = 40
+ground.velocity = -1
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+kill = !parent,var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 1040, Acertaperto]
+type = HitDef
+trigger1 = HitCount > 3 && time < 40
+attr = S, NA
+animtype  = Medium
+damage    = var(11),20
+guardflag = MA
+pausetime = 4,4
+sparkno = 1
+sparkxy = -10,-50
+hitsound   = s3,5
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 60
+ground.hittime  = 40
+ground.velocity = -1
+air.velocity = -2.5,-4
+envshake.time = 7
+envshake.ampl = 4
+fall = 1
+kill = !parent,var(57)
+air.recovery = 0
+recovery = 0
+fall.recovertime = 90
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, fumaca]
+type = Explod
+trigger1 = AnimElem = 22
+anim = 7003
+pos = 0, 0
+postype = P1
+sprpriority = 5
+bindtime = 4
+
+[State 1040, Acertaperto]
+type = DESTROYSELF
+TRIGGER1 = ANIMTIME = 0
+
+

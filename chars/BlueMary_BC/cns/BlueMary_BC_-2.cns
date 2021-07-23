@@ -1,0 +1,1076 @@
+;===========================================================================
+; 常時監視ステート（－２）
+;===========================================================================
+
+[Statedef -2]
+
+[State -2, クリップボード]
+type = DisplayToClipboard
+trigger1 = 1
+text = "fv0=%f, fv1=%f, fv2=%f, fv3=%f, fv4=%f \n"
+params = fvar(0), fvar(1), fvar(2), fvar(3), fvar(4)
+supermovetime	= 9999
+pausemovetime	= 9999
+ignorehitpause	= 1
+
+[State -2, クリップボード（追加専用）]
+type = AppendToClipboard
+trigger1 = 1
+text = "Hit=%d, MAX=%d \n"
+params = var(30), var(22)
+supermovetime	= 9999
+pausemovetime	= 9999
+ignorehitpause	= 1
+
+
+
+;-------------------------------------------------------------------------------
+; コマンド入力用ヘルパー射出
+;-------------------------------------------------------------------------------
+[State -2, Helper]
+type		= Helper
+triggerall	= !IsHelper
+trigger1	= NumHelper(10000) = 0
+name		= "InputHelper"
+stateno		= 10000
+ID			= 10000
+keyctrl		= 1
+postype		= p1
+pos			= 0, 0
+supermovetime	= 99999
+pausemovetime	= 99999
+supermove	= 1
+ignorehitpause	= 1
+
+[State -2, SelfState]
+type		= SelfState
+trigger1	= IsHelper(10000)
+trigger1	= StateNo != 10000
+value		= 10000
+supermovetime	= 99999
+pausemovetime	= 99999
+supermove	= 1
+ignorehitpause	= 1
+
+;-------------------------------------------------------------------------------
+; ハイジャンプコマンド制限
+;-------------------------------------------------------------------------------
+[State -2, VarAdd]
+type		= VarAdd
+triggerall	= var(13) = [0, 9]
+trigger1	= Command = "holdup" || Command = "holddown" || Command = "holdfwd" || Command = "holdback"
+ignorehitpause	= 1
+var(13)		= 1
+
+[State -2, VarSet]
+type		= VarSet
+trigger1	= MoveContact
+ignorehitpause	= 1
+var(13)		= 0
+
+[State -2, VarSet]
+type		= VarSet
+trigger1	= Command != "holdup" && Command != "holddown" && Command != "holdfwd" && Command != "holdback"
+var(13)		= 0
+ignorehitpause = 1
+
+
+;-------------------------------------------------------------------------------
+; 直近敵ID保存
+;-------------------------------------------------------------------------------
+[State -2, Enemy ID Set]
+type		= Null
+triggerall	= !IsHelper
+trigger1	= NumEnemy <= 1
+trigger1	= var(9) := 0 || 1
+trigger2	= NumEnemy > 1
+trigger2	= EnemyNear,ID = Enemy(0),ID
+trigger2	= Enemy(0),Alive
+trigger3	= var(9) := 0 || 1
+trigger3	= NumEnemy > 1
+trigger3	= EnemyNear,ID = Enemy(0),ID
+trigger3	= !Enemy(0),Alive
+trigger3	= var(9) := 1 || 1
+trigger4	= NumEnemy > 1
+trigger4	= EnemyNear,ID != Enemy(0),ID
+trigger4	= Enemy(1),Alive
+trigger4	= var(9) := 1 || 1
+
+
+;-------------------------------------------------------------------------------
+; 硬直中振り向きフラグセット
+;-------------------------------------------------------------------------------
+[State -2, Turn Flag]
+type		= VarSet
+triggerall	= !IsHelper
+triggerall	= var(19) != 0
+triggerall	= StateNo != 52
+trigger1	= P2Dist X >= 0
+trigger1	= Ctrl = 0
+trigger2	= Ctrl
+var(19)		= 0
+
+[State -2, Turn Flag]
+type		= VarSet
+triggerall	= !IsHelper
+triggerall	= var(19) != 1
+trigger1	= P2Dist X < 0
+trigger1	= Ctrl = 0
+var(19)		= 1
+
+
+;-------------------------------------------------------------------------------
+; カウンター判定
+;-------------------------------------------------------------------------------
+[State -2, Counter]
+type		= VarSet
+trigger1	= P2MoveType = A
+var(34)		= 1
+ignorehitpause	= 1
+
+[State -2, Counter Time Add]
+type		= VarAdd
+trigger1	= P2MoveType != A
+trigger1	= var(34) > 0
+var(34)		= 1
+
+[State -2, Counter Time Reset]
+type		= VarSet
+trigger1	= var(34) > 3
+var(34)		= 0
+
+[State -2, Counter]
+type		= BGPalFx
+triggerall	= var(34) > 0
+trigger1	= StateNo != 100
+trigger1	= MoveHit = 1
+trigger2	= ProjHitTime(1000) = 1
+trigger3	= ProjHitTime(1010) = 1
+trigger4	= ProjHitTime(1020) = 1
+time		= 10
+mul			= 200, 200, 200
+add			= 122, 0, 0
+ignorehitpause	= 1
+
+[State -2, Counter Explod 1P]
+type		= Explod
+triggerall	= TeamSide = 1
+triggerall	= var(34) > 0
+triggerall	= NumExplod(6100) = 0
+triggerall	= MoveType != H
+trigger1	= StateNo != 100
+trigger1	= MoveHit = 1
+anim		= 6100
+ID			= 6100
+pos			= ceil(fvar(10)), ceil(fvar(11))
+postype		= left
+scale		= 0.5, 0.5
+ownpal		= 1
+ontop		= 1
+sprpriority	= 5
+bindtime	= -1
+ignorehitpause	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove	= 1
+persistent	= 0
+
+[State -2, Counter Explod 2P]
+type		= Explod
+triggerall	= TeamSide = 2
+triggerall	= var(34) > 0
+triggerall	= NumExplod(6100) = 0
+triggerall	= MoveType != H
+trigger1	= StateNo != 100
+trigger1	= MoveHit = 1
+anim		= 6100
+ID			= 6100
+pos			= ceil(-fvar(10) - 73), ceil(fvar(11))
+postype		= right
+scale		= 0.5, 0.5
+ownpal		= 1
+ontop		= 1
+sprpriority	= 5
+bindtime	= -1
+ignorehitpause	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove	= 1
+persistent	= 0
+
+
+
+;-------------------------------------------------------------------------------
+; 行動関連変数リセット
+;-------------------------------------------------------------------------------
+[State -2, Buffer Reset] ; 派生用バッファリセット
+type		= VarSet
+triggerall	= var(18) != 0
+trigger1	= StateNo < 200
+var(18)		= 0
+
+;-------------------------------------------------------------------------------
+; 着地硬直
+;-------------------------------------------------------------------------------
+[State -2, Landing Reset] ; 着地硬直フラグリセット
+type		= VarSet
+var(12)		= 0
+triggerall	= var(12) != 0
+triggerall	= Pos Y = 0
+triggerall	= StateNo != 52
+trigger1	= Ctrl
+
+
+;-------------------------------------------------------------------------------
+; ジャンプ速度関連
+;-------------------------------------------------------------------------------
+[State -2, VarSet]
+type		= VarSet
+trigger1	= Anim = 100
+var(16)		= 1
+
+[State -2, VarSet]
+type		= VarSet
+triggerall	= MoveType != H
+trigger1	= StateNo != [40, 50]
+trigger1	= Anim != 100
+var(16)		= 0
+
+
+;-------------------------------------------------------------------------------
+; バウンドカウント
+;-------------------------------------------------------------------------------
+[State -2, Bound Count Reset]
+type		= VarSet
+triggerall	= var(37) != 0
+trigger1	= P2MoveType != H
+trigger2	= P2MoveType = H
+trigger2	= EnemyNear,StateNo = [120, 155]
+var(37)		= 0
+
+[State -2, Bound Count Up]
+type		= VarAdd
+triggerall	= NumTarget > 0
+triggerall	= Target,Time = 1
+trigger1	= Target,StateNo = 5805
+trigger2	= Target,StateNo = 5800
+var(37)		= 1
+ignorehitpause	= 1
+
+
+;-------------------------------------------------------------------------------
+; 基本補正
+;-------------------------------------------------------------------------------
+[State -2, Combo Correct 2]
+type		= VarSet
+triggerall	= fvar(1) != 1.00
+trigger1	= P2MoveType != H
+trigger2	= P2MoveType = H
+trigger2	= P2StateNo = [120, 155]
+fvar(1)		= 1.00
+
+[State -2, ComboCorrect : 6A]
+type		= VarSet
+triggerall	= MoveType != H
+trigger1	= StateNo = 351
+trigger1	= MoveHit = 1
+trigger1	= fvar(1) > 0.85
+fvar(1)		= 0.85
+
+[State -2, ComboCorrect : 623K-KK]
+type		= VarSet
+triggerall	= MoveType != H
+triggerall	= Time = 1
+trigger1	= StateNo = 1220
+trigger2	= StateNo = 2210
+fvar(1)		= fvar(1) * 0.95
+
+[State -2, ComboCorrect : 22KK]
+type		= VarSet
+triggerall	= MoveType != H
+trigger1	= StateNo = 2700
+trigger1	= MoveHit = 1
+fvar(1)		= fvar(1) * 0.9
+
+[State -2, ComboCorrect : 4-6K-236P]
+type		= VarSet
+triggerall	= MoveType != H
+trigger1	= (StateNo = 1370) || (StateNo = 2370)
+trigger1	= MoveHit = 1
+fvar(1)		= fvar(1) * 0.8
+
+
+
+;-------------------------------------------------------------------------------
+; 同技補正
+;-------------------------------------------------------------------------------
+[State -2, Samge Technique Reset] ; 同技リセット
+type		= VarSet
+triggerall	= var(40) != 0
+trigger1	= P2MoveType != H
+trigger2	= P2MoveType = H
+trigger2	= P2StateNo = [120, 155]
+var(40)		= 0
+[State -2, Samge Technique Reset] ; EX同技リセット
+type		= VarSet
+triggerall	= var(41) != 0
+trigger1	= P2MoveType != H
+trigger2	= P2MoveType = H
+trigger2	= P2StateNo = [120, 155]
+var(41)		= 0
+
+[State -2, Same Technique Combo Correct Reset]
+type		= VarSet
+triggerall	= fvar(4) != 1.00
+triggerall	= MoveType != H
+trigger1	= var(30) = 0
+fvar(4)		= 1.00
+
+
+[State -2, Same Technique Spin Fall] ; Bスピンフォール
+type		= Null
+triggerall	= StateNo = 1000
+triggerall	= Time = 1
+trigger1	= var(40) & 1
+trigger1	= 1 || fvar(4) := 0.9
+trigger2	= 1 || fvar(4) := 1.0
+[State -2, Same Technique Spin Fall] ; Dスピンフォール
+type		= Null
+triggerall	= StateNo = 1010
+triggerall	= Time = 1
+trigger1	= var(40) & 2
+trigger1	= 1 || fvar(4) := 0.9
+trigger2	= 1 || fvar(4) := 1.0
+
+
+[State -2, Same Technique Stun Fang] ; スタンファング
+type		= Null
+triggerall	= StateNo = 1370
+triggerall	= Time = 1
+trigger1	= var(40) & 2048
+trigger1	= 1 || fvar(4) := 0.9
+trigger2	= 1 || fvar(4) := 1.0
+[State -2, Same Technique EX Stun Fang] ; EXスタンファング
+type		= Null
+triggerall	= StateNo = 2370
+triggerall	= Time = 1
+trigger1	= var(41) & 256
+trigger1	= 1 || fvar(4) := 0.7
+trigger2	= 1 || fvar(4) := 1.0
+
+
+[State -2, Same Technique EX Leg Press] ; EXレッグプレス
+type		= Null
+triggerall	= StateNo = 2700
+triggerall	= Time = 1
+trigger1	= var(41) & 131072
+trigger1	= 1 || fvar(4) := 0.7
+trigger2	= 1 || fvar(4) := 1.0
+
+
+; 同技判定
+[State -2, Same Arts Set] ; 攻撃時設定
+type		= Null
+triggerall	= MoveType != H
+triggerall	= MoveHit = 1
+; クライミングアロー
+trigger1	= StateNo = 360
+trigger1	= 1 || var(40) := var(40) + !(var(40) & 8388608) * 8388608
+
+
+; 同技判定
+[State -2, Same Arts Set] ; 攻撃時設定
+type		= Null
+triggerall	= MoveType != H
+triggerall	= Time = 1
+; Bスピンフォール
+trigger1	= StateNo = 1000
+trigger1	= 1 || var(40) := var(40) + !(var(40) & 1) * 1
+; Dスピンフォール
+trigger2	= StateNo = 1010
+trigger2	= 1 || var(40) := var(40) + !(var(40) & 2) * 2
+; スピンフォール派生M・スパイダー
+trigger3	= StateNo = 1020
+trigger3	= 1 || var(40) := var(40) + !(var(40) & 4) * 4
+; M・スパイダー
+trigger4	= StateNo = 1110
+trigger4	= 1 || var(40) := var(40) + !(var(40) & 8) * 8
+; Bバーチカルアロー
+trigger5	= StateNo = 1200
+trigger5	= 1 || var(40) := var(40) + !(var(40) & 16) * 16
+; Dバーチカルアロー
+trigger6	= StateNo = 1210
+trigger6	= 1 || var(40) := var(40) + !(var(40) & 32) * 32
+; バーチカルアローブレーキング
+trigger7	= StateNo = 1220
+trigger7	= 1 || var(40) := var(40) + !(var(40) & 64) * 64
+; M・スナッチャー
+trigger8	= StateNo = 1250
+trigger8	= 1 || var(40) := var(40) + !(var(40) & 128) * 128
+; Bストレートスライサー
+trigger9	= StateNo = 1300
+trigger9	= 1 || var(40) := var(40) + !(var(40) & 256) * 256
+; Dストレートスライサー
+trigger10	= StateNo = 1310
+trigger10	= 1 || var(40) := var(40) + !(var(40) & 512) * 512
+; クラブクラッチ
+trigger11	= StateNo = 1350
+trigger11	= 1 || var(40) := var(40) + !(var(40) & 1024) * 1024
+; スタンファング
+trigger12	= StateNo = 1370
+trigger12	= 1 || var(40) := var(40) + !(var(40) & 2048) * 2048
+; スピンヒールアタック
+trigger13	= StateNo = 1380
+trigger13	= 1 || var(40) := var(40) + !(var(40) & 4096) * 4096
+; リアルカウンター
+trigger14	= StateNo = 1400
+trigger14	= 1 || var(40) := var(40) + !(var(40) & 8192) * 8192
+; バックドロップ・リアル
+trigger15	= StateNo = 1420
+trigger15	= 1 || var(40) := var(40) + !(var(40) & 16384) * 16384
+; フェイスロック・リアル
+trigger16	= StateNo = 1430
+trigger16	= 1 || var(40) := var(40) + !(var(40) & 32768) * 32768
+; ジャーマンスープレックス
+trigger17	= StateNo = 1460
+trigger17	= 1 || var(40) := var(40) + !(var(40) & 65536) * 65536
+; M・リバースフェイスロック
+trigger18	= StateNo = 1510
+trigger18	= 1 || var(40) := var(40) + !(var(40) & 131072) * 131072
+; M・ヘッドバスター
+trigger19	= StateNo = 1560
+trigger19	= 1 || var(40) := var(40) + !(var(40) & 262144) * 262144
+; Bヤングダイブ
+trigger20	= StateNo = 1600
+trigger20	= 1 || var(40) := var(40) + !(var(40) & 524288) * 524288
+; Dヤングダイブ
+trigger21	= StateNo = 1610
+trigger21	= 1 || var(40) := var(40) + !(var(40) & 1048576) * 1048576
+; リバースキック
+trigger22	= StateNo = 1650
+trigger22	= 1 || var(40) := var(40) + !(var(40) & 2097152) * 2097152
+; レッグプレス
+trigger23	= StateNo = 1700
+trigger23	= 1 || var(40) := var(40) + !(var(40) & 4194304) * 4194304
+
+
+; EX同技判定
+[State -2, Same Arts Set] ; 攻撃時設定
+type		= Null
+triggerall	= MoveType != H
+triggerall	= Time = 1
+; EXスピンフォール
+trigger1	= StateNo = 2000
+trigger1	= 1 || var(41) := var(41) + !(var(41) & 1) * 1
+; EXスピンフォール派生Mスパイダー
+trigger2	= StateNo = 2010
+trigger2	= 1 || var(41) := var(41) + !(var(41) & 2) * 2
+; EXM・スパイダー
+trigger3	= StateNo = 2150
+trigger3	= 1 || var(41) := var(40) + !(var(41) & 4) * 4
+; EXバーチカルアロー
+trigger4	= StateNo = 2200
+trigger4	= 1 || var(41) := var(41) + !(var(41) & 8) * 8
+; EXバーチカルアローブレーキング
+trigger5	= StateNo = 2210
+trigger5	= 1 || var(41) := var(41) + !(var(41) & 16) * 16
+; EXM・スナッチャー
+trigger6	= StateNo = 2250
+trigger6	= 1 || var(41) := var(41) + !(var(41) & 32) * 32
+; EXストレートスライサー
+trigger7	= StateNo = 2300
+trigger7	= 1 || var(41) := var(41) + !(var(41) & 64) * 64
+; EXクラブクラッチ
+trigger8	= StateNo = 2350
+trigger8	= 1 || var(41) := var(41) + !(var(41) & 128) * 128
+; EXスタンファング
+trigger9	= StateNo = 2370
+trigger9	= 1 || var(41) := var(41) + !(var(41) & 256) * 256
+; EXスピンヒールアタック
+trigger10	= StateNo = 2380
+trigger10	= 1 || var(41) := var(41) + !(var(41) & 512) * 512
+; EXリアルカウンター
+trigger11	= StateNo = 2400
+trigger11	= 1 || var(41) := var(41) + !(var(41) & 1024) * 1024
+; EXバックドロップ・リアル
+trigger12	= StateNo = 2420
+trigger12	= 1 || var(41) := var(41) + !(var(41) & 2048) * 2048
+; EXフェイスロック・リアル
+trigger13	= StateNo = 2430
+trigger13	= 1 || var(41) := var(41) + !(var(41) & 4096) * 4096
+; EXジャーマンスープレックス
+trigger14	= StateNo = 2460
+trigger14	= 1 || var(41) := var(41) + !(var(41) & 8192) * 8192
+; EXM・ヘッドバスター
+trigger15	= StateNo = 2500
+trigger15	= 1 || var(41) := var(41) + !(var(41) & 16384) * 16384
+; EXヤングダイブ
+trigger16	= StateNo = 2600
+trigger16	= 1 || var(41) := var(41) + !(var(41) & 32768) * 32768
+; EXリバースキック
+trigger17	= StateNo = 2650
+trigger17	= 1 || var(41) := var(41) + !(var(41) & 65536) * 65536
+; EXレッグプレス
+trigger18	= StateNo = 2700
+trigger18	= 1 || var(41) := var(41) + !(var(41) & 131072) * 131072
+
+
+;-------------------------------------------------------------------------------
+; 浮き補正
+;-------------------------------------------------------------------------------
+[State -2, Combo Correct 5]
+type		= VarSet
+trigger1	= P2MoveType != H
+trigger2	= P2MoveType = H
+trigger2	= EnemyNear,StateNo = [120, 155]
+fvar(5)		= 1.00
+
+[State -2, Combo Correct 5]
+type		= VarSet
+trigger1	= var(31) > 5
+fvar(5)		= 1 - (0.05 * var(31))
+
+
+;-------------------------------------------------------------------------------
+; ヒット数補正
+;-------------------------------------------------------------------------------
+[State -2, HitCount]
+type		= VarSet
+trigger1	= P2MoveType = H
+trigger1	= NumTarget > 0
+trigger1	= Target,StateNo != [120, 155]
+var(30)		= Target,GetHitVar(hitcount)
+
+[State -2, HitCount]
+type		= VarSet
+trigger1	= P2MoveType = H
+trigger1	= NumTarget = 0
+var(30)		= EnemyNear,GetHitVar(hitcount)
+
+[State -2, HitCount Set]
+type		= VarSet
+triggerall	= NumTarget > 0
+trigger1	= var(30) > var(31)
+trigger1	= P2MoveType = H
+trigger1	= Target,StateNo != [120, 155]
+var(31)		= var(30)
+
+[State -2, HitCount Reset1]
+type		= VarSet
+triggerall	= var(30) != 0
+trigger1	= EnemyNear,MoveType != H
+trigger2	= EnemyNear,MoveType = H
+trigger2	= EnemyNear,StateNo = [120, 155]
+trigger3	= EnemyNear,MoveType = H
+trigger3	= EnemyNear,StateNo = [5200, 5210]
+var(30)		= 0
+
+[State -2, HitCount Reset2]
+type		= VarSet
+triggerall	= var(31) != 0
+trigger1	= EnemyNear,MoveType != H
+trigger2	= EnemyNear,MoveType = H
+trigger2	= EnemyNear,StateNo = [120, 155]
+trigger3	= EnemyNear,MoveType = H
+trigger3	= EnemyNear,StateNo = [5200, 5210]
+var(31)		= 0
+
+[State -2, Combo Correct Reset]
+type		= VarSet
+triggerall	= fvar(2) != 1.00
+trigger1	= var(31) = 0
+fvar(2)		= 1.00
+
+[State -2, Combo Correct]
+type		= VarSet
+trigger1	= var(31) <= 30
+trigger1	= var(31) > 0
+fvar(2)		= 1 - (0.03125 * var(31))
+
+[State -2, Combo Correct]
+type		= VarSet
+trigger1	= var(31) > 25
+fvar(2)		= 1 - (0.03125 * 25)
+
+
+
+;-------------------------------------------------------------------------------
+; 追撃判定
+;-------------------------------------------------------------------------------
+[State -2, Chase Decision Reset]
+type		= VarSet
+triggerall	= var(32) != 0
+trigger1	= EnemyNear,MoveType != H
+trigger2	= EnemyNear,MoveType = H
+trigger2	= EnemyNear,StateNo = [120, 155]
+trigger3	= EnemyNear,MoveType = H
+trigger3	= EnemyNear,StateNo = [5200, 5300]
+var(32)		= 0
+
+[State -2, Chase Decision : Lv1] ; 必殺技以上でのみ追撃可能
+type		= null;VarSet
+var(32)		= 1
+triggerall	= MoveType != H
+; 
+trigger1	= StateNo = 4001
+trigger1	= AnimElemTime(8) = 1
+
+[State -2, Chase Decision : Lv2] ; EX必殺技以上でのみ追撃可能
+type		= VarSet
+var(32)		= 2
+triggerall	= MoveType != H
+; 地上ふっとばし
+trigger1	= StateNo = 300
+trigger1	= var(34) = 0
+trigger1	= MoveHit = 1
+; 空中ふっとばし
+trigger2	= StateNo = [700, 710]
+trigger2	= var(34) = 0
+trigger2	= MoveHit = 1
+
+[State -2, Chase Decision : Lv3] ; ゲージ技以上でのみ追撃可能
+type		= VarSet
+var(32)		= 3
+triggerall	= MoveType != H
+; 通常技対空
+trigger1	= (StateNo = [200, 280]) || (StateNo = [400, 700))
+trigger1	= MoveHit = 1
+trigger1	= P2StateType = A
+trigger1	= var(34) = 0
+
+
+[State -2, Chase Decision : Lv4] ; なんでも判定でのみ追撃可能
+type		= VarSet
+var(32)		= 4
+triggerall	= MoveType != H
+; ガードキャンセル
+trigger1	= StateNo = 310
+trigger1	= MoveHit = 1
+; M・スプラッシュローズ
+trigger2	= StateNo = 3011
+trigger2	= Time = 1
+; MAX M・スプラッシュローズ
+trigger3	= StateNo = 3511
+trigger3	= MoveHit = 1
+
+
+;-------------------------------------------------------------------------------
+; 攻撃力UP補正
+;-------------------------------------------------------------------------------
+[State -2, Combo Correct 4]
+type		= VarSet
+triggerall	= fvar(3) != 1.00
+trigger1	= var(20) = 0
+fvar(3)		= 1.00
+
+[State -2, MAX Correct] ; MAX状態
+type		= VarSet
+triggerall	= fvar(3) != 1.1
+trigger1	= var(20) = 1
+fvar(3)		= 1.1
+
+
+
+;-------------------------------------------------------------------------------
+; コンボ補正
+;-------------------------------------------------------------------------------
+; 総合補正
+[State -2, Combo Correct]
+type		= VarSet
+trigger1	= 1
+fvar(0)		= fvar(1) * fvar(2) * fvar(3) * fvar(4)
+
+[State -2, Combo Correct Min] ; 最低値
+type		= VarSet
+trigger1	= fvar(0) < 0.01
+fvar(0)		= 0.01
+
+
+
+;-------------------------------------------------------------------------------
+; ゲージ回収量補正
+;-------------------------------------------------------------------------------
+; リセット
+[State -2, Gage Correct Reset]
+type		= VarSet
+triggerall	= fvar(6) != 1.00
+trigger1	= var(5) = 0
+trigger1	= var(20) = 0
+fvar(6)		= 1.00
+
+; ゲージ回収なし時間
+[State -2, Gage Correct Reset]
+type		= VarSet
+triggerall	= fvar(6) > 0
+trigger1	= var(5) > 0
+trigger2	= var(20) = 1
+fvar(6)		= 0
+
+
+
+; EX必殺技使用時
+[State -2, EX Gage Correct Set]
+type		= VarSet
+var(5)		= 30
+triggerall	= Time = 1
+trigger1	= StateNo = [2000, 2999]
+
+; ゲージ技
+[State -2, EX Gage Correct Set]
+type		= VarSet
+var(5)		= 60
+triggerall	= Time = 1
+trigger1	= StateNo = [3000, 5000)
+
+; ゲージ回収時間バッファカウント
+[State -2, Dash Cancel Gage Correct Set]
+type		= VarAdd
+triggerall	= var(5) > 0
+trigger1	= StateNo != [2000, 2999]
+trigger1	= StateNo != [3000, 5000)
+var(5)		= -1
+
+
+
+;-------------------------------------------------------------------------------
+; MAXゲージ関連
+;-------------------------------------------------------------------------------
+[State -2, MAX Limit]
+type		= VarSet
+trigger1	= var(22) < 0
+var(22)		= 0
+
+[State -2, MAX Review]
+type		= RemoveExplod
+trigger1	= var(21) != var(22)
+ID			= 6112
+ignorehitpause	= 1
+
+[State -2, MAX Set]
+type		= VarSet
+triggerall	= var(22) >= 0
+trigger1	= var(21) != var(22)
+var(21)		= var(22)
+ignorehitpause	= 1
+
+[State -2, Explod]
+type		= Explod
+triggerall	= NumExplod(6112) = 0
+triggerall	= RoundState >= 1
+triggerall	= Time % 14 < 8
+trigger1	= var(21) > 0
+anim		= 6112
+ID			= 6112
+facing		= Facing
+pos			= -13 * Facing, -10
+scale		= var(21) * 0.00096, 1
+postype		= p1
+sprpriority	= 5
+ignorehitpause	= 1
+ownpal		= 1
+[State -2, Explod]
+type		= Explod
+triggerall	= NumExplod(6112) = 0
+triggerall	= RoundState >= 1
+triggerall	= Time % 14 >= 8
+trigger1	= var(21) > 0
+anim		= 6113
+ID			= 6112
+facing		= Facing
+pos			= -13 * Facing, -10
+scale		= var(21) * 0.00096, 1
+postype		= p1
+sprpriority	= 5
+ignorehitpause	= 1
+ownpal		= 1
+
+[State -2, RemoveExplod]
+type		= RemoveExplod
+ID			= 6112
+triggerall	= NumExplod(6112) > 0
+triggerall	= MoveType != H
+trigger1	= var(21) <= 0
+ignorehitpause	= 1
+[State -2, RemoveExplod]
+type		= RemoveExplod
+ID			= 6110
+triggerall	= NumExplod(6110) > 0
+triggerall	= MoveType != H
+trigger1	= var(21) <= 0
+ignorehitpause	= 1
+
+[State -2, MAX Flag Reset]
+type		= VarSet
+trigger1	= var(21) <= 0
+trigger1	= var(20) > 0
+var(20)		= 0
+ignorehitpause	= 1
+
+[State -2, MAX Time]
+type		= VarAdd
+trigger1	= var(21) > 0
+var(22)		= -1
+ignorehitpause	= 1
+
+;-------------------------------------------------------------------------------
+; 本体点滅
+;-------------------------------------------------------------------------------
+[State -2, EX Arts]
+type		= PalFX
+triggerall	= RoundState = 2
+triggerall	= StateNo = [2000, 2999]
+triggerall	= MoveType != H
+trigger1	= GameTime % 2 = 0
+time		= 1
+add			= 0, 0, 255
+color		= 1
+ignorehitpause	= 1
+persistent	= 1
+
+[State -2, MAX]
+type		= PalFX
+triggerall	= RoundState = 2
+triggerall	= var(20) = 1
+triggerall	= StateNo != [2000, 2999]
+triggerall	= MoveType != H
+trigger1	= GameTime % 2 = 0
+time		= 1
+add			= 126, 126, 0
+color		= 1
+ignorehitpause	= 1
+persistent	= 1
+
+;-------------------------------------------------------------------------------
+; 受身補正用
+;-------------------------------------------------------------------------------
+[State -2, Recovery Time 1]
+type		= VarSet
+trigger1	= P2MoveType != H
+var(33)		= 0
+
+[State -2, Recovery Time 2]
+type		= VarSet
+trigger1	= P2StateType = A && var(31) = [5, 9]
+var(33)		= 3
+
+[State -2, Recovery Time 3]
+type		= VarSet
+trigger1	= P2StateType = A && var(31) = [10, 14]
+var(33)		= 6
+
+[State -2, Recovery Time 4]
+type		= VarSet
+trigger1	= P2StateType = A && var(31) = [15, 19]
+var(33)		= 9
+
+[State -2, Recovery Time 5]
+type		= VarSet
+trigger1	= P2StateType = A && var(31) = [20, 24]
+var(33)		= 12
+
+[State -2, Recovery Time 6]
+type		= VarSet
+trigger1	= P2StateType = A && var(31) >= 25
+var(33)		= 15
+
+
+;---------------------------------------------------------------------------
+; 背面ガード用ヘルパー
+;---------------------------------------------------------------------------
+[State -2, Helper]
+type		= Helper
+name		= "BackAttackDist"
+stateno		= 9000
+ID			= 9000
+size.xscale	= const(size.xscale) * 1
+size.yscale	= const(size.yscale) * 1
+postype		= p1
+pos			= 0, -1
+supermovetime	= 99999
+pausemovetime	= 99999
+triggerall	= !NumHelper(9000)
+triggerall	= MoveType = A
+trigger1	= StateNo = 200
+trigger1	= AnimElemTime(3) < 0
+trigger2	= StateNo = 250
+trigger2	= AnimElemTime(6) < 0
+trigger3	= StateNo = 380
+trigger3	= AnimElemTime(13) < 0
+trigger4	= StateNo = 670
+trigger4	= AnimElemTime(4) < 0
+trigger5	= StateNo = 675
+trigger5	= AnimElemTime(4) < 0
+trigger6	= StateNo = 700
+trigger6	= AnimElemTime(7) < 0
+trigger7	= StateNo = 710
+trigger7	= AnimElemTime(7) < 0
+trigger8	= StateNo = 1200
+trigger8	= AnimElemTime(9) < 0
+trigger9	= StateNo = 1210
+trigger9	= AnimElemTime(10) < 0
+trigger10	= StateNo = 1300
+trigger10	= AnimElemTime(10) < 0
+trigger11	= StateNo = 1310
+trigger11	= AnimElemTime(12) < 0
+trigger12	= StateNo = 1370
+trigger12	= AnimElemTime(6) < 0
+trigger13	= StateNo = 1650
+trigger13	= AnimElemTime(7) < 0
+trigger14	= StateNo = 2200
+trigger14	= AnimElemTime(10) < 0
+trigger15	= StateNo = 2300
+trigger15	= AnimElemTime(12) < 0
+trigger16	= StateNo = 2370
+trigger16	= AnimElemTime(6) < 0
+trigger17	= StateNo = 2650
+trigger17	= AnimElemTime(7) < 0
+trigger18	= StateNo = 4000
+trigger18	= AnimElemTime(18) < 0
+
+
+
+
+;---------------------------------------------------------------------------
+; 被弾時ボイス
+;---------------------------------------------------------------------------
+; 被弾時
+[State -2, Damage Voice1]
+type		= PlaySnd
+triggerall	= Alive
+triggerall	= !IsHelper
+triggerall	= MoveType = H
+triggerall	= Time = 0
+triggerall	= StateNo != [120, 159]
+triggerall	= Random < 500
+trigger1	= StateNo = 5000
+trigger2	= StateNo = 5010
+value		= 11, 1 + (Random % 6)
+persistent	= 0
+channel		= 0
+
+; 受身時
+[State -2, Damage Voice2]
+type		= PlaySnd
+triggerall	= Alive
+triggerall	= !IsHelper
+triggerall	= MoveType = H
+triggerall	= Time = 0
+triggerall	= StateNo != [120, 159]
+triggerall	= Random < 600
+trigger1	= StateNo = 5210
+value		= 200, 0
+persistent	= 0
+channel		= 0
+
+
+;-------------------------------------------------------------------------------
+; 下タメ関係
+;-------------------------------------------------------------------------------
+[State -2, Down Charge]
+type		= VarAdd
+trigger1	= Command = "holddown"
+var(26)		= 1
+ignorehitpause	= 1
+
+[State -2, Down Charge Buffer]
+type		= VarSet
+triggerall	= var(27) < 9
+trigger1	= Command = "holddown"
+var(27)		= 9
+ignorehitpause	= 1
+
+[State -2, Down Charge Buffer]
+type		= VarAdd
+trigger1	= Command != "holddown"
+trigger1	= var(27) > 0
+var(27)		= -1
+
+[State -2, Down Charge Reset]
+type		= VarSet
+triggerall	= var(26) > 0
+triggerall	= var(27) <= 0
+trigger1	= Command != "holddown"
+var(26)		= 0
+
+;-------------------------------------------------------------------------------
+; 後ろタメ関係
+;-------------------------------------------------------------------------------
+[State -2, Back Charge]
+type		= VarAdd
+trigger1	= Command = "holdback"
+var(28)		= 1
+ignorehitpause	= 1
+
+[State -2, Back Charge Buffer]
+type		= VarSet
+triggerall	= var(29) < 9
+trigger1	= Command = "holdback"
+var(29)		= 9
+ignorehitpause	= 1
+
+[State -2, Back Charge Buffer]
+type		= VarAdd
+trigger1	= Command != "holdback"
+trigger1	= var(29) > 0
+var(29)		= -1
+
+[State -2, Back Charge Reset]
+type		= VarSet
+triggerall	= var(28) > 0
+triggerall	= var(29) <= 0
+trigger1	= Command != "holdback"
+var(28)		= 0
+
+
+;-------------------------------------------------------------------------------
+; エフェクト消去補助
+;-------------------------------------------------------------------------------
+[State -2, RemoveExplod] ; ゲージタメ
+type		= RemoveExplod
+triggerall	= NumExplod(6120) > 0
+trigger1	= StateNo != [950, 951]
+trigger2	= StateNo = 7000
+trigger3	= MatchOver
+ID			= 6120
+ignorehitpause	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove		= 1
+
+[State -2, RemoveExplod]
+type		= RemoveExplod
+ID			= 1021
+ignorehitpause	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove		= 1
+triggerll	= NumExplod(1021) > 0
+trigger1	= StateNo = 7000
+trigger2	= StateNo != 1020
+trigger2	= StateNo != 1110
+trigger2	= StateNo != 2010
+trigger2	= StateNo != 2150
+
+[State -2, RemoveExplod]
+type		= RemoveExplod
+ID			= 1253
+ignorehitpause	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove		= 1
+triggerll	= NumExplod(1253) > 0
+trigger1	= StateNo = 7000
+trigger2	= StateNo != 1250
+trigger2	= StateNo != 2250
+
+[State -2, RemoveExplod]
+type		= RemoveExplod
+ID			= 1351
+ignorehitpause	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove		= 1
+triggerll	= NumExplod(1351) > 0
+trigger1	= StateNo = 7000
+trigger2	= StateNo != 1350
+trigger2	= StateNo != 2350

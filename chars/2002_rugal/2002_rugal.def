@@ -1,0 +1,32 @@
+[Info]
+name = "Tin 2002_rugal"        
+displayname = "Rugal Bernstein" 
+versiondate = 3,9 ,2003  
+mugenversion = 04,14,2001  
+author = "Tin"      
+pal.defaults = 1,2,3
+
+; Files for the player
+[Files]
+;------------------------
+cmd     = 2002_rugal.cmd  
+;------------------------
+cns     = 2002_rugal.cns   
+st      = 2002_rugal.cns   
+;///////////////////////////
+stcommon = common.st ;ノーマルAI
+;stcommon = BOSScommon.st ;ボスAI予定
+;///////////////////////////
+sprite  = 2002_rugal.sff   
+anim    = 2002_rugal.air  
+sound   = 2002_rugal.snd  
+pal1    = pal/2002rugal.act    
+pal2    = pal/2002rugal2.act   
+pal3    = pal/2002rugal9.act   ;
+pal4    = pal/2002rugal10.act    
+pal5    = pal/2002rugal11.act   
+pal6    = pal/2002rugal12.act   ;
+
+[Arcade]
+;intro.storyboard = 
+ending.storyboard = RUGAL-ED.def

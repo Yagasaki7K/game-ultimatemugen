@@ -1,0 +1,49 @@
+;_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+;_/	one for all							 _/
+;_/      master: ƒuƒbƒ`(butti)						 _/
+;_/	http://hccweb1.bai.ne.jp/~hda47501/  or  http://angel.ee.vu/	 _/
+;_/      hda47501@hcc1.bai.ne.jp					 _/
+;_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+;
+;	Must not link directly to the files on my site.
+;	Must not upload the files.
+;
+;create by butti
+; Player information
+[Info]
+name    ="igniz"
+displayname ="Igniz"
+versiondate =06, 06,2002
+mugenversion =04,14,2001
+author ="butti" 
+pal.defaults =1,2
+
+; Files for the player
+[Files]
+cmd      =igniz.tan
+cns      =igniz.moe
+st       =igniz.moe
+st8      = igniz_h2.moe
+;st9      = angel_h3.moe
+stcommon =common1.cns
+sprite   =igniz.sff
+anim     =igniz.air
+sound    =igniz.snd
+pal1=igniz1.pal
+pal2=igniz2.pal
+pal3=igniz3.pal
+pal4=igniz4.pal
+pal5=igniz5.pal
+pal6=igniz6.pal
+st1=igniz_n.moe
+st2=igniz_o.moe
+st3=igniz_s1.moe
+st4=igniz_s2.moe
+st5=igniz_h1.moe
+st6=igniz_h2.moe
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+ending.storyboard =ignizend.def
+intro.storyboard=

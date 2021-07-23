@@ -1,0 +1,39 @@
+;---------------------------
+; DVANESSA
+; Version 1.0
+; BY: DEUCE
+;---------------------------
+
+; Character information
+[Info]
+name         = "DVanessa"
+displayname  = "Vanessa 2002"
+author       = "Deuce"
+;updated by "Sander 71113"
+versiondate  = 10,12,2004
+mugenversion = 11,28,2000
+pal.defaults = 4,6
+
+; Files for the character
+[Files]
+;cmd      = vanessa.cmd         ;Hard AI + Command set
+;cmd      = vanmedai.cmd        ;Medium Level AI + Command set
+;cmd      = vannoai.cmd         ;No AI + Command set
+cmd       = vanessa-cap.cmd     ;Hard AI + Command set (Capcom-style)
+;cmd      = vanmedai-cap.cmd    ;Medium Level AI + Command set 
+;cmd      = vannoai-cap.cmd     ;No AI + Command set (Capcom-style)
+cns      = vanessa.cns          ;Constants
+stcommon = common1.cns          ;Common states
+st       = vanessa.cns          ;States
+st1      = vanspecial.cns       ;Special Moves
+st2      = vanessaA.cns         ;Override States
+st3      = vanessaB.cns         ;State - 2
+sprite   = vanessa.sff          ;Sprite
+anim     = vanessa.air          ;Animation
+sound    = vanessa.snd          ;Sound
+pal1     = pal3.act             ;KOF2K Blue
+pal2     = pal4.act             ;Green/Blue
+pal3     = pal1.act             ;Blue/Green
+pal4     = pal1.act             ;KOF2K Standard
+pal5     = pal2.act             ;Violet/Brown
+pal6     = pal4.act             ;Dark/Gold (Dark Skin)

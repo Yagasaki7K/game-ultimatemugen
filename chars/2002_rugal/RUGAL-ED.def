@@ -1,0 +1,312 @@
+
+[SceneDef]
+spr = RUGAL-ED.sff
+startscene = 0
+
+;--------------------------------------------------------------------------------
+;--------------------------------------------------------------------------------
+;ëÂç„èÈ
+[Scene 0]
+; Fade
+fadein.time = 60
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 0
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+bgm = RUGAL-ED.mp3
+bgm.loop = 1
+volume = 255
+
+; Total time
+end.time =604
+;---------------------------------------------------------------------------------
+[Scene 1];ëÂç„èÈÇQ
+; Fade
+fadein.time = 0
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 1
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =604
+;----------------------------------------------------------------------------------
+[Scene 2];ëÂç„èÈÇR
+; Fade
+fadein.time = 0
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 2
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =604
+;----------------------------------------------------------------------------------
+[Scene 3];ëÂç„èÈÇS
+; Fade
+fadein.time = 0
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 3
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =604
+;----------------------------------------------------------------------------------
+[Scene 4];ëMåı
+;Fade
+fadein.time = 30
+fadein.col = 255,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 30
+fadeout.col = 0,0,0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =60
+;----------------------------------------------------------------------------------
+[Scene 5];ã§í 
+;Fade
+fadein.time = 0
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 5
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =304
+;----------------------------------------------------------------------------------
+[Scene 6];ëMåı
+;Fade
+fadein.time = 30
+fadein.col = 255,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 30
+fadeout.col = 0,0,0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =60
+;----------------------------------------------------------------------------------
+[Scene 7];ãπÇÇ¬Ç©Çﬁ
+;Fade
+fadein.time = 60
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 60
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 7
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =604
+;----------------------------------------------------------------------------------
+[Scene 8];ëMåı
+;Fade
+fadein.time = 30
+fadein.col = 255,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 30
+fadeout.col = 0,0,0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =60
+;----------------------------------------------------------------------------------
+[Scene 9];ëÂç„èÈîöîjÇQ
+;Fade
+fadein.time = 60
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 60
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 9
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 
+;volume = 255
+
+; Total time
+end.time =304
+;----------------------------------------------------------------------------------
+[Scene 10];çããSÇÇ¬Ç©Ç›Ç†Ç∞ÇÈ
+;Fade
+fadein.time = 60
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 60
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 10
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 0
+;volume = 255
+
+; Total time
+end.time =604
+;----------------------------------------------------------------------------------
+[Scene 11];ê_
+;Fade
+fadein.time = 60
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 30
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 11
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 0
+;volume = 255
+
+; Total time
+end.time =604
+;----------------------------------------------------------------------------------
+[Scene 12];éÑÇÕÅEÅEÅE
+;Fade
+fadein.time = 30
+fadein.col = 0,0,0
+ ; Screen color
+clearcolor = 0,0,0
+fadeout.time = 120
+fadeout.col = 0,0,0
+;Overlay anims
+layerall.pos = 0,0
+layer0.anim = 12
+layer0.offset = 0,0
+layer0.starttime = 0
+
+;Music
+;bgm = 
+;bgm.loop = 0
+;volume = 255
+
+; Total time
+end.time =724
+;-------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+[Begin Action 0]
+0,0,0,0,-1
+
+[Begin Action 1]
+0,1,0,0,-1
+
+[Begin Action 2]
+0,2,0,0,-1
+
+[Begin Action 3]
+0,3,0,0,-1
+
+[Begin Action 5]
+0,5,0,0,-1
+
+[Begin Action 7]
+0,7,0,0,-1
+
+[Begin Action 9]
+0,9,0,0,-1
+
+[Begin Action 10]
+0,10,0,0,-1
+
+[Begin Action 11]
+0,11,0,0,-1
+
+[Begin Action 12]
+0,12,0,0,-1
+
+;------------------------------------------------------------------------------*
+;EOF

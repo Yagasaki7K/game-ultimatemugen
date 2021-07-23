@@ -1,0 +1,62 @@
+-- Basic Moves --
+Light punch				X
+Hard kick				Y
+Light kick				A
+Hard kick				B
+Strike attack				C
+Emergency evade				X+AorZ
+Taunt					Start
+Charge power				2+Start(can hold)
+
+-- Dash --
+You can configure "config.txt" to change dash-type.
+Or push start duaring first round intro.
+
+-DASH
+Dash					66
+Quick emergency evade			(during normal attack)X+AorZ
+
+-STEP
+Walk speed is more faster than other type.
+Step					66
+Quick emergency evade			(during normal attack)X+AorZ
+
+-G.STEP
+Grand step				66
+Guard-Cancel grand step			(while blocking)66
+Attack-Cancel grand step		(during normal attack)X+AorZ
+
+-- Jump --
+Small jump				(tap)7or8or9
+Middle jump				(tap)1or2or3,(tap)7or8or9
+Long jump				(tap)1or2or3,7or8or9
+
+-- Maximum mode --
+If you want to change button combination like original game(Y+A),
+change the paramater in "config.txt".
+
+Maximum mode(KOF'98)			2+Y+B
+Maximum mode(KOF'02)			Y+B
+Quick Maximum mode			(during normal attack)Y+B
+  ->Quick dash				(hold)6
+
+-- Guard Cancel --
+Guard-Cancel strike attack		(while blocking)C
+Guard-Cancel emergency evade		(while blocking)X+AorZ
+
+-- Special Cansel --
+Super-Cancel				Cancel super move into DM or super DM.
+Dream-Cancel				Cancel DM into super DM.
+
+-- Cost of power level --
+Guard-Cancel grand step			1-gauge
+Guard-Cancel strike attack		1-gauge
+Guard-Cancel emergency evade		1-gauge
+Cancel emergency evade			1-gauge
+Attack-Cancel grand step		1-gauge
+Maximum mode				1-gauge
+Quick Maximum mode			1.5-gauge
+DM					(normally)1-gauge / (during Maximum mode)end of Maximum mode
+Extra DM				(normally)1.5-gauge / (during Maximum mode)0.5-gauge+end of Maximum mode
+Super DM				(normally)2-gauge / (during Maximum mode)1-gauge+end of Maximum mode
+Hidden DM				(normally)3-gauge / (during Maximum mode)2-gauge+end of Maximum mode

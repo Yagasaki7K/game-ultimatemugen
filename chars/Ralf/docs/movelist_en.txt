@@ -1,0 +1,33 @@
+-- Ralf jones Move List -- 
+Refer to "system_jp.txt" for a basic moves.
+(S):can use Super Cancel (D):can use Dream Cancel
+
+-- Throw --
+Dynamite headbutt			(close)4or6+Y
+Northern light bomb			(close)4or6+B
+
+-- Super Moves --
+Gatling attack(S)			(charge)46+XorY
+Super Argentina backbreaker		(close)41236+AorB
+Kyuukouka bakudan punch			(charge)28+XorY
+					(in air)236+XorY
+Vulcan punch				(tap)XorY
+Ralf kick				63214+A
+Ralf tuckle				63214+B
+Teikuu Ralf kick			63214+A+B
+Unblock					623+XorY
+
+-- DM --
+Baribari vulcan punch(D)		2363214+XorY
+Umanori vulcan punch			2141236+AorB
+
+-- Extra DM --
+Baribari vulcan punch			2363214+X+Y
+Umanori vulcan punch			2141236+A+B
+
+-- Super DM --
+Garactica phantom			236236+C
+
+-- Hidden Super DM --
+Umanori	garactica phantom		2141236+X+Y
+  -->Garactica vanguard			(during Umanori	garactica phantom)236236+X+Y(can hold)

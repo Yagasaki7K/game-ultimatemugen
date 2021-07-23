@@ -1,0 +1,38 @@
+; Definition file for Dark Chun-Li remix
+; Contains all the filenames needed for the character
+; Template player 9X-08-11
+
+[Info]
+name = "Dark Chun Li"        ;Name of character
+displayname = "Dark Chun Li" ;Name of character to display
+versiondate = 2,13,2002    ;Version date of character
+mugenversion = 04,14,2001   ;Version of M.U.G.E.N character works on
+author = "Big Eli King"         ;Character author name
+pal.defaults = 1,7,2,8      ;Default palettes in order of preference
+
+; Files for the character
+[Files]
+cmd     = kamikaze.cmd       ;Command set
+cns=dchunli.cns     ;Constants
+st=dchunli.cns      ;States
+st1=chaos.cns      ;Attacks for Chaos Style (previously Red mode)
+;st2=rage.cns       ;Attacks for Rage Style (previously Blue mode)
+stcommon = common1.cns     ;Common states
+sprite  = dchunli.sff     ;Sprite
+anim    = dchunli.air     ;Animation
+sound   = dchunli2.snd     ;Sound
+pal1=dchunli1.act ;Crimson and Gold
+pal2=dchunli2.act ;Dark Blue and Aqua
+pal3=dchunli3.act ;Violet and Blue-grey
+pal4=dchunli4.act ;Black and Red
+pal5=dchunli5.act ;Gold
+pal6=dchunli6.act ;Green and White
+pal7=classic.act  ;The original default Dark Chun-Li color
+pal8=ogchunli.act ;Chun-Li gone bad?!
+pal9=night.act    ;Completely Black with red eyes
+pal10=shadlady.act;Shadow Lady colors
+pal11=bison.act
+
+
+
+

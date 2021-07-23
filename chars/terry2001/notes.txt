@@ -1,0 +1,1019 @@
+* January 11, 2005
+ - WinMugen Patch made by Winane, 
+   compiled all files in 1 rar file. ^^
+
+* June 13, 2003
+ - Power Dunk EX
+ - Fixes
+
+* June 7, 2003
+ - Released
+
+* May 31, 2003
+ - Beta Ai.
+ - Bug fixes 
+
+* May 28, 2003
+ - Max cancels.
+ - Changed Buster Wolf SDM. 
+
+* May 10, 2003
+ - Everything done
+ - Just need to fix cancels and max mode stuff. 
+
+* August 21, 2002
+ - All basic attacks
+ - All Groove stuff
+
+* August 16, 2002
+ - All basic and required stuff is done.
+ - "All" intros and winposes from 98-2K1 done.
+
+* August 11, 2002 
+ - Started the work.
+
+
+;ataques normales
+
+b  10
+a  20
+y  30
+x  40
+c  50
+z  60
+s  70
+
+	close	far	crouch    runing	S.V	S.H	S.V.	S.H.
+	pie	pie				normal  normal  corto	corto
+
+	200	300	400		500	600	700	800	900
+
+
+;Ataques Avanzados
+
+;Adelante + patada debil (standing) cap 	1000
+
+
+;Standing CD					1380
+;Jumping CD					1390
+// Antes del 1400 , es para ataques avanzados (direccion mas boton)
+
+//throws 1400
+;Throw1                                           forward Y		1400
+;VAr 36 2**24
+;Throw2                                           forward B		1410
+;VAr 36 2**25
+;Air Throw                                        forward B or Y	1420
+;VAr 36 2**26
+
+// Esquives										1500
+;Roll Forward           			forward ( Z )		1500
+;VAr 36 2**16
+;Roll Back                                     Back ( Z )		1510
+;VAr 36 2**17
+;Esquive Adelante (kof98)						1520
+;Esquive atras (kof98)							1530
+;Esquive Neutro								1540
+;Esquive Adelante (kof99)						1550
+;Esquive atras (kof99)							1560
+;ataque despues de esquive kof 99					1570
+;Just defense								1580
+;Parry SF3								1590
+
+//FF movement
+;Move to the Background                         C+Z	1600
+;VAr 36 2**18
+;Phase Forward                                  forward C+Z		1610
+;VAr 36 2**19
+;Come in Fan Stab                               C+Z then X or Y or C	1620
+;VAr 36 2**20
+;Come in Tripping                               C+Z then A or B or Z	1630
+;VAr 36 2**21
+//Extra attacks
+;Push Back                                      A+B+C	1640
+;VAr 36 2**22
+;Power Up		                        X+Y+Z	1650
+;VAr 36 2**23
+;DOwn -Down Overhead (SF3)			1660
+;Guard break					1670
+;dizzy						1680
+;First Attack					1690
+;counter (ataca cuando el otro ataca)		1700
+;Empuja en guardia (guard push)			1710
+;Get up attack  KI 2				1720
+;Camina agachado				1730
+;golpea enemigo caido				1740
+;Esquive adelante en guardia			1750
+;Esquive atras en guardia			1760
+;Counter blockeando (kof)			1770
+;Get Up with a Kick              tapping A or X	1780
+;levantarse con ataque				1790
+;VAr 36 2**0
+
+// movimiento														1800
+;Run                                            double forward		1800
+;Hop Back                                       double back		1810
+;Dash Phase Forward                             triple forward		1820
+;Lay Down                                        double down		1830
+;Crawl                                           down forward		1840
+;Hop 						 tap up			1850
+
+ // must be in the air \\ 1900
+;Double Jump (forward/static/back)					1860
+;Double Hop (forward/static/back)					1870
+;Triple Jump (forward/static/back)					1880
+;Triple Hop (forward/static/back)					1890
+;Jump of the wall							1900
+
+//// Avanze rapido en el aire
+;( En el aire )
+;Zoom Forward                                  double forward		1910
+;Zoom Back                                     double back		1920
+;Zoom Down                                      double down		1930
+;Hop forward                                   double back		1940
+;Critical hit								1950
+;Alpha counter arriba							1960
+;Alpha counter abajo							1970
+;Recovery(kof)								1980
+;Recovery(Sfa)								1990
+
+;ataques customizables
+
+
+;2000-3900 (projectiles) normales
+;4000-4900 normales
+;6000-7900 super
+;8000-9900 (projectiles) super
+
+2000 - 9990
+
+x   (a)		=	 0
+y   (b)		=	 10
+z   (c)		=	 20
+
+
+;2000-2900 Projectile special attacks
+;200  to 295
+
+;r = ripped
+;s = sffed
+;c = clsned
+;t = timed
+;h = hitdeffed
+;e = code exists
+;v = velocitied
+;f = effectsed
+;p "whatever" = projectile has atributes, projectile's atributes are the same as the move's
+
+;notes
+;round wave is a variation of power wave
+;attacks that have follow ups, include them on their code, i.e. power charge.
+; ^  = the attacks makes the oponent fall with x friction
+
+
+;power wave	GD					2000	rsctevf prstevf
+
+;power wave	98					2050	rsctevf prstevf ^
+
+;power wave    motw					2030
+
+;power wave	99					2100	rsc e f prste f ^
+
+;power wave	2000				2150	rsc e f prste f ^
+
+;power wave	2002				2200	rsctevf prstevf ^
+
+;power wave	95					2250	rsctevf prstevf ^
+
+;3000-4900 NO-Projectile special attacks
+;300 to 495
+
+;Hidden move 98					3000
+
+;MOTW 3 hitter                                  3500
+
+;Air Shoot motw					3600
+
+;Power Charge EX motw				3700
+
+;Burn knuckle 98				4000	rsctevf prf ^
+
+;Burn Knuckle Motw				4020
+
+;Burn knuckle GD				4050
+
+;raising tackle 98				4100	rsctevf %no air friction
+
+;raising tackle 2002			4150
+
+;raising tackle GD				4200
+
+;power charge 98				4300	rsctevf %no air friction
+
+;power charge 99				4350
+
+;power charge GD				4400
+
+;crack shot 98					4500	rsctevf * hitvels are 2002's
+
+;crack shot 2000				4550
+
+;crack shot 2002				4600	rsctevf %no air friction
+
+;crack shot GD					4650	rsctevf %no air friction
+
+;power dunk 98					4700	rsctevf ^
+
+;power dunk 2000				4750
+
+;power dunk 2002				4800
+
+;power dunk GD					4850
+
+;power drive & power shoot 99	4900
+
+;Slide 98						4950	rsctevf %no air friction
+
+
+;DM's
+
+;note:
+;to keep better compatibility between snk and capcom systems,the dm's have 3 levels of power
+;and the level 1 dm has 3 dif. versions.so, the table is this.
+;
+;+0 = dm a|x
+;+10 = dm b|y
+;+20 = dm c|z
+;+30 = sdm
+;+40 = hsdm
+
+;6000-7950 super Attacks (NO-Projectile)
+;600 to 795
+
+;Buster wolf					6000
+
+;high angle geiser 98			6100
+
+;high angle geiser 2002			6150
+
+;high angle geiser GD			6200
+
+;HSDM							6250 rs
+
+
+;8000-9950 (projectile) super attacks
+;800 to 995
+
+;power geiser 98				8100
+
+;power geiser 2002				8150
+
+;power geiser GD				8200
+
+;power geiser ESDM				8300
+
+
+
+;Winposes etc
+
+
+;Intros
+
+;intro turnos   				21100
+;intro kimono					21110
+;intro bebe						21120
+
+;Winposes
+
+;Petalos Winpose 				21200
+
+;Lose poses
+
+;time over						21500
+
+;Burlas
+
+;Burla sfa2 (saluda)			21700
+
+
+
+
+
+
+Number    Description                  Comments
+-------   ------------                 --------
+//0         Standing
+//5   opt   Turning                      Must have finite looptime
+//10        Stand to crouch              Finite looptime
+//11        Crouching
+//12        Crouch to stand              Finite looptime
+//20        Walking forwards
+//21        Walking backwards
+//40        Jump start (on ground)       Shown just before player leaves ground
+//41        Jump neutral (upwards)       Shown when player is going up
+//42        Jump forwards (upwards)      Shown when player is going up-towards
+//43        Jump back (upwards)          Shown when player is going up-back
+//44  opt   Jump neutral (downwards)     Activated when Y-velocity > -2
+//45  opt   Jump fwd (downwards)         Same as above
+//46  opt   Jump back (downwards)        Same as above
+//47        Jump landing                 Shown as player lands on ground
+//100       Run fwd/hop forward
+//105       Hop back
+//120       Start guarding (stand)       Finite looptime
+//121       Start guarding (crouch)      Finite looptime
+//122       Start guarding (air)         Finite looptime
+//130       Guard (stand)
+//131       Guard (crouch)
+//132       Guard (air)
+//140       Stop guarding (stand)        Finite looptime
+//141       Stop guarding (crouch)       Finite looptime
+//142       Stop guarding (air)          Finite looptime
+//150       Guarding a hit (stand)       Finite looptime
+//151       Guarding a hit (crouch)      Finite looptime
+//152       Guarding a hit (air)         No loop
+170 opt   Lose                         (See Note 1)
+175 opt   Time Over                    (See Note 1)
+180 opt   Win                          No loop (181-189 for multiple) (See Note 1)
+190 opt   Intro                        No loop (See Note 1)
+195 opt   Taunt                        Finite looptime (See Note 1)
+
+//5000      Stand/Air Hit high (light)   Looptime around 10-20
+//5001      Stand/Air Hit high (medium)    "     (See Note 2)
+//5002      Stand/Air Hit high (hard)      "
+//5005      Stand Recover high (light)   No loop (See Note 3)
+//5006      Stand Recover high (medium)    "
+//5007      Stand Recover high (hard)      "
+//5010      Stand/Air Hit low (light)    Looptime around 10-20
+//5011      Stand/Air Hit low (medium)     "
+//5012      Stand/Air Hit low (hard)       "
+//5015      Stand Recover low (light)    No loop
+//5016      Stand Recover low (medium)     "
+//5017      Stand Recover low (hard)       "
+//5020      Crouch Hit (light)           Looptime around 10-20
+//5021      Crouch Hit (medium)            "
+//5022      Crouch Hit (hard)              "
+//5025      Crouch Recover (light)       No loop
+//5026      Crouch Recover (medium)        "
+//5027      Crouch Recover (hard)          "
+//5030      Stand/Air Hit back           Looptime around 10-20
+//5035 opt  Stand/Air Hit transition     Looptime around 5-15 (See Note 3)
+5040      Air Recover                  No loop
+//5050      Air Fall                     No loop
+//5060 opt  Air Fall (coming down)       No loop
+//5070      Tripped
+5080      LieDown Hit (stay down)      (See Note 4)
+5090      LieDown Hit (hit up into air)
+//5100      Hitting ground from fall     Looptime around 3
+//5160      Bounce into air
+//5170      Hit ground from bounce       Looptime around 3 or 4
+//5110      LieDown
+//5120      Get up from LieDown
+5140 opt  LieDead (first rounds)
+5150 opt  LieDead (final round)
+5200      Fall-recovery near ground
+5210      Fall-recovery in mid-air
+//5300      Dizzy
+5500 opt  "Continue?" screen           If omitted, plays dizzy anim
+5510 opt  "Yes" to "Continue"          If omitted, plays first win anim (not yet implemented)
+5520 opt  "No" to "Continue"           (not yet implemented)
+
+Optional Hit Up animations (see Note 5):
+//5051 opt  Air fall -- hit up
+//5061 opt  Coming down from hit up
+5081 opt  LieDown Hit (stay down)
+//5101 opt  Bounce from ground into air  Looptime around 3
+//5161 opt  Bounce into air
+//5171 opt  Hit ground from bounce       Looptime around 3 or 4
+//5111 opt  LieDown
+//5121 opt  Get up from LieDown
+5151 opt  LieDead (first rounds)
+5156 opt  LieDead (final round)
+
+Optional Hit Up-Diagonal animations (see Note 6):
+//5052 opt  Air fall -- hit up
+//5062 opt  Coming down from hit up
+5082 opt  LieDown Hit (stay down)
+//5102 opt  Bounce from ground into air  Looptime around 3
+//5162 opt  Bounce into air
+//5172 opt  Hit ground from bounce       Looptime around 3 or 4
+//5112 opt  LieDown
+//5122 opt  Get up from LieDown
+5152 opt  LieDead (first rounds)
+5157 opt  LieDead (final round)
+
+
+
+
+Note 1: These do not actually have to use only the stated numbers. If is
+        more of a recommended number than a reserved one. If necessary,
+        feel free to use any other action numbers.
+Note 2: If medium and heavy hits are omitted, they default to the light hits
+Note 3: "No loop" means last frame has a time of -1.
+        For recover animation, the first frame of each recovery should be the
+        last frame of the corresponding hit. Eg. If action 5000 has frame
+        5000,0 and 5000,1, then action 5005 should start with frame 5000,1.
+        This is because the animation will be locked in the first frame of
+        the recovery after the hit animation is over, but before the player
+        has recovered from the hit.
+        If you have a Stand/Air Hit transition animation, then the first
+        frame of Air Recover and Air Fall should be the last frame of the
+        transition animation.
+Note 3: The Stand/Air Hit transition animation is played back after each
+        hit animation in (or into) the air, but before the Air Recover
+        and Air Fall animations.
+Note 4: You can loop the LieDown Hit if you want the player to look like he
+        is "twitching" while being hit
+Note 5: This set of animations is optional. It is an alternate set of
+        falling animations, which is used if hit by a HitDef with "Up" as
+        the animtype.
+Note 6: This set of animations is optional. It is an alternate set of
+        falling animations, which is used if hit by a HitDef with "DiagUp"
+        as the animtype.
+
+
+
+
+
+Personal notes
+____________________________________________________________________________________
+
+
+	* close stand C hits twice
+
+	* far standing D  has vel add
+
+	**	the kof command system allows qc (b/f) +button to trigger the normal standing attack
+of the char, instead of an advanced move.
+
+	** Instead of a neutral press, to cancel a crouching basic to a standing one,you have
+to press back or forward , disregarded for mugen chars.
+
+	** About corner push
+corner push is totally diferent, it is not affected by the char's friction ,that is the reason it
+is only a very vague (less than 80%) aproximate to kof >.< )
+the friction is .7 , it is aplyed after the first tick,unlike the normal friction (when
+physics = S or  C) the movement stops when the vel is < 0  or, when p1 touches the ground,
+if an aerial attack then. The aproximate kof friction is .82,while in mugen is .7,
+
+air one is totally screwed, since it works totally opossed as in kof (in kof , the vel
+starts being applyed in the moment it stops being so in mugen).So, i made it so you have
+a vel = 5 ,and a dist of 44 after 6 ticks for hard attacks , init vel = 17 a vel = 2 ,
+and a dist of 23 after 6 ticks for weak attacks, init vel = 9
+That is is +50% (or *1.5) relative to the first kof displacement
+A more acurate way should be to use width ctrls ,
+
+
+
+To do
+____________________________________________________________________________________
+
+	*Remake sandy's vars and stuff after the first version is complete, so i can use the cc's
+and systems properly, among other stuff
+
+	*edit sprite 4100,10 y 11 for the coming down knee attack for the GD raising tackle
+
+	*Fix the explods axis
+
+	*add power dunk explod anim
+
+notes:
+
+
+kof 2000
+
+axis
+
+x= 124
+
+y = 194
+
+
+timing
+
+please, fix air file for duplicate sprites when making him
+
+Stand
+
+5
+4
+5
+6
+7
+8
+6
+5
+4
+5
+6
+*
+
+
+Walking Back
+
+5 for all elements
+
+Walking Fwd
+
+5 for all elements
+
+Stand to Crouch
+
+2
+? (most likely 3)
+
+Turn Stand
+3
+?
+
+Turn Crouch
+3
+?
+
+
+I think it would be better to retime his blocks based on real time kof (no debug sprite viewer)
+
+
+Run Forward
+4 for all elements
+
+Stops runing
+?
+
+I can code the runing if you wish,
+
+Hop Back
+
+I think it would be better to retime this based on real time kof (no debug sprite viewer)
+
+
+Roll forward
+4
+?
+5
+5
+5
+?
+4
+?
+
+Roll Back
+4
+?
+5
+5
+5
+?
+4
+?
+
+Roll Recover
+4 for all elements
+
+dizzy
+
+10 from debug, it could be made button mash dependent
+
+Lie down to Stand 1
+6
+6
+6
+?
+
+Lie down to Stand 2
+5
+5
+5
+5
+3
+?
+
+======================================================================
+UNUSED COMMANDS
+======================================================================
+
+[State -1,Test]
+type = null;ChangeState
+value = 3800
+;triggerall = var(9) != 1
+triggerall = command = "c"
+trigger1 = statetype = S && (ctrl || (stateno = [100,101]))
+trigger2 = var(39) = 1
+
+[State -1,Test2]
+type = null;ChangeState
+value = 8300
+;triggerall = var(9) != 1
+triggerall = command = "z"
+trigger1 = statetype = S && (ctrl || (stateno = [100,101]))
+trigger2 = var(39) = 1
+
+
+;Hyaku senpuken	 GD				6200
+[State -1, HSGD]
+type = null ;ChangeState
+value = 6200
+triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "2QCBa"
+triggerall = ((var(47)&((2**32)-1)-(15)) = 0)
+;triggerall = command = "back" 
+triggerall = power >= 1000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, HSGDi]
+type = null ;ChangeState
+value = 6210
+triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "2QCBb"
+triggerall = ((var(47)&((2**32)-1)-(240)) = 0)
+;triggerall = command = "back" 
+triggerall = power >= 1000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, HSGDii]
+type = null ;ChangeState
+value = 6230
+triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "2QCBab"
+triggerall = ((var(47)&((2**32)-1)-(255)) = 0)
+;triggerall = command = "back" 
+triggerall = power >= 2000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;power geiser 99				8050	rsctevf ^
+[State -1, PG99]
+type = null ;ChangeState
+value = 8050
+triggerall = var(41) = 9 ;(var(9) != 1 ) && (var(41) = [2,5] ) && (var(41) != 4) && var(41) != 3
+triggerall = command = "QCBHCFx"
+triggerall = ((var(47)&((2**32)-1)-(61440)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 1000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PG99i]
+type = null ;ChangeState
+value = 8060
+triggerall = var(41) = 9 ;(var(9) != 1 )&& (var(41) = [2,5]) && (var(41) != 4) && var(41) != 3
+triggerall = command = "QCBHCFy"
+triggerall = ((var(47)&((2**32)-1)-(983040)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 1000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PG99ii]
+type = null ;ChangeState
+value = 8080
+triggerall = var(41) = 9 ;(var(9) != 1) && (var(41) = [2,5] )&& (var(41) != 4)
+triggerall = command = "QCBHCFxy"
+triggerall = ((var(47)&((2**32)-1)-(1044480)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 2000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;power geiser 98				8100	rsctevf ^
+[State -1, PG98]
+type = null ;changeState
+value = 8100
+;triggerall = var(9) != 1 && var(41) = [0,1]
+triggerall = command = "QCBHCFx"
+triggerall = ((var(47)&((2**32)-1)-(61440)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 1000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PG98i]
+type = null ;ChangeState
+value = 8110
+;triggerall = var(9) != 1 && var(41) = [0,1]
+triggerall = command = "QCBHCFy"
+triggerall = ((var(47)&((2**32)-1)-(983040)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 1000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PG98ii]
+type = null ;ChangeState
+value = 8130
+triggerall = var(9) != 1 && var(41) = [0,1]
+triggerall = command = "QCBHCFxy"
+triggerall = ((var(47)&((2**32)-1)-(1044480)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 2000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;power geiser GD				8200
+[State -1, PGD]
+type = null ;ChangeState
+value = 8200
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCBHCFx"
+triggerall = ((var(47)&((2**32)-1)-(61440)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 1000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PGDi]
+type = null ;ChangeState
+value = 8210
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCBHCFy"
+triggerall = ((var(47)&((2**32)-1)-(983040)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 1000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PGDii]
+type = null ;ChangeState
+value = 8230
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCBHCFxy"
+triggerall = ((var(47)&((2**32)-1)-(1044480)) = 0)
+;triggerall = command != "fwd"
+triggerall = power >= 2000
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;power dunk GD					4850
+[State -1, PDGD]
+type = null ;ChangeState
+value = 4850
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "DPa"
+triggerall = ((var(47)&((2**32)-1)-(15)) = 0)
+;triggerall = command = "downfwd" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PDGDi]
+type = null ;ChangeState
+value = 4860
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "DPb"
+triggerall = ((var(47)&((2**32)-1)-(240)) = 0)
+;triggerall = command = "downfwd" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;raising tackle 98				4100	
+[State -1, RT98]
+type = null ;ChangeState
+value = 4100
+;triggerall = var(9) != 1 && var(41) = 0
+triggerall = command = "DPx"
+triggerall = ((var(47)&((2**32)-1)-(61440)) = 0)
+;triggerall = command = "downfwd" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+trigger3 = (stateno = 2110 || stateno = 2210) && movecontact
+trigger4 = var(42) = 1 && var(10) > 0 
+
+[State -1, RT98i]
+type = null ;ChangeState
+value = 4110
+;triggerall = var(9) != 1 && var(41) = 0
+triggerall = command = "DPy"
+triggerall = ((var(47)&((2**32)-1)-(983040)) = 0)
+;triggerall = command = "downfwd" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+trigger3 = (stateno = 2110 || stateno = 2210) && movecontact
+trigger4 = var(42) = 1 && var(10) > 0 
+
+;raising tackle GD				4200
+[State -1, RTGD]
+type = null ;ChangeState
+value = 4200
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "DPx"
+triggerall = ((var(47)&((2**32)-1)-(61440)) = 0)
+;triggerall = command = "downfwd" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+trigger3 = (stateno = 2110 || stateno = 2210) && movecontact
+
+[State -1, RTGDi]
+type = null ;ChangeState
+value = 4210
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "DPy"
+triggerall = ((var(47)&((2**32)-1)-(983040)) = 0)
+;triggerall = command = "downfwd" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+trigger3 = (stateno = 2110 || stateno = 2210) && movecontact
+
+;Burn knuckle GD				4050
+[State -1, BKGD]
+type = null ;ChangeState
+value = 4050
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCBx"
+triggerall = ((var(47)&((2**32)-1)-(61440)) = 0)
+;triggerall = command = "back" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, BKGDi]
+type = null ;ChangeState
+value = 4060
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCBy"
+triggerall = ((var(47)&((2**32)-1)-(983040)) = 0)
+;triggerall = command = "back" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;power charge 99				4350	
+[State -1, PC99]
+type = null ;ChangeState
+value = 4350
+;triggerall = var(9) != 1 && var(41) = 5
+triggerall = command = "HCFa"
+triggerall = ((var(47)&((2**32)-1)-(15)) = 0)
+;triggerall = command != "fwd"
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PC99i]
+type = null ;ChangeState
+value = 4360
+;triggerall = var(9) != 1 && var(41) = 5
+triggerall = command = "HCFb"
+triggerall = ((var(47)&((2**32)-1)-(240)) = 0)
+;triggerall = command != "fwd"
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;power charge GD				4400
+[State -1, PCGD]
+type = null ;ChangeState
+value = 4400
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "HCFa"
+triggerall = ((var(47)&((2**32)-1)-(15)) = 0)
+;triggerall = command != "fwd"
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PCGDi]
+type = null ;ChangeState
+value = 4410
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "HCFb"
+triggerall = ((var(47)&((2**32)-1)-(240)) = 0)
+;triggerall = command != "fwd"
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;power wave	GD					2000
+[State -1, PWGD]
+type = null ;ChangeState
+value = 2000
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCFx" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, PWGDi]
+type = null ;ChangeState
+value = 2010
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCFy"
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;power wave	2000					2150
+[State -1, PW2K]
+type = null ;ChangeState
+value = 2150
+;triggerall = var(9) != 1 && var(41) = 2
+triggerall = command = "QCFa"
+;triggerall = command != "fwd"
+;triggerall = ((var(47)&((2**32)-1)-(61440)) = 0)
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+trigger3 = (stateno = 2110 || stateno = 2210) && movecontact
+
+[State -1, PW2Ki]
+type = null ;ChangeState
+value = 2160
+;triggerall = var(9) != 1 && var(41) = 2
+triggerall = command = "QCFb"
+;triggerall = command != "fwd"
+;triggerall = ((var(47)&((2**32)-1)-(983040)) = 0)
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+trigger3 = (stateno = 2110 || stateno = 2210) && movecontact
+
+;crack shot 98					4500	
+[State -1, CS98]
+type = null ;ChangeState
+value = 4500
+;triggerall = var(9) != 1 && var(41) = 4  ;&& var(41) != 4 && var(41) != 6
+triggerall = command = "QCBa"
+triggerall = ((var(47)&((2**32)-1)-(15)) = 0)
+;triggerall = command = "back" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+trigger3 = (stateno = 2110 || stateno = 2210) && movecontact
+
+[State -1, CS98i]
+type = null ;ChangeState
+value = 4510
+;triggerall = var(9) != 1 && var(41) = 4 ;&& var(41) != 4 && var(41) != 6
+triggerall = command = "QCBb"
+triggerall = ((var(47)&((2**32)-1)-(240)) = 0)
+;triggerall = command = "back" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+trigger3 = (stateno = 2110 || stateno = 2210) && movecontact
+
+;crack shot GD					4650	
+[State -1, CSGD]
+type = null ;ChangeState
+value = 4650
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCBa"
+triggerall = ((var(47)&((2**32)-1)-(15)) = 0)
+;triggerall = command = "back" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+[State -1, CSGDi]
+type = null ;ChangeState
+value = 4660
+;triggerall = var(9) != 1 && var(41) = 6
+triggerall = command = "QCBb"
+triggerall = ((var(47)&((2**32)-1)-(240)) = 0)
+;triggerall = command = "back" 
+trigger1 = statetype != A && (ctrl || (stateno = [100,101])) 
+trigger2 = var(39) = 1
+
+;COUNTER
+[State -1]
+type = null ;ChangeState
+value = 4850
+;triggerall = var(9) != 1
+triggerall = command = "holdx" && command = "holdy" && command = "holdb"
+triggerall = numhelper(4805) <= 0 && power >= 3000
+triggerall = var(21) = 2 &&  var(37) <= 0 && var(10) <= 0 && var(40) <= 0
+trigger1 = (stateno = [0,12]) && (ctrl || (stateno = [100,101]))
+
+;COUNTER
+[State -1]
+type = null ;ChangeState
+value = 4850
+;triggerall = var(9) != 1
+triggerall = command = "holdx" && command = "holdy" && command = "holda"
+triggerall = numhelper(4805) <= 0 && power >= 3000
+triggerall = (var(21) = [3,4]) &&  var(37) <= 0 && var(10) <= 0 && var(40) <= 0
+trigger1 = (stateno = [0,12]) && (ctrl || (stateno = [100,101]))
+
+;ARMOR
+[State -1]
+type = null ;ChangeState
+value = 4800
+;triggerall = var(9) != 1
+triggerall = command = "holdy" && command = "holdb" && command = "holda"
+triggerall = numhelper(4705) <= 0 && power >= 3000
+triggerall = (var(21) = [2,4]) && var(37) <= 0 && var(10) <= 0 && var(40) <= 0
+trigger1 = (stateno = [0,12]) && (ctrl || (stateno = [100,101]))
+
+[State -1,RollFRUN]
+type = ChangeState
+value = 706
+;triggerall = var(9) != 1
+triggerall = command = "roll" && command = "holdfwd"
+triggerall = var(21) = 0 || var(21) = 4 || var(21) = 5
+triggerall = stateno = 100 && life > 0 && statetype != A
+trigger1 = ((ctrl || (stateno = [100,101])) || stateno = 100)
+
+[State -1,rollB99mix]
+type = null ;ChangeState
+value = 740
+;triggerall = var(9) != 1
+triggerall = command = "roll99" && var(21) =2
+triggerall = life > 0 && statetype != A
+trigger1 = ((ctrl || (stateno = [100,101])) || stateno = 100)
+
+[State -1,RollF99/2K/MIX] 
+type = null ;ChangeState
+value = 720
+;triggerall = var(9) != 1
+triggerall = command = "roll"
+triggerall = life > 0 && statetype != A && ((ctrl || (stateno = [100,101])) || stateno = 100)
+trigger1 = var(21) = 2 && command = "holdfwd"
+trigger2 = var(21) = 3
+
+

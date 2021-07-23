@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "K'"
+displayname = "True K'"
+versiondate = 3,10,2004
+mugenversion = 04,14,2001
+author = "MKJ"
+pal.defaults = 1,7
+
+[Files]
+sprite = k'.sff
+anim = k'.air
+sound = k'.snd
+cmd = k'.cmd
+cns = k'.cns
+stcommon = common1.cns
+st = k'.cns
+pal1 = xi.act
+
+[Arcade]
+;intro.storyboard = basic.def
+;ending.storyboard = 

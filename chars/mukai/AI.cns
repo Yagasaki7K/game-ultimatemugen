@@ -1,0 +1,214 @@
+[statedef -2]
+
+[state -2]
+type = assertspecial
+trigger1 = alive
+flag = noairguard
+
+;guard crush variable
+[state -2,crush]
+type = varadd
+trigger1 = stateno = 151 && time = 1
+trigger2 = stateno = 153 && time = 1
+ignorehitpause = 1
+v = 4
+value = 1
+
+;lower dizzy var
+[state -2,-dizzy]
+type = varadd
+trigger1 = var(3) > 0 && movetype != H && (gametime%60) = 0
+v = 3
+value = -1
+
+;lower guardcrush var
+[state -2,-crush]
+type = varadd
+trigger1 = var(4) > 0 && stateno != [130,155]
+trigger1 = (gametime%120) = 0
+v = 4
+value = -1
+
+[state -2,DTCB]
+type = displaytoclipboard
+trigger1 = 1
+params = var(59), var(3), var(4)
+text = "AI = %d, Dizzy = %d, guard crush = %d"
+
+;-------------------------------------------------------------
+;--------------------------AI stuff---------------------------
+;-------------------------------------------------------------
+
+[state -2 ,Use LDM]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && power >= 2000 && statetype != A
+trigger1 = ctrl && p2dist X> 180 && random < 200
+value = 3010
+ctrl = 0
+
+[state -2, use DM]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && power >= 1000 && statetype != A
+trigger1 = p2dist X< 180 && p2dist X> 100 && random < 400 && ctrl
+trigger2 = prevstateno = 3010 && random < 400 && ctrl && p2dist X> 120
+value = 3000
+ctrl = 0
+
+;use fossil freeze
+[state -2,fossilize]
+type = changestate
+triggerall = roundstate = 2 && enemynear(0), stateno != 830 && p2movetype != A
+triggerall = var(59) && statetype != A && ctrl 
+trigger1 = p2dist X< 75 && p2dist Y>= -10 && random < 300
+value = 1030
+ctrl = 0
+
+[State -2, StandGuard]
+type = ChangeState
+triggerall = (Var(59) = 1) && (StateType = S) && (Pos Y >= 0) && (P2BodyDist Y <= 0) 
+triggerall = (P2BodyDist Y >= -120) && (P2StateType != C) && (P2MoveType = A)
+trigger1 = (P2BodyDist X <= 120) && (Random <= 850) && (Ctrl)
+trigger2 = (StateNo = [140, 155]) || (StateNo = [100, 105])
+value = 130
+
+[State -2, CrouchGuard]
+type = ChangeState
+triggerall = (Var(59) = 1) && (StateType != A) && (Pos Y >= 0) && (P2BodyDist Y <= 0)
+triggerall = (P2BodyDist Y >= -50) && (P2StateType = C) && (P2MoveType = A)
+trigger1 = (P2BodyDist X <= 120) && (Random <= 850) && (Ctrl)
+trigger2 = (StateNo = [140, 155]) || (StateNo = [100, 105])
+value = 131
+
+;evade fwd
+[state -2,evade1]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2movetype = A && p2dist X< 100 && (random = [400,700])
+trigger2 = p2movetype = A && p2dist X> 150 && (random = [400,700])
+value = 160
+ctrl = 0
+
+;evade back
+[state -2,evade2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2movetype = A && p2dist X> 150 && (random = [100,400])
+value = 161
+ctrl = 0
+
+;light kick
+[state -2,light K]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A
+trigger1 = p2dist X< 50 && (random < 600 || (p2movetype = A && random > 600)) && ctrl
+trigger2 = stateno = 200 && movecontact && animelemtime(3) >= 3
+value = 200
+ctrl = 0
+
+;random kick or punch
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2dist X< 100 && random < 400
+trigger2 = prevstateno = 1032 && p2movetype = H && random < 400
+value = ifelse(random < 500, 210,220)
+ctrl = 0
+
+;uppercut
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2dist X< 100 && random > 700 && p2statetype = A
+trigger2 = prevstateno = 1032 && enemy,movetype = H && random = [400,600]
+value = 230
+ctrl = 0
+
+;slide trip
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2dist X> 100 && p2dist X < 150 && random > 700 && p2statetype = S
+trigger2 = prevstateno = 1032 && enemy,movetype = H && random >= 600
+value = 240
+ctrl = 0
+
+;rock throw
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2dist X> 200 && random > 800
+trigger2 = prevstateno = 210 && (moveguarded || movecontact) && random > 800
+trigger3 = prevstateno = 220 && (moveguarded || movecontact) && random < 200
+trigger4 = prevstateno = 3010 && power < 1000 && p2dist X> 200 && random > 500
+value = 1000
+ctrl = 0
+
+;short rising pillar
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H && p2movetype != A
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2dist X< 150 && p2dist X> 0
+trigger1 = random > 800
+trigger2 = stateno = 240 && moveguarded && p2dist X< 100
+trigger3 = prevstateno = 1032 && random > 200 && random < 400 && p2movetype = H
+value = 1010
+ctrl = 0
+
+;medium rising pillar
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H && p2movetype != A
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2dist X> 150 && p2dist X< 200 
+trigger1 = random < 200
+trigger2 = prevstateno = 3010 && p2dist X> 100 && p2dist X< 150
+trigger3 = enemy, vel X> 0 && p2dist X> 100 && p2dist X< 150 && random < 200
+value = 1014
+ctrl = 0
+
+;far rising piller
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A && ctrl
+trigger1 = p2dist X> 200 && random > 800
+trigger2 = prevstateno = 3010 && power < 1000 && p2dist X> 200 && random < 500
+value = 1013
+ctrl = 0
+
+;overhead
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H
+triggerall = var(59) && statetype != A
+trigger1 = p2dist X> 150 && ctrl
+trigger1 = random < 700 && random > 500
+trigger2 = stateno = 230 && movecontact && p2dist X< 100
+trigger3 = stateno = 240 && moveguarded && p2dist X< 100
+trigger4 = prevstateno = 1032 && random > 600 && p2movetype = H && ctrl
+value = 1020
+ctrl = 0
+
+;taunt!
+[state -2]
+type = changestate
+triggerall = roundstate = 2 && movetype != H && random > 900
+triggerall = var(59) && statetype != A && ctrl 
+trigger1 = p2dist X > 250 && ((p2movetype = I) || (p2movetype = H))
+trigger2 = p2dist X > 250 && p2stateno = [130,155]
+trigger3 = p2stateno = 195 && p2movetype = I
+value = 195
+ctrl = 0
+
+
+;------------

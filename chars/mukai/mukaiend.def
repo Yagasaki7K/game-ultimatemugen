@@ -1,0 +1,149 @@
+;Mukai Ending by RUDOLF27
+[SceneDef]
+spr = mukaiend.sff
+
+
+[Scene 0]
+fadein.time = 40
+fadein.col = 0,0,0
+fadeout.time = 5
+fadeout.col = 255,255,255
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  0
+layer0.starttime = 0
+end.time = 530
+
+[Scene 1]
+fadein.time = 5
+fadein.col = 255,255,255
+fadeout.time = 5
+fadeout.col = 255,255,255
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  1
+layer0.starttime = 0
+end.time = 380
+
+[Scene 2]
+fadein.time = 5
+fadein.col = 255,255,255
+fadeout.time = 5
+fadeout.col = 255,255,255
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  2
+layer0.starttime = 0
+end.time = 130
+
+[Scene 3]
+fadein.time = 5
+fadein.col = 255,255,255
+fadeout.time = 40
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  3
+layer0.starttime = 0
+end.time = 300
+
+[Scene 4]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 20
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  4
+layer0.starttime = 0
+end.time = 260
+
+[Scene 5]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 20
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  5
+layer0.starttime = 0
+end.time = 500
+
+[Scene 6]
+fadein.time = 20
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  6
+layer0.starttime = 0
+end.time = 130
+
+[Scene 7]
+fadein.time = 2
+fadein.col = 255,255,255
+fadeout.time = 2
+fadeout.col = 255,255,255
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  7
+layer0.starttime = 0
+end.time = 10
+
+[Scene 8]
+fadein.time = 40
+fadein.col = 0,0,0
+fadeout.time = 60
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 35,30 
+layer0.offset = 0,0
+layer0.anim =  8
+layer0.starttime = 0
+end.time = 180
+
+
+[Begin Action 0]
+0,0,-35,-20,140
+0,1,-35,-20,140
+0,2,-35,-20,130
+0,3,-35,-20,120
+
+[Begin Action 1]
+0,4,-35,-20,130
+0,5,-35,-20,130
+0,6,-35,-20,120
+
+[Begin Action 2]
+0,7,-35,-20,130
+
+[Begin Action 3]
+0,8,-35,-20,100
+0,9,-35,-20,100
+0,10,-35,-20,100
+
+[Begin Action 4]
+0,11,-35,-20,130
+0,12,-35,-20,130
+
+[Begin Action 5]
+0,13,-35,-20,120
+0,14,-35,-20,120
+0,15,-35,-20,130
+0,16,-35,-20,130
+
+[Begin Action 6]
+0,17,-35,-20,130
+
+[Begin Action 7]
+0,19,-35,-20,10
+
+[Begin Action 8]
+0,18,-35,-20,180

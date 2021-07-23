@@ -1,0 +1,944 @@
+;--------------------------------
+; Measure Player Two
+[StateDef 4100]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 1015
+ctrl = 0
+
+[State 19998,3]
+type = EnvShake
+;trigger1 = NumProj = 1
+trigger1 = Time = 0 ;>= 5
+;trigger1 = TimeMod = 4,2
+time = 20
+ampl = -12
+
+[State 4100, Wait]
+type = AssertSpecial
+trigger1 = 1
+flag = RoundNotOver
+
+[State 4100,BOOM1]
+type = PlaySnd
+trigger1 = time = 0
+value = 9002,0
+channel = 1
+volume = 255
+
+[State 4100,BOOM2]
+type = PlaySnd
+trigger1 = time = 0
+value = 9002,1
+channel = 2
+volume = 255
+
+[State 4100, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, HA
+;Nothing = 0
+numhits = 0
+priority  = 7
+sparkno = -1
+guard.sparkno = -1
+p2stateno = 9125
+kill = 0
+
+[State 4100, head]
+type = BindtoTarget
+trigger1 = time = 1
+pos = 0,0,head
+time = 1
+
+[State 4100, Where]
+type = ParentVarSet
+trigger1 = time = 1
+v = 24
+value = Pos Y
+
+[State 4100, mid]
+type = BindtoTarget
+trigger1 = time = 2
+pos = 0,0,mid
+time = 0
+
+[State 4100, start]
+type = changestate
+trigger1 = time = 2
+value = 4101
+
+; Pass the stones
+[StateDef 4101]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 1015
+ctrl = 0
+
+[State 4101, Wait]
+type = AssertSpecial
+trigger1 = 1
+flag = RoundNotOver
+
+[State 4101,MakeKahnInvisible]
+type = ParentVarSet
+trigger1 = time = 0
+V = 25
+value = 1
+
+[State 4101, 1]
+type = Helper
+trigger1 = Random < 300
+stateno = 4311
+name = "Stone2"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 2]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 3]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 4]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 5]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 6]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 7]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 8]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 9]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 10]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 11]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 12]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 13]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 14]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+bindtime = -1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 15]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 16]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 17]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 18]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 19]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 4101, 20]
+type = Helper
+trigger1 = 1
+;trigger1 = Var(12) = 0
+stateno = 4310
+name = "StoneBit"
+pos = 0,0
+postype = p1
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 1
+under = 1
+
+[State 9200, 21]
+type = DestroySelf
+trigger1 = time = 4
+
+;-----------------------------------
+;Stone Bits 1
+[StateDef 4310]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+
+[State 4310, Draw]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 4100
+
+[State 4310, Draw]
+type = ChangeAnim
+trigger1 = Random <= 25
+trigger1 = Time = 0
+value = 4101
+
+[State 4310, GO]
+type = VelSet
+trigger1 = Time = 0
+X = 3.4-(Random/144)
+Y = -4-(Random/99)
+
+[State 4310, Gravity]
+trigger1 = Time >= 0
+trigger1 = Pos Y <= -7
+;trigger1 = Vel Y != 0
+type = VelAdd
+y = .4
+
+[State 4310, 1]
+type = AngleAdd
+trigger1 = Time >= 1
+trigger1 = Pos Y <= -7
+;trigger1 = Vel Y < 0
+value = -14
+
+[State 4310, 2]
+type = AngleDraw
+trigger1 = Time >= 1
+;trigger1 = Pos Y <= -7
+;trigger1 = Vel Y < 0
+
+[State 4310, 3-1]
+type = VarRandom
+trigger1 = time = 0
+v = 3
+range = 1, 60
+
+[State 4310, 3-2]
+type = PlaySnd
+trigger1 = Pos Y > -7
+trigger1 = Vel Y > 0
+trigger1 = Var(3) = [1,20]
+value = 999,0
+
+[State 4310, 3-3]
+type = PlaySnd
+trigger1 = Pos Y > -7
+trigger1 = Vel Y > 0
+trigger1 = Var(3) = [21,40]
+value = 999,6
+
+[State 4310, 3-4]
+type = PlaySnd
+trigger1 = Pos Y > -7
+trigger1 = Vel Y > 0
+trigger1 = Var(3) = [41,60]
+value = 999,7
+
+[State 4310, Halt]
+type = VelSet
+trigger1 = Pos Y > -7
+trigger1 = Vel Y > 0
+X = 0
+Y = 0
+
+;-----------------------------------
+;Stone Bits 2
+[StateDef 4311]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+
+[State 4311, Draw]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 4101
+
+[State 4311, GO]
+type = VelSet
+trigger1 = Time = 0
+X = 5-(Random/88)
+Y = -4-(Random/99)
+
+[State 4311, Gravity]
+trigger1 = Time >= 0
+trigger1 = Pos Y <= -7
+;trigger1 = Vel Y != 0
+type = VelAdd
+y = .4
+
+[State 4311, 3]
+type = AngleAdd
+trigger1 = Time >= 1
+trigger1 = Pos Y <= -7
+;trigger1 = Vel Y < 0
+value = -14
+
+[State 4311, 4]
+type = AngleDraw
+trigger1 = Time >= 1
+
+[State 4311, 5-1]
+type = VarRandom
+trigger1 = time = 0
+v = 3
+range = 1, 60
+
+[State 4311, 5-2]
+type = PlaySnd
+trigger1 = Pos Y > -7
+trigger1 = Vel Y > 0
+trigger1 = Var(3) = [1,20]
+value = 999,0
+
+[State 4311, 5-3]
+type = PlaySnd
+trigger1 = Pos Y > -7
+trigger1 = Vel Y > 0
+trigger1 = Var(3) = [21,40]
+value = 999,6
+
+[State 4311, 5-4]
+type = PlaySnd
+trigger1 = Pos Y > -7
+trigger1 = Vel Y > 0
+trigger1 = Var(3) = [41,60]
+value = 999,7
+
+[State 4311, Halt]
+type = VelSet
+trigger1 = Pos Y > -7
+trigger1 = Vel Y > 0
+X = 0
+Y = 0
+
+[State 4311, Wait]
+type = AssertSpecial
+trigger1 = time <= 200
+flag = RoundNotOver
+
+;THIS IS THE HELPER WHO HIDES THE OPPONENT DURING KAHN'S DEATH...
+[Statedef 20000]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+anim = 9000
+ctrl = 0
+
+[State 20000, 1]
+type = HitDef
+trigger1 = 1
+attr = S, HA
+;Nothing = 0
+numhits = 0
+priority  = 7
+sparkno = -1
+p2stateno = 20010
+kill = 0
+
+[State 20000, 2]
+type = Destroyself
+trigger1 = p2stateno = 20010
+
+;WAIT FOR YOUR SWEET VICTORY P2
+[Statedef 20010]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+anim = 0
+ctrl = 0
+
+[State 20010,HoldStillGODDAMMIT!!!]
+type = VelSet
+trigger1 = 1
+X = 0
+Y = 0
+
+[State 20010, 1]
+type = ChangeAnim
+trigger1 = time = 0
+value = 0
+
+[State 20010, 2]
+type = PosSet
+trigger1 = time = 0 ;1
+X = -120
+Y = 0
+
+[State 20010, 3]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 24
+
+[State 20010, 4]
+type = SelfState
+trigger1 = p2stateno = 19997
+trigger2 = time = 999
+value = 0
+ctrl = 1
+
+[State 20010, 5]
+type = Turn
+trigger1 = facing = -1
+
+;---------------------------------------------------------------------------
+; Special Death Sequence
+[Statedef 19999]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+;anim = 12000
+velset = 0,0
+sprpriority = 0
+poweradd = -9999
+
+[State 19999,HoldStillGODDAMMIT!!!]
+type = VelSet
+trigger1 = 1
+X = 0
+
+[State 19999, NoMoreTracers]
+type = AfterImage
+trigger1 = time = 0
+
+[State 19999, 0]
+type = VarSet
+trigger1 = 1
+v = 26
+value = 1
+
+[State 19999, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 24
+
+[State 19999, 2-1]
+type = AssertSpecial
+trigger1 = 1
+flag = RoundNotOver
+
+[State 19999, 2-2]
+type = AssertSpecial
+trigger1 = time >= 0
+flag = nokoslow
+
+[State 19999, 3]
+type = PlaySnd
+trigger1 = Time = 0
+value = 999,1
+volume = 255
+
+[State 19999, 4] ;Change to MK2 dying state
+type = ChangeState
+trigger1 = Time = 2
+value = 19998
+
+[State 19999, 5-1A]
+type = Explod
+trigger1 = time = 0
+trigger1 = life <= 0
+anim = 19999
+name = "FlashingScreen"
+pos = 160,100
+postype = Left
+;helpertype = normal
+;sprpriority = -2
+removetime = 21
+pausemovetime = 22
+keyctrl = 0
+ownpal = 1
+bindtime = -1
+under = 1
+
+[State 19999, 5-1B]
+type = Pause
+trigger1 = time = 1
+trigger1 = life <= 0
+time = 20
+;movetime = 88
+
+[State 19999, 5-2A]
+type = Explod
+trigger1 = time = 0
+trigger1 = life > 0
+anim = 19999
+name = "FlashingScreen"
+pos = 160,100
+postype = Left
+;helpertype = normal
+;sprpriority = -2
+removetime = 65
+pausemovetime = 66
+keyctrl = 0
+ownpal = 1
+bindtime = -1
+under = 1
+
+[State 19999, 5-2B]
+type = Pause
+trigger1 = time = 1
+trigger1 = life > 0
+time = 64
+;movetime = 88
+
+;---------------------------------------------------------------------------
+; MK2 Death Sequence
+[Statedef 19998]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 19998
+velset = 0,0
+sprpriority = 0
+
+[State 19998,BackToNormalColor]
+type = PalFX
+trigger1 = 1
+trigger2 = time = 0
+time = 2
+add = 0,0,0
+sinadd = 0,0,0,0
+
+[State 19998,HoldStillGODDAMMIT!!!]
+type = VelSet
+trigger1 = 1
+X = 0
+
+[State 19998, Die]
+type = LifeSet
+trigger1 = 1
+value = 0
+
+;Stop P2 so they can watch...
+[State 19998, Watcher]
+type = Helper
+trigger1 = time = 0
+stateno = 20000
+name = "P2Watcher"
+id = 20000
+pos = 0,0
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 0
+under = 1
+
+[State 19998, 0]
+type = PosSet
+trigger1 = time = 0 ;1
+X = 0
+Y = 0
+
+[State 19998, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 24
+
+[State 19998, 2-1]
+type = AssertSpecial
+trigger1 = 1
+flag = RoundNotOver
+
+[State 19998, 2-2]
+type = AssertSpecial
+trigger1 = time >= 0
+flag = nokoslow
+
+[State 19998,3]
+type = EnvShake
+;trigger1 = NumProj = 1
+trigger1 = Time = 0 ;>= 5
+;trigger1 = TimeMod = 4,2
+time = 150
+ampl = -7
+
+[State 19998, 4-1]
+type = PlaySnd
+trigger1 = time = 10
+trigger2 = time = 42
+value = 999,3
+
+[State 19998, 4-2]
+type = PlaySnd
+trigger1 = time = 67
+value = 999,4
+
+[State 19998, 5]
+type = ChangeState
+trigger1 = time = 150
+value = 19997
+
+[State 19998, Smoke]
+type = Explod
+trigger1 = TimeMod=3,0 
+anim = 2040
+name = "Smoke's Smoke"
+pos = 0, -80 ;about the centre of the character -- may need tweaking
+postype = p1
+bindtime = 1 ;-1 ;so when you move the smoke doesn't "stick"
+vel = -0.5,-0.5 ;so smoke floats up
+random = 40, 80 ;so smoke is completely random as to where on the body it shows up
+ontop = 1
+shadow = -1, -1, -1 ;doesn't reflect, doesn't cast shadows
+removeongethit = 0
+ownpal = 1
+
+[State 19998, Smoke2]
+type = Explod
+trigger1 = TimeMod=3,0 
+anim = 2040
+name = "Smoke's Smoke"
+pos = 0, -80 ;about the centre of the character -- may need tweaking
+postype = p1
+bindtime = 1 ;-1 ;so when you move the smoke doesn't "stick"
+vel = 0.5,-.05 ;so smoke floats up
+random = 40,80 ;so smoke is completely random as to where on the body it shows up
+ontop = 1
+shadow = -1, -1, -1 ;doesn't reflect, doesn't cast shadows
+ownpal = 1
+
+; Crack Up and Die
+[Statedef 19997]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 19997
+velset = 0,0
+sprpriority = 0
+
+[State 19997,HoldStillGODDAMMIT!!!]
+type = VelSet
+trigger1 = 1
+X = 0
+
+[State 19997, AllBlack]
+type = BGPalFX
+trigger1 = 1 ;time = 2
+time = 1
+add = -255, -255, -255
+ignorehitpause
+
+;Make Some Stones
+[State 19997, Stones]
+type = Helper
+trigger1 = animelem = 8 ;animtime = 0
+stateno = 4100
+name = "Stones"
+id = 4100
+pos = 0,0
+helpertype = normal
+sprpriority = 1
+keyctrl = 0
+ownpal = 0
+under = 1
+
+;[State 19997, 0]
+;type = PosSet
+;trigger1 = 1
+;X = 0
+;Y = 0
+
+[State 19997, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 24
+
+[State 19997, 2-1]
+type = AssertSpecial
+trigger1 = 1
+flag = RoundNotOver
+
+[State 19997, 2-2]
+type = AssertSpecial
+trigger1 = time >= 0
+flag = nokoslow
+
+[State 19997, 3]
+type = PlaySnd
+trigger1 = time = 0
+value = 999,2
+
+;[State 19997, 4]
+;type = LifeAdd
+;trigger1 = time >= 0
+;value = -9999
+
+[State 19997, 5]
+type = ChangeState
+trigger1 = animtime = 0
+value = 5050
+ctrl = 1
+
+;AI Walks to Fatality Postion
+[Statedef 4999]
+type    = S
+movetype= A
+juggle  = 1
+anim = 20
+velset = 0,0
+ctrl = 0
+
+[State 4999, 1-1]
+type = Velset
+trigger1 = p2bodyDist X > 32
+x = const(velocity.walk.fwd.x)
+
+[State 4999, 1-2]
+type = Velset
+trigger1 = p2bodyDist X < 32
+x = const(velocity.walk.back.x)
+
+[State 4999, 1-3]
+type = ChangeAnim
+trigger1 = p2bodyDist X < 32
+trigger1 = anim = 20
+value = 21
+
+[State 4999, 1-4]
+type = Velset
+trigger1 = p2bodyDist X = 32
+x = 0
+
+[State 4999, 4]
+type = Changestate
+trigger1 = p2bodyDist X = 32
+value = 220
+
+[State 4999, 5]
+type = Changestate
+trigger1 = time >= 100
+value = 220

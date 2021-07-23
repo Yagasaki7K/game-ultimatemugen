@@ -1,0 +1,1010 @@
+; The CMD file. 
+	 
+; Button Remapping 
+
+[Remap]
+x = x
+y = y
+z = z
+a = a
+b = b
+c = c
+s = s
+ 
+; Default Values 
+
+[Defaults]
+command.time = 15
+command.buffer.time = 3
+ 
+; コマンド定義 
+	 
+; MAX2 
+[Command]
+name = "2141236_xy"
+command = ~D, B, D, B,c
+time = 30
+
+
+[Command]
+name = "236236_xy"
+command = ~D, F, D, F,x+y
+time = 30
+buffer.time = 10
+ 
+; MAX超必殺技 
+[Command]
+name = "236236_c"
+command = ~D, F, D, F,c
+time = 30
+ 
+; EX超必殺技 
+[Command]
+name = "2363214_xy"
+command = ~D, B, D, B, z
+time = 30
+
+
+[Command]
+name = "2141236_ab"
+command = ~D, F, D, F, z
+time = 30
+
+ 
+; 超必殺技 
+
+[Command]
+name = "2363214_x"
+command = ~D, F, D, F, x
+time = 30
+
+
+[Command]
+name = "2363214_y"
+command = ~D, F, D, F, y
+time = 30
+
+
+
+[Command]
+name = "2141236_a"
+command = ~D, F, D, F, a
+time = 30
+
+
+[Command]
+name = "2141236_b"
+command = ~D, F, D, F, b
+time = 30
+
+ 
+; 必殺技 
+
+[Command]
+name = "4c6_x"
+command = ~D,DF,F,x
+time = 10
+
+[Command]
+name = "4c6_y"
+command = ~D,DF,F, y
+time = 10
+
+[Command]
+name = "46_x"
+command = ~$B, $F, x
+time = 10
+buffer.time = 1
+
+[Command]
+name = "46_y"
+command = ~$B, $F, y
+time = 10
+buffer.time = 1
+
+[Command]
+name = "2c8_x"
+command = ~30$D, $U, x
+time = 10
+
+[Command]
+name = "2c8_y"
+command = ~30$D, $U, y
+time = 10
+
+[Command]
+name = "236_x"
+command = ~D, DF, F, x
+[Command]
+name = "236_x"
+command = ~D, DF, UF, x
+
+[Command]
+name = "236_y"
+command = ~D, DF, F, y
+[Command]
+name = "236_y"
+command = ~D, DF, UF, y
+
+[Command]
+name = "214_x"
+command = ~D, DB, B, x
+[Command]
+name = "214_x"
+command = ~D, DB, UB, x
+
+[Command]
+name = "214_y"
+command = ~D, DB, B, y
+[Command]
+name = "214_y"
+command = ~D, DB, UB, y
+
+[Command]
+name = "63214_a"
+command = ~F, D, B, a
+time = 20
+[Command]
+name = "63214_a"
+command = ~F, D, UB, a
+time = 20
+
+[Command]
+name = "63214_b"
+command = ~F, D, B, b
+time = 20
+[Command]
+name = "63214_b"
+command = ~F, D, UB, b
+time = 20
+
+[Command]
+name = "63214_ab"
+command = ~F, D, B, a+b
+time = 20
+[Command]
+name = "63214_ab"
+command = ~F, D, UB, a+b
+time = 20
+
+[Command]
+name = "623_x"
+command = ~F, D, DF, x
+
+[Command]
+name = "623_y"
+command = ~F, D, DF, y
+
+[Command]
+name = "tap_x"
+command = x, x, x, x
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_x"
+command = y, x, x, x
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_x"
+command = y, y, x, x
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_x"
+command = y, y, y, x
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_x"
+command = x, y, x, x
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_x"
+command = x, x, y, x
+time = 30
+buffer.time = 12
+
+[Command]
+name = "tap_y"
+command = y, y, y, y
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_y"
+command = x, y, y, y
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_y"
+command = x, x, y, y
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_y"
+command = x, x, x, y
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_y"
+command = y, x, y, y
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_y"
+command = y, x, x, y
+time = 30
+buffer.time = 12
+[Command]
+name = "tap_y"
+command = y, y, x, y
+time = 30
+buffer.time = 12
+
+[Command]
+name = "41236_a"
+command = ~B, D, F, a
+time = 20
+[Command]
+name = "41236_a"
+command = ~B, D, UF, a
+time = 20
+
+[Command]
+name = "41236_b"
+command = ~B, D, F, b
+time = 20
+[Command]
+name = "41236_b"
+command = ~B, D, UF, b
+time = 20
+
+[Command]
+name = "623_x"
+command = ~F, D, DF, x
+
+[Command]
+name = "623_y"
+command = ~F, D, DF, y
+ 
+; EX必殺技 
+
+[Command]
+name = "236_ab"
+command = ~D, DF, F, a+b
+ 
+; 追加入力 
+ 
+; その他 
+
+[Command]
+name = "highjump"
+command = $D, $U
+time = 10
+
+[Command]
+name = "select"
+command = s
+time = 1
+buffer.time = 1
+ 
+; 必須、基本 
+
+[Command]
+name = "FF"
+command = F, F
+time = 10
+
+[Command]
+name = "BB"
+command = B, B
+time = 10
+
+[Command]
+name = "recovery"
+command = x+a
+time = 1
+
+[Command]
+name = "recovery"
+command = z
+time = 1
+
+[Command]
+name = "a"
+command = a
+time = 1
+
+[Command]
+name = "b"
+command = b
+time = 1
+
+[Command]
+name = "c"
+command = c
+time = 1
+
+[Command]
+name = "x"
+command = x
+time = 1
+
+[Command]
+name = "y"
+command = y
+time = 1
+
+[Command]
+name = "z"
+command = z
+time = 1
+
+[Command]
+name = "start"
+command = s
+time = 1
+
+[Command]
+name = "hold_a"
+command = /a
+time = 1
+
+[Command]
+name = "hold_b"
+command = /b
+time = 1
+
+[Command]
+name = "hold_c"
+command = /c
+time = 1
+
+[Command]
+name = "hold_x"
+command = /x
+time = 1
+
+[Command]
+name = "hold_y"
+command = /y
+time = 1
+
+[Command]
+name = "hold_z"
+command = /z
+time = 1
+
+[Command]
+name = "hold_start"
+command = /s
+time = 1
+
+[Command]
+name = "holdfwd"
+command = /$F
+time = 1
+
+[Command]
+name = "holdback"
+command = /$B
+time = 1
+
+[Command]
+name = "holdup"
+command = /$U
+time = 1
+
+[Command]
+name = "holddown"
+command = /$D
+time = 1
+  
+; ステートエントリー 
+[Statedef -1]
+	 
+; 馬乗りギャラクティカファントム 
+[State -1]
+type = ChangeState
+value = 4500
+triggerall = roundstate = 2 && !var(59)
+triggerall = power >= 2000 || (var(10) && power >= 2000)
+triggerall = command = "2141236_xy"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 16)
+trigger4 = stateno = 3000 && animelem = 50,<=0
+trigger5 = stateno = 4000 && animelem = 86,<=0
+
+; ギャラクティカヴァンガード
+[State -1]
+type = VarSet
+var(4) = 1
+triggerall = roundstate = 2 && !var(59)
+triggerall = stateno = 4502
+trigger1 = command = "236236_xy"
+
+[State -1]
+type = ChangeState
+value = 4505
+triggerall = roundstate = 2 && !var(59)
+trigger1 = stateno = 4502 && animtime = 0
+triggerall = var(4)
+ 
+; ギャラクティカファントム 
+[State -1]
+type = ChangeState
+value = 3500
+triggerall = roundstate = 2 && !var(59)
+triggerall = power >= 2000 || (var(10) && power >= 1000)
+triggerall = command = "236236_c"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = stateno = [200,1000)
+trigger3 = var(7) && (var(8) & 8)
+
+[State -1]
+type = ChangeState
+value = 3505
+triggerall = roundstate = 2 && !var(59)
+triggerall = power >= 2000 || (var(10) && power >= 1000)
+triggerall = command = "236236_c"
+triggerall = statetype != A
+trigger1 = var(7) && (var(8) & 8)
+ 
+; EXバリバリバルカンパンチ 
+[State -1]
+type = ChangeState
+value = 4000
+triggerall = roundstate = 2 && !var(59)
+triggerall = power >= 1500 || (var(10) && power >= 500)
+triggerall = command = "2363214_xy"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 4)
+trigger4 = var(10) = 1
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+trigger5= stateno = 3000 && animelem = 50,<=0
+ 
+; EX馬乗りバルカンパンチ 
+[State -1]
+type = ChangeState
+value = 4010
+triggerall = roundstate = 2 && !var(59)
+triggerall = power >= 1500 || (var(10) && power >= 500)
+triggerall = command = "2141236_ab"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 4)
+trigger4 = var(10) = 1
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+trigger5= stateno = 3000 && animelem = 50,<=0
+ 
+; バリバリバルカンパンチ 
+[State -1]
+type = ChangeState
+value = 3000
+triggerall = roundstate = 2 && !var(59)
+triggerall = power >= 1000 || var(10)
+triggerall = command = "2363214_x" || command = "2363214_y"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 4)
+trigger4 = var(10) = 1
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+ 
+; 馬乗りバルカンパンチ 弱 
+[State -1]
+type = ChangeState
+value = 3020
+triggerall = roundstate = 2 && !var(59)
+triggerall = power >= 1000 || var(10)
+triggerall = command = "2141236_a"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 4)
+trigger4 = var(10) = 1
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+
+; 馬乗りバルカンパンチ 弱
+[State -1]
+type = ChangeState
+value = 3025
+triggerall = roundstate = 2 && !var(59)
+triggerall = power >= 1000 || var(10)
+triggerall = command = "2141236_b"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 4)
+trigger4 = var(10) = 1
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+ 
+; スーパーアルゼンチンバックブリーカー 弱 
+[State -1]
+type = ChangeState
+value = 1050
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "41236_a"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+
+; スーパーアルゼンチンバックブリーカー 強
+[State -1]
+type = ChangeState
+value = 1055
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "41236_b"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+ 
+; アンブロック 
+[State -1]
+type = ChangeState
+value = 1060
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "623_x" || command = "623_y"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+
+; アンブロック(キャンセル)
+[State -1]
+type = ChangeState
+value = 1065
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "623_x" || command = "623_y"
+triggerall = statetype != A
+trigger1 = var(7) && (var(8) & 2)
+trigger2 = var(10) = 1 && stateno != [1060,1070)
+trigger2 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+ 
+; 低空ラルフキック 
+[State -1]
+type = ChangeState
+value = 1040
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "63214_ab"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+trigger4 = var(10) = 1 && stateno != [1040,1050)
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+ 
+; ラルフキック 
+[State -1]
+type = ChangeState
+value = 1045
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "63214_a"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+trigger4 = var(10) = 1 && stateno != [1040,1050)
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+ 
+; ラルフタックル 
+[State -1]
+type = ChangeState
+value = 1025
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "63214_b"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+trigger4 = var(10) = 1 && stateno != [1020,1030)
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+ 
+; ガトリングアタック 弱 
+[State -1]
+type = ChangeState
+value = 1000
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "4c6_x"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+
+[State -1]
+type = ChangeState
+value = 1000
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "46_x"
+triggerall = statetype != A
+trigger1 = var(10) = 1 && stateno != [1000,1010)
+trigger1 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+
+; ガトリングアタック 強
+[State -1]
+type = ChangeState
+value = 1005
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "4c6_y"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+
+[State -1]
+type = ChangeState
+value = 1005
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "46_y"
+triggerall = statetype != A
+trigger1 = var(10) = 1 && stateno != [1000,1010)
+trigger1 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+ 
+; 急降下爆弾パンチ 弱 
+[State -1]
+type = ChangeState
+value = 1010
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "2c8_x"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+
+; 急降下爆弾パンチ 強
+[State -1]
+type = ChangeState
+value = 1015
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "2c8_y"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+ 
+; 急降下爆弾パンチ 弱(空中) 
+[State -1]
+type = ChangeState
+value = 1070
+triggerall = roundstate = 2 && !var(59) && numenemy
+triggerall = var(0) = 0
+triggerall = command = "236_x" && (screenpos x - enemynear,screenpos x) * facing <= 0
+triggerall = statetype = A
+trigger1 = ctrl && pos y < -20
+trigger2 = stateno = 106 || stateno = 111
+trigger3 = var(7) && (var(8) & 2)
+
+[State -1]
+type = ChangeState
+value = 1070
+triggerall = roundstate = 2 && !var(59) && numenemy
+triggerall = var(0) = 0
+triggerall = command = "214_x" && (screenpos x - enemynear,screenpos x) * facing > 0
+triggerall = statetype = A
+trigger1 = ctrl && pos y < -20
+trigger2 = stateno = 106 || stateno = 111
+trigger3 = var(7) && (var(8) & 2)
+
+; 急降下爆弾パンチ 強(空中)
+[State -1]
+type = ChangeState
+value = 1075
+triggerall = roundstate = 2 && !var(59) && numenemy
+triggerall = var(0) = 0
+triggerall = command = "236_y" && (screenpos x - enemynear,screenpos x) * facing <= 0
+triggerall = statetype = A
+trigger1 = ctrl && pos y < -20
+trigger2 = stateno = 106 || stateno = 111
+trigger3 = var(7) && (var(8) & 2)
+
+[State -1]
+type = ChangeState
+value = 1075
+triggerall = roundstate = 2 && !var(59) && numenemy
+triggerall = var(0) = 0
+triggerall = command = "214_y" && (screenpos x - enemynear,screenpos x) * facing > 0
+triggerall = statetype = A
+trigger1 = ctrl && pos y < -20
+trigger2 = stateno = 106 || stateno = 111
+trigger3 = var(7) && (var(8) & 2)
+ 
+; バルカンパンチ 弱 
+[State -1]
+type = ChangeState
+value = 1030
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "tap_x"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+trigger4 = var(10) = 1 && stateno != [1030,1040)
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+
+[State -1]
+type = VarSet
+var(4) = 1
+triggerall = roundstate = 2 && !var(59)
+triggerall = stateno = 1030 || stateno = 1035
+triggerall = time > 12
+trigger1 = command = "tap_x"
+trigger2 = command = "tap_y"
+
+; バルカンパンチ 強
+[State -1]
+type = ChangeState
+value = 1035
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "tap_y"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 40 || stateno = 101 || stateno = 116
+trigger3 = var(7) && (var(8) & 2)
+trigger4 = var(10) = 1 && stateno != [1030,1040)
+trigger4 = (stateno = [200,800)) || (var(7) && stateno = [1000,2000))
+ 
+; GC緊急回避 
+[State -1]
+type = ChangeState
+value = ifelse(command = "holdfwd", 810, 815)
+triggerall = roundstate = 2 && !var(59)
+triggerall = (command = "x" && command = "a")|| command = "z"
+triggerall = power >= 1000
+trigger1 = stateno = [150,153]
+
+; GCふっとばし攻撃(地上)
+[State -1]
+type = ChangeState
+value = ifelse(var(0),306,305)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "c"
+triggerall = power >= 1000
+trigger1 = stateno = [150,153]
+
+; GCグランドステップ
+[State -1]
+type = ChangeState
+value = 840
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "FF"
+triggerall = power >= 1000
+trigger1 = var(51) = 2 && stateno = [150,153]
+
+; クイック緊急回避
+[State -1]
+type = ChangeState
+value = 810
+triggerall = roundstate = 2 && !var(59)
+triggerall = var(51) < 2
+triggerall = (command = "x" && command = "a")|| command = "z"
+triggerall = power >= 1000
+triggerall = statetype != A
+trigger1 = movecontact && stateno = [200,600)
+
+; ACグランドステップ
+[State -1]
+type = ChangeState
+value = 845
+triggerall = roundstate = 2 && !var(59)
+triggerall = var(51) = 2
+triggerall = (command = "x" && command = "a")|| command = "z"
+triggerall = power >= 1000
+triggerall = statetype != A
+trigger1 = movecontact && stateno = [200,600)
+ 	
+; 緊急回避 
+[State -1]
+type = ChangeState
+value = ifelse(command = "holdback", 805, 800)
+triggerall = roundstate = 2 && !var(59)
+triggerall = ((command = "x" && command = "a")|| command = "z") && command != "holddown"
+trigger1 = statetype = S && ctrl
+trigger2 = stateno = 101 || stateno = 116
+ 
+; MAX発動 
+[State -1]
+type = ChangeState
+value = 830
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "y" && ((!var(52) && command = "b") || (var(52) && command = "a"))
+triggerall = !var(10) && power >= 1000
+trigger1 = statetype != A && ctrl
+trigger2 = stateno = 101 || stateno = 116
+
+; クイックMAX発動
+[State -1]
+type = ChangeState
+value = 835
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "y" && ((!var(52) && command = "b") || (var(52) && command = "a"))
+triggerall = !var(10) && power >= 1000
+trigger1 = statetype != A && movecontact = [1,8)
+trigger1 = stateno = [200,600)
+ 
+; ダイナマイトヘッドバット 
+[State -1]
+type = ChangeState
+value = 900
+triggerall = roundstate = 2 && !var(59)
+trigger1 = command = "y" && (command = "holdfwd" || command = "holdback")
+trigger1 = p2bodydist X < 15 && enemynear,movetype != H
+trigger1 = statetype = S && ctrl
+
+; ノーザンライトボム
+[State -1]
+type = ChangeState
+value = 910
+triggerall = roundstate = 2 && !var(59)
+trigger1 = command = "b" && (command = "holdfwd" || command = "holdback")
+trigger1 = p2bodydist X < 15 && enemynear,movetype != H
+trigger1 = statetype = S && ctrl
+ 
+; ふっとばし攻撃(地上) 
+[State -1]
+type = ChangeState
+value = 300
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "c"
+trigger1 = statetype = S && ctrl
+trigger2 = stateno = 101 || stateno = 116
+
+; ふっとばし攻撃(空中)
+[State -1]
+type = ChangeState
+value = 700
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "c"
+trigger1 = statetype = A && ctrl
+ 
+; 立ち弱P 
+[State -1]
+type = ChangeState
+value = ifelse(p2bodydist X < 20, 200, 205)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "x" && command != "holddown"
+trigger1 = statetype = S && ctrl
+trigger2 = stateno = 101 || stateno = 116
+trigger3 = stateno = 200 && animelem = 4,> 0
+trigger4 = stateno = 400 && animelem = 4,> 0
+
+; 立ち強P
+[State -1]
+type = ChangeState
+value = ifelse(p2bodydist X < 20, 210, 215)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "y" && command != "holddown"
+trigger1 = statetype = S && ctrl
+trigger2 = stateno = 101 || stateno = 116
+
+; 立ち弱K
+[State -1]
+type = ChangeState
+value = ifelse(p2bodydist X < 20, 220, 225)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "a" && command != "holddown"
+trigger1 = statetype = S && ctrl
+trigger2 = stateno = 101 || stateno = 116
+
+; 立ち強K
+[State -1]
+type = ChangeState
+value = ifelse(p2bodydist X < 20, 230, 235)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "b" && command != "holddown"
+trigger1 = statetype = S && ctrl
+trigger2 = stateno = 101 || stateno = 116
+ 
+; しゃがみ弱P 
+[State -1]
+type = ChangeState
+value = 400
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "x" && command = "holddown"
+trigger1 = statetype = C && ctrl
+trigger2 = stateno = 101 || stateno = 116
+trigger3 = stateno = 200 && animelem = 4,> 0
+trigger4 = stateno = 400 && animelem = 4,> 0
+
+; しゃがみ強P
+[State -1]
+type = ChangeState
+value = 410
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "y" && command = "holddown"
+trigger1 = statetype = C && ctrl
+trigger2 = stateno = 101 || stateno = 116
+
+; しゃがみ弱K
+[State -1]
+type = ChangeState
+value = 420
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "a" && command = "holddown"
+trigger1 = statetype = C && ctrl
+trigger2 = stateno = 101 || stateno = 116
+
+; しゃがみ強K
+[State -1]
+type = ChangeState
+value = 430
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "b" && command = "holddown"
+trigger1 = statetype = C && ctrl
+trigger2 = stateno = 101 || stateno = 116
+ 
+; ジャンプ弱P 
+[State -1]
+type = ChangeState
+value = ifelse(vel x || var(1) & 2,600,605)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "x"
+trigger1 = statetype = A && ctrl
+
+; ジャンプ強P
+[State -1]
+type = ChangeState
+value = ifelse(vel x || var(1) & 2,610,615)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "y"
+trigger1 = statetype = A && ctrl
+
+; ジャンプ弱K
+[State -1]
+type = ChangeState
+value = ifelse(vel x || var(1) & 2,620,625)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "a"
+trigger1 = statetype = A && ctrl
+
+; ジャンプ強K
+[State -1]
+type = ChangeState
+value = ifelse(vel x || var(1) & 2,630,635)
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "b"
+trigger1 = statetype = A && ctrl
+ 
+; 前方ダッシュ 
+[State -1]
+type = ChangeState
+value = ifelse(var(51)=0,100,ifelse(var(51)=1,110,115))
+triggerall = roundstate = 2 && !var(59)
+trigger1 = command = "FF"
+trigger1 = statetype = S && ctrl
+
+; バックステップ
+[State -1]
+type = ChangeState
+value = 105
+triggerall = roundstate = 2 && !var(59)
+trigger1 = command = "BB"
+trigger1 = statetype = S && ctrl
+
+; パワーため
+[State -1]
+type = ChangeState
+value = 825
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "holddown" && command = "start"
+triggerall = power < powermax && !var(10)
+trigger1 = statetype != A && ctrl
+trigger2 = stateno = 101 || stateno = 116
+
+; 挑発
+[State -1]
+type = ChangeState
+value = 820
+triggerall = roundstate = 2 && !var(59)
+triggerall = command = "start"
+trigger1 = statetype = S && ctrl
+trigger2 = stateno = 101 || stateno = 116
+   

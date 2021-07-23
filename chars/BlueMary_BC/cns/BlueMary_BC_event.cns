@@ -1,0 +1,689 @@
+;===============================================================================
+; イベント系
+;===============================================================================
+
+
+;-------------------------------------------------------------------------------
+; イントロ分岐
+;-------------------------------------------------------------------------------
+[Statedef 190]
+type		= S
+ctrl		= 0
+velset		= 0, 0
+
+[State 190, 1]
+type		= ChangeAnim
+trigger1	= SelfAnimExist(190)
+value		= 190
+
+[State 190, 2]
+type		= ChangeState
+trigger1	= Time = 0
+value		= 191
+
+
+;-------------------------------------------------------------------------------
+; イントロ
+;-------------------------------------------------------------------------------
+[Statedef 191]
+type		= S
+ctrl		= 0
+velset		= 0, 0
+anim		= 9999
+
+[State 191, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= Intro
+
+[State 191, Helper]
+type		= Helper
+trigger1	= Time = 1
+name		= "Intro"
+ID			= 192
+stateno		= 192
+pos			= 0, 0
+postype		= p1
+
+[State 191, ChangeState]
+type		= ChangeState
+trigger1	= Time = 1
+value		= 20000
+
+
+;-------------------------------------------------------------------------------
+; イントロ継続用ヘルパー
+;-------------------------------------------------------------------------------
+[Statedef 192]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+velset		= 0, 0
+anim		= 9999
+
+[State 192, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= Intro
+
+[State 192, DestroySelf]
+type		= DestroySelf
+triggerall	= IsHelper
+triggerall	= Time > 0
+trigger1	= Root,StateNo = 0
+
+
+;-------------------------------------------------------------------------------
+; イントロ用
+;-------------------------------------------------------------------------------
+[Statedef 20000]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+velset		= 0, 0
+
+[State 20000, VarSet]
+type		= VarSet
+trigger1	= Time = 0
+var(0)		= 0
+
+[State 20000, Set State No] ; 遷移先ステート設定
+type		= Null
+triggerall	= Time = 0
+; 対テリー
+trigger1	= Enemy(0),Name = "Terry_wls"
+trigger1	= 1 || var(0) := 20020
+trigger2	= NumEnemy > 1
+trigger2	= Enemy(1),Name = "Terry_wls"
+trigger2	= 1 || var(0) := 20020
+trigger3	= Enemy(0),Name = "Terry Bogard"
+trigger3	= 1 || var(0) := 20020
+trigger4	= NumEnemy > 1
+trigger4	= Enemy(1),Name = "Terry Bogard"
+trigger4	= 1 || var(0) := 20020
+trigger5	= Enemy(0),Name = "cvsterry"
+trigger5	= 1 || var(0) := 20020
+trigger6	= NumEnemy > 1
+trigger6	= Enemy(1),Name = "cvsterry"
+trigger6	= 1 || var(0) := 20020
+trigger7	= Enemy(0),Name = "Geese Howard"
+trigger7	= Enemy(0),AuthorName = "KoopaKoot"
+trigger7	= 1 || var(0) := 20030
+trigger8	= NumEnemy > 1
+trigger8	= Enemy(0),Name = "Geese Howard"
+trigger8	= Enemy(0),AuthorName = "KoopaKoot"
+trigger8	= 1 || var(0) := 20030
+
+[State 20000, VarSet]
+type		= VarSet
+trigger1	= var(0) = 0
+var(0) 		= 20010
+
+[State 20000, ChangeState] ; イントロステートへ
+type		= ChangeState
+trigger1	= Time = 0
+value		= var(0)
+
+
+;-------------------------------------------------------------------------------
+; イントロ1
+;-------------------------------------------------------------------------------
+[Statedef 20010]
+type		= S
+ctrl		= 0
+anim		= 190
+velset		= 0,0
+sprpriority	= 0
+
+[State 20010, Voice]
+type		= PlaySnd
+trigger1	= AnimElemTime(3) = 0
+value		= 190, 2
+volume		= 250
+channel		= 0
+[State 20010, Voice]
+type		= PlaySnd
+trigger1	= AnimElemTime(24) = 0
+value		= 190, 0
+volume		= 250
+channel		= 0
+
+[State 20010, Sound]
+type		= PlaySnd
+trigger1	= AnimElemTime(6) = 0
+value		= 190, 5
+volume		= 200
+[State 20010, Sound]
+type		= PlaySnd
+trigger1	= AnimElemTime(10) = 0
+value		= 190, 6
+volume		= 200
+
+[State 20010, Explod] ; Coat
+type		= Explod
+trigger1	= Anim = 190
+trigger1	= AnimElemTime(7) = 0
+anim		= 10191
+ontop		= 1
+postype		= p1
+pos			= 0, 0
+ownpal		= 1
+removeongethit	= 0
+ignorehitpause	= 0
+vel			= 0, 0
+
+[State 20010, Explod] ; Anton
+type		= Explod
+trigger1	= Anim = 190
+trigger1	= AnimElemTime(5) = 2
+anim		= 10190
+postype		= p1
+pos			= -90, 0
+ownpal		= 1
+removeongethit	= 0
+ignorehitpause	= 0
+sprpriority	= -5
+vel			= 4, 0
+
+[State 20010, ChangeState]
+type		= ChangeState
+trigger1	= AnimTime = 0
+value		= 0
+
+
+
+;-------------------------------------------------------------------------------
+; イントロ2 対テリー
+;-------------------------------------------------------------------------------
+[Statedef 20020]
+type		= S
+ctrl		= 0
+anim		= 192
+velset		= 0,0
+sprpriority	= 0
+
+[State 20020, Sound]
+type		= PlaySnd
+trigger1	= AnimElemTime(6) = 0
+value		= 190, 5
+volume		= 200
+
+[State 20020, Voice]
+type		= PlaySnd
+trigger1	= AnimElemTime(15) = 0
+value		= 190, 3
+volume		= 250
+channel		= 0
+
+[State 20020, Explod] ; Coat
+type		= Explod
+trigger1	= Anim = 192
+trigger1	= AnimElemTime(7) = 0
+anim		= 10191
+ontop		= 1
+postype		= p1
+pos			= 0, 0
+ownpal		= 1
+removeongethit	= 0
+ignorehitpause	= 0
+vel			= 0, 0
+
+[State 20020, ChangeState]
+type		= ChangeState
+trigger1	= AnimTime = 0
+value		= 0
+
+
+;-------------------------------------------------------------------------------
+; イントロ3 対ギース
+;-------------------------------------------------------------------------------
+[Statedef 20030]
+type		= S
+ctrl		= 0
+anim		= 193
+velset		= 0,0
+sprpriority	= 0
+
+[State 20030, Helper]
+type		= Helper
+trigger1	= AnimElemTime(1) = 0
+name		= "Anton"
+ID			= 10190
+pos			= 0, 0
+facing		= 1
+stateno		= 10190
+keyctrl		= 0
+ownpal		= 1
+supermovetime	= 0
+pausemovetime	= 0
+
+[State 20030, ChangeState]
+type		= ChangeState
+trigger1	= AnimTime = 0
+value		= 0
+
+
+
+[Statedef 10190]
+type		= S
+physics		= N
+anim		= 10193
+velset		= 0, 0
+ctrl		= 0
+sprpriority	= 4
+
+[State 10190, VelSet]
+type		= VelSet
+trigger1	= AnimelemTime(8) = 0
+x			= 2.9
+
+[State 10190, Sound]
+type		= PlaySnd
+trigger1	= AnimElemTime(6) = 0
+value		= 190, 6
+volume		= 200
+
+[State 10190, ChangeState]
+type		= ChangeState
+trigger1	= AnimTime = 0
+value		= 10191
+
+
+[Statedef 10191]
+type		= S
+physics		= N
+anim		= 11111
+velset		= 0, 0
+ctrl		= 0
+sprpriority	= 4
+
+[State 10191, VelSet]
+type		= VelSet
+trigger1	= 1
+x			= 3.5
+y			= -1
+
+[State 10191, ChangeState]
+type		= ChangeState
+trigger1	= Time >= 14
+value		= 10192
+
+
+[Statedef 10192]
+type		= S
+physics		= N
+anim		= 11193
+velset		= 0, 0
+ctrl		= 0
+sprpriority	= -1
+
+[State 10192, Sound]
+type		= PlaySnd
+trigger1	= !Time
+value		= 190, 7
+volume		= 200
+
+[State 10192, VelSet]
+type		= VelSet
+trigger1	= 1
+x			= 5.5
+y			= -1
+
+[State 10192, DestroySelf]
+type		= DestroySelf
+triggerall	= IsHelper
+triggerall	= Time > 1
+trigger1	= BackEdgeDist <= -90
+trigger2	= FrontEdgeDist <= -90
+trigger3	= RoundState = 4
+
+
+
+
+
+;-------------------------------------------------------------------------------
+; 挑発
+;-------------------------------------------------------------------------------
+[Statedef 195]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+anim		= 195
+velset		= 0,0
+sprpriority	= 2
+
+[State 195, NotHitBy]
+type		= NotHitBy
+trigger1	= Time = 0
+value		= SCA, AA, AT, AP
+time		= 0
+
+[State 195, Voice]
+type		= PlaySnd
+trigger1	= AnimElemTime(3) = 0
+value		= 190, 4
+channel		= 0
+volume		= 250
+
+[State 195, CtrlSet]
+type		= CtrlSet
+trigger1	= Time = 40
+value		= 1
+
+[State 195, ChangeState]
+type		= ChangeState
+trigger1	= AnimTime = 0
+value		= 0
+ctrl		= 1
+
+
+;-------------------------------------------------------------------------------
+; 挑発2
+;-------------------------------------------------------------------------------
+[Statedef 196]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+anim		= 196
+velset		= 0,0
+sprpriority	= 2
+
+[State 196, NotHitBy]
+type		= NotHitBy
+trigger1	= Time = 0
+value		= SCA, AA, AT, AP
+time		= 0
+
+[State 196, Voice]
+type		= PlaySnd
+trigger1	= AnimElemTime(3) = 0
+value		= 190, 1
+channel		= 0
+volume		= 250
+
+[State 196, CtrlSet]
+type		= CtrlSet
+trigger1	= Time = 40
+value		= 1
+
+[State 196, ChangeState]
+type		= ChangeState
+trigger1	= AnimTime = 0
+value		= 0
+ctrl		= 1
+
+
+;-------------------------------------------------------------------------------
+; 勝利ポーズ分岐
+;-------------------------------------------------------------------------------
+[Statedef 180]
+type		= S
+ctrl		= 0
+anim		= 9999
+velset		= 0, 0
+
+[State 180, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA, AA, AT, AP
+time		= 2
+
+[State 180, AssertSpecial]
+type		= AssertSpecial
+trigger1	= Time = [0, 250]
+flag		= RoundNotOver
+
+[State 180, VarSet]
+type		= VarSet
+trigger1	= Time = 0
+var(0)		= 0
+
+[State 180, Set State No] ; 遷移先ステート設定
+type		= Null
+triggerall	= Time = 0
+; 通常
+trigger1	= Random < 400
+trigger1	= 1 || var(0) := 181
+trigger2	= Random < 600
+trigger2	= 1 || var(0) := 184
+trigger3	= 1 || var(0) := 182
+
+[STate 180, VarSet]
+type		= VarSet
+trigger1	= var(0) = 0
+var(0)		= 181
+
+[State 180, ChangeState]
+type		= ChangeState
+trigger1	= Time = 0
+value		= var(0)
+
+
+;-------------------------------------------------------------------------------
+; 勝利ポーズ1
+;-------------------------------------------------------------------------------
+[Statedef 181]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+anim		= 181
+velset		= 0,0
+sprpriority	= -1
+
+[State 181, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA
+time		= 2
+
+[State 181, AssertSpecial]
+type		= AssertSpecial
+trigger1	= Time < 250
+flag		= roundnotover
+
+[State 181, Voice]
+type		= PlaySnd
+trigger1	= AnimElemTime(4) = 0
+value		= 180, 2
+volume		= 250
+channel		= 0
+
+
+;-------------------------------------------------------------------------------
+; 勝利ポーズ2
+;-------------------------------------------------------------------------------
+[Statedef 182]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+anim		= 182
+velset		= 0,0
+sprpriority	= -1
+
+[State 182, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA
+time		= 2
+
+[State 182, Helper]
+type		= Helper
+trigger1	= AnimElemTime(19) = 0
+name		= "Anton"
+ID			= 10180
+stateno		= 10180
+postype		= front
+keyctrl		= 0
+facing		= -1
+ownpal		= 1
+
+[State 182, Voice]
+type		= PlaySnd
+triggerall	= Anim = 182
+trigger1	= AnimElemTime(2) = 0
+value		= 180, 0
+volume		= 250
+channel		= 0
+
+[State 182, AssertSpecial]
+type		= AssertSpecial
+trigger1	= Time < 300
+flag		= roundnotover
+
+[State 182, ChangeState]
+type		= ChangeState
+trigger1	= !IsHelper
+trigger1	= NumHelper(10180) > 0
+trigger1	= Helper(10180),StateNo = 10182
+value		= 183
+
+
+[Statedef 183]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+anim		= 183
+velset		= 0,0
+sprpriority	= -1
+
+[State 183, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA
+time		= 2
+
+[State 183, Voice]
+type		= PlaySnd
+triggerall	= Anim = 183
+trigger1	= AnimElemTime(1) = 0
+value		= 180, 1
+volume		= 250
+channel		= 0
+
+[State 183, AssertSpecial]
+type		= AssertSpecial
+trigger1	= Time < 250
+flag		= roundnotover
+
+
+
+[Statedef 10180]
+type		= S
+movetype	= I
+physics		= N
+ctrl		= 0
+anim		= 10180
+velset		= 0,0
+sprpriority	= 4
+
+[State 10180, VelSet]
+type		= VelSet
+trigger1	= 1
+x			= 3.9
+
+[State 10180, ChangeState]
+type		= ChangeState
+trigger1	= RootDist X < 50
+value		= 10181
+
+
+[Statedef 10181]
+type		= S
+movetype	= I
+physics		= N
+ctrl		= 0
+anim		= 10181
+velset		= 0,0
+sprpriority	= 4
+
+[State 10181, PosSet]
+type		= PosSet
+triggerall	= Root,Facing = 1
+trigger1	= !Time
+x			= Root,Pos X + 50
+
+[State 10181, PosSet]
+type		= PosSet
+triggerall	= Root,Facing = -1
+trigger1	= !Time
+x			= Root,Pos X - 50
+
+[State 10181, Sound]
+type		= PlaySnd
+trigger1	= AnimElemTime(1) = 0
+value		= 180, 3
+volume		= 200
+
+[State 10181, VelSet]
+type		= VelSet
+trigger1	= 1
+x			= 3.5
+y			= -1
+
+[State 10181, ChangeState]
+type		= ChangeState
+trigger1	= Animtime = 0
+value		= 10182
+
+
+[Statedef 10182]
+type		= S
+movetype	= I
+physics		= N
+ctrl		= 0
+anim		= 9999
+velset		= 0,0
+sprpriority	= 4
+
+[State 10182, VelSet]
+type		= VelSet
+trigger1	= 1
+x			= 0
+
+
+
+;-------------------------------------------------------------------------------
+; 勝利ポーズ3
+;-------------------------------------------------------------------------------
+[Statedef 184]
+type		= S
+movetype	= I
+physics		= S
+ctrl		= 0
+anim		= 182
+velset		= 0,0
+sprpriority	= -1
+
+[State 184, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA
+time		= 2
+
+[State 184, Voice]
+type		= PlaySnd
+triggerall	= Anim = 182
+trigger1	= AnimElemTime(2) = 0
+value		= 180, 6
+volume		= 250
+channel		= 0
+
+[State 184, Voice]
+type		= PlaySnd
+triggerall	= Anim = 182
+trigger1	= AnimElemTime(18) = 0
+value		= 180, 7
+volume		= 250
+channel		= 0
+
+[State 184, AssertSpecial]
+type		= AssertSpecial
+trigger1	= Time < 250
+flag		= roundnotover

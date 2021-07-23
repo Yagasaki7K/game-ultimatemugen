@@ -1,0 +1,36 @@
+[Info]
+name        = "Vega"
+displayname = "M BISON"
+versiondate = 03,07,2007
+mugenversion= 06,14,2003
+author      = "Phantom.of.the.Server"
+pal.defaults= 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd     = Command.cmd
+cns     = Constants.cns
+st      = States/System.st
+st1     = States/Normal.st
+st2     = States/Specials.st
+st3     = States/Supers.st
+st4     = States/Helpers.st
+stcommon= common1.cns
+sprite  = Sprite.sff
+anim    = Anim.air
+sound   = Sound.snd
+pal1    = Palettes/Red.act
+pal2    = Palettes/SFZk.act
+pal3    = Palettes/MvC2a2.act
+pal4    = Palettes/MvC2hp.act
+pal5    = Palettes/SFZ3x2.act
+pal6    = Palettes/XvSF.act
+pal7    = Palettes/Blue.act
+pal8    = Palettes/GreenLantern.act
+pal9    = Palettes/Magneto.act
+pal10   = Palettes/Cammy.act
+pal11   = Palettes/Ryu.act
+pal12   = Palettes/Dark.act
+
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

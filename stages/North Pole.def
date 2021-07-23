@@ -1,0 +1,453 @@
+;Web : http://www.freewebs.com/sangkalaza/
+;My mail : sang_kalaza@yahoo.com
+
+[Info]
+name = "North Pole"
+author = "EX"
+;********************************
+[Camera]
+startx = 0
+starty = 0
+boundleft = -320
+boundright = 320
+boundhigh = -350
+boundlow = 0
+tension =50
+verticalfollow =.93
+floortension = 109
+;********************************
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+;********************************
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+;********************************
+[Bound]
+screenleft = 10
+screenright = 10
+;********************************
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0
+hires = 1
+;********************************
+[Shadow]
+intensity = 1
+color = 1,1,1
+yscale = .5
+reflect = 0
+;********************************
+[Music]
+bgmusic = stages/North Pole.mp3
+bgvolume = 255
+;********************************
+[BGdef]
+spr = stages/North Pole.sff
+debugbg = 0
+
+;===******===Background===******===
+[BG Background]
+type  = normal
+spriteno = 0,0
+start = 0,20
+delta = 2,1.5
+layerno = 0
+trans = none
+mask  = 0
+[BG Background]
+type  = normal
+spriteno = 0,1
+start = 0,20
+delta = 2,1.5
+layerno = 0
+trans = none
+mask  = 0
+[BG Background]
+type  = normal
+spriteno = 0,2
+start = 0,20
+delta = 2,1.5
+layerno = 0
+trans = none
+mask  = 0
+[BG Background]
+type  = normal
+spriteno = 0,3
+start = 0,20
+delta = 2,1.5
+layerno = 0
+trans = none
+mask  = 0
+
+;===******=== Snow ===******===
+[BG Snow1]
+type  = normal
+spriteno = 7,11
+start = 0,0
+delta = 1.3,1.3
+velocity = .5,.3
+mask = 0
+tile = 1,1
+trans = add
+sin.x = 9,390,0
+sin.y = 5,430,0
+[BG Snow1]
+type  = normal
+spriteno = 7,10
+start = 0,0
+delta = 1.3,1.3
+velocity = 1.6,.2
+mask = 0
+tile = 1,1
+trans = add
+sin.x = 14,290,0
+sin.y = 6,320,0
+[BG Snow1]
+type  = normal
+spriteno = 7,12
+start = 0,0
+delta = 2,2
+velocity = .6,.4
+mask = 0
+tile = 1,1
+trans = add
+sin.x = 9,320,0
+sin.y = 5,390,0
+
+[BG Snow2]
+type  = anim
+ID = 700
+actionno = 7
+start = 0,0
+delta = 2,2
+trans = add
+mask = 0
+tile = 0
+[BG Snow2]
+type  = anim
+ID = 701
+actionno = 7
+start = 0,0
+delta = 2,2
+trans = add
+mask = 0
+tile = 0
+
+[BG Snow3]
+type  = normal
+ID = 710
+spriteno = 7,1
+start = 0,0
+delta = 2,2
+mask = 0
+trans = add
+tile = 0
+[BG Snow3]
+type  = normal
+ID = 711
+spriteno = 7,1
+start = 0,0
+delta = 2,2
+mask = 0
+trans = add
+tile = 0
+[BG Snow3]
+type  = anim
+ID = 712
+actionno = 72
+start = 0,0
+delta = 2,2
+mask = 0
+trans = add1
+tile = 0
+[BG Snow3]
+type  = anim
+ID = 713
+actionno = 72
+start = 0,0
+delta = 2,2
+mask = 0
+trans = add1
+tile = 0
+
+[BG Snow4]
+type  = normal
+ID = 720
+spriteno = 7,2
+start = 0,0
+delta = 2,2
+mask = 0
+trans = add
+tile = 0
+layerno = 0
+[BG Snow4]
+type  = anim
+ID = 721
+actionno = 72
+start = 0,0
+delta = 2,2
+mask = 0
+trans = add
+tile = 0
+layerno = 0
+[BG Snow4]
+type  = anim
+ID = 722
+actionno = 72
+start = 0,0
+delta = 2,2
+mask = 0
+trans = add
+tile = 0
+layerno = 0
+
+[BG Snow5]
+type  = normal
+spriteno = 7,13
+start = 0,0
+delta = 2,2
+velocity = .8,.3
+mask = 0
+tile = 1,1
+trans = add
+sin.x = 11,270,0
+sin.y = 6,290,0
+layerno = 1
+
+[Begin action 7]
+7,0, 0,0, 12,,A
+7,0, 0,0, 12,V,A
+7,0, 0,0, 12,HV,A
+7,0, 0,0, 12,V,A
+
+[Begin action 72]
+7,2, 0,0, 24,,A
+7,2, 0,0, 24,V,A
+7,2, 0,0, 24,HV,A
+7,2, 0,0, 24,V,A
+
+[BGCtrlDef Snow0]
+looptime = -1
+ctrlID = 700, 701, 710, 711, 712, 713, 720, 721, 722
+
+[BGCtrl 700]
+type = posSet
+time = 0,0,1125
+ctrlID = 700
+x = -420
+y = -50
+[BGCtrl 700]
+type = velSet
+time = 0
+ctrlID = 700
+x = .8
+y = .4
+[BGCtrl 700]
+type = SinX
+time = 4
+ctrlID = 700
+value = 8,190,0
+[BGCtrl 700]
+type = SinY
+time = 31
+ctrlID = 700
+value = 9,135,0
+
+[BGCtrl 701]
+type = posSet
+time = 0,0,1325
+ctrlID = 701
+x = -620
+y = -120
+[BGCtrl 701]
+type = velSet
+time = 0
+ctrlID = 701
+x = .7
+y = .35
+[BGCtrl 701]
+type = SinX
+time = 4
+ctrlID = 701
+value = 10,210,0
+[BGCtrl 701]
+type = SinY
+time = 31
+ctrlID = 701
+value = 12,115,0
+
+[BGCtrl 710]
+type = posSet
+time = 0,0,1000
+ctrlID = 710
+x = -270
+y = -50
+[BGCtrl 710]
+type = velset
+time = 0
+ctrlID = 710
+x = .46
+y = .51
+[BGCtrl 710]
+type = SinX
+time = 0
+ctrlID = 710
+value = 20,120,0
+[BGCtrl 710]
+type = SinY
+time = 70
+ctrlID = 710
+value = 16,182,0
+
+[BGCtrl 711]
+type = posSet
+time = 0,0,1200
+ctrlID = 711
+x = -30
+y = -100
+[BGCtrl 711]
+type = velset
+time = 0
+ctrlID = 711
+x = .32
+y = .44
+[BGCtrl 711]
+type = SinX
+time = 10
+ctrlID = 711
+value = 13,180,0
+[BGCtrl 711]
+type = SinY
+time = 70
+ctrlID = 711
+value = 8,140,0
+
+[BGCtrl 712]
+type = posSet
+time = 0,0,850
+ctrlID = 712
+x = -430
+y = 0
+[BGCtrl 712]
+type = velset
+time = 0,0,850
+ctrlID = 712
+x = 1.12
+y = .47
+[BGCtrl 712]
+type = SinX
+time = 10
+ctrlID = 712
+value = 14,170,0
+[BGCtrl 712]
+type = SinY
+time = 17
+ctrlID = 712
+value = 9,114,0
+
+[BGCtrl 713]
+type = posSet
+time = 0,0,850
+ctrlID = 713
+x = -830
+y = -100
+[BGCtrl 713]
+type = velset
+time = 0,0,850
+ctrlID = 712
+x = 1.12
+y = .47
+[BGCtrl 713]
+type = SinX
+time = 10
+ctrlID = 713
+value = 16,150,0
+[BGCtrl 713]
+type = SinY
+time = 17
+ctrlID = 713
+value = 9,114,0
+
+[BGCtrl 720]
+type = posSet
+time = 0,0,800
+ctrlID = 720
+x = 200
+y = 0
+[BGCtrl 720]
+type = velset
+time = 0
+ctrlID = 720
+x = -.4
+y = .6
+[BGCtrl 720]
+type = SinX
+time = 10
+ctrlID = 720
+value = 7,105,0
+[BGCtrl 720]
+type = SinY
+time = 70
+ctrlID = 720
+value = 12,255,0
+
+[BGCtrl 721]
+type = posSet
+time = 0,0,1090
+ctrlID = 721
+x = -20
+y = -100
+[BGCtrl 721]
+type = velset
+time = 0
+ctrlID = 721
+x = -.37
+y = .53
+[BGCtrl 721]
+type = SinX
+time = 10
+ctrlID = 721
+value = 10,90,0
+[BGCtrl 721]
+type = SinY
+time = 70
+ctrlID = 721
+value = 11,101,0
+
+[BGCtrl 722]
+type = posSet
+time = 0,0,872
+ctrlID = 722
+x = -100
+y = -20
+[BGCtrl 722]
+type = velset
+time = 0
+ctrlID = 722
+x = -.27
+y = .63
+[BGCtrl 722]
+type = SinX
+time = 10
+ctrlID = 722
+value = 7,90,0
+[BGCtrl 722]
+type = SinY
+time = 70
+ctrlID = 722
+value = 7,121,0

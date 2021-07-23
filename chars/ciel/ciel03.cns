@@ -1,0 +1,3873 @@
+;==============================================================================
+;　アークドライブ＆ラストアーク
+;==============================================================================
+
+;==============================================================================
+;　第七聖典
+;==============================================================================
+[Statedef 2000]
+type     = S
+movetype = A
+physics  = S
+ctrl     = 0
+;anim     = 2000
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+[State -1, VarSet]
+Type = VarSet
+triggerall = PrevStateNo != 2002
+Trigger1 = time = 0
+V = 24
+Value = 0
+[State -1, VarSet]
+Type = VarAdd
+Trigger1 = 1
+V = 24
+Value = 1
+
+[State -1, VarSet]
+Type = VarSet
+trigger1 = time = 0
+V = 26
+Value = 1
+
+[State 1000, 1]
+type = ChangeAnim
+triggerall = PrevStateNo != 2002
+trigger1 = Time = 0
+value = 2000
+IgnoreHitPause = 1
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s15,0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+value = s3,3
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(27) = 0
+triggerAll = Name = "Ciel"
+value = s15,1
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s15,102
+
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time >= 41
+Trigger1 = time <= 101
+Add = 0,0,0
+Mul = 5,5,5
+Time = 1
+
+[State 106, Speed]
+type = Velset
+trigger1 = Time > 105
+trigger1 = Time < 126
+x = 7
+
+[State -1]
+Type = PowerAdd
+triggerall = PrevStateNo != 2002
+Trigger1 = AnimElem = 2
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-3000)
+
+[State -1]
+Type     = Helper
+triggerall = PrevStateNo != 2002
+Trigger1 = animelem = 2
+Stateno  = 6020
+ID       = 6020
+Pos      = 0,-70
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+triggerall = PrevStateNo != 2002
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "AD_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = SuperPause
+triggerall = PrevStateNo != 2002
+Trigger1 = animelem = 2
+Time     = 101
+MoveTime = 101
+sound    = s2,0
+Anim     = -1
+Darken   = 0
+
+[State 1000, 0]
+type = NotHitBy;HitOverride
+trigger1 = 1
+;time = 1
+Value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;stateno = 2002
+IgnoreHitPause = 1
+
+[State 220, Hit]
+type = HitDef
+trigger1 = animelemtime(28) = 0
+trigger2 = animelemtime(29) = 0
+trigger3 = animelemtime(30) = 0
+trigger4 = animelemtime(31) = 0
+trigger5 = animelemtime(32) = 0
+trigger6 = animelemtime(33) = 0
+trigger7 = animelemtime(34) = 0
+trigger8 = animelemtime(35) = 0
+trigger9 = animelemtime(36) = 0
+attr             = S, HA
+animtype         = Hard
+damage           = 30, 0
+getpower         = 0, 0
+HitFlag          = MAFD 
+guardflag        = M
+priority         = 3
+pausetime        = 4,12
+sparkno          = -1
+sparkxy          = -10,-70
+guard.sparkno    = s6005
+hitsound         = -1;s1, 2
+guardsound       = s1, 10
+ground.type      = High
+ground.slidetime = 12
+guard.slidetime  = 12
+ground.hittime   = 20
+ground.velocity  = -2
+guard.velocity   = -2
+air.velocity     = -2,0
+down.velocity    = -2,-.5
+air.fall         = 1
+fall.recover     = ifelse(P2Movetype = A,0,1)
+fall.recovertime = 200
+envshake.time = 6
+envshake.ampl = 4
+envshake.freq = 40
+P2facing = 1
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 4) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 5) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 6) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 7) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 8) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 9) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 4) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 5) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 6) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 7) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 8) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 9) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 3) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 4) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 5) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 6) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 7) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 8) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 9) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 620, Effect]
+type = Explod
+trigger1 = time = 28
+anim = 2002
+scale = 1,1
+postype = p1
+pos = 0,-26
+sprpriority = -2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2002
+persistent = 0
+[State 620, Effect]
+type = Explod
+trigger1 = time = 79
+anim = 2003
+scale = 1,1
+postype = p1
+pos = 0,-26
+sprpriority = -1
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2003
+persistent = 0
+[State 620, Effect]
+type = Explod
+trigger1 = time = 23
+anim = 2011
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2011
+persistent = 0
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 39
+anim = 2012
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2012
+persistent = 0
+[State -1]
+Type     = Helper
+Trigger1 = time = [58,78]
+Stateno  = 2007
+ID       = 2007
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 12
+Stateno  = 2004
+ID       = 2004
+Pos      = 0,-88
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+facing   = ifelse(facing= 1,1,-1)
+persistent = 0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = MoveContact
+V = 23
+Value = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = var(23) = 1
+trigger1 = animelem = 38
+value = 2001
+[State 200, Change]
+type = ChangeState
+trigger1 = var(24) >= 194;animtime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;　第七聖典　紋章
+;------------------------------------------------------------------------------
+[Statedef 2004]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,12]
+Anim = 2004
+ID = 2004
+Postype = p1
+Pos = 0,0 
+scale = 5-0.36*time,5-0.36*time
+Ownpal = 0
+SprPriority = 4
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [13,35]
+Anim = 2004
+ID = 2004
+Postype = p1
+Pos = 0,0 
+scale = 0.7,0.7
+Ownpal = 0
+SprPriority = 4
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [13,35]
+Anim = 2004
+ID = 2005
+Postype = p1
+Pos = 0,0 
+scale = 0.908+0.016*time,0.908+0.016*time
+Ownpal = 0
+SprPriority = 5
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, VarSet7]
+Type = VarAdd
+Trigger1 = time >= 25
+V = 7
+value = 25
+
+[State 960, Color Gradation]
+type = Palfx
+trigger1 = time > 25
+add = ceil(-var(7)),ceil(-var(7)),ceil(-var(7))
+time = 1
+IgnoreHitPause = 1
+Persistent = 1
+
+[State 960, Color Gradation]
+type = Palfx
+trigger1 = time > 40
+add = ceil(-statetime*1.5),ceil(-statetime*1.5),ceil(-statetime*1.5)
+time = 1
+IgnoreHitPause = 1
+Persistent = 1
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 35
+
+;------------------------------------------------------------------------------
+;　第七聖典　羽
+;------------------------------------------------------------------------------
+[Statedef 2007]
+Type = A
+Physics = N
+SprPriority = 3
+Anim = 2007
+
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 41
+Range    = -40,20
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 42
+Range    = -80,80
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 43
+Range    = 2,5
+
+[State -1]
+Type     = PosAdd
+Trigger1 = time = 0
+x = Var(42)
+y = Var(41)
+
+[State -1]
+Type     = Trans
+Trigger1 = 1
+Trans    = Add
+
+[State -1]
+Type     = AngleDraw
+Trigger1 = 1
+Scale    = 0.1*var(43),0.1*var(43)
+
+[State -1, VarSet7]
+Type = VelSet
+trigger1 = time = 0
+x = -1.3
+y = 0.22
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 44
+Range    = -20,20
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 45
+Range    = -20,20
+
+[State 620, Effect]
+type = Explod
+trigger1 = time = 0
+anim = 2007
+scale = 0.1*var(43),0.1*var(43)
+postype = p1
+pos = -var(44),var(45)
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2007
+[State 620, Effect]
+type = Explod
+trigger1 = time = 0
+anim = 2007
+scale = 0.1*var(43),0.1*var(43)
+postype = p1
+pos = -var(45),var(44)
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2007
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 100
+;------------------------------------------------------------------------------
+;　第七聖典　HIT
+;------------------------------------------------------------------------------
+[Statedef 2001]
+type     = S
+movetype = A
+physics  = S
+ctrl     = 0
+
+[State -1, VarSet]
+Type = VarSet
+triggerall = PrevStateNo != 2002
+Trigger1 = time = 0
+V = 24
+Value = 0
+[State -1, VarSet]
+Type = VarAdd
+Trigger1 = 1
+V = 24
+Value = 1
+
+[State -1, VarSet]
+Type = VarSet
+trigger1 = time = 0
+V = 26
+Value = 2
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(7) = 0
+triggerAll = Name = "Ciel"
+value = s15,2
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(7) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s15,105
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(8) = 1
+value = s3,4
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(8) = 0
+value = s3,5
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(8) = 0
+value = s3,6
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(21) = 0
+value = s3,2
+
+[State 1000, 1]
+type = ChangeAnim
+triggerall = PrevStateNo != 2002
+trigger1 = Time = 0
+value = 2001
+IgnoreHitPause = 1
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 7
+Stateno  = 6020
+ID       = 6020
+Pos      = 0,-40
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 7
+Stateno = ifelse(Name="Chie_Rumiko",8010,8010)
+ID = 8010
+Name = "AD_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 8
+anim = 2008
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2002
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 8
+anim = 2010
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2002
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 8
+anim = 2009
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 3
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2003
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 28
+anim = 2012
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2012
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 8
+anim = 2005
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2005
+
+[State 220, Hit]
+type = HitDef
+trigger1 = animelemtime(8) = 0
+attr             = S, HA
+animtype         = Hard
+damage           = 200, 0
+getpower         = 0, 0
+HitFlag          = MAFD 
+guardflag        = H
+priority         = 3
+pausetime        = 4,4
+sparkno          = -1
+sparkxy          = -10,-70
+guard.sparkno    = s6005
+hitsound         = s1, 5
+guardsound       = s1, 10
+ground.type      = High
+ground.slidetime = 12
+ground.hittime   = 20
+ground.velocity  = -2
+air.velocity     = -2,0
+guard.velocity   = -2
+down.velocity    = -2
+envshake.time = 6
+envshake.ampl = 4
+envshake.freq = 40
+P2stateno     = 2020
+
+[State -2]
+Type     = PlaySnd
+Trigger1 = P2StateNo = 2021
+Value    = 2, 1
+Persistent = 0
+
+[State 1000, 0]
+type = NotHitBy;HitOverride
+trigger1 = 1
+;time = 1
+Value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;stateno = 2002
+IgnoreHitPause = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = var(24) >= 137;AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　第七聖典　アーマー（？）
+;==============================================================================
+[Statedef 2002]
+type     = S
+movetype = H
+physics  = S
+ctrl     = 0
+
+[State -1,]
+Type = PalFX
+Trigger1 = 1
+Time = 1
+Add = 150,0,0
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, HitOverRide]
+type = NotHitBy
+Trigger1 = 1
+time = 1
+Value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+
+[State -1, Change]
+type = ChangeState
+trigger1 = var(26) = 1
+;Trigger1 = HitShakeOver = 1
+trigger1 = time >= 1
+value = 2000
+[State -1, Change]
+type = ChangeState
+trigger1 = var(26) = 2
+;Trigger1 = HitShakeOver = 1
+trigger1 = time >= 1
+value = 2001
+[State -1, Change]
+type = ChangeState
+trigger1 = var(26) = 3
+;Trigger1 = HitShakeOver = 1
+trigger1 = time >= 1
+value = 2050
+[State -1, Change]
+type = ChangeState
+trigger1 = var(26) = 4
+;Trigger1 = HitShakeOver = 1
+trigger1 = time >= 1
+value = 2051
+
+;------------------------------------------------------------------------------
+;　第七聖典　敵
+;------------------------------------------------------------------------------
+[Statedef 2020]
+Type     = A
+MoveType = H
+Physics  = N
+Ctrl     = 0
+VelSet   = 0,0
+
+[State -1, VelSet] 
+Type = VelSet
+Trigger1 = time = 0
+X = -9
+Y = -2
+
+[State -1, Gravity];VelAdd]
+Type = VelAdd
+Trigger1 = 1
+Y = 0.14
+
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Value = 6211
+
+[State -1, ChangeState]
+type = ChangeState
+TriggerAll = ((FrontEdgeDist <= 3) || (BackEdgeDist <= 3))
+Trigger1 = 1
+Value = 2021
+
+;------------------------------------------------------------------------------
+;　敵　終了１
+;------------------------------------------------------------------------------
+[Statedef 2021]
+Type     = A
+MoveType = H
+Physics  = N
+Ctrl     = 0
+VelSet   = 0,0
+
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Value = 5035
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 0
+X = 0
+Y = 0
+
+[State -1, EnvShake]
+Type = EnvShake
+Trigger1 = Time = 0
+Time  = 10
+Ampl  = 5
+Freq  = 90
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 2
+X = 0
+Y = -3
+
+[State -1, Gravity];VelAdd]
+Type = Gravity;VelAdd
+Trigger1 = Time >= 3
+;Y = 0.36
+
+[State -1, SelfState]
+Type = ChangeState
+Trigger1 = (Vel Y > 0) && (Pos Y >= 0)
+Value = 2022
+
+;------------------------------------------------------------------------------
+;　敵　終了１
+;------------------------------------------------------------------------------
+[Statedef 2022]
+type    = L
+movetype= H
+physics = N
+
+[State 5110, EnvShake]
+type = FallEnvShake
+trigger1 = Time = 0
+
+[State 5110, 0]
+type = ChangeAnim
+persistent = 0
+trigger1 = time = 0
+value = 5110
+
+[State 5110, 5]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 5110, 8]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State -1, SelfState]
+Type = SelfState
+Trigger1 = Enemy,AuthorName = "Shiroto" && Enemy,Name = "Ciel" && Enemy,StateNo != 2001
+Trigger2 = EnemyNear,AuthorName = "Shiroto" && EnemyNear,Name = "Ciel" && EnemyNear,StateNo != 2001
+Trigger3 = Enemy,AuthorName = "Shiroto" && Enemy,Name = "Chie_Rumiko" && Enemy,StateNo != 2001
+Trigger4 = EnemyNear,AuthorName = "Shiroto" && EnemyNear,Name = "Chie_Rumiko" && EnemyNear,StateNo != 2001
+Trigger5 = StateTime >= 1000
+Value = 5120
+
+;==============================================================================
+;　第七聖典・原罪救済
+;==============================================================================
+[Statedef 2050]
+type     = S
+movetype = A
+physics  = S
+ctrl     = 0
+;anim     = 2000
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+[State -1, VarSet]
+Type = VarSet
+triggerall = PrevStateNo != 2002
+Trigger1 = time = 0
+V = 24
+Value = 0
+[State -1, VarSet]
+Type = VarAdd
+Trigger1 = 1
+V = 24
+Value = 1
+
+[State -1, VarSet]
+Type = VarSet
+trigger1 = time = 0
+V = 26
+Value = 3
+
+[State 1000, 1]
+type = ChangeAnim
+triggerall = PrevStateNo != 2002
+trigger1 = Time = 0
+value = 2000
+IgnoreHitPause = 1
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s15,0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s15,102
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+value = s3,3
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(27) = 0
+triggerAll = Name = "Ciel"
+value = s15,1
+
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time >= 41
+Trigger1 = time <= 101
+Add = 0,0,0
+Mul = 5,5,5
+Time = 1
+
+[State 106, Speed]
+type = Velset
+trigger1 = Time > 105
+trigger1 = Time < 126
+x = 7
+
+[State -1]
+Type = PowerAdd
+triggerall = PrevStateNo != 2002
+Trigger1 = AnimElem = 2
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,ifelse(Name="Chie_Rumiko",-5000,-3000))
+
+[State -1]
+Type     = Helper
+triggerall = PrevStateNo != 2002
+Trigger1 = animelem = 2
+Stateno  = 6020
+ID       = 6020
+Pos      = 0,-70
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+triggerall = PrevStateNo != 2002
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "AD_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = SuperPause
+triggerall = PrevStateNo != 2002
+Trigger1 = animelem = 2
+Time     = 101
+MoveTime = 101
+sound    = s2,0
+Anim     = -1
+Darken   = 0
+
+[State 1000, 0]
+type = NotHitBy;HitOverride
+trigger1 = 1
+;time = 1
+Value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;stateno = 2002
+IgnoreHitPause = 1
+
+[State 220, Hit]
+type = HitDef
+trigger1 = animelemtime(28) = 0
+trigger2 = animelemtime(29) = 0
+trigger3 = animelemtime(30) = 0
+trigger4 = animelemtime(31) = 0
+attr             = S, HA
+animtype         = Hard
+damage           = 10, 0
+getpower         = 0, 0
+HitFlag          = MAF 
+guardflag        = M
+priority         = 3
+pausetime        = 4,12
+sparkno          = -1
+sparkxy          = -10,-70
+guard.sparkno    = s6005
+hitsound         = -1;s1, 2
+guardsound       = s1, 10
+ground.type      = High
+ground.slidetime = 12
+ground.hittime   = 20
+ground.velocity  = -2
+air.velocity     = -2,0
+envshake.time = 6
+envshake.ampl = 4
+envshake.freq = 40
+P2facing = 1
+
+[State 220, Hit]
+type = HitDef
+trigger1 = animelemtime(32) = 0
+attr             = S, HA
+animtype         = Hard
+damage           = 10, 0
+getpower         = 0, 0
+HitFlag          = MAF 
+guardflag        = M
+priority         = 3
+pausetime        = 4,12
+sparkno          = -1
+sparkxy          = -10,-70
+guard.sparkno    = s6005
+hitsound         = -1;s1, 2
+guardsound       = s1, 10
+ground.type      = High
+ground.slidetime = 12
+ground.hittime   = 20
+ground.velocity  = -2
+air.velocity     = -2,0
+envshake.time = 6
+envshake.ampl = 4
+envshake.freq = 40
+P2facing = 1
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 4) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 5) && (MoveHit))
+value = s1, 2
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 4) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 5) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 3) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 4) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 5) && (MoveHit))
+Stateno = 6003
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-45+random%30
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 620, Effect]
+type = Explod
+trigger1 = time = 28
+triggerall = PrevStateNo != 2002
+anim = 2002
+scale = 1,1
+postype = p1
+pos = 0,-26
+sprpriority = -2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2002
+[State 620, Effect]
+type = Explod
+trigger1 = time = 79
+anim = 2003
+scale = 1,1
+postype = p1
+pos = 0,-26
+sprpriority = -1
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2003
+[State 620, Effect]
+type = Explod
+trigger1 = time = 109
+anim = 2052
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2003
+[State 620, Effect]
+type = Explod
+trigger1 = time = 23
+anim = 2011
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2011
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 39
+anim = 2012
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2012
+[State -1]
+Type     = Helper
+Trigger1 = time = [58,78]
+Stateno  = 2007
+ID       = 2007
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 12
+Stateno  = 2004
+ID       = 2004
+Pos      = 0,-88
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = NumTarget > 0
+Trigger1 = MoveHit
+V = 23
+Value = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = var(23) = 1
+trigger1 = animelem = 34
+value = 2051
+[State 200, Change]
+type = ChangeState
+trigger1 = var(24) >= 194;animtime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;　第七聖典・原罪救済　HIT
+;------------------------------------------------------------------------------
+[Statedef 2051]
+type     = S
+movetype = A
+physics  = S
+ctrl     = 0
+
+[State 1000, 1]
+type = ChangeAnim
+triggerall = PrevStateNo != 2002
+trigger1 = Time = 0
+value = 2050
+IgnoreHitPause = 1
+
+[State -1, VarSet]
+Type = VarSet
+triggerall = PrevStateNo != 2002
+Trigger1 = time = 0
+V = 24
+Value = 0
+[State -1, VarSet]
+Type = VarAdd
+Trigger1 = 1
+V = 24
+Value = 1
+
+[State -1, VarSet]
+Type = VarSet
+trigger1 = time = 0
+V = 26
+Value = 4
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(6) = 0
+triggerAll = Name = "Ciel"
+value = s15,3
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(6) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s15,103
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(29) = 1
+value = s3,4
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(129) = 2
+value = s3,2
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(101) = 0
+value = s3,6
+
+[State 9001, 3]
+type = targetstate
+trigger1 = animelemtime(1) = 0
+value = 2070
+[State 9001, 3]
+type = targetbind
+trigger1 = time <= 38
+pos = 40,0
+[State 9001, 3]
+type = targetbind
+trigger1 = time = 39
+pos = 38,-50
+[State 9001, 3]
+type = targetbind
+trigger1 = time = 40
+pos = 31,-80
+[State 9001, 3]
+type = targetbind
+trigger1 = time = 41
+pos = 24,-110
+[State 9001, 3]
+type = targetbind
+trigger1 = time = 41
+pos = 12,-135
+[State 9001, 3]
+type = targetbind
+trigger1 = time = 46
+pos = 6,-160
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(29) = 0
+trigger2 = AnimElemTime(32) = 0
+trigger3 = AnimElemTime(35) = 0
+trigger4 = AnimElemTime(38) = 0
+trigger5 = AnimElemTime(41) = 0
+trigger6 = AnimElemTime(44) = 0
+trigger7 = AnimElemTime(47) = 0
+trigger8 = AnimElemTime(50) = 0
+trigger9 = AnimElemTime(53) = 0
+trigger10 = AnimElemTime(56) = 0
+trigger11 = AnimElemTime(59) = 0
+trigger12 = AnimElemTime(62) = 0
+trigger13 = AnimElemTime(65) = 0
+value = s1,2
+channel = 5
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(29) = 0
+trigger2 = AnimElemTime(32) = 0
+trigger3 = AnimElemTime(35) = 0
+trigger4 = AnimElemTime(38) = 0
+trigger5 = AnimElemTime(41) = 0
+trigger6 = AnimElemTime(44) = 0
+trigger7 = AnimElemTime(47) = 0
+trigger8 = AnimElemTime(50) = 0
+trigger9 = AnimElemTime(53) = 0
+trigger10 = AnimElemTime(56) = 0
+trigger11 = AnimElemTime(59) = 0
+trigger12 = AnimElemTime(62) = 0
+trigger13 = AnimElemTime(65) = 0
+trigger14 = AnimElemTime(101) = 0
+value = s3,9
+channel = 6
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(101) = 0
+value = s1,5
+channel = 5
+
+[State 1203, 5]
+type = Envshake
+trigger1 = AnimElemTime(29) = 0
+trigger2 = AnimElemTime(32) = 0
+trigger3 = AnimElemTime(35) = 0
+trigger4 = AnimElemTime(38) = 0
+trigger5 = AnimElemTime(41) = 0
+trigger6 = AnimElemTime(44) = 0
+trigger7 = AnimElemTime(47) = 0
+trigger8 = AnimElemTime(50) = 0
+trigger9 = AnimElemTime(53) = 0
+trigger10 = AnimElemTime(56) = 0
+trigger11 = AnimElemTime(59) = 0
+trigger12 = AnimElemTime(62) = 0
+trigger13 = AnimElemTime(65) = 0
+time = 5
+freq = 255
+ampl = -8
+
+[State 2101, hitadd]
+type = HitAdd
+trigger1 = AnimElemTime(29) = 0
+trigger2 = AnimElemTime(32) = 0
+trigger3 = AnimElemTime(35) = 0
+trigger4 = AnimElemTime(38) = 0
+trigger5 = AnimElemTime(41) = 0
+trigger6 = AnimElemTime(44) = 0
+trigger7 = AnimElemTime(47) = 0
+trigger8 = AnimElemTime(50) = 0
+trigger9 = AnimElemTime(53) = 0
+trigger10 = AnimElemTime(56) = 0
+trigger11 = AnimElemTime(59) = 0
+trigger12 = AnimElemTime(62) = 0
+trigger13 = AnimElemTime(65) = 0
+trigger14 = AnimElemTime(101) = 0
+value = 1
+
+[State 3000]
+type = targetlifeadd
+trigger1 = AnimElemTime(29) = 0
+trigger2 = AnimElemTime(32) = 0
+trigger3 = AnimElemTime(35) = 0
+trigger4 = AnimElemTime(38) = 0
+trigger5 = AnimElemTime(41) = 0
+trigger6 = AnimElemTime(44) = 0
+trigger7 = AnimElemTime(47) = 0
+trigger8 = AnimElemTime(50) = 0
+trigger9 = AnimElemTime(53) = 0
+trigger10 = AnimElemTime(56) = 0
+trigger11 = AnimElemTime(59) = 0
+trigger12 = AnimElemTime(62) = 0
+trigger13 = AnimElemTime(65) = 0
+value = ceil(-39 * fvar(21) * fvar(22))
+kill = 0
+
+[State 3000]
+type = targetlifeadd
+trigger1 = AnimElemTime(101) = 0
+value = ceil(-39 * fvar(21) * fvar(22))
+kill = 1
+
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(29) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(32) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(35) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(38) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(44) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(47) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(50) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(53) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(56) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(59) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(62) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(65) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(68) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+trigger1 = AnimElemTime(101) = 0
+Stateno = 6004
+ID = 6010
+Name = "HitSpark"
+Pos = -5+random%10,-5+random%10
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 9001, 3]
+type = targetstate
+trigger1 = animelemtime(101) = 0
+value = 2071
+
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 6
+anim = 2055
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2055
+[State 620, Effect]
+type = Explod
+trigger1 = AnimElemTime(29) = 0
+trigger2 = AnimElemTime(32) = 0
+trigger3 = AnimElemTime(35) = 0
+trigger4 = AnimElemTime(38) = 0
+trigger5 = AnimElemTime(41) = 0
+trigger6 = AnimElemTime(44) = 0
+trigger7 = AnimElemTime(47) = 0
+trigger8 = AnimElemTime(50) = 0
+trigger9 = AnimElemTime(53) = 0
+trigger10 = AnimElemTime(56) = 0
+trigger11 = AnimElemTime(59) = 0
+trigger12 = AnimElemTime(62) = 0
+trigger13 = AnimElemTime(65) = 0
+trigger14 = AnimElemTime(101) = 0
+anim = 2053
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 4
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2053
+[State 620, Effect]
+type = Explod
+trigger1 = AnimElemTime(29) = 0
+trigger2 = AnimElemTime(32) = 0
+trigger3 = AnimElemTime(35) = 0
+trigger4 = AnimElemTime(38) = 0
+trigger5 = AnimElemTime(41) = 0
+trigger6 = AnimElemTime(44) = 0
+trigger7 = AnimElemTime(47) = 0
+trigger8 = AnimElemTime(50) = 0
+trigger9 = AnimElemTime(53) = 0
+trigger10 = AnimElemTime(56) = 0
+trigger11 = AnimElemTime(59) = 0
+trigger12 = AnimElemTime(62) = 0
+trigger13 = AnimElemTime(65) = 0
+trigger14 = AnimElemTime(101) = 0
+anim = 2054
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 3
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2053
+[State 620, Effect]
+type = Explod
+trigger1 = animelem = 135
+anim = 2012
+scale = 1,1
+postype = p1
+pos = 0,0
+sprpriority = 2
+supermove = 1
+bindtime = -1
+ownpal = 1
+ID = 2012
+
+[State 1000, 0]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 2002
+IgnoreHitPause = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = var(24) >= 387;AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;　第七聖典　敵
+;------------------------------------------------------------------------------
+[Statedef 2070]
+Type     = A
+MoveType = H
+Physics  = N
+Ctrl     = 0
+VelSet   = 0,0
+
+[State -1, Gravity]
+Type = VelSet
+Trigger1 = 1
+Y = 0
+X = 0
+
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Value = 2051
+
+[State -1, ScreenBound]
+Type = ScreenBound
+Trigger1 = 1
+Value = 1
+MoveCamera = 0,0
+
+[State -1]
+Type     = AngleSet
+Trigger1 = time = [38,39]
+Value    = -18
+[State -1]
+Type     = AngleSet
+Trigger1 = time = [40,41]
+Value    = -36
+[State -1]
+Type     = AngleSet
+Trigger1 = time = [42,43]
+Value    = -54
+[State -1]
+Type     = AngleSet
+Trigger1 = time = [44,45]
+Value    = -72
+[State -1]
+Type     = AngleSet
+Trigger1 = time > 45
+Value    = 270
+[State -1]
+Type     = AngleDraw
+Trigger1 = time > 38
+
+
+;------------------------------------------------------------------------------
+;　敵　終了
+;------------------------------------------------------------------------------
+[Statedef 2071]
+Type     = A
+MoveType = H
+Physics  = N
+Ctrl     = 0
+VelSet   = 0,0
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Trigger1 = AnimExist(5071) = 1
+Value = 5071
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Trigger1 = AnimExist(5071) != 1
+Value = 5070
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Anim = 5071
+Trigger1 = animtime = 0
+Value = 5070
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 0
+X = 0
+Y = -24
+
+[State -1, ScreenBound]
+Type = ScreenBound
+Trigger1 = 1
+Value = 1
+MoveCamera = 0,0
+
+[State -1, Gravity];VelAdd]
+Type = VelAdd
+Trigger1 = Time >= 0
+Y = 0.6
+
+[State -1, SelfState]
+Type = SelfState
+Trigger1 = (Vel Y > 0) && (Pos Y >= 15)
+Value = 5110
+anim = 5111
+
+;==============================================================================
+;　？
+;==============================================================================
+[Statedef 2100]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 2100
+poweradd = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Ciel"
+value = s15,4
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s15,100
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+value = s3,3
+
+[State -1]
+Type = PowerAdd
+Trigger1 = animelemtime(4) = 0
+Value = -3000
+
+[State -1]
+Type     = Helper
+Trigger1 = animelemtime(4) = 0
+Stateno  = 6020
+ID       = 6020
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelemtime(4) = 0
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time >= 41
+Trigger1 = time <= 101
+Add = 0,0,0
+Mul = 5,5,5
+Time = 1
+
+[State -1]
+Type     = SuperPause
+Trigger1 = animelemtime(4) = 2
+Time     = 101
+MoveTime = 101
+sound    = s2,0
+Anim     = -1
+Darken   = 0
+
+[State -1]
+Type     = Helper
+Trigger1 = time = 51
+Stateno  = 2004
+ID       = 2004
+Pos      = 0,-88
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 221, SE]
+type = PlaySnd
+trigger1 = time = 133
+trigger2 = time = 183
+trigger3 = time = 233
+value = s1,9
+
+[State -1,Effect]
+Type = Explod
+Trigger1 = time = 133
+trigger2 = time = 183
+trigger3 = time = 233
+Anim = 167
+ID = 167
+PosType = P1
+Pos = 0,-65
+OwnPal = 1
+SprPriority = 8
+BindTime = -1
+
+[State -2, LifeAdd]
+Type = LifeAdd
+Trigger1 = GameTime % 2 = 0
+Value = 4
+
+[State 200, Change]
+type = ChangeState
+trigger1 = time = 283
+value = 2101
+ctrl = 1
+[State 200, Change]
+type = ChangeState
+triggerall = time > 110
+trigger1 = command = "a"
+trigger2 = command = "b"
+trigger3 = command = "c"
+value = 2101
+
+;------------------------------------------------------------------------------
+;　？
+;------------------------------------------------------------------------------
+[Statedef 2101]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 2101
+poweradd = 0
+
+[State 200, Change]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　火葬式典
+;==============================================================================
+[Statedef 2200]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1120
+;velset   = 0,0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = ifelse(var(33)<=-1 || power >= 5000 || (var(1) = 1 && Var(2) = [6,7]),1,0)
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = time = [0,5]
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 1
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,ifelse(Name="Chie_Rumiko" && Var(23)=1,-5000,-3000))
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 1
+Stateno  = 6020
+ID       = 6020
+Pos      = 3,-54
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 1
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+
+[State -1, 移動速度]
+type = VelSet
+trigger1 = Time = [0,4]
+x = 0
+y = 0
+
+[State -1, 移動速度]
+type = VelSet
+trigger1 = Time = [4,13]
+trigger2 = Time = [31,40]
+trigger3 = Time = [55,64]
+x = -0.5
+y = -2
+[State -1, 移動速度]
+type = VelSet
+trigger1 = Time = [22,31]
+trigger2 = Time = [44,53]
+trigger3 = Time = [68,77]
+x = -0.7
+y = -2
+
+[State 753, 速度加算]
+type = VelSet
+trigger1  = animelemtime(41) = 0
+y = -3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s16,0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s15,101
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+trigger2 = AnimElemTime(14) = 0
+trigger3 = AnimElemTime(24) = 0
+trigger4 = AnimElemTime(10) = 0
+trigger5 = AnimElemTime(19) = 0
+trigger6 = AnimElemTime(29) = 0
+trigger7 = AnimElemTime(41) = 0
+trigger8 = AnimElemTime(41) = 1
+value = s3,1
+channel = 2
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+trigger2 = AnimElemTime(14) = 0
+trigger3 = AnimElemTime(24) = 0
+Stateno = 2201
+ID = 2201
+Name = "attack"
+Pos = 30,-36
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(10) = 0
+trigger2 = AnimElemTime(19) = 0
+trigger3 = AnimElemTime(29) = 0
+Stateno = 2201
+ID = 2201
+Name = "attack"
+Pos = 12,-31
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+trigger2 = AnimElemTime(41) = 1
+Stateno = 2202
+ID = 2201
+Name = "attack"
+Pos = 8,-26
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+trigger2 = AnimElemTime(41) = 1
+Stateno = 2202
+ID = 2201
+Name = "attack"
+Pos = 16,-36
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+trigger2 = AnimElemTime(41) = 1
+Stateno = 2202
+ID = 2201
+Name = "attack"
+Pos = 23,-43
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+trigger2 = AnimElemTime(41) = 1
+Stateno = 2202
+ID = 2201
+Name = "attack"
+Pos = 38,-47
+PosType = P1
+Ownpal = 1
+
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time >= 1
+Add = 0,0,0
+Mul = 5,5,5
+Time = 1
+;==============================================================================
+;　？
+;==============================================================================
+[Statedef 2300]
+type     = S
+movetype = A
+physics  = N
+ctrl     = 0
+velset   = 0,0
+anim     = 2300
+juggle   = 7
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = ifelse(var(33)<=-1,1,0)
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 24
+Value = 0
+
+[State -1,PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1,=0
+triggerAll = Name = "Ciel"
+value = 14,0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElem = 1,=0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,114
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 2
+Value = -3000
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 2
+Stateno  = 6020
+ID       = 6020
+Pos      = 3,-54
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 9999
+length = 9
+TimeGap  = 2
+FrameGap = 3
+palbright = 0,0,0
+palcontrast = 100,100,100
+palpostbright = 0,0,0
+paladd = -30,-30,-30
+palmul = 0.75,0.75,0.75
+trans = add1
+
+[State -1,NotHitBy]
+type = NotHitBy
+trigger1 = Time = 0
+value = SCA
+time = 8
+
+[State -1, velset ]
+type = velset 
+trigger1 = AnimElem = 5
+x = 8.5
+
+[State -1,PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 3,=0
+value = 2,9
+
+[State -1, Hit]
+type = HitDef
+trigger1 = Time = 0
+attr              = S, HT
+damage            = 0, 0
+animtype          = hard
+hitflag           = MAF
+guardflag         = M
+priority          = 3, Miss
+pausetime         = 1,1
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = s1, 4
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 14
+ground.hittime    = 40
+ground.velocity   = 0,-4
+air.velocity      = -4.5,-7
+air.cornerpush.veloff = 0
+yaccel            = 0.4
+kill              = 1
+air.fall          = 1
+fall.recover      = 0
+p2facing          = 1
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+getpower          = 0, 0
+p1stateno = 2301
+p2stateno = 2303
+;p2getp1state = 1
+;palfx.time = 15*var(34)
+;palfx.add = 255,255,255
+;palfx.mul = 130,130,130
+
+[State 105, VelMul]
+type = VelMul
+trigger1 = AnimElem = 7,>= 0
+x = .95
+
+[State -1, velset ]
+type = velset 
+trigger1 = AnimElem = 25
+x = 0
+
+[State -1,StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 17
+movetype = I
+
+[State -1, AfterImageTime]
+type = AfterImageTime
+Trigger1 = Animtime = 0
+Time = 0
+
+[State -1, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;　成功
+;------------------------------------------------------------------------------
+[Statedef 2301]
+type     = S
+movetype = A
+physics  = N
+anim     = 2301
+ctrl     = 0
+velset   = 0, 0
+
+
+[State -1, TargetBind]
+type = TargetBind
+trigger1 = 1
+pos = 45,0
+
+[State -1, TargetState]
+type = TargetState
+trigger1 = AnimElem = 1 || AnimElem = 9 || AnimElem = 26 || AnimElem = 42
+value = 2303
+
+[State -1, TargetState]
+type = TargetState
+trigger1 = AnimElem = 3 || AnimElem = 16 || AnimElem = 35 || AnimElem = 51
+value = 2304
+
+[State -1, HitAdd]
+type = HitAdd
+trigger1 = AnimElem =  3 || AnimElem =  9 || AnimElem = 16
+trigger2 = AnimElem = 26 || AnimElem = 35 || AnimElem = 42
+trigger3 = AnimElem = 51
+value = 1
+
+[State -1]
+Type = Helper
+trigger1 = AnimElem =  3 || AnimElem =  9 || AnimElem = 16
+trigger2 = AnimElem = 26 || AnimElem = 35 || AnimElem = 42
+trigger3 = AnimElem = 51
+Stateno = 6003
+ID = 6003
+Name = "HitSpark"
+Pos = 0,-77
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 6
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 9 || AnimElem = 26 || AnimElem = 42
+value = 1,1
+
+[State -1,PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 3 || AnimElem = 35 || AnimElem = 51
+value = 1,0
+
+[State -1,PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 16 
+value = 1,6
+
+[State 3110,TargetLifeAdd]
+type = TargetLifeAdd
+trigger1 = AnimElem =  3 || AnimElem =  9 || AnimElem = 16
+trigger2 = AnimElem = 26 || AnimElem = 35 || AnimElem = 42
+trigger3 = AnimElem = 51
+value = -40
+kill = 0
+
+[State 3005, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 2302
+ctrl = 0
+
+;------------------------------------------------------------------------------
+;　終了
+;------------------------------------------------------------------------------
+[Statedef 2302]
+type     = S
+movetype = A
+physics  = N
+anim     = 212
+ctrl     = 0
+velset   = 0, 0
+
+[State -1,PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1,=0
+value = 1,0
+
+[State 1506, TargetState]
+type = TargetState
+trigger1 = AnimElem = 1,=0 
+value = 213
+
+[State 808, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 808, スクロール]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 1,0
+
+[State 811, Bind-1]
+type = TargetBind
+trigger1 = animelemTime(1) = 0
+pos = 68,-74
+
+[State -2]
+Type     = PlaySnd
+Trigger1 = P2StateNo = 6001
+Value    = 2, 1
+Persistent = 0
+
+[State 3112, HitAdd]
+type = HitAdd
+trigger1 = AnimElem = 8,=4 || Animelem = 1, =0
+value = 1
+
+[State 3110,TargetLifeAdd]
+type = TargetLifeAdd
+trigger1 = AnimElem = 1,=4
+value = -40
+kill = 1
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6004
+ID = 6004
+Name = "HitSpark"
+Pos = 0,-65
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 811, Bind-1]
+type = TargetBind
+trigger1 = time = 26
+pos = 68,0
+
+[State 106, Speed]
+type = Velset
+trigger1 = Time = 28
+x = -6
+
+[State 106, Speed]
+type = Velset
+trigger1 = Time = 42
+x = 0
+
+[State 106, Speed]
+type = Velset
+trigger1 = Time = 59
+x = -6
+
+[State -1, AfterImageTime]
+type = AfterImageTime
+Trigger1 = AnimElem = 16
+Time = 0
+
+[State -1, VarSet]
+Type = VarSet
+;Trigger1 = Command = "236236236236+c"
+Trigger1 = Var(23) = 1
+Trigger1 = Time >= 0
+Trigger1 = Time <= 42
+V = 24
+Value = 1
+
+[State -1]
+type = ChangeState
+value = 2350
+trigger1 = Var(24) != 0
+trigger1 = AnimTime = 0
+
+[State 106, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 107
+
+;------------------------------------------------------------------------------
+;　相手１
+;------------------------------------------------------------------------------
+[Statedef 2303]
+type = S
+movetype = H
+physics = N
+ctrl = 0
+velset = 0, 0
+
+[State -1, PosSet]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State -1, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State -1, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State -1, screenbound]
+type = screenbound
+Trigger1 = 1
+value = 1
+movecamera = 0,0
+
+[State -1, ChangeAnim2]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 5002
+
+[State -1, ChangeAnim2]
+type = ChangeAnim
+trigger1 = anim = 5002 && AnimTime = 0
+value = 5007
+
+[State -1, End]
+type = SelfState
+trigger1 = Time >= 38
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;　相手２
+;------------------------------------------------------------------------------
+[Statedef 2304]
+type     = S
+movetype = H
+physics  = N
+ctrl     = 0
+velset   = 0, 0
+
+[State 52, PosSet]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State -1, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State -1, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State -1, screenbound]
+type = screenbound
+Trigger1 = 1
+value = 1
+movecamera = 0,0
+
+[State -1, ChangeAnim2]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 5012
+persistent = 0
+
+[State -1, ChangeAnim2]
+type = ChangeAnim
+trigger1 = anim = 5012 && AnimTime = 0
+value = 5017
+
+[State -1, End]
+type = SelfState
+trigger1 = Time >= 38
+value = 0
+ctrl = 1
+
+
+;==============================================================================
+;　？
+;==============================================================================
+[Statedef 2350]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 40
+poweradd = 0
+
+[State -1, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s14,1
+[State -1, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,118
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1]
+Type     = Helper
+Trigger1 = time = 0
+Stateno  = 6020
+ID       = 6020
+Pos      = 0,-35
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time >= 36
+Add = 0,0,0
+Mul = 5,5,5
+Time = 1
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = time = 0
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = SuperPause
+Trigger1 = time = 0
+Time     = 40
+MoveTime = 40
+sound    = s2,0
+Anim     = -1
+Darken   = 0
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = anim = 40
+trigger1 = AnimTime = 0
+value = 1201
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = Time = 6
+StateType = A
+Physics = A
+;------------------------------------------------------------------------------
+; ？　その２
+;------------------------------------------------------------------------------
+;[Statedef 2351]
+;type     = A
+;physics  = A
+;ctrl     = 0
+;anim     = 1201
+;poweradd = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = time = 6
+value = s2,11
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = anim = 1201
+trigger1 = time = 6
+x = -10
+y = -10
+
+[State 200, Change]
+type = ChangeAnim;State
+trigger1 = anim = 1201
+trigger1 = BackEdgeDist <= 10
+;trigger1 = time >= 22
+value = 1222
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+trigger1 = anim = 1222
+trigger1 = BackEdgeDist <= 10
+StateType = A
+Physics = N
+
+;------------------------------------------------------------------------------
+; ？　その３
+;------------------------------------------------------------------------------
+;[Statedef 2352]
+;type     = A
+;physics  = N
+;ctrl     = 0
+;anim     = 1222
+;poweradd = 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = anim = 1222
+trigger1 = animelemtime(1) = 0
+x = 0
+y = 0
+
+[State 200, Change]
+type = ChangeState
+trigger1 = anim = 1222
+trigger1 = animtime = 0
+value = 2354
+
+;------------------------------------------------------------------------------
+;　？　終了
+;------------------------------------------------------------------------------
+[Statedef 2354]
+type    = S
+physics = S
+ctrl = 0
+anim = 1205
+
+[State -1, TargetState]
+type = TargetState
+trigger1 = time = 0
+value = 1335
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 2
+
+[State 52, 2]
+type = PosAdd
+trigger1 = Time = 0
+x = ceil(P2BodyDist X)+150
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 4]
+type = ChangeAnim
+trigger1 = ((Anim = 1205) && (AnimTime = 0))
+value = 1332
+
+[State 3201, BGInvert]
+type = BGPalFX
+trigger1 = time <= 130
+time = 1
+ignorehitpause = 1
+add = 512,512,512
+
+[State 3201, PalFX]
+type = PalFX
+trigger1 = time <= 130
+time = 1
+mul = 0,0,0
+
+[State -1, Helper3]
+Type = Helper
+trigger1 = ((Anim = 1332) && (AnimElemTime(3) = 10))
+trigger2 = ((Anim = 1332) && (AnimElemTime(3) = 16))
+trigger3 = ((Anim = 1332) && (AnimElemTime(3) = 23))
+trigger4 = ((Anim = 1332) && (AnimElemTime(3) = 29))
+trigger5 = ((Anim = 1332) && (AnimElemTime(3) = 36))
+trigger6 = ((Anim = 1332) && (AnimElemTime(3) = 43))
+trigger7 = ((Anim = 1332) && (AnimElemTime(3) = 50))
+Stateno = 2355
+ID = 2355
+Name = "attack"
+Pos = 0,0
+PosType = P2
+Ownpal = 1
+
+[State 52, 4]
+type = ChangeState
+trigger1 = ((Anim = 1332) && (AnimTime = 0))
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　？　攻撃
+;==============================================================================
+[Statedef 2355]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1333
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = 1
+attr              = A, HP
+damage            = ceil(24 * parent,fvar(22)), 0
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 5
+ground.hittime    = 15
+ground.velocity   = -3
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+p2stateno   = 1336
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State 2200, V.Sion Sound]
+type = Null;PlaySnd
+Trigger1 = MoveHit = 1
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 41
+Range    = -30,30
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 42
+Range    = -30,30
+
+[State -1]
+Type = Helper
+trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6004
+ID = 6004
+Name = "HitSpark"
+Pos = 0+ceil(var(41)),-60+ceil(var(42))
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = AnimTime = 0
+
+
+;==============================================================================
+;　式典乱舞（仮）
+;==============================================================================
+[Statedef 3000]
+type     = A
+movetype = A
+physics  = N
+ctrl     = 0
+anim     = 1208
+;velset   = 0,0
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1]
+type = Gravity
+trigger1 = time >= 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.5
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s10,2
+[State -1, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s22,105
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+value = s3,1
+
+[State -1]
+Type = PowerAdd
+Trigger1 = animelem = 2
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-ifelse(Name="Chie_Rumiko",-5000,-3000))
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 2
+Stateno  = 6020
+ID       = 6020
+Pos      = 0,-30
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1651
+ID = 1651
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1652
+ID = 1651
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1653
+ID = 1651
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+
+[State -1]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = ifelse((P2StateNo != [3001,3002]),0,3003)
+ctrl = 1
+
+;------------------------------------------------------------------------------
+; 相手側
+;------------------------------------------------------------------------------
+[Statedef 3001]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+sprpriority = 2
+
+[State -1, PalFX]
+type = PalFX
+trigger1 = time < 140
+time = 1
+color = 0
+add = 40,40,40
+ignorehitpause = 1
+
+[State -1, PalFX]
+type = PalFX
+trigger1 = time >= 140
+trigger1 = Time % 2 = 0
+time = 1
+color = 0
+add = 35,35,35
+ignorehitpause = 1
+
+[State -1]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State -1]
+type = changeanim2
+trigger1 = time = 0
+value = 1654
+
+[State -1]
+type = changestate
+trigger1 = time = 160
+value = 1656
+
+;------------------------------------------------------------------------------
+;　相手側　空中
+;------------------------------------------------------------------------------
+[Statedef 3002]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+sprpriority = 2
+
+[State -1]
+type = veladd
+trigger1 = time >= 0
+y = .3
+
+[State -1]
+type = PalFX
+trigger1 = 1
+time = 1
+color = 0
+add = 40,40,40
+ignorehitpause = 1
+
+[State -1]
+type = PalFX
+trigger1 = time >= 70
+trigger1 = Time % 2 = 0
+time = 1
+color = 0
+add = 35,35,35
+ignorehitpause = 1
+
+[State -1]
+type = changeanim2
+trigger1 = time = 0
+value = 1654
+
+[State -1]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 3001
+
+;------------------------------------------------------------------------------
+;　式典乱舞２
+;------------------------------------------------------------------------------
+[Statedef 3003]
+type     = S
+Movetype = A
+physics  = S
+ctrl     = 0
+anim     = 3003
+poweradd = 0
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State -1]
+type = Velset
+trigger1 = time = 0
+y = 0
+
+[State -1, Helper1]
+Type = Helper
+trigger1 = AnimElemTime(11) = 0
+trigger2 = AnimElemTime(25) = 0
+trigger3 = AnimElemTime(48) = 0
+trigger4 = AnimElemTime(66) = 0
+trigger5 = AnimElemTime(85) = 0
+trigger6 = AnimElemTime(103) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = 0,-56
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper2]
+Type = Helper
+trigger1 = AnimElemTime(20) = 0
+trigger2 = AnimElemTime(57) = 0
+trigger3 = AnimElemTime(94) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = 19,-119
+PosType = P1
+Ownpal = 1
+[State -1, Helper2]
+Type = Helper
+trigger1 = AnimElemTime(22) = 0
+trigger2 = AnimElemTime(59) = 0
+trigger3 = AnimElemTime(96) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = 45,-53
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(42) = 0
+trigger2 = AnimElemTime(79) = 0
+trigger3 = AnimElemTime(116) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = 0,-73
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(42) = 0
+trigger2 = AnimElemTime(79) = 0
+trigger3 = AnimElemTime(116) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = -12,-58
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(124) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = -9,-46
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(123) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = 9,-49
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(124) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = -34,-27
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(124) = 0
+Stateno = 3004
+ID = 3004
+Name = "attack"
+Pos = -9,-44
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper1]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = 0,-56
+PosType = P1
+Ownpal = 1
+[State -1, Helper2]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = 19,-119
+PosType = P1
+Ownpal = 1
+[State -1, Helper3]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = 45,-101
+PosType = P1
+Ownpal = 1
+[State -1, Helper4]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = 0,-73
+PosType = P1
+Ownpal = 1
+[State -1, Helper5]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = -12,-154
+PosType = P1
+Ownpal = 1
+[State -1, Helper6]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = -9,-82
+PosType = P1
+Ownpal = 1
+[State -1, Helper7]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = 9,-49
+PosType = P1
+Ownpal = 1
+[State -1, Helper8]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = -34,-140
+PosType = P1
+Ownpal = 1
+[State -1, Helper9]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = -9,-169
+PosType = P1
+Ownpal = 1
+[State -1, Helper10]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = -11,-82
+PosType = P1
+Ownpal = 1
+[State -1, Helper11]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = 11,-128
+PosType = P1
+Ownpal = 1
+[State -1, Helper12]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = 20,-38
+PosType = P1
+Ownpal = 1
+[State -1, Helper13]
+Type = Helper
+trigger1 = AnimElemTime(136) = 0
+Stateno = 3005
+ID = 3005
+Name = "attack"
+Pos = -6,-14
+PosType = P1
+Ownpal = 1
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(11) = 0
+trigger2 = AnimElemTime(25) = 0
+trigger3 = AnimElemTime(48) = 0
+trigger4 = AnimElemTime(66) = 0
+trigger5 = AnimElemTime(85) = 0
+trigger6 = AnimElemTime(103) = 0
+trigger7 = AnimElemTime(20) = 0
+trigger8 = AnimElemTime(59) = 0
+trigger9 = AnimElemTime(96) = 0
+trigger10 = AnimElemTime(42) = 0
+trigger11 = AnimElemTime(79) = 0
+trigger12 = AnimElemTime(116) = 0
+trigger13 = AnimElemTime(124) = 0
+trigger14 = AnimElemTime(136) = 0
+value = s3,1
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(25) = 0
+triggerAll = Name = "Ciel"
+value = s30,0
+[State 200, Sound]
+type = Null;PlaySnd
+trigger1 = AnimElemTime(48) = 0
+triggerAll = Name = "Ciel"
+value = s30,1
+[State 200, Sound]
+type = Null;PlaySnd
+trigger1 = AnimElemTime(48) = 0
+triggerAll = Name = "Ciel"
+value = s30,2
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(59) = 0
+triggerAll = Name = "Ciel"
+value = s31,3
+[State 200, Sound]
+type = Null;PlaySnd
+trigger1 = AnimElemTime(66) = 0
+triggerAll = Name = "Ciel"
+value = s31,4
+[State 200, Sound]
+type = Null;PlaySnd
+trigger1 = AnimElemTime(79) = 0
+triggerAll = Name = "Ciel"
+value = s31,5
+[State 200, Sound]
+type = Null;PlaySnd
+trigger1 = AnimElemTime(85) = 0
+triggerAll = Name = "Ciel"
+value = s31,6
+[State 200, Sound]
+type = Null;PlaySnd
+trigger1 = AnimElemTime(96) = 0
+triggerAll = Name = "Ciel"
+value = s31,7
+[State 200, Sound]
+type = Null;PlaySnd
+trigger1 = AnimElemTime(103) = 0
+triggerAll = Name = "Ciel"
+value = s31,8
+[State 200, Sound]
+type = Null;PlaySnd
+trigger1 = AnimElemTime(116) = 0
+triggerAll = Name = "Ciel"
+value = s31,9
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(124) = 0
+triggerAll = Name = "Ciel"
+value = s31,10
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(25) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s20,100
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 3006
+;------------------------------------------------------------------------------
+;　式典乱舞　ラスト
+;------------------------------------------------------------------------------
+[Statedef 3006]
+Type      = S
+movetype  = A
+Physics   = S
+Ctrl      = 0
+Anim      = 3006
+PowerAdd  = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s14,9
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s15,105
+
+[State 1000, 0]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = time = [45,52]
+X = 28
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = time = 53
+X = 0
+
+[State -1]
+Type     = Null;Helper
+Trigger1 = time = 52
+Stateno  = 203
+Ownpal   = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 1
+attr              = A, HA
+damage            = 120, 0
+animtype          = light
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+getpower          = 0, 0
+pausetime         = 4,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 5
+ground.hittime    = 15
+ground.velocity   = 0
+airguard.velocity = -1,-2
+air.velocity      = 0,0
+kill              = 0
+fall              = 0
+air.fall          = 0
+fall.recover      = 1
+p2stateno   = 1336
+
+[State -1,NoGuard]
+type = Null;AssertSpecial
+trigger1 = 1
+flag = unguardable
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = animelem = 17
+Trigger1 = enemynear,movetype = H
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1]
+Type = Helper
+Trigger1 = animelem = 17
+Trigger1 = enemynear,movetype = H
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = animelem = 17
+Trigger1 = enemynear,movetype = H
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-55
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = animelem = 17
+Trigger1 = enemynear,movetype = H
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 3201, PalFX]
+type = PalFX
+Trigger1 = enemynear,movetype = H
+trigger1 = Time > 56
+time = 1
+mul = 0,0,0
+
+[State 3201, BGInvert]
+type = BGPalFX
+Trigger1 = enemynear,movetype = H
+trigger1 = Time > 56
+time = 1
+ignorehitpause = 1
+add = 512,512,512
+
+[State -1]
+Type     = Helper
+Trigger1 = AnimElem = 12
+Stateno  = 1426
+Pos      = 36, 5
+Ownpal   = 1
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1

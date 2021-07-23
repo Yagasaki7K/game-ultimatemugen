@@ -1,0 +1,36 @@
+; Definition file for Maximov, by Ex-Inferis  - version 4, 150%
+; http://mugenexus.cjb.net
+
+
+; Player information
+[Info]
+name = "Demitri-Ex"               
+displayname = "Demitri EX"
+versiondate = 31,12,2003   
+mugenversion = 04,14,2001  
+author = "ex-inferis"      
+pal.defaults = 1,4,2,3     
+
+
+[Files]
+cmd       = SvcVampiro.cmd   
+cns       = SvcVampiro.cns   
+st        = SvcVampiro.cns   
+st1       = especiais.st
+st2       = supers.st
+st3       = paralisa.st
+st4       = fatais.st
+st5       = ilusionista.cns
+st6       = Mbliss.st
+stcommon  = common1.cns   
+sprite    = SvcVampiro.sff   
+anim      = SvcVampiro.air   
+sound     = SvcVampiro.snd  
+pal1      = paleta1.act 
+pal2      = paleta2.act 
+pal3      = paleta3.act
+pal4      = demon.act
+pal5      = zumbi.act
+pal6      = paleta4.act
+pal7      = paleta5.act
+pal8      = paleta6.act

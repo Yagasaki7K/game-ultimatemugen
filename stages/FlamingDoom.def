@@ -1,0 +1,146 @@
+[Info]
+name ="FlamingDoom"
+author = "FlamingRedHead"
+
+[Camera]
+startx =0
+starty =0
+boundleft  = -40 ;Å¶
+boundright = 70 ;Å¶
+boundhigh  = -60 ;Å¶
+boundlow   = 0
+verticalfollow = .2
+floortension = 50
+tension =50
+
+
+[PlayerInfo]
+p1startx =-80
+p1starty =0
+p1startz =0
+p1facing =1
+
+p2startx =80
+p2starty =0
+p2startz =0
+p2facing =-1
+
+leftbound =-370
+rightbound =370
+topbound =0
+botbound =0
+
+
+[Scaling]
+topz =0
+botz =50
+topscale =1
+botscale =1
+
+
+[Bound]
+screenleft  =3
+screenright =3
+
+
+[StageInfo]
+zoffset  = 230
+autoturn = 1
+resetBG  = 1
+
+
+[Shadow]
+intensity = 0
+
+
+[Reflection]
+intensity = 3
+
+
+[Music]
+bgmusic  =
+bgvolume = 40
+
+;----------------------------------------------------
+[BGdef]
+spr =FlamingDoom.sff
+debugbg = 0
+
+
+[BG 0]
+type =normal
+spriteno =0,0
+start = 0,0
+delta = 1, 1 ;Å¶
+window = 0,0, 639,479
+
+[BG 0.B]
+type =normal
+spriteno =3,0
+start = 0,0
+delta = 1, 1 ;Å¶
+window = 0,0, 639,479
+tile = 1,0
+velocity = 3,0
+trans = add
+layerno = 1
+
+[BG 0.C]
+type =normal
+spriteno =3,0
+start = 0,0
+delta = 1, 1 ;Å¶
+window = 0,0, 639,479
+tile = 1,0
+velocity = -3,0
+trans = add
+
+[BG 0.D]
+type = normal
+spriteno = 5,0
+start = 0,0
+delta = 1,1
+trans = add
+mask = 1
+tile = 1,1
+velocity = 0.6,-0.6
+layerno = 1
+
+[BG 0.E]
+type = normal
+spriteno = 6,0
+start = 0,0
+delta = 1,1
+trans = add
+mask = 1
+tile = 1,1
+velocity = -0.5,-0.5
+layerno = 1
+
+[BG 0.F]
+type =normal
+spriteno =11,0
+start = 0,0
+delta = 1, 1 ;Å¶
+window = 0,0, 639,479
+tile = 1,0
+velocity = -1,-0.0
+trans = add
+
+[BG 0.G]
+type =normal
+spriteno =12,0
+start = 0,0
+delta = 1, 1 ;Å¶
+window = 0,0, 639,479
+tile = 1,0
+velocity = 1,-0.0
+trans = add
+
+[BG Floor]
+type  = normal
+spriteno = 10,0
+start = 0, 294
+delta = 1,1 ;Å¶
+mask = 1
+trans = add

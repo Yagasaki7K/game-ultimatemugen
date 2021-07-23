@@ -1,0 +1,45 @@
+;=======================================;
+;           {character name}            ;
+;             for WinMUGEN              ;
+;     http://www.scruffydragon.com/     ;
+;=======================================;
+
+[Info]
+name ="Colossus"
+displayname ="Colossus"
+versiondate =04,14,2001
+mugenversion =04,14,2001
+author ="ZVitor"
+pal.defaults =1
+
+[Files]
+sprite   =Template.sff
+anim     =Template.air
+sound    =Template.snd
+stcommon =common1.cns
+cmd      =Template.cmd
+cns      =Template.cns
+st       =basics.st
+pal1=pal1.act
+pal2=pal2.act
+pal3=pal3.act
+pal4=pal4.act
+pal5=pal5.act
+pal6=pal6.act
+st1=specials.st
+st2=hypers.st
+st3=overrides.st
+
+
+;-----------------------
+;  DCvM Template Files
+;      provided by
+;       Buyog2099
+;(based on MEE template
+;  by Kitsune Sniper)
+;         ***
+;   Thanks, Kitsune!
+;-----------------------
+[Arcade]
+intro.storyboard=
+ending.storyboard=../data/Ending01.def

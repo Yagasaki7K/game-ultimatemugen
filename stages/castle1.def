@@ -1,0 +1,142 @@
+;come from NBC
+;sprites rip by Wuwo 
+;By Misamu
+;homepage:http://mugenchina.net
+;-----------------------------------------------------------------------------------------------------------
+[Info]
+;name = "CHINA 2003 NOON"
+;name = "#^"
+name = "NBC Castle-1"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -224
+boundright = 224
+boundhigh = -112
+boundlow = 0
+verticalfollow = .2
+tension = 50
+
+[PlayerInfo]
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1.0
+botscale = 1.2
+
+[Bound]
+screenleft = 25  
+screenright = 25
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0
+HIres = 1
+
+[Shadow]
+color = 38,38,38
+yscale = .15
+
+[Music]
+bgmusic = sound/The Prodigy - Breathe (Instrumental).mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/castle1.sff
+debugbg = 0
+
+[BG bgbottom]
+type  = normal
+spriteno = 2,0
+start = 0,0
+delta = 1,1.8 
+MASK=1
+
+[BG bg0]
+type  = normal
+spriteno = 0,0
+start = 0,0
+delta = 2,2 ;Å¶
+MASK=1
+
+
+[BG bg1charaA]
+type  = anim
+actionno = 2
+start = 0,0
+delta = 2,2 ;Å¶
+MASK=1
+
+[Begin action 2]
+3,9,0,0,9
+3,0,0,0,9
+
+[BG bg1charaB]
+type  = anim
+actionno = 3
+start = 0,0
+delta = 2,2 ;Å¶
+MASK=1
+
+[Begin action 3]
+3,9,0,0,9
+3,1,0,0,9
+
+
+[BG bg1charaC]
+type  = anim
+actionno = 4
+start = 0,0
+delta = 2,2 ;Å¶
+MASK=1
+
+[Begin action 4]
+4,0,0,0,9
+4,1,0,0,9
+4,2,0,0,9
+4,3,0,0,9
+4,4,0,0,9
+
+[BG bg1charad]
+type  = anim
+actionno = 5
+start = 0,0
+delta = 2,2 ;Å¶
+MASK=1
+
+[Begin action 5]
+5,0,0,0,9
+5,1,0,0,9
+5,2,0,0,9
+5,3,0,0,9
+5,4,0,0,9
+
+[BG bg1charae]
+type  = anim
+actionno = 6
+start = 0,0
+delta = 2,2 ;Å¶
+MASK=1
+
+[Begin action 6]
+6,0,0,0,9
+6,1,0,0,9
+6,2,0,0,9
+6,3,0,0,9
+6,4,0,0,9

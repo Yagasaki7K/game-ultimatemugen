@@ -1,0 +1,286 @@
+[Info]
+name = "KofXI - America"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -224
+boundright = 224
+boundhigh = -112
+boundlow = 0
+verticalfollow = .3
+tension = 60
+floortenstion = 30
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 222
+autoturn = 1
+resetBG = 0
+HIres = 1
+
+[Shadow]
+color = 128,128,128    
+yscale = .2
+reflect = 0
+
+[Music]
+bgmusic = sound/4-Overseer-Velocity Shift.mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/AmericaXI.sff
+debugbg = 1
+
+[BG Sky]
+
+type = normal
+spriteno =17,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 1.5, 1.8
+
+[BG Building]
+
+type = normal
+spriteno =15,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 1.8, 2
+
+[BG Building1]
+
+type = normal
+spriteno =16,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 1.85, 2
+
+[BG Building2]
+
+type = normal
+spriteno =16,1
+start = 0, 240
+trans = none
+mask  = 1
+delta = 1.85, 2
+
+[BG Shop]
+
+type = normal
+spriteno =8,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 1.9, 1.9
+
+[BG 1]
+
+type = normal
+spriteno =0,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG 2]
+
+type = normal
+spriteno =1,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG 3]
+
+type = normal
+spriteno =2,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG 4]
+
+type = normal
+spriteno =3,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG 5]
+
+type = normal
+spriteno =4,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG 6]
+
+type = normal
+spriteno =5,0
+start = 0, 240
+trans = none
+mask  = 1
+delta = 2, 2
+
+[BG Sign]
+type  = anim
+actionno = 1
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 1]
+9,0,0,0,9
+9,1,0,0,9
+9,0,0,0,9
+9,0,0,0,9
+9,1,0,0,9
+9,0,0,0,9
+9,1,0,0,8
+9,0,0,0,8
+9,1,0,0,8
+9,0,0,0,2
+9,1,0,0,2
+9,0,0,0,2
+9,1,0,0,2
+
+[BG Guy1]
+type  = anim
+actionno = 4
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 4]
+14,0,0,0,16
+14,1,0,0,16
+14,2,0,0,16
+14,3,0,0,16
+14,4,0,0,16
+14,5,0,0,16
+14,6,0,0,16
+14,7,0,0,16
+14,0,0,0,16
+14,1,0,0,16
+14,2,0,0,16
+14,3,0,0,16
+14,4,0,0,16
+14,5,0,0,16
+14,6,0,0,16
+14,7,0,0,16
+14,0,0,0,16
+14,1,0,0,16
+14,2,0,0,16
+14,3,0,0,16
+14,4,0,0,16
+14,5,0,0,16
+14,6,0,0,16
+14,7,0,0,16
+14,0,0,0,10
+14,1,0,0,8
+14,2,0,0,10
+14,3,0,0,12
+14,4,0,0,14
+14,5,0,0,16
+14,6,0,0,16
+14,7,0,0,16
+
+[BG Woman1]
+type  = anim
+actionno = 2
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 2]
+10,0,0,0,13
+10,1,0,0,13
+10,2,0,0,13
+10,3,0,0,13
+10,4,0,0,13
+10,5,0,0,13
+10,6,0,0,13
+10,7,0,0,13
+
+[BG Woman2]
+type  = anim
+actionno = 3
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 3]
+11,0,0,0,13
+11,1,0,0,13
+11,2,0,0,13
+11,3,0,0,13
+11,4,0,0,13
+11,5,0,0,13
+11,6,0,0,13
+11,7,0,0,13
+
+[BG Head]
+type  = anim
+actionno = 5
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 5]
+18,0,0,0,14
+18,1,0,0,14
+18,2,0,0,14
+18,3,0,0,14
+18,4,0,0,14
+18,5,0,0,14
+18,6,0,0,14
+18,7,0,0,14
+
+[BG Head]
+type  = anim
+actionno = 6
+start =0, 240
+mask=1
+delta = 2, 2
+
+[Begin action 6]
+19,0,0,0,14
+19,1,0,0,14
+19,2,0,0,14
+19,3,0,0,14
+19,4,0,0,14
+19,5,0,0,14
+19,6,0,0,14
+19,7,0,0,14

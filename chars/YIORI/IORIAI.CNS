@@ -1,0 +1,18 @@
+[statedef -3]     ;iori 95~2k2+SVC  ver 1.0
+
+[State -3, 1]     ;AI level
+type = varset
+trigger1 = roundstate = 0
+var(58) = 4      ;0 - baby , 1 - beginner , 2 - normal
+                 ;3 - expert(AI don't use dodge)
+                 ;4 - expert(AI use dodge)
+
+
+[State -3, 1]     ;AI striker bar(or player striker) ON/OFF option
+type = varset
+trigger1 = roundstate = 0
+var(59) = -2     ;1 - AI use striker bar.
+                 ;0 - AI don't use striker bar.
+                 ;-1 - AI never use striker(&striker bar).
+                 ;-2 - striker isn't available(Both player & AI)
+                 ;     & command "a+y" is 2k2 mode.

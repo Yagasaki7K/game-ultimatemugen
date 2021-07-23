@@ -1,0 +1,935 @@
+;===========================================================================
+; ヘルパー
+;===========================================================================
+
+;---------------------------------------------------------------------------
+; ガード判定用
+;---------------------------------------------------------------------------
+[Statedef 9000]
+type		= A
+movetype	= A
+physics		= N
+sprpriority	= -4
+anim		= 9999
+
+[State 9000, BindToRoot]
+type		= BindToRoot
+trigger1	= 1
+pos			= 0, -1
+
+[State 9000, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA, AA, AT, AP
+time		= 2
+
+[State 9000, AttackDist]
+type		= AttackDist
+trigger1	= 1
+value		= 150
+
+[State 9000, Turn]
+type		= Turn
+trigger1	= Facing = Root,Facing
+
+[State 9000, DestroySelf]
+type		= DestroySelf
+triggerall	= IsHelper
+trigger1	= !Root,Alive
+trigger2	= Root,MoveType != A
+trigger3	= StateNo != 200
+trigger3	= StateNo != 250
+trigger3	= StateNo != 380
+trigger3	= StateNo != 670
+trigger3	= StateNo != 675
+trigger3	= StateNo != 700
+trigger3	= StateNo != 710
+trigger3	= StateNo != 1200
+trigger3	= StateNo != 1210
+trigger3	= StateNo != 1300
+trigger3	= StateNo != 1310
+trigger3	= StateNo != 1370
+trigger3	= StateNo != 1650
+trigger3	= StateNo != 2200
+trigger3	= StateNo != 2300
+trigger3	= StateNo != 2370
+trigger3	= StateNo != 2650
+trigger3	= StateNo != 4000
+trigger4	= StateNo = 200
+trigger4	= AnimElemTime(3) >= 0
+trigger5	= StateNo = 250
+trigger5	= AnimElemTime(6) >= 0
+trigger6	= StateNo = 380
+trigger6	= AnimElemTime(13) >= 0
+trigger7	= StateNo = 670
+trigger7	= AnimElemTime(4) >= 0
+trigger8	= StateNo = 675
+trigger8	= AnimElemTime(4) >= 0
+trigger9	= StateNo = 700
+trigger9	= AnimElemTime(7) >= 0
+trigger10	= StateNo = 710
+trigger10	= AnimElemTime(7) >= 0
+trigger11	= StateNo = 1200
+trigger11	= AnimElemTime(9) >= 0
+trigger12	= StateNo = 1210
+trigger12	= AnimElemTime(10) >= 0
+trigger13	= StateNo = 1300
+trigger13	= AnimElemTime(10) >= 0
+trigger14	= StateNo = 1310
+trigger14	= AnimElemTime(12) >= 0
+trigger15	= StateNo = 1370
+trigger15	= AnimElemTime(6) >= 0
+trigger16	= StateNo = 1650
+trigger16	= AnimElemTime(7) >= 0
+trigger17	= StateNo = 2200
+trigger17	= AnimElemTime(10) >= 0
+trigger18	= StateNo = 2300
+trigger18	= AnimElemTime(12) >= 0
+trigger19	= StateNo = 2370
+trigger19	= AnimElemTime(6) >= 0
+trigger20	= StateNo = 2650
+trigger20	= AnimElemTime(7) >= 0
+trigger21	= StateNo = 4000
+trigger21	= AnimElemTime(18) >= 0
+
+
+
+;---------------------------------------------------------------------------
+; １ゲージ暗転エフェクト
+;---------------------------------------------------------------------------
+[Statedef 9100]
+type		= A
+movetype	= I
+physics		= N
+velset		= 0, 0
+poweradd	= 0
+anim		= 9999
+
+[State 9100, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA
+time		= 1
+
+[State 9100, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoShadow
+[State 9100, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoFG
+flag2		= NoBG
+
+[State 9100, Sound]
+type		= PlaySnd
+trigger1	= Time = 0
+value		= 2, 8
+volume		= 200
+[State 9100, BGPalFx]
+type		= BGPalFx
+trigger1	= Time = 0
+time		= 30
+mul			= 80, 80, 80
+[State 9100, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6200
+facing		= 1
+postype		= p1
+pos			= 0, 0
+sprpriority	= -2
+scale		= 1, 1
+ownpal		= 1
+bindtime		= 1
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove	= 1
+[State 9100, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6201
+facing		= 1
+postype		= p1
+pos			= 0, 0
+sprpriority	= 5
+scale		= 1, 1
+ownpal		= 1
+bindtime		= 1
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove	= 1
+
+[State 9100, DestroySelf]
+type		= DestroySelf
+trigger1	= Time > 30
+
+
+;---------------------------------------------------------------------------
+; ２ゲージ暗転エフェクト
+;---------------------------------------------------------------------------
+[Statedef 9110]
+type		= A
+movetype	= I
+physics		= N
+velset		= 0, 0
+poweradd	= 0
+anim		= 9999
+
+[State 9110, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA
+time		= 1
+
+[State 9110, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoShadow
+[State 9110, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoFG
+flag2		= NoBG
+
+[State 9110, Sound]
+type		= PlaySnd
+trigger1	= Time = 0
+value		= 2, 9
+volume		= 200
+[State 9110, BGPalFx]
+type		= BGPalFx
+trigger1	= Time = 0
+time		= 30
+mul			= 80, 80, 80
+[State 9110, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6210
+facing		= 1
+postype		= p1
+pos			= 0, 0
+sprpriority	= -2
+scale		= 1, 1
+ownpal		= 1
+bindtime		= 1
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove	= 1
+[State 9110, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6211
+facing		= 1
+postype		= p1
+pos			= 0, 0
+sprpriority	= 5
+scale		= 1, 1
+ownpal		= 1
+bindtime		= 1
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove	= 1
+
+[State 9110, DestroySelf]
+type		= DestroySelf
+trigger1	= Time > 30
+
+
+;---------------------------------------------------------------------------
+; ３ゲージ暗転エフェクト
+;---------------------------------------------------------------------------
+[Statedef 9120]
+type		= A
+movetype	= I
+physics		= N
+velset		= 0, 0
+poweradd	= 0
+anim		= 9999
+
+[State 9120, NotHitBy]
+type		= NotHitBy
+trigger1	= 1
+value		= SCA
+time		= 1
+
+[State 9120, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoShadow
+[State 9120, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoFG
+flag2		= NoBG
+
+[State 9120, Sound]
+type		= PlaySnd
+trigger1	= Time = 0
+value		= 2, 10
+volume		= 200
+[State 9120, BGPalFx]
+type		= BGPalFx
+trigger1	= Time = 0
+time		= 30
+mul			= 80, 80, 80
+[State 9120, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6220
+facing		= 1
+postype		= p1
+pos			= 0, 0
+sprpriority	= -2
+scale		= 1, 1
+ownpal		= 1
+bindtime		= 1
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove	= 1
+[State 9120, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6221
+facing		= 1
+postype		= p1
+pos			= 0, 0
+sprpriority	= 5
+scale		= 1, 1
+ownpal		= 1
+bindtime		= 1
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 99999
+supermovetime	= 99999
+supermove	= 1
+
+[State 9120, DestroySelf]
+type		= DestroySelf
+trigger1	= Time > 30
+
+
+;---------------------------------------------------------------------------
+; スーパーキャンセル表示
+;---------------------------------------------------------------------------
+[Statedef 9200]
+type		= A
+movetype	= I
+physics		= N
+ctrl		= 0
+velset		= 0, 0
+ownpal		= 1
+anim		= 9999
+
+[State 9200, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoShadow
+[State 9200, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoFG
+flag2		= NoBG
+
+[State 9200, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6250
+facing		= 1
+postype		= right
+pos			= 0, 75
+sprpriority	= 5
+scale		= 0.5, 0.5
+ownpal		= 1
+bindtime		= 68
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 68
+supermovetime	= 68
+supermove	= 1
+persistent	= 0
+
+[State 9200, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6250
+facing		= 1
+postype		= right
+pos			= 0, 75
+sprpriority	= 5
+scale		= 0.5, 0.5
+ownpal		= 1
+bindtime		= 68
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 68
+supermovetime	= 68
+supermove	= 1
+persistent	= 0
+
+[State 9200, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6251
+facing		= 1
+postype		= right
+pos			= 0, 75
+sprpriority	= 5
+scale		= 0.5, 0.5
+ownpal		= 1
+bindtime		= 68
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 68
+supermovetime	= 68
+supermove	= 1
+persistent	= 0
+
+[State 9200, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6252
+facing		= 1
+postype		= right
+pos			= 0, 75
+sprpriority	= 5
+scale		= 0.5, 0.5
+ownpal		= 1
+bindtime		= 68
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 68
+supermovetime	= 68
+supermove	= 1
+persistent	= 0
+trans		= addalpha
+alpha		= 128, 128
+
+[State 9200, DestroySelf]
+type		= DestroySelf
+trigger1	= Time >= 68
+
+
+;---------------------------------------------------------------------------
+; ドリームキャンセル表示
+;---------------------------------------------------------------------------
+[Statedef 9210]
+type		= A
+movetype	= I
+physics		= N
+ctrl		= 0
+velset		= 0, 0
+ownpal		= 1
+anim		= 9999
+
+[State 9210, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoShadow
+[State 9210, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoFG
+flag2		= NoBG
+
+[State 9210, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6260
+facing		= 1
+postype		= right
+pos			= 0, 75
+sprpriority	= 5
+scale		= 0.5, 0.5
+ownpal		= 1
+bindtime		= 68
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 68
+supermovetime	= 68
+supermove	= 1
+persistent	= 0
+
+[State 9210, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6260
+facing		= 1
+postype		= right
+pos			= 0, 75
+sprpriority	= 5
+scale		= 0.5, 0.5
+ownpal		= 1
+bindtime		= 68
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 68
+supermovetime	= 68
+supermove	= 1
+persistent	= 0
+
+[State 9210, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6261
+facing		= 1
+postype		= right
+pos			= 0, 75
+sprpriority	= 5
+scale		= 0.5, 0.5
+ownpal		= 1
+bindtime		= 68
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 68
+supermovetime	= 68
+supermove	= 1
+persistent	= 0
+
+[State 9210, Explod]
+type		= Explod
+trigger1	= Time = 0
+anim		= 6252
+facing		= 1
+postype		= right
+pos			= 0, 75
+sprpriority	= 5
+scale		= 0.5, 0.5
+ownpal		= 1
+bindtime		= 68
+persistent		= 0
+ignorehitpause	= 1
+removeongethit	= 1
+pausemovetime	= 68
+supermovetime	= 68
+supermove	= 1
+persistent	= 0
+trans		= addalpha
+alpha		= 128, 128
+
+[State 9210, DestroySelf]
+type		= DestroySelf
+trigger1	= Time >= 68
+
+
+
+;---------------------------------------------------------------------------
+; MAX2背景
+;---------------------------------------------------------------------------
+[Statedef 9300]
+type		= A
+movetype	= I
+physics		= N
+ctrl		= 0
+velset		= 0, 0
+ownpal		= 1
+anim		= 9999
+
+[State 9300, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoShadow
+[State 9300, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoFG
+flag2		= NoBG
+
+[State 9300, Explod]
+type		= Explod
+triggerall	= NumExplod(6230) = 0
+trigger1	= Time = 0
+anim		= 6230
+ID			= 6230
+postype		= left
+pos			= 0, 0
+sprpriority	= -5
+removetime	= 10
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+[State 9300, Explod]
+type		= Explod
+triggerall	= !NumExplod(6231) < 2
+trigger1	= Time = 0
+trigger2	= Time % 10 = 0
+anim		= 6230
+ID			= 6231
+postype		= left
+pos			= 320, 0
+sprpriority	= -5
+removetime	= 20
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+
+[State 9300, Explod]
+type		= Explod
+triggerall	= NumExplod(6240) = 0
+trigger1	= Time = 0
+anim		= 6231
+ID			= 6240
+postype		= left
+pos			= 0, 0
+sprpriority	= -5
+removetime	= 20
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+[State 9300, Explod]
+type		= Explod
+triggerall	= !NumExplod(6241) < 2
+trigger1	= Time = 0
+trigger2	= Time % 20 = 0
+anim		= 6231
+ID			= 6241
+postype		= left
+pos			= 320, 0
+sprpriority	= -5
+removetime	= 40
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+
+[State 9300, Explod]
+type		= Explod
+triggerall	= NumExplod(6250) = 0
+trigger1	= Time = 0
+anim		= 6232
+ID			= 6250
+postype		= left
+pos			= 0, 0
+sprpriority	= -5
+removetime	= 40
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+[State 9300, Explod]
+type		= Explod
+triggerall	= !NumExplod(6251) < 2
+trigger1	= Time = 0
+trigger2	= Time % 40 = 0
+anim		= 6232
+ID			= 6251
+postype		= left
+pos			= 320, 0
+sprpriority	= -5
+removetime	= 80
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+
+[State 9300, Explod]
+type		= Explod
+triggerall	= NumExplod(6260) = 0
+trigger1	= Time = 0
+anim		= 6233
+ID			= 6260
+postype		= left
+pos			= 0, 0
+sprpriority	= -5
+removetime	= 80
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+
+[State 9300, ChangeState]
+type		= ChangeState
+trigger1	= Root,StateNo != [4000, 4500]
+trigger2	= WinKO
+value		= StateNo + 1
+
+[Statedef 9301]
+type		= A
+movetype	= I
+physics		= N
+ctrl		= 0
+velset		= 0, 0
+ownpal		= 1
+anim		= 9999
+
+[State 9301, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoShadow
+[State 9301, AssertSpecial]
+type		= AssertSpecial
+trigger1	= 1
+flag		= NoFG
+flag2		= NoBG
+
+[State 9301, RemoveExplod]
+type		= RemoveExplod
+trigger1	= !Time
+ID			= 6230
+[State 9301, RemoveExplod]
+type		= RemoveExplod
+trigger1	= !Time
+ID			= 6231
+[State 9301, RemoveExplod]
+type		= RemoveExplod
+trigger1	= !Time
+ID			= 6240
+[State 9301, RemoveExplod]
+type		= RemoveExplod
+trigger1	= !Time
+ID			= 6241
+[State 9301, RemoveExplod]
+type		= RemoveExplod
+trigger1	= !Time
+ID			= 6250
+[State 9301, RemoveExplod]
+type		= RemoveExplod
+trigger1	= !Time
+ID			= 6251
+[State 9301, RemoveExplod]
+type		= RemoveExplod
+trigger1	= !Time
+ID			= 6260
+
+[State 9301, PlaySnd]
+type		= PlaySnd
+trigger1	= !Time
+value		= 2, 11
+volume		= 200
+
+[State 9301, Explod]
+type		= Explod
+triggerall	= NumExplod(6235) = 0
+trigger1	= Time = 0
+anim		= 6235
+ID			= 6235
+postype		= left
+pos			= 0, 0
+sprpriority	= -5
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+persistent		= 0
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+persistent	= 0
+
+[State 9301, DestroySelf]
+type		= DestroySelf
+trigger1	= Time >= 1
+
+
+;---------------------------------------------------------------------------
+; MAX2ポトレ
+;---------------------------------------------------------------------------
+[Statedef 9310]
+type		= A
+movetype	= I
+physics		= N
+ctrl		= 0
+velset		= 0, 0
+ownpal		= 1
+anim		= 9999
+
+[State 9310, Explod]
+type		= Explod
+triggerall	= NumExplod(6236) = 0
+triggerall	= TeamSide = 1
+trigger1	= Time = 0
+anim		= 6236
+ID			= 6236
+postype		= left
+pos			= 0, 81
+sprpriority	= -5
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+persistent		= 0
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+persistent	= 0
+[State 9310, Explod]
+type		= Explod
+triggerall	= NumExplod(6237) = 0
+triggerall	= TeamSide = 2
+trigger1	= Time = 0
+anim		= 6237
+ID			= 6236
+postype		= right
+pos			= 0, 81
+sprpriority	= -5
+scale		= 1, 1
+facing		= -1
+ownpal		= 1
+bindtime		= -1
+persistent		= 0
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+persistent	= 0
+
+[State 9310, Explod]
+type		= Explod
+triggerall	= NumExplod(6238) = 0
+triggerall	= TeamSide = 1
+trigger1	= Time = 0
+anim		= 6238
+ID			= 6238
+postype		= left
+pos			= 0, 81
+sprpriority	= -4
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+persistent		= 0
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+persistent	= 0
+[State 9310, Explod]
+type		= Explod
+triggerall	= NumExplod(6239) = 0
+triggerall	= TeamSide = 2
+trigger1	= Time = 0
+anim		= 6238
+ID			= 6238
+postype		= right
+pos			= 0, 81
+sprpriority	= -4
+facing		= -1
+scale		= 1, 1
+ownpal		= 1
+bindtime		= -1
+persistent		= 0
+ignorehitpause	= 1
+pausemovetime	= -1
+supermovetime	= -1
+persistent	= 0
+
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 2
+ID			= 6236
+scale		= 1, 0.3
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 4
+ID			= 6236
+scale		= 1, 0.54
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 6
+ID			= 6236
+scale		= 1, 0.77
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 8
+ID			= 6236
+scale		= 1, 1
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 56
+ID			= 6236
+scale		= 1, 0.77
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 57
+ID			= 6236
+scale		= 1, 0.54
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 58
+ID			= 6236
+scale		= 1, 0.3
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 59
+ID			= 6236
+scale		= 1, 1
+
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 2
+ID			= 6238
+scale		= 1, 0.3
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 4
+ID			= 6238
+scale		= 1, 0.54
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 6
+ID			= 6238
+scale		= 1, 0.77
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 8
+ID			= 6238
+scale		= 1, 1
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 56
+ID			= 6238
+scale		= 1, 0.77
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 57
+ID			= 6238
+scale		= 1, 0.54
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 58
+ID			= 6238
+scale		= 1, 0.3
+[State 9310, ModifyExplod]
+type		= ModifyExplod
+trigger1	= Time = 59
+ID			= 6238
+scale		= 1, 1
+
+[State 9310, DestroySelf]
+type		= DestroySelf
+trigger1	= Time >= 60

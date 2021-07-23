@@ -1,0 +1,31 @@
+
+＊各カラー詳細＊
+
+-MELTY BLOOD Re.Actカラー-
+ciel01.act : （自作）MELTY BLOOD シエル 1Pカラー
+ciel02.act : （netgozzangさん作）MELTY BLOOD Re.Act シエル 2Pカラー
+ciel03.act : （netgozzangさん作）MELTY BLOOD Re.Act シエル 3Pカラー
+ciel04.act : （netgozzangさん作）MELTY BLOOD Re.Act シエル 4Pカラー
+ciel05.act : （netgozzangさん作）MELTY BLOOD Re.Act シエル 5Pカラー
+ciel06.act : （netgozzangさん作）MELTY BLOOD Re.Act シエル 6Pカラー
+ciel07.act : （netgozzangさん作）MELTY BLOOD Re.Act シエル 8Pカラー
+ciel08.act : （netgozzangさん作）MELTY BLOOD Re.Act シエル 7Pカラー
+ciel09.act : （netgozzangさん作）オリジナル
+ciel10.act : （netgozzangさん作）オリジナル
+
+-MELTY BLOOD Act Cadenzaカラー-
+ciel01.act : （自作）MELTY BLOOD シエル 1Pカラー
+ciel02.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 11Pカラー
+ciel03.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 4Pカラー
+ciel04.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 3Pカラー
+ciel05.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 6Pカラー
+ciel06.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 36Pカラー
+ciel07.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 8Pカラー
+ciel08.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 12P+25Pカラー
+ciel09.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 23Pカラーアレンジ
+ciel10.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 19Pカラー
+ciel11.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 21Pカラー
+ciel12.act : （momoruさん作）MELTY BLOOD Act Cadenza Ver.B2 シエル 24Pカラーアレンジ
+
+ciel09.actとciel12.actはRYOさんの手直しが入っています
+また、ミッドナイトブリス対応のためチョイヤーさんの手直しが全てに入っています

@@ -1,0 +1,29 @@
+[Info]
+name ="GokuHR"
+displayname =" Goku "
+author ="Xande Toskomics & Ribeiro (Ver.2 by Kram3r)"
+pal.defaults =1,2
+versiondate=20/4/2009
+mugenversion=
+
+
+[Files]
+cmd     =gokuHR.st
+cns     =gokuHR.cns
+st      =gokuHRbasico.cns
+stcommon =common1.cns
+sprite  =gokuHR.sff
+anim    =gokuHR.air
+sound   =gokuHR.snd
+pal1=gokuHR.act
+st1=gokuHRgolpes.cns
+st2=gokuHRespecial.cns
+st3=gokuHRsupers.cns
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=

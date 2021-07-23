@@ -1,0 +1,32 @@
+[Info]
+name		= "Unknown"
+displayname	= "Unknown"
+versiondate	= 11,22,2000
+mugenversion	= 11,22,2000
+author		= "586"
+pal.defaults	= 1,2,3,4
+
+[Files]
+cmd		= mizuka_mvc2.cmd
+cns		= mizuka_mvc2.cns
+st		= mizuka_mvc2_basic.st
+st2		= mizuka_mvc2_-2_-3.st
+st3		= mizuka_mvc2_special.st
+st4		= mizuka_mvc2_helper.st
+st5		= mizuka_mvc2_spmove.st
+st6		= mizuka_mvc2_damage.st
+st7		= mizuka_mvc2_hyper.st
+st8		= mizuka_mvc2_assist.st
+st9		= mizuka_mvc2_shot.st
+stcommon	= mizuka_mvc2_common.cns 
+anim		= mizuka_mvc2.air
+sprite		= mizuka_mvc2.sff
+sound		= mizuka_mvc2.snd
+pal1		= act/mizuka_mvc2_p1.act
+pal2		= act/mizuka_mvc2_p2.act
+pal3		= act/mizuka_mvc2_p3.act
+pal4		= act/mizuka_mvc2_p4.act
+pal5		= act/mizuka_mvc2_p5.act
+pal6		= act/mizuka_mvc2_p6.act
+pal7		= act/mizuka_mvc2_p7.act
+pal8		= act/mizuka_mvc2_p8.act

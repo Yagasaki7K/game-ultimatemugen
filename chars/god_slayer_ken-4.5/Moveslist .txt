@@ -1,0 +1,75 @@
+
+
+
+Most hyper moves have 3 levels of strenght and some have 4 levels. Light punch or light kick for lv 1, medium punch or kick lv2 you got the idea.
+
+Lv 4 moves can only be performed when life is below 500 and power iguals 3000. These moves are a little more powerfull or have some other advantage. For instance, lv4 shin hadouken can be delayed if you keep holding strong punch. Lv 4 shouryureppa reaches farther etc.
+
+Fatality only works when you kill your opponent using some of the lv 3 or lv4 hyper moves. Resurrection is an ability that only the cpu has. It happens whenever you kill GSK and his power bar is 1000 or above.
+
+
+
+This movelist is outdated. There are several super moves and hyper moves that are not listed here.  
+======================================================================
+
+ 5. MOVELIST
+
+ BUTTON TABLE
+
+ U - UP          a - LIGHT KICK     x - LIGHT punch   
+ D - DOWN        b - medium KICK    y - dodges      
+ F - FORWARD     c - strong Kick    z - strong punch  
+ B - BACKWARD    s - START
+                 
+======================================================================
+
+
+
+hypers 1000 of energy (ground)
+
+
+lightkick + strong kick     (guard break)
+
+down , forward , weak punch + strong punch  (shinkuuhadouken)
+
+forward , down , forward , weak punch + strong punch
+
+down , back , forward , strong kick
+
+down , back , down , back , strong kick
+
+press , hold , count to 3 and release strong punch (anti combo system) (ground and air)
+
+
+
+hypers 1000 of energy (air)
+
+
+down , forward , weak punch + strong punch  (air)
+
+down , back , down , back , weak kick  (air)
+
+down , back , down , back , strong kick  (air)  (super tatsumaki)
+
+down , forward , down , forward , weak kick (air)
+
+down , forward , down , forward , strong kick (air)
+
+press , hold , count to 3 and release strong punch (anti combo system) (works only when the opponent is hitting you)  (ground and air)
+
+
+ Special Moves
+
+hold down + lightkick (air) headstomp
+
+hold down + strongkick (air) downkick (30% chance of bouncing)
+
+forward , down , back + strongpunch slowhadouken (don't touch it)
+
+lightpunch + strongpunch slowhadouken pusher and energy remover
+
+strongpunch while running  shoulder move (ken pocket fight)
+
+
+
+

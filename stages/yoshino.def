@@ -1,0 +1,82 @@
+[Info]
+name = "YOSHINO"
+;侍魂零　『吉野 千本桜』
+;製作者:shin
+;Don't direct link.
+;直リンク・2次配布は禁止します。
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -151
+boundright = 153
+boundhigh = -207　　　　　　　;ステージの高さ
+boundlow = 0
+verticalfollow = 0.5
+tension = 100
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  -120
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 223
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+yscale = .1
+
+[Music]
+bgmusic = sound/yoshino.mp3
+bgvolume = 0
+
+[BGdef]
+spr = stages/yoshino.sff
+debugbg        = 1 
+
+[BG sky]		
+type        = normal        
+spriteNo    = 0,0           
+layerNo     = 0             
+start       = 0,-176        
+delta       = 0.47,0.85          
+trans       = none         
+mask        = 1           
+tile        = 0,0         
+tilespacing = 0,0    
+
+[BG sakura]		
+type        = normal        
+spriteNo    = 0,1           
+layerNo     = 0             
+start       = 0,239        
+delta       = 1,1           
+trans       = none          
+mask        = 1           
+tile        = 0,0           
+tilespacing = 0,0           
+
+     

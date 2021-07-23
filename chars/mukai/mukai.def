@@ -1,0 +1,33 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Mukai"        ;Name of character
+displayname = "Mukai" ;Name of character to display
+versiondate = 04,14,2002    ;Version date of character (MM-DD-YYYY)
+mugenversion = 04,14,2002   ;Version of M.U.G.E.N character works on
+author = "Cyanide"         ;Character author name
+pal.defaults = 1,2,3,4,5,6      ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = mukai.cmd   ;Command set
+cns     = mukai.cns   ;Constants
+st      = mukai.cns   ;States
+st2	= AI.cns
+stcommon = common.cns ;Common states
+sprite  = mukai.sff   ;Sprite
+anim    = mukai.air   ;Animation
+sound   = mukai.snd   ;Sound
+pal1    = mukai.act  ;Palettes (can have up to 12)
+pal2    = redkai.act
+pal3    = blukai.act
+pal4    = orakai.act
+pal5    = yelkai.act
+pal6    = purkai.act
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+ending.storyboard = mukaiend.def

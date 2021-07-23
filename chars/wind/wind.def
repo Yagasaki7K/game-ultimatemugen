@@ -1,0 +1,32 @@
+;=======================================;
+;           MB-Goenitz by 187           ;
+;          Wind Edit by Zy5678          ;
+;          Arrange by Soyokaze          ;
+;=======================================;
+
+[Info]
+name = "wind"
+displayname = "Goeniko"
+versiondate = 
+mugenversion = 
+author = "zy5678"
+pal.defaults = 1
+
+[Files]
+cmd = wind.cmd
+cns = wind.cns
+st = wind.st
+st0 = AI.st
+stcommon = common1.cns
+sprite = wind.sff
+anim = wind.air
+sound = wind.snd
+pal1 = wind01.act
+pal2 = wind02.act
+pal3 = wind03.act
+pal4 = wind04.act
+pal5 = wind05.act
+pal6 = wind06.act
+pal7 = wind07.act
+pal8 = wind08.act
+pal9 = wind09.act

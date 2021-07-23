@@ -1,0 +1,33 @@
+
+[Info]
+name ="Dodge Master"        
+displayname ="god slayer ken 4.5"
+versiondate =01,08,2008    
+mugenversion =
+author ="Polocolto"
+pal.defaults =1,2,3,4,5,6,7,8,9,10,11,12
+
+;File Listing
+;------------
+
+[Files]
+cmd      =god_slayer_ken.cmd   
+cns      =god_slayer_ken.cns   
+st       =god_slayer_ken.cns  
+stcommon =god_slayer_kencommon.cns 
+sprite   =god_slayer_ken.sff   
+anim     =god_slayer_ken.air   
+sound    =god_slayer_ken.snd   
+
+
+
+
+pal1=Palettes/cvs.act
+pal2=Palettes/cvs4.act
+pal3=Palettes/shadow.act
+pal4=Palettes/evil.act
+pal5=Palettes/terry.act
+pal6=Palettes/rbbt.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

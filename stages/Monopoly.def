@@ -1,0 +1,118 @@
+;
+[Info]
+name = "Monopoly"
+Author = "Fenix Azul"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -651
+boundright = 651
+boundhigh = -200
+boundlow = 0
+verticalfollow = .7
+floortension = 40
+tension = 40
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0            
+p1startz = 0            
+p1facing = 1        
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 
+rightbound = 1000
+topbound  =  0     
+botbound  =  0     
+
+[Scaling] 
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 15    
+screenright = 15  
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+hires = 1
+
+[BGdef]
+spr = Monopoly.sff
+debugbg = 0
+
+[Music]
+bgmusic = sound/101046_Casino_Night_Zone.mp3
+bgvolume = 255
+
+[shadow]
+Intensity = 0
+color = 0,0,0
+yscale = .05
+
+[Reflection]
+intensity = 30
+
+[BG Clouds]
+type = normal
+spriteno = 1,1
+delta = 0,2
+mask = 0
+layerno = 0
+velocity = 0.1,0
+tile = 1,0
+
+[BG Far Away Buildings]
+type = normal
+spriteno = 1,4
+delta = 0,2
+mask = 1
+layerno = 0
+
+[BG Clouds front]
+type = normal
+spriteno = 1,5
+delta = 0,2
+mask = 1
+layerno = 0
+velocity = -0.2,0
+tile = 1,0
+
+[BG tile]
+type = normal
+spriteno = 1,3
+delta = 1,2
+mask = 0
+layerno = 0
+tile = 1,0
+
+[BG City]
+type = normal
+spriteno = 1,0
+delta = 0.1,2
+mask = 1
+layerno = 0
+
+
+[BG Board Logo]
+type = normal
+spriteno = 1,2
+delta = 1.3,2
+mask = 1
+layerno = 0
+
+[BG Board Road]
+type = normal
+spriteno = 2,0
+delta = 2,2
+mask = 0
+layerno = 0

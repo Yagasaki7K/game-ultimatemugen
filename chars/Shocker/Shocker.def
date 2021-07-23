@@ -1,0 +1,32 @@
+[Info]
+name ="Shocker"
+displayname ="Shocker"
+versiondate =06.07.2008
+mugenversion =1.0
+author ="Bigpimp, aa250, arkady"
+pal.defaults =1,2,3,4,5,6
+
+[Files]
+sprite =Shocker.sff
+anim =Shocker.air
+sound =Shocker.snd
+cmd =Shocker.cmd
+cns =Shocker.cns
+stcommon =Common1.cns
+st =Basics.st
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+st1=Specials.st
+st2=Hypers.st
+st3=Statedef-2.st
+st4=Statedef-3.st
+st5=Flight.st
+st6=Extra.st
+
+[Arcade]
+intro.storyboard =shockintro.DEF
+ending.storyboard =shockend.DEF

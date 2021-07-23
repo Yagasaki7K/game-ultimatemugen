@@ -1,0 +1,1290 @@
+;-------------------------------------------------------------------------------
+; CHUTE
+;-------------------------------------------------------------------------------
+
+[Statedef 230]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 230
+facep2 = 1
+sprpriority = 2
+velset = 0,0
+juggle = 0
+hitcountpersist=1
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = Time = 2
+freqmul=(IfElse(Random <= 499,1.1,1))
+value = 0, 1
+volume=0
+channel=5
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = AnimElem = 6
+x = 1
+y = 0
+
+[State 230, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA
+animtype = high
+damage = 14, 5
+guardflag = M
+pausetime = 4,4
+priority= 5, Hit
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -20+(random%10), -65 -(random%15)
+hitsound = s0,5
+guardsound = s2,0
+ground.type = high
+ground.slidetime = 4
+ground.hittime  = 12
+ground.velocity = 0
+air.velocity = -2,-3
+fall.xvelocity = -1
+fall.yvelocity = -3
+getpower=50
+fall.recover=0
+envshake.time = 5
+envshake.ampl = 2
+envshake.freq = 120
+
+;Efectos de golpe añadidos-------------------
+[State 0, Explod]
+type = Explod
+trigger1 = time=7
+trigger1 = movehit
+anim = 6000
+pos = 65,-65
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 1,1
+accel = 0.1,0.1
+random = 10,10
+removetime = -2
+scale = 0.1, 1
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 5
+trigger1 = movehit
+anim = 1111
+pos = 65 -(random%10), -65 -(random%10)
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 0.1 +(random%2), 0.2 +(random%1)
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 230, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Patada normal - Solo combo     231
+;-------------------------------------------------------------------------------
+
+[Statedef 231]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 230
+facep2 = 1
+sprpriority = 2
+velset = 0,0
+juggle = 0
+hitcountpersist=1
+
+[State 231, 1]
+type = PlaySnd
+trigger1 = Time = 2
+freqmul=(IfElse(Random <= 499,1.1,1))
+value = 0, 0
+channel=5
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = AnimElem = 6
+x = 1
+y = 0
+
+[State 231, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA
+animtype = high
+damage = 20, 5
+guardflag = M
+pausetime = 4,6
+priority= 5, Hit
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -20+(random%10), -65 -(random%15)
+hitsound   = s0,5
+guardsound = s2,0
+ground.type = high
+ground.slidetime = 0
+ground.hittime  = 3
+ground.velocity = 0
+air.velocity = -0.3,-7.3
+fall.yvelocity = -3
+fall.recover=0
+getpower=50
+envshake.time = 5
+envshake.ampl = 2
+envshake.freq = 120
+
+;Efectos de golpe añadidos-------------------
+[State 0, Explod]
+type = Explod
+trigger1 = time=7
+trigger1 = movehit
+anim = 6000
+pos = 65,-65
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 1,1
+accel = 0.1,0.1
+random = 10,10
+removetime = -2
+scale = 0.1, 1
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 231, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;seguencia chute fraco
+;-------------------------------------------------------------------------------
+
+[Statedef 233]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 233
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+juggle = 0
+hitcountpersist=1
+
+[State 233, 1]
+type = PlaySnd
+trigger1 = Time = 13
+freqmul=(IfElse(Random <= 499,1.1,1))
+value = 0, 1
+volume=0
+channel=5
+
+[State 233, 1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+volume=170
+value = 3000,5
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 4
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 11
+x = 2
+
+[State 233, 2]
+type = HitDef
+trigger1 = AnimElem = 7
+attr = S, NA
+damage = 30, 7
+animtype = Medium
+guardflag = M
+pausetime = 4,5
+priority= 5, Hit
+sparkno = s6005
+guard.sparkno = s6015+(random%5)
+sparkxy = -34,-69
+hitsound   = s0,6
+guardsound = s2,0
+ground.type = Low
+ground.slidetime = 2
+ground.hittime  = 18
+ground.velocity = -18
+guard.velocity = -4
+air.velocity = -7,3
+envshake.time=5
+envshake.freq= 120
+envshake.ampl=3
+fall.xvelocity = -1
+fall.yvelocity = -3
+fall.recover=0
+getpower=70
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =1
+trigger1 = var(59)=1
+trigger1 = random<=700
+flag = unguardable
+
+[State 250, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;seguencia chute forte
+;-------------------------------------------------------------------------------
+
+[Statedef 235]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 235
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+juggle = 2
+hitcountpersist=1
+
+[State 0]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 710
+pos = -50, 0
+bindtime = 1
+sprpriority = 3
+ownpal = 1
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = AnimElem = 7
+volume= -200
+value = 5, 7
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = AnimElem = 8
+freqmul=(IfElse(Random <= 499,1.1,1))
+volume=0
+channel=5
+value = 0, 1
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 5
+x = 4
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 8
+x = 6
+
+[State 235, 1]
+type = HitDef
+trigger1 = AnimElem = 7
+attr = S, NA
+damage = 30, 8
+animtype = hard
+guardflag = MA
+pausetime = 5,5
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -20,-84
+hitsound = s0,6
+priority= 5, Hit
+guardsound = s2,0
+ground.type = high
+ground.slidetime = 8
+ground.hittime  = 7
+ground.velocity = -4
+air.velocity = -1
+envshake.time=5
+envshake.freq= 120
+envshake.ampl=2
+fall.yvelocity = -3
+fall.recover = 0
+getpower=60
+air.fall=1
+
+[State 235, 7]
+type = HitDef
+trigger1 = AnimElem = 9
+attr = S, NA
+damage = 30, 8
+animtype = Medium
+guardflag = M
+pausetime = 5,4
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -20,-85
+hitsound = s0,5
+guardsound = s2,0
+ground.type = low
+priority= 5, Hit
+ground.slidetime = 8
+ground.hittime = 28
+ground.velocity = 0
+air.velocity = -2,30
+guard.velocity = -4
+air.fall=1
+fall.recover = 0
+envshake.time=10
+envshake.freq= 120
+envshake.ampl=-3
+fall.envshake.time=15
+fall.envshake.freq= 120
+fall.envshake.ampl=-3
+fall.yvelocity = -7
+fall.xvelocity = -0.3
+down.bounce=1
+
+[State 235, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; SOCO
+;-------------------------------------------------------------------------------
+
+[Statedef 240]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 240
+sprpriority = 2
+velset = 0,0
+facep2 = 1
+juggle = 0
+hitcountpersist=1
+
+[State 240, 1]
+type = PlaySnd
+trigger1 = AnimElem = 2
+channel=5
+value = 0, 0
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = AnimElem = 1
+x = 1
+y = 0
+
+[State 240, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA
+animtype = Medium
+damage = 14, 5
+guardflag = M
+pausetime = 4,4
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -25-(random%5),-62-(random%5)
+hitsound = s0,5
+priority= 5, Hit
+guardsound = s2,0
+ground.type = high
+ground.slidetime = 0
+ground.hittime  = 7
+ground.velocity = -1
+air.velocity = -0.2,-1
+fall.yvelocity = -3
+fall.recover=0
+getpower=55
+envshake.time = 5
+envshake.ampl = -2
+envshake.freq = 120
+
+[State 240, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Codazo
+;-------------------------------------------------------------------------------
+
+[Statedef 242]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 242
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+juggle = 0
+hitcountpersist=1
+
+;--------------------------------------------
+
+[State 243, 1]
+type = VarRandom
+trigger1 = time=1
+v = 8
+range = 11,12
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =time=1
+trigger1 =var (8)=11
+value = 777,4
+freqmul=1
+channel=0
+volume =-100
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = time=8
+trigger1 =var (8)=12
+channel=0
+volume=-90
+value = 5,6
+;------------------------------------------
+[State 230, 1]
+type = PlaySnd
+trigger1 = Time = 14
+freqmul=(IfElse(Random <= 499,1.1,1))
+value = 0, 7
+volume=0
+channel=5
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 2
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 8
+x = 2
+
+[State 250, 1]
+type = HitDef
+trigger1 = time=0
+attr = S, NA
+damage = 23, 7
+animtype = Medium
+guardflag = M
+pausetime = 4,5
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -25-(random%5),-62-(random%8)
+hitsound = s3000,2
+guardsound = s2,0
+ground.type = low
+priority= 5, Hit
+ground.slidetime = 0
+ground.hittime  = 32
+ground.velocity = -4
+air.velocity = -15,5
+air.guard.velocity =-6,2
+envshake.time=10
+envshake.freq= 120
+envshake.ampl=-3
+fall.yvelocity = -3
+getpower=60
+down.bounce=1
+
+[State 250, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Codazo Combo
+;-------------------------------------------------------------------------------
+
+[Statedef 244]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 244
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+juggle = 0
+hitcountpersist=1
+
+;Capsula Gris------------------------------------------------------------
+[State 0, Explod]
+type = Explod
+trigger1 = time=1
+anim =  2014
+ID = 2013
+pos = 20,100
+postype = left
+bindtime = -1
+removetime = -2
+supermovetime =-1
+pausemove=-1
+scale =0.4,0.3
+ontop = 1
+shadow = 0,0,0
+ownpal =1
+removeongethit = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=1
+anim = 2011
+ID = 2011
+pos = 20,100
+postype = left
+bindtime = -1
+removetime = -2
+supermovetime =-1
+pausemove=-1
+scale = 0.2,0.2
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 244, 1]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 0, 0
+
+[State 244, 1]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = 5, 3
+volume=-95
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = AnimElem = 3
+freqmul=(IfElse(Random <= 499,1.1,1))
+value = 0, 7
+volume=0
+channel=5
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 15
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 8
+x = 2
+
+[State 244, 1]
+type = HitDef
+trigger1 = time=0
+attr = S, NA
+damage = 40, 7
+animtype = Medium
+guardflag = M
+pausetime = 4,4
+sparkno = s6005+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -25-(random%5),-62-(random%8)
+hitsound = s0,6
+guardsound = s2,0
+ground.type = low
+ground.slidetime = 0
+ground.hittime  = 18
+ground.velocity = -50,8
+air.velocity = -15,4
+envshake.time=10
+envshake.freq= 120
+priority= 5, Hit
+envshake.ampl=-5
+fall.envshake.time=10
+fall.envshake.freq= 120
+fall.envshake.ampl=3
+fall.yvelocity = -2
+fall.xvelocity = -2
+fall.recover=0
+getpower=60
+fall=1
+
+[State 244, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Gancho
+;-------------------------------------------------------------------------------
+
+[Statedef 243]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 243
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+juggle = 4
+hitcountpersist=1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =time=14
+value = 0,7
+freqmul=1.1
+channel=5
+volume =0
+;--------------------------------------------
+
+[State 243, 1]
+type = VarRandom
+trigger1 = time=1
+v = 8
+range = 11,13
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =time=1
+trigger1 =var (8)=11
+value = 777,4
+freqmul=1
+channel=0
+volume =-100
+
+[State 233, 1]
+type = PlaySnd
+trigger1 =time=13
+trigger1 =var (8)=12
+volume=140
+value = 3000,5
+channel=0
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = time=10
+trigger1 =var (8)=13
+channel=0
+volume=-40
+value = 3000, 4
+;-------------------------------------------
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 2
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 8
+x = 2
+
+[State 250, 1]
+type = HitDef
+trigger1 = !Time
+attr = S, NA
+damage = 33, 7
+animtype = diagup
+hitflag = MAFD
+guardflag = M
+pausetime = 3,2
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -25-(random%5),-62-(random%8)
+hitsound = s3000,3
+guardsound = s2,0
+priority = 5 ,Hit
+ground.type = high
+ground.slidetime = 0
+ground.hittime  = 10
+ground.velocity = -0.3,-8.4
+air.velocity = -1,-8
+fall=1
+fall.recover=0
+envshake.time=7
+envshake.freq= 120
+envshake.ampl=(IfElse(Random <= 499,-2,-3))
+fall.yvelocity = -3
+getpower=88
+
+[State 250, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;seguencia soco fraco
+;-------------------------------------------------------------------------------
+
+[Statedef 250]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 250
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+juggle = 0
+hitcountpersist=1
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = AnimElem = 3
+freqmul=(IfElse(Random <= 499,1.1,1))
+channel=5
+value = 0, 0
+;-----------------------------
+[State 250, 1]
+type = VarRandom
+trigger1 = time=1
+v = 8
+range = 11,12
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = AnimElem = 8
+trigger1 =var (8)=11
+channel=7
+value = 5, 3
+volume=-110
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = AnimElem = 6
+trigger1 =var (8)=12
+channel=7
+value = 3000,7
+volume=218
+;-------------------------------------
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = AnimElem = 8
+freqmul=(IfElse(Random <= 499,1.1,1))
+volume=0
+channel=5
+value = 0, 0
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 2
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 8
+x = 2
+
+[State 250, 1]
+type = HitDef
+trigger1 = AnimElem = 4
+attr = S, NA
+damage = 25, 7
+animtype = Medium
+guardflag = M
+pausetime = 4,4
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -25-(random%5),-62-(random%8)
+hitsound = s0,5+(random%2)
+guardsound = s2,0
+ground.type = low
+priority= 5, Hit
+ground.slidetime = 0
+ground.hittime  = 18
+ground.velocity = -4
+air.velocity = -0.2,-1
+envshake.time=5
+envshake.freq= 100
+envshake.ampl=-2
+fall.yvelocity = -3
+getpower=50
+fall.recover=0
+kill=0
+
+[State 250, 2]
+type = HitDef
+trigger1 = AnimElem = 9
+attr = S, NA
+damage = 25, 7
+animtype = Medium
+guardflag = MA
+pausetime = 4,4
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -25-(random%5),-62-(random%8)
+hitsound = s0,5+(random%2)
+guardsound = s2,0
+ground.type = high
+ground.slidetime = 0
+ground.hittime  = 18
+ground.velocity = -8
+air.velocity = -2,-3
+envshake.time=5
+envshake.freq=80
+envshake.ampl=-2
+fall.yvelocity = -3
+fall.xvelocity = -1
+getpower=50
+fall.recover=0
+
+[State 250, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;seguencia soco forte
+;-------------------------------------------------------------------------------
+
+[Statedef 260]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 260
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+juggle = 0
+hitcountpersist=1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=6
+anim =6055
+pos = 52,-64
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 1,1
+sprpriority = 3
+ownpal =1
+removeongethit = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 =time= 40
+trigger1 =movehit
+anim =5800
+pos = 53,-62
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove
+pausemove
+scale = 0.5,0.5
+sprpriority = -5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+;Capsula Gris------------------------------------------------------------
+[State 0, Explod]
+type = Explod
+trigger1 = time=1
+anim =  2014
+ID = 2013
+pos = 20,100
+postype = left
+bindtime = -1
+removetime = -2
+supermovetime =-1
+pausemove=-1
+scale =0.4,0.3
+ontop = 1
+shadow = 0,0,0
+ownpal =1
+removeongethit = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=1
+anim = 2011
+ID = 2011
+pos = 20,100
+postype = left
+bindtime = -1
+removetime = -2
+supermovetime =-1
+pausemove=-1
+scale = 0.2,0.2
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 260, 1]
+type = HitDef
+trigger1 = AnimElem = 4
+attr = S, NA
+damage = 30, 8
+animtype = Hard
+guardflag = M
+pausetime = 10,12
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -25-(random%5),-62-(random%8)
+hitsound = s3000,3
+guardsound = s2,0
+ground.type = low
+ground.slidetime = 8
+ground.hittime  = 26
+ground.velocity = 0
+air.velocity = 0,-2
+priority =5 ,Hit
+envshake.time=10
+envshake.freq= 120
+envshake.ampl=-3
+fall.yvelocity = -3
+getpower=90
+fall.recover=0
+kill=0
+
+[State 265, 1]
+type = PlaySnd
+trigger1 = animelem= 11
+value = 5, 5
+volume= -150
+channel=0
+
+[State 230, 1]
+type = PlaySnd
+trigger1 = Time = 5
+freqmul=1
+value = 0, 7
+volume=0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =time=1
+value = 0,8
+channel=9
+volume = 200
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time=40
+channel = 9
+;ignorehitpause =
+;persistent =
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =movehit&& Time = 25
+value = 0,9
+volume = 300
+
+[State 0]
+type = VelSet
+trigger1 = AnimElem = 5
+x = 5
+
+[State 260, 2]
+type = HitDef
+trigger1 = AnimElem = 15
+attr = S, NA
+damage = 30, 8
+animtype = Hard
+guardflag = M
+pausetime = 3,0
+sparkno = s6025
+guard.sparkno = s6015+(random%5)
+sparkxy = -43,-62-(random%8)
+hitsound = s777,1
+guardsound = s2,0
+ground.type = high
+ground.slidetime = 10
+priority = 5 ,Hit
+ground.hittime = 22
+ground.velocity = -33,8
+air.velocity = -10, -1
+guard.velocity = -2
+fall = 1
+fall.envshake.time=16
+fall.envshake.freq= 120
+fall.envshake.ampl=5
+fall.yvelocity = -8
+fall.xvelocity = -1
+envshake.time=15
+envshake.freq= 120
+envshake.ampl=-5
+getpower=80
+fall.recover=0
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 15 ||AnimElem = 12
+trigger1 = movecontact
+anim = 2010
+ID =  111
+pos = 45,-69
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 1
+random = 10,10
+removetime = -2
+scale = 0.4,0.4
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 260, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; puñetazo shock
+;-------------------------------------------------------------------------------
+
+[Statedef 265]
+type = S
+movetype = A
+physics = S
+ctrl = 0
+anim = 265
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+juggle = 0
+hitcountpersist=1
+
+[State 265, 1]
+type = PlaySnd
+trigger1 = time= 12
+value = 5, 8
+volume= -180
+channel=7
+
+[State 240, 1]
+type = PlaySnd
+trigger1 = time=14
+channel=5
+volume=-80
+value = 0, 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =1
+trigger1 = random<=700
+flag = unguardable
+
+[State 265, 2]
+type = HitDef
+trigger1 = time=0
+attr = S, NA
+damage = 40, 8
+animtype = Hard
+guardflag = M
+pausetime = 15,15
+sparkno = s6005
+guard.sparkno = s6015+(random%5)
+sparkxy = -25-(random%5),-62-(random%8)
+hitsound = s0,10
+guardsound = s2,0
+ground.type = high
+priority = 5 ,Hit
+ground.slidetime = 0
+ground.hittime = 25
+ground.velocity = 0,0
+air.velocity = -1, -2.4
+guard.velocity = -2
+envshake.time=15
+envshake.freq=90
+envshake.ampl=-3
+getpower=80
+fall.recover=0
+
+[State 0]
+type = ChangeState
+trigger1 = command = "holdback"
+trigger1 = movehit && power>1000
+trigger1 = Var(21) <2
+trigger1 = time =30
+value = 675
+ctrl = 1
+
+[State 265, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Jump CHUTE
+;-------------------------------------------------------------------------------
+
+[Statedef 630]
+type    = A
+movetype= A
+physics = A
+ctrl = 0
+anim = 630
+facep2 = 1
+sprpriority = 2
+juggle = 0
+hitcountpersist=1
+
+[State 630, 1]
+type = PlaySnd
+trigger1 = Time = 1
+channel=5
+value = 0, 0
+
+[State 630, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NA
+animtype  = Medium
+damage = 20, 5
+guardflag = HA
+priority= 5, Hit
+pausetime = 6,4
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -20,-12
+hitsound   = s0,5
+guardsound = s2,0
+ground.type = High
+ground.slidetime = 8
+ground.hittime = 10
+ground.velocity = -5
+air.velocity = -6,7
+fall.yvelocity = -3
+getpower=65
+envshake.time=5
+envshake.freq=90
+envshake.ampl=-2
+
+
+[State 630, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Jump SOCO
+;-------------------------------------------------------------------------------
+
+[Statedef 640]
+type    = A
+movetype= A
+physics = A
+ctrl = 0
+anim = 640
+facep2 = 1
+sprpriority = 2
+juggle = 0
+hitcountpersist=1
+
+[State 640, 1]
+type = PlaySnd
+trigger1 = Time = 1
+channel=5
+value = 0, 0
+
+[State 640, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NA
+animtype  = Medium
+damage = 20, 5
+guardflag = HA
+priority= 5, Hit
+pausetime = 6,4
+sparkno = s6000+(random%5)
+guard.sparkno = s6015+(random%5)
+sparkxy = -15,-35
+hitsound   = s0,5
+guardsound = s2,0
+ground.type = High
+ground.slidetime = 8
+ground.hittime = 10
+ground.velocity = -5
+air.velocity = -6,7
+fall.yvelocity = -3
+getpower=50
+envshake.time=5
+envshake.freq=90
+envshake.ampl=-2
+
+[State 260, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+

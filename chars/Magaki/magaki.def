@@ -1,0 +1,40 @@
+[Info]
+Name         ="Magaki"
+DisplayName  ="Magaki"
+VersionDate  =7,31,2006
+MugenVersion =06,14,2003
+Author       ="jin"
+Pal.Defaults =1,2,3,4,5,6
+
+[Files]
+Cmd      =magaki.cmd
+Cns      =magaki.cns
+St       =magaki.cns
+St0      = magaki-N.cns
+StCommon =common1.cns
+Sprite   =magaki.sff
+Anim     =magaki.air
+Sound    =magaki.snd
+pal1=magaki01.act
+pal2=magaki02.act
+pal3=magaki03.act
+pal4=magaki04.act
+pal5=magaki05.act
+pal6=magaki06.act
+pal7=magaki07.act
+pal8=magaki08.act
+pal9=magaki09.act
+pal10=magaki10.act
+pal11=magaki11.act
+pal12=magaki12.act
+st1=magaki-S.cns
+st2=magaki-H.cns
+st3=magaki-2-3.cns
+
+;---カラーパレット---
+
+
+;
+[Arcade]
+intro.storyboard=
+ending.storyboard=

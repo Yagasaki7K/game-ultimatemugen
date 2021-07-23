@@ -1,0 +1,456 @@
+;STAGE ORIGINAL! FAZE DO MAXIMUS SUPREMUS!!
+;--------------------------------------------------------
+[Info]
+
+name ="one winged angel"
+displayname="one winged angel"
+versiondate=6/11/2008
+mugenversion=04,14,2001
+author="nozferatu"
+pal.defaults=1,2,3,4,5
+
+;--------------------------------------------------------
+[Camera]
+
+startx = 0
+starty = 0
+
+boundleft = -60
+boundright = 60
+boundhigh = -210
+boundlow = 0
+
+verticalfollow = 1
+floortension = 100
+tension = 60
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0 
+botbound  =  0 
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0     
+botz     = 50
+topscale = 1 
+botscale = 1.2
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 20
+screenright = 20
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0
+reflect = 0
+
+[Reflection]
+intensity = 90
+
+;--------------------------------------------------------
+[Music]
+bgmusic =
+bgvolume = 
+
+;========================================================
+[BGdef]
+spr = stages/onewingedangel.sff
+debugbg = 1
+
+[BG space]
+type = normal
+spriteno = 0,2
+layerno = 0             
+start = 0, 2
+delta = 1,1
+mask = 0
+
+[BG earth]
+type = normal
+spriteno = 10,2
+layerno = 0             
+start = 0, 2
+delta = 1,1
+mask = 1
+
+[BG saturn]
+type = normal
+spriteno = 10,1
+layerno = 0             
+start = 0, 2
+delta = 1,1
+mask = 1
+
+[BG planet]
+type = normal
+spriteno = 10,0
+layerno = 0             
+start = 0, 2
+delta = 1,1
+mask = 1
+
+[BG heaven]
+type = normal
+spriteno = 0,1
+layerno = 0             
+start = 0, 2
+delta = 1,1
+mask = 1
+
+
+[BG 2]
+type = normal
+spriteno = 11,0
+layerno = 0
+start = -30,240
+delta = 1,1
+trans = add
+mask = 1
+
+[BG 2_1]
+type = normal
+spriteno = 11,1
+layerno = 0
+start = -30,240
+delta = 1,1
+trans = add
+mask = 1
+
+[BG Floor]
+type = normal
+spriteno = 0,5
+start = -520,90
+delta = .1,1
+mask = 1
+layerno = 0
+velocity = -.15,0
+tile = 1,0
+
+
+[BG Floor]
+type = normal
+spriteno = 0,4
+start = -520,90
+delta = .1,1
+mask = 1
+layerno = 0
+velocity = -.5,0
+tile = 1,0
+
+[BG fogx]
+type  = NORMAL
+spriteno = 6, 1
+delta = .95, 1
+mask = 1
+tile = 1,0
+trans = addalpha
+alpha = 256,256
+velocity = -3,0
+layerno = 1
+
+[BG 地面雷C1]
+type = anim
+layerno = 0
+actionno = 10
+start =  0, 0
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C1]
+type = anim
+layerno = 0
+actionno = 235
+start =  -150, 350
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C2]
+type = anim
+layerno = 0
+actionno = 236
+start =  -157, 370
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C3]
+type = anim
+layerno = 0
+actionno = 237
+start =  -228, 428
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C4]
+type = anim
+layerno = 0
+actionno = 238
+start =  -364, 390
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C5]
+type = anim
+layerno = 0
+actionno = 239
+start =  -428, 436
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C6]
+type = anim
+layerno = 0
+actionno = 240
+start =  -270, 410
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C7]
+type = anim
+layerno = 0
+actionno = 241
+start =  -350, 390
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C8]
+type = anim
+layerno = 0
+actionno = 242
+start =  -500, 433
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C9]
+type = anim
+layerno = 0
+actionno = 243
+start =  -570, 381
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷C10]
+type = anim
+layerno = 0
+actionno = 244
+start =  -609, 437
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C1]
+type = anim
+layerno = 0
+actionno = 235
+start =  150, 350
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C2]
+type = anim
+layerno = 0
+actionno = 236
+start =  157, 370
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C3]
+type = anim
+layerno = 0
+actionno = 237
+start =  228, 428
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C4]
+type = anim
+layerno = 0
+actionno = 238
+start =  364, 390
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C5]
+type = anim
+layerno = 0
+actionno = 239
+start =  428, 436
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C6]
+type = anim
+layerno = 0
+actionno = 240
+start =  270, 410
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C7]
+type = anim
+layerno = 0
+actionno = 241
+start =  350, 390
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C8]
+type = anim
+layerno = 0
+actionno = 242
+start =  500, 433
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C9]
+type = anim
+layerno = 0
+actionno = 243
+start =  570, 381
+delta = 2,2
+trans = None 
+mask = 0
+
+[BG 地面雷右C10]
+type = anim
+layerno = 0
+actionno = 244
+start =  609, 437
+delta = 2,2
+trans = None 
+mask = 0
+
+[Begin Action 235]
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 100
+
+[Begin Action 236]
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 200
+
+[Begin Action 237]
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 136
+
+[Begin Action 238]
+15,0, 10000,0, 108
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 11
+
+[Begin Action 239]
+15,0, 10000,0, 4
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 166
+
+[Begin Action 240]
+15,0, 10000,0, 268
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+
+[Begin Action 241]
+15,0, 10000,0, 128
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+
+[Begin Action 242]
+15,0, 10000,0, 209
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+
+[Begin Action 243]
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 115
+
+[Begin Action 244]
+15,0, 10000,0, 128
+15,0, 0,0, 3 ,,A
+15,1, 0,0, 3 ,,A
+15,2, 0,0, 3 ,,A
+15,3, 0,0, 3 ,,A
+15,0, 10000,0, 70
+
+[Begin Action 10]
+99,0, 0,0, 8
+99,1, 0,0, 8
+99,2, 0,0, 8
+99,3, 0,0, 8
+99,4, 0,0, 8
+99,5, 0,0, 8
+99,6, 0,0, 8
+99,7, 0,0, 8
+99,8, 0,0, 8
+99,9, 0,0, 8
+99,10, 0,0, 8
+99,11, 0,0, 8
+99,12, 0,0, 8
+99,13, 0,0, 8
+99,14, 0,0, 8
+
+
+

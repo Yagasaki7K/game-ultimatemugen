@@ -1,0 +1,134 @@
+; Config file for Kim Faphwan 
+;  varの値を書き換えることで設定を変更できます。
+;  指定された値以外を書き込むと正しく動作しない可能性があります。
+
+[Statedef 8999]
+type    = A
+physics = N
+ctrl = 0
+anim = 9999
+
+;-------------------------------------------------------------------------------
+; ゲージ位置調整
+;  MAX発動時のゲージ位置の高さを調整します。
+;  値を増やすと画面下、値を減らすと画面上に調整できます。
+
+[State 8999, Maximum gauge pos y]
+type = ParentVarSet
+trigger1 = 1
+var(50) = 226
+
+;-------------------------------------------------------------------------------
+; カウンターメッセージ位置調整
+;  カウンターメッセージの表示位置の高さを調整します。
+;  値を増やすと画面下、値を減らすと画面上に調整できます。
+
+[State 8999, Counter message pos y]
+type = ParentVarSet
+trigger1 = 1
+var(53) = 88
+
+;-------------------------------------------------------------------------------
+; ダッシュタイプ
+;  ダッシュタイプを設定します。
+;  var(51) = 0 : ダッシュ(Dash)
+;  var(51) = 1 : ステップ(Step)
+;  var(51) = 2 : グランドステップ(Grand Step)
+
+[State 8999, Default dash type]
+type = ParentVarSet
+trigger1 = 1
+var(51) = 0
+
+;-------------------------------------------------------------------------------
+; MAX発動ボタン
+;  MAX発動する際のボタンを設定します。
+;  var(52) = 0 : Y+B
+;  var(52) = 1 : Y+A
+
+[State 8999, Maximum mode button combination]
+type = ParentVarSet
+trigger1 = 1
+var(52) = 0
+
+;-------------------------------------------------------------------------------
+; 悪人リスト
+; 「悪は許さん」の特殊イントロに対応させるにはここに名前を追加してください。
+
+[State 8999, Evil list]
+type = ParentVarSet
+trigger1 = p2name = "kim kaphwan" || p4name = "kim kaphwan"
+trigger2 = p2name = "geese howard" || p4name = "geese howard"
+trigger3 = p2name = "geese" || p4name = "geese"
+trigger4 = p2name = "ryuji yamazaki" || p4name = "ryuji yamazaki"
+trigger5 = p2name = "yamazaki" || p4name = "yamazaki"
+trigger6 = p2name = "rugal bernstein" || p4name = "rugal bernstein"
+trigger7 = p2name = "rugal" || p4name = "rugal"
+trigger8 = p2name = "omega rugal" || p4name = "omega rugal"
+trigger9 = p2name = "god rugal" || p4name = "god rugal"
+trigger10 = p2name = "billy kane" || p4name = "billy kane"
+trigger11 = p2name = "billy" || p4name = "billy"
+trigger12 = p2name = "iori yagami" || p4name = "iori yagami"
+trigger13 = p2name = "iori" || p4name = "iori"
+trigger14 = p2name = "orochi iori" || p4name = "orochi iori"
+trigger15 = p2name = "mature" || p4name = "mature"
+trigger16 = p2name = "vice" || p4name = "vice"
+trigger17 = p2name = "yashiro nanakase" || p4name = "yashiro nanakase"
+trigger18 = p2name = "yashiro" || p4name = "yashiro"
+trigger19 = p2name = "shelmie" || p4name = "shelmie"
+trigger20 = p2name = "chris" || p4name = "chris"
+trigger21 = p2name = "k9999" || p4name = "k9999"
+trigger22 = p2name = "angel" || p4name = "angel"
+trigger23 = p2name = "kyo-1" || p4name = "kyo-1"
+trigger24 = p2name = "kyo-2" || p4name = "kyo-2"
+trigger25 = p2name = "clone kyo" || p4name = "clone kyo"
+trigger26 = p2name = "kusanagi" || p4name = "kusanagi"
+trigger27 = p2name = "goenitz" || p4name = "goenitz"
+trigger28 = p2name = "orochi" || p4name = "orochi"
+trigger29 = p2name = "wolfgang krauser" || p4name = "wolfgang krauser"
+trigger30 = p2name = "krauser" || p4name = "krauser"
+trigger31 = p2name = "mr.big" || p4name = "mr.big"
+trigger32 = p2name = "kryzalid" || p4name = "kryzalid"
+trigger33 = p2name = "zero" || p4name = "zero"
+trigger34 = p2name = "clone zero" || p4name = "clone zero"
+trigger35 = p2name = "igniz" || p4name = "igniz"
+trigger36 = p2name = "ash krimson" || p4name = "ash krimson"
+trigger37 = p2name = "ash" || p4name = "ash"
+trigger38 = p2name = "dark ash" || p4name = "dark ash"
+trigger39 = p2name = "mukai" || p4name = "mukai"
+trigger40 = p2name = "shion" || p4name = "shion"
+trigger41 = p2name = "magaki" || p4name = "magaki"
+trigger42 = p2name = "saiki" || p4name = "saiki"
+trigger43 = p2name = "freeman" || p4name = "freeman"
+trigger44 = p2name = "grant" || p4name = "grant"
+trigger45 = p2name = "kain r. heinlein" || p4name = "kain r. heinlein"
+trigger46 = p2name = "kain" || p4name = "kain"
+trigger47 = p2name = "white" || p4name = "white"
+trigger48 = p2name = "genjuro kibagami" || p4name = "genjuro kibagami"
+trigger49 = p2name = "genjuro" || p4name = "genjuro"
+trigger50 = p2name = "shishioh" || p4name = "shishioh"
+trigger51 = p2name = "shin shishioh" || p4name = "shin shishioh"
+trigger52 = p2name = "goodman" || p4name = "goodman"
+trigger53 = p2name = "mizuchi" || p4name = "mizuchi"
+trigger54 = p2name = "neo-dio" || p4name = "neo-dio"
+trigger55 = p2name = "earthquake" || p4name = "earthquake"
+trigger56 = p2name = "balrog" || p4name = "balrog"
+trigger57 = p2name = "m.bison" || p4name = "m.bison"
+trigger58 = p2name = "bison" || p4name = "bison"
+trigger59 = p2name = "vega" || p4name = "vega"
+trigger60 = p2name = "gouki" || p4name = "gouki"
+trigger61 = p2name = "shin gouki" || p4name = "shin gouki"
+trigger62 = p2name = "akuma" || p4name = "akuma"
+trigger63 = p2name = "demitri maximoff" || p4name = "demitri maximoff"
+trigger64 = p2name = "demitri" || p4name = "demitri"
+trigger65 = p2name = "mars people" || p4name = "mars people"
+trigger66 = p2name = "violent ken" || p4name = "violent ken"
+trigger67 = p2name = "red arremer" || p4name = "red arremer"
+var(30) = 1
+
+;-------------------------------------------------------------------------------
+[State 8999, DestroySelf]
+type = DestroySelf
+trigger1 = 1
+
+ 

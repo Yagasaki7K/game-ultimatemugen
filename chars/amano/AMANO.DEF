@@ -1,0 +1,33 @@
+[Info]
+name         = "Amano by Luchini"     
+displayname  = "Amano Hyo"
+versiondate  = 03,05,2003  
+mugenversion = 04,14,2001
+author       = "Luchini"       
+pal.defaults = 1
+
+[Files]
+cmd     = amano.cmd    
+cns     = amano.cns    
+st      = amano.cns    
+st1     = amano2.cns   
+st2     = amano3.cns   
+stcommon = common1.cns 
+sprite  = amano.sff    
+anim    = amano.air    
+sound   = amano.snd   
+pal1    =  1.act     
+pal2    =  2.act
+pal3    =  3.act
+pal4    =  4.act
+pal5    =  5.act
+pal6    =  6.act
+pal7    =  7.act     
+pal8    =  8.act
+pal9    =  9.act
+pal10   = 10.act
+pal11   = 11.act
+pal12   = 12.act
+
+[Arcade]
+ending.storyboard = final.def

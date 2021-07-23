@@ -1,0 +1,35 @@
+;===========================================================================
+;Marvel vs. Capcom - Eternity of Heroes - Constants Template V.5
+;by REDHOT, Acey & eSkRo
+;See Read Me file for full credits
+;===========================================================================
+
+[Info]
+name="Batman"
+displayname="Batman"
+versiondate= 11.04.2008
+mugenversion=04.14.2001
+author="Infinity Mugen Team"
+pal.defaults=1,2,3,4,5,6,7,8
+
+[Files]
+cmd=Batman.cmd
+cns=Batman.cns
+stcommon=common1.cns
+st=Batman.cns
+sprite=Batman.sff
+anim=Batman.air
+sound=Batman.snd
+pal1=Batman09.act
+pal2=Batman05.act
+pal3=Batman03.act
+pal4=Batman04.act
+pal5=Batman08.act
+pal6=Batman02.act
+pal7=Batman06.act
+pal8=Batman07.act
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

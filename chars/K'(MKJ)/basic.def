@@ -1,0 +1,42 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[SceneDef]
+spr = 193,7
+startscene = 1
+
+[Scene 0]
+fadein.time = 100
+fadein.col = 0,0,0
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0
+bgm = Clubbed To Death.ogg
+bgm.loop = 1
+end.time = 50
+
+[Scene 1]
+fadein.time = 0
+fadein.col = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0
+bgm = Clubbed To Death.ogg
+bgm.loop = 0
+end.time = 0
+
+[Scene 2]
+fadein.time = 0
+fadein.col = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0
+bgm = 
+bgm.loop = 0
+end.time = 0
+

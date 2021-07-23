@@ -1,0 +1,88 @@
+
+　＊くろすかうんたーについて＊
+
+現在ちょっとこ丸さんのアルクェイドと、kuroさんのアルクェイドにしか対応していません。
+他にアルクェイドが公開されたらすぐに対応したいと思います。
+
+　＊ちょっとこ丸さんのアルクェイドについて＊
+
+こちらの正拳突きをアルクェイドでシールド成功させれば自動発動いたします。
+他キャラ相手だとシールド成功で三連攻撃は出来ませんが、このアルクェイドのみ可能にしました。
+ですが、既に公開停止なさっているキャラでありますので、こちらに対応できておりません。
+そこでお手間をおかけいたしますが、『Tech.st』のファイルのシールド部分の記述で、
+
+[State 700, クロスカウンター]
+type = VarSet
+（中略）
+trigger2 = ((P4Name = "CIEL(ELEICIA)") && (Enemy,StateNo = 201))
+v = 11
+（以下略）
+
+シールド成功部分で、
+
+[State 701, クロスカウンター]
+type = VarSet
+（中略）
+trigger2 = ((P4Name = "CIEL(ELEICIA)") && (Enemy,StateNo = 202))
+v = 11
+（以下略）
+
+とありますが、それぞれ
+
+[State 700, クロスカウンター]
+type = VarSet
+（中略）
+trigger2 = ((P4Name = "CIEL(ELEICIA)") && (Enemy,StateNo = 201))
+trigger3 = ((P2Name = "Ciel") && (Enemy,StateNo = 202))
+trigger4 = ((P4Name = "Ciel") && (Enemy,StateNo = 202))
+v = 11
+（以下略）
+
+[State 701, クロスカウンター]
+type = VarSet
+（中略）
+trigger2 = ((P4Name = "CIEL(ELEICIA)") && (Enemy,StateNo = 202))
+trigger3 = ((P2Name = "Ciel") && (Enemy,StateNo = 202))
+trigger4 = ((P4Name = "Ciel") && (Enemy,StateNo = 202))
+v = 11
+（以下略）
+
+と直していただけると発動できるようにいたしました。メモ帳で開く事ができます。
+
+　＊kuroさんのアルクェイドについて＊
+
+ Special thanks for kuro.
+
+アルクェイド側の対応が済んだようですので、クロスカウンターに対応されています。
+逆にくろすかうんたー！をこちらがシールド成功させても発動できないようにしました。
+kuroさんがステートを書いてくださりました。この場でお礼申し上げます。
+
+　＊知恵先生の圭一もしくはレナへの特殊イントロについて＊
+
+現在こちらが一方的に対応しているだけです。それを対応していただく必要があります。
+レナは『common1.cns』の5900番の中にある定義に記述を追加してください。
+
+[State 5900, 3] 
+type = ChangeState
+triggerall = roundstate = [0,1]         ; 変更。0を吹っ飛ばすアドオンがあるので。
+triggerall = var(15)=0
+triggerall = palno !=  [7,12]
+trigger1 = P2Name = "7TH HEAVEN CIEL"
+trigger2 = P2Name = "ciel"
+trigger3 = P2Name = "Chie_Rumiko"       ; 追加部分
+value = 189
+
+圭一も『Maebara_keiichi_st』の5900番にある定義に記述を追加してください。
+
+[State 5900, 2_1] 
+type = ChangeState
+triggerall = roundstate = [0,1]         ; 変更。0を吹っ飛ばすアドオンがあるので。
+triggerall = var(15)=0
+triggerall = palno != [7,12]
+trigger1 = P2Name = "7TH HEAVEN CIEL"
+trigger2 = P2Name = "Ciel"
+trigger3 = P2Name = "Chie_Rumiko"       ; 追加部分
+value = 189
+
+圭一とのやりとりはシエルより知恵の方が自然なもののはずです。
+

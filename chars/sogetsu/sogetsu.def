@@ -1,0 +1,35 @@
+[Info]
+name = "Kazama Sogetsu"
+displayname = "Kazama Sogetsu"
+versiondate =  08,04,2002
+mugenversion = 04,14,2001 
+author = "CKenni and System ID"
+pal.defaults = 1,2,3,4,5,6
+
+[Files]
+cns = Constant.cns
+;cmd = Sogetsu.cmd
+cmd = AltSogetsu.cmd   ;Uncomment this if you want to use the alternate CMD file
+stcommon = common1.cns
+sprite = Sogetsu.sff
+anim = Sogetsu.air
+st = basics.cns
+st1 = specials.cns
+st2 = supers.cns
+st3 = others.cns
+st4 = rage.cns
+sound = Sogetsu.snd
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+pal7 = 7.act
+pal8 = 8.act
+pal9 = 9.act
+pal10= 10.act
+pal11= 11.act
+pal12= 12.act
+
+

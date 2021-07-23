@@ -1,0 +1,785 @@
+;MELTYBLOOD ActCadenza より 「いまは滅び去った王国の詩」ネコカオスブラックG666バージョン (neco village c) / Ver 1.0
+;D4専用 
+;Hi-Res MUGEN Only
+;Author : TENE
+
+[Info]
+name = "MBAC_neco village c"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -140
+boundright = 140
+boundhigh = -207
+boundlow = 0
+verticalfollow = 0.6
+floortension = 50
+tension = 60
+
+[PlayerInfo]
+
+p1startx = -62          
+p1starty = 0            
+p1startz = 0            
+p1facing = 1            
+
+p2startx = 59
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+[Scaling]
+topz     = 0       
+botz     = 50     
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 19    
+screenright = 19   
+
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 0
+hires = 1
+
+[Shadow]
+color = 32,32,32
+yscale = .35
+reflect = 0
+
+[Music]
+bgmusic = 
+bgvolume = 255
+
+[BGdef]
+spr = stages/mbac_neco_c_blackG666.sff
+debugbg = 0
+
+;背景
+[BG 01]
+type = normal
+spriteno = 0, 0
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 1
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 2
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 3
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 4
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 5
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 6
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 7
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 8
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 9
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 10
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 11
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 12
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 13
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 14
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 15
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 16
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 17
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 18
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 19
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 20
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 21
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 22
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 23
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 24
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 25
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 26
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 27
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 28
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 29
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 30
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 31
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 32
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 33
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 34
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 35
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 36
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 37
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 38
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 39
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 40
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 41
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 42
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 43
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 44
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 45
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 46
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 47
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 48
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 49
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 50
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 51
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 52
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 53
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 54
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 55
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 56
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 57
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 58
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 59
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 60
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 61
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 62
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 63
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 64
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 65
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 66
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 67
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 68
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 69
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 70
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0
+
+[BG 01]
+type = normal
+spriteno = 0, 71
+layerno = 0
+start = 0,-415
+delta = 2,2
+trans = None
+mask = 0
+tile = 0, 0

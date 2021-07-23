@@ -1,0 +1,50 @@
+[Data]
+life = 1000
+power = 5000
+attack = 100
+defence = 100
+fall.defence_up = 50
+liedown.time = 60
+airjuggle = 25
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+volume = 255
+IntPersistIndex = 50
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 15
+ground.front = 16
+air.back = 12
+air.front = 12
+height = 60
+attack.dist = 160
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = -5, -90
+mid.pos = -5, -60
+shadowoffset = -1
+
+[Velocity]
+walk.fwd  = 2.8
+walk.back = -2.5
+run.fwd  = 5, 0
+run.back = -5,-3.8
+jump.neu = 0,-9.4
+jump.back = -3
+jump.fwd = 3
+runjump.back = -2.55,-8.1
+runjump.fwd = 4,-8.1
+airjump.neu = 0,-9.5
+airjump.back = -3
+airjump.fwd = 3
+
+[Movement]
+airjump.num = 0
+airjump.height = 30
+yaccel = .35
+stand.friction = .8
+crouch.friction = .8

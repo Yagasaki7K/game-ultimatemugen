@@ -1,0 +1,40 @@
+[Info]
+Name         = "Sion Eltnam Atlasia"
+DisplayName  = "Sion Eltnam Atlasia"
+VersionDate  = 11,09,2008
+MugenVersion = 04,14,2001
+Author       = "Shiroto"
+;Pal.Defaults = 2,1
+
+[Files]
+cmd       = sion_a.cmd
+cns       = sion_a.cns
+st        = sion_a.cns   ;common_re.act
+st1       = sion_a00.cns ;data
+st2       = sion_a01.cns ;normal
+st3       = sion_a02.cns ;skill
+st4       = sion_a03.cns ;AD LA
+st5       = sion_a04.cns ;AI
+st6       = helper.cns   ;helper
+st7       = helper2.cns  ;effect
+stcommon  = common2.cns  ;common
+sprite    = sion_a5.sff
+anim      = sion_a2.air
+sound     = sion_a.snd
+pal1      = act/sion_a1.act  ;Normal
+pal2      = act/2p_n.act
+pal3      = act/sink_a.act
+pal4      = act/sion_a4.act
+pal5      = act/sion_eirin.act  ;Normal
+pal6      = act/2p_n.act
+pal7      = act/sion_a1.act  ;Normal
+pal8      = act/2p_n.act
+pal9      = act/sink_a.act
+pal10     = act/sion_a4.act
+pal11     = act/sion_eirin.act
+pal12     = act/sion_a4.act
+;---------------------------------------------
+;[Arcade]
+;intro.storyboard  = Intro.def
+;ending.storyboard = Ending.def
+

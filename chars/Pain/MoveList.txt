@@ -1,0 +1,119 @@
+;-------------------------------------------------------------------------------
+OK GUYS IM FLOSSR3 AND I MADE A MOVELIST FOR ALL PEOPLE WHICH DONT KNOW HOW TO DO ALL ATTACKS AND STUFF
+GEDO MAZO - DF,z (UNCLOACKED MODE) 
+Pain-Rikudo - DF,z (NORMAL MODE)
+Ultimate-Shinra-Tensei-Activator - DF,y (NORMAL MODE)
+Ultimate-Shinra-Tensei- DF,x (NORMAL MODE)
+Ultimate-Chibaku-Tensei-Activator - DF,y (UNCLOACKED MODE)
+Ultimate-Chibaku-Tensei - DF,x(UNCLOACKED MODE)
+Chakra-Charger -s
+Rinnegan - HoldDown +s
+Rinnegan-Combo - b,b,b,b
+Rinnegan-Combo -a,a,a,a
+Cloack(normal mode)-->Uncloack(uncloacked mode) - life <= 400
+Teleport - z
+Throw - y
+Rain - HoldDown + y
+Animal Path - HoldDown + z
+Pain System - HoldDown + x
+Bancho-Tensei - HoldDown + a
+Shinra-Tensei - x
+Combo - a,a,a,a + different commands
+Combo - b,b,b,b + different commands
+Bancho-Tenin - c (and use x,y,z for different way to take down the opponent) c+x,c+y,c+z
+Shinra-Tenin -c   ]
+AShinra-Tenin - c ] system for repulse and attract object + air repulse and attract
+Air-Throw - y
+Air-Teleport - z
+Air-Shinra-Tensei - x
+Jump-Kick - a
+Jump-Punch - b
+Jump-Punch -c
+Bancho-Tenin-Combo - c
+Shinra-Tenin-Combo - c
+( "U"-Unclocked Mode)
+UTeleport - z
+UThrow - y
+UShinra-Tensei - x
+UPierce - a
+UCombo-b,b,b,b + command
+UBancho-Tenin - c  ] there is a system for repulse and attract object + air repulse and attract
+UShinra-Tenin  - c ]
+UAShinra-Tenin - c
+Bancho-Tenin - c (and use x,y,z for different way to take down the opponent) c+x,c+y,c+z
+URinnegan -  holddown +s 
+UTaunt    - s
+UAir-Throw - y
+UAir-Teleport - z
+UAir-Shinra-Tensei - x
+UJump-Kick - c
+UJump-Punch - b
+UJump-Punch - a
+UAir-Bancho-Tensei -  holddown + x
+UWater-Jutsu -  holddown +y
+UChibaku-Stone -  holddown + z
+UChakra-Charger - s
+Combo btw bodies and main body and bodies are allowed  if u are in right distrance please read
+bellow what pain have as summons and suff :
+;Win
+;Lose
+;Rain
+;Damage-Effect-RedGlow
+;Rinnegan
+;Rinnegan-Combo-Jigokudo+Chikushodo
+;Rinnegan-Combo1-Ningendo+Shurado
+;Transformation
+;Teleport
+;Kunai
+;Intro-1-2-3
+;Taunt
+;Pain-System
+;Lizard-Mode-ChakraCharge-Invisibility-Bird-Dog-4Dogs-Rhino-Bison-BisonSlide-Centiped-CrabGround-CrabWall
+;Chikushodo-Basic
+;Ningendo-Basic
+;Shinra-Tensei
+;Combo1+RandomHits
+;Combo2+RandomHits
+;Ningendo-Basic
+;Gakido-Basic
+;Jigokudo-Basic
+;Shurado-Basic--->Unclocked-Mode-System for nothitby in damage
+;Anulation-Imbination-Compatibility->System-50% DONE
+;Bancho-Tenin-System-[Neck,Leg,Pierce]
+;Bancho-Tenin=Shinra-Tensei-System
+;Chibaku-Stone
+;Air-Hits
+;Air-Shinra-Tensei
+;Air-Teleport
+;Air-Kunai
+;UKunai
+;UTeleport
+;UPiearce
+;UCombo
+;UShinra-Tensei
+;UBancho-Tenin-System-[Neck,Leg,Pierce]
+;UBancho-Tenin=Shinra-Tensei-System
+;URinnegan-System
+;UAir-Bancho-Tensei
+;UWater-Jutsu
+;UStone-Levitation
+;UAir-Stone-Levitation
+;UChakra-Charger
+;UTaunt
+;Chikushodo-Combo-BirdEggs-Panda-BirdBomb,Centiped,Crustacee,CrustaWater,Dogs,Rhino,Ox,Lizard,Ox+Dogs
+;Ningendo-Combo-SoulAbsorb-SoulAbsorb1-SoulAbsorb2
+;Gakido-Combo-SphereAbsorb-ShiledAbsorb-Kunai
+;Jigokudo-Combo-Kunai-KingOfHell1-KingofHell2
+;Shurado-Combo-Hand-Missles-AirMissles-PointedMissles-HeadCanon-HandCanon
+;UShurado-Combo+Bancho-System-Missles-PointedMissles-HeadCanon-Hand
+;Ultimate-Shinra-Tensei-Activator-var(30)= 0
+;Ultimate-Chibaku-Tensei-Activator-var(31)= 0
+;Ultimate-Shinra-Tensei-var(30)= 1
+;Ultimate-Chibaku-Tensei-var(31)= 1
+;Nagato-Mode-var(33)= 1
+;Chakra
+;Pain-Rikudo-Special
+;Anulator-System-Chibaku
+;Adaptive-BodySystem-Root,Tendo+[Combo]
+;Vx && Flo Production Intro
+;-------------------------------------------------------------------------------

@@ -1,0 +1,6144 @@
+;==============================================================================
+;　必殺技
+;==============================================================================
+
+;==============================================================================
+;　黒鍵投げ（第一節）　弱
+;==============================================================================
+[Statedef 1000]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1000
+poweradd = 0
+
+[State 1000, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Ciel"
+value = s30,0+random%2
+channel = 0
+[State 1000, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,110+random%2
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 1
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = ifelse(Var(38)>=1,3004,1001)
+ID = 1001
+Name = "attack"
+Pos = 0,-56
+PosType = P1
+Ownpal = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵投げ（第一節）　中
+;==============================================================================
+[Statedef 1010]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1000
+poweradd = 0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Ciel"
+value = s30,0+random%2
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,110+random%2
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 1
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1011
+ID = 1011
+Name = "attack"
+Pos = 0,-56
+PosType = P1
+Ownpal = 1
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + a"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 25
+V = 23
+Value = 1
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 1
+Trigger1 = AnimElem = 9
+Value = 1012
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + b"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 25
+V = 23
+Value = 2
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 2
+Trigger1 = AnimElem = 9
+Value = 1013
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵投げ（第二節）
+;==============================================================================
+[Statedef 1012]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1003
+poweradd = 0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+triggerAll = Name = "Ciel"
+value = s30,2
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,112+random%3
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 1
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(6) = 0
+Stateno = 1011
+ID = 1011
+Name = "attack"
+Pos = 19,-119
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(8) = 0
+Stateno = 1011
+ID = 1011
+Name = "attack"
+Pos = 45,-53
+PosType = P1
+Ownpal = 1
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + a"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 25
+V = 23
+Value = 1
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 1
+Trigger1 = AnimElem = 11
+Value = 1017
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + b"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 25
+V = 23
+Value = 2
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 2
+Trigger1 = AnimElem = 11
+Value = 1014
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵投げ（第三節）
+;==============================================================================
+[Statedef 1013]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1001
+poweradd = 0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(9) = 0
+triggerAll = Name = "Ciel"
+value = s30,3
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(9) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,112+random%3
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(9) = 1
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(9) = 0
+Stateno = 1011
+ID = 1011
+Name = "attack"
+Pos = 0,-73
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(9) = 0
+Stateno = 1011
+ID = 1011
+Name = "attack"
+Pos = -12,-58
+PosType = P1
+Ownpal = 1
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + a"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 30
+V = 23
+Value = 1
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 1
+Trigger1 = AnimElem = 14
+Value = 1017
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + b"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 30
+V = 23
+Value = 2
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 2
+Trigger1 = AnimElem = 14
+Value = 1014
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵投げ（第四節）
+;==============================================================================
+[Statedef 1014]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1002
+poweradd = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+triggerAll = Name = "Ciel"
+value = s30,4
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,115+random%2
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 1
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimelemTime(6) = 0
+Stateno = 1015
+ID = 1015
+Name = "attack"
+Pos = -9,-46
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimelemTime(6) = 0
+Stateno = 1015
+ID = 1015
+Name = "attack"
+Pos = 9,-49
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimelemTime(6) = 0
+Stateno = 1015
+ID = 1015
+Name = "attack"
+Pos = -34,-27
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimelemTime(6) = 0
+Stateno = 1015
+ID = 1015
+Name = "attack"
+Pos = -9,-44
+PosType = P1
+Ownpal = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵投げ（第七節）
+;==============================================================================
+[Statedef 1017]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1004
+poweradd = 0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+triggerAll = Name = "Ciel"
+value = s30,7
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,115+random%2
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 1
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(6) = 0
+Stateno = 1015
+ID = 1015
+Name = "attack"
+Pos = -11,-82
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(6) = 0
+Stateno = 1015
+ID = 1015
+Name = "attack"
+Pos = 11,-59
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(6) = 0
+Stateno = 1015
+ID = 1015
+Name = "attack"
+Pos = 20,-38
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(6) = 0
+Stateno = 1015
+ID = 1015
+Name = "attack"
+Pos = -6,-14
+PosType = P1
+Ownpal = 1
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + b"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 54
+V = 23
+Value = 2
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 2
+Trigger1 = AnimElem = 10
+Value = 1019
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵投げ（第十節）
+;==============================================================================
+[Statedef 1019]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1005
+poweradd = 0
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = Time = 2
+StateType = A
+MoveType = A
+Physics = N
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = Time = 33
+StateType = S
+MoveType = I
+Physics = S
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 2
+x = 4
+y = -8
+
+[State -1, VelSet]
+Type = VelAdd
+Trigger1 = Time >= 2
+Trigger1 = Time <= 33
+y = .5
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 33
+x = 0
+y = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(11) = 0
+triggerAll = Name = "Ciel"
+value = s30,10
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(11) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,123
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(11) = 1
+value = s3,1
+
+[State 620, Hit]
+type = HitDef
+trigger1 = AnimElemTime(11) = 0
+attr             = A, NA
+animtype         = Hard
+damage           = 35,0
+getpower         = 30, 20
+guardflag        = HA
+priority         = 4
+pausetime        = 8,8
+sparkno          = -1
+sparkxy          = 0,-65
+guard.sparkno    = s6005
+hitsound         = s1, 2
+guardsound       = s1, 10
+ground.type      = High
+ground.slidetime = 15
+ground.hittime   = 15
+ground.velocity  = -4.5
+air.velocity     = -1.7,3
+down.velocity    = -4,0
+down.hittime     = 20
+
+[State -1, VarSet8]
+Type = VarAdd
+trigger1 = MoveHit
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6004
+ID = 6004
+Name = "HitSpark"
+Pos = 0,-57
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(11) = 0
+Stateno = 1111
+ID = 1111
+Name = "attack"
+Pos = 41,-42
+PosType = P1
+Ownpal = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵投げ（大終節）
+;==============================================================================
+[Statedef 1020]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1020
+poweradd = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s14,4
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,125
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = Time = 18
+value = s0,0
+
+[State 106, Speed]
+type = Velset
+trigger1 = Time = 6
+x = -6.5
+[State 106, Speed]
+type = Velset
+trigger1 = Time = 25
+trigger2 = animelemtime(23) = 0
+x = 0
+[State 106, Speed]
+type = Velset
+trigger1 = Time = 31
+x = -6.5
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 2
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 2
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = SuperPause
+Trigger1 = animelemtime(2) = 0
+Time     = 40
+MoveTime = 40
+sound    = s2,0
+Anim     = -1
+Darken   = 0
+
+[State -1, Helper1]
+Type = Helper
+trigger1 = AnimElemTime(32) = 0
+trigger2 = AnimElemTime(51) = 0
+trigger3 = AnimElemTime(70) = 0
+trigger4 = AnimElemTime(88) = 0
+trigger5 = AnimElemTime(107) = 0
+trigger6 = AnimElemTime(125) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = 0,-56
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper2]
+Type = Helper
+trigger1 = AnimElemTime(42) = 0
+trigger2 = AnimElemTime(79) = 0
+trigger3 = AnimElemTime(116) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = 19,-119
+PosType = P1
+Ownpal = 1
+[State -1, Helper2]
+Type = Helper
+trigger1 = AnimElemTime(44) = 0
+trigger2 = AnimElemTime(81) = 0
+trigger3 = AnimElemTime(118) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = 45,-53
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(63) = 0
+trigger2 = AnimElemTime(100) = 0
+trigger3 = AnimElemTime(137) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = 0,-73
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(63) = 0
+trigger2 = AnimElemTime(100) = 0
+trigger3 = AnimElemTime(137) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = -12,-58
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(146) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = -9,-46
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(146) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = 9,-49
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(146) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = -34,-27
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(146) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = -9,-44
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(158) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = -11,-82
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(158) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = 11,-59
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(158) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = 20,-38
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(158) = 0
+Stateno = 1021
+ID = 1021
+Name = "attack"
+Pos = -6,-14
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(166) = 0
+Stateno = 1023
+ID = 1021
+Name = "attack"
+Pos = -11,-82
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(166) = 0
+Stateno = 1023
+ID = 1021
+Name = "attack"
+Pos = 11,-59
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(166) = 0
+Stateno = 1023
+ID = 1021
+Name = "attack"
+Pos = 20,-38
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(166) = 0
+Stateno = 1023
+ID = 1021
+Name = "attack"
+Pos = -6,-14
+PosType = P1
+Ownpal = 1
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(32) = 0
+trigger2 = AnimElemTime(51) = 0
+trigger3 = AnimElemTime(70) = 0
+trigger4 = AnimElemTime(88) = 0
+trigger5 = AnimElemTime(107) = 0
+trigger6 = AnimElemTime(42) = 0
+trigger7 = AnimElemTime(79) = 0
+trigger8 = AnimElemTime(116) = 0
+trigger9 = AnimElemTime(63) = 0
+trigger10 = AnimElemTime(100) = 0
+trigger11 = AnimElemTime(137) = 0
+trigger12 = AnimElemTime(125) = 0
+trigger13 = AnimElemTime(146) = 0
+trigger14 = AnimElemTime(158) = 0
+trigger15 = AnimElemTime(166) = 0
+value = s3,1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵投げ（中終節）
+;==============================================================================
+[Statedef 1030]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 1030
+poweradd = 0
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 2
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 2
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = SuperPause
+Trigger1 = animelem = 2
+Time     = 40
+MoveTime = 40
+sound    = s2,0
+Anim     = -1
+Darken   = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+triggerAll = Name = "Ciel"
+value = s30,1
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(17) = 0
+triggerAll = Name = "Ciel"
+value = s30,2
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(27) = 0
+triggerAll = Name = "Ciel"
+value = s30,3
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,121
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(27) = 0
+value = s3,1
+
+[State -1, Helper1]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = 0,-56
+PosType = P1
+Ownpal = 1
+[State -1, Helper2]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = 19,-119
+PosType = P1
+Ownpal = 1
+[State -1, Helper3]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = 45,-101
+PosType = P1
+Ownpal = 1
+[State -1, Helper4]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = 0,-73
+PosType = P1
+Ownpal = 1
+[State -1, Helper5]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = -12,-154
+PosType = P1
+Ownpal = 1
+[State -1, Helper6]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = -9,-82
+PosType = P1
+Ownpal = 1
+[State -1, Helper7]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = 9,-49
+PosType = P1
+Ownpal = 1
+[State -1, Helper8]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = -34,-140
+PosType = P1
+Ownpal = 1
+[State -1, Helper9]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = -9,-169
+PosType = P1
+Ownpal = 1
+[State -1, Helper10]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = -11,-82
+PosType = P1
+Ownpal = 1
+[State -1, Helper11]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = 11,-128
+PosType = P1
+Ownpal = 1
+[State -1, Helper12]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = 20,-38
+PosType = P1
+Ownpal = 1
+[State -1, Helper13]
+Type = Helper
+trigger1 = AnimElemTime(27) = 0
+Stateno = 1031
+ID = 1021
+Name = "attack"
+Pos = -6,-14
+PosType = P1
+Ownpal = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　黒鍵・断罪　弱
+;==============================================================================
+[Statedef 1100]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1100
+;velset   = 0,0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.5
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Ciel"
+value = s30,0
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,110+random%5
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1101
+ID = 1101
+Name = "attack"
+Pos = 30,-36
+PosType = P1
+Ownpal = 1
+
+[State 805, 状態変更]
+type = StateTypeSet
+trigger1 = AnimElemTime(5) = 1
+type     = A
+movetype = I
+physics  = A
+
+;==============================================================================
+;　黒鍵・断罪　中
+;==============================================================================
+[Statedef 1110]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1100
+;velset   = 0,0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.5
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Ciel"
+value = s30,0
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,110+random%5
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(4) = 0
+Stateno = 1111
+ID = 1111
+Name = "attack"
+Pos = 30,-36
+PosType = P1
+Ownpal = 1
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + b"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 19
+V = 23
+Value = 2
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 2
+Trigger1 = AnimElem = 7
+Trigger2 = Command = "B + b"
+Trigger2 = Time >= 20
+Value = 1112
+
+;==============================================================================
+;　黒鍵・割礼
+;==============================================================================
+[Statedef 1112]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1101
+;velset   = 0,0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.7
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+triggerAll = Name = "Ciel"
+value = s30,2
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,114
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(3) = 0
+Stateno = 1111
+ID = 1111
+Name = "attack"
+Pos = 12,-31
+PosType = P1
+Ownpal = 1
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = Command = "B + b"
+Trigger1 = Time >= 1
+Trigger1 = Time <= 17
+V = 23
+Value = 2
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Var(23) = 2
+Trigger1 = AnimElem = 7
+Trigger2 = Command = "B + b"
+Trigger2 = Time >= 18
+Value = 1113
+
+;==============================================================================
+;　黒鍵・断頭
+;==============================================================================
+[Statedef 1113]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1102
+;velset   = 0,0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,15]
+x = -1
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,15]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(10) = 0
+triggerAll = Name = "Ciel"
+value = s13,8
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(10) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,115+random%3
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = animelem = 10
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(10) = 0
+Stateno = 1111
+ID = 1111
+Name = "attack"
+Pos = 8,-26
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(10) = 0
+Stateno = 1111
+ID = 1111
+Name = "attack"
+Pos = 16,-36
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(10) = 0
+Stateno = 1111
+ID = 1111
+Name = "attack"
+Pos = 23,-43
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(10) = 0
+Stateno = 1111
+ID = 1111
+Name = "attack"
+Pos = 38,-47
+PosType = P1
+Ownpal = 1
+
+;==============================================================================
+;　黒鍵・埋葬
+;==============================================================================
+[Statedef 1120]
+type     = A
+movetype = I
+physics  = A
+ctrl     = 0
+anim     = 1120
+;velset   = 0,0
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 1
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 1
+Stateno  = 6030
+ID       = 6030
+Pos      = 3,-54
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 1
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, 移動速度]
+type = VelSet
+trigger1 = Time = [0,4]
+x = 0
+y = 0
+
+[State -1, 移動速度]
+type = VelSet
+trigger1 = Time = [4,13]
+trigger2 = Time = [31,40]
+trigger3 = Time = [55,64]
+x = -0.5
+y = -2
+[State -1, 移動速度]
+type = VelSet
+trigger1 = Time = [22,31]
+trigger2 = Time = [44,53]
+trigger3 = Time = [68,77]
+x = -0.7
+y = -2
+
+[State 753, 速度加算]
+type = VelSet
+trigger1  = animelemtime(41) = 0
+y = -3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s14,4
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,125
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+trigger2 = AnimElemTime(14) = 0
+trigger3 = AnimElemTime(24) = 0
+trigger4 = AnimElemTime(10) = 0
+trigger5 = AnimElemTime(19) = 0
+trigger6 = AnimElemTime(29) = 0
+trigger7 = AnimElemTime(41) = 0
+trigger8 = AnimElemTime(41) = 1
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+trigger2 = AnimElemTime(14) = 0
+trigger3 = AnimElemTime(24) = 0
+Stateno = 1121
+ID = 1121
+Name = "attack"
+Pos = 30,-36
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(10) = 0
+trigger2 = AnimElemTime(19) = 0
+trigger3 = AnimElemTime(29) = 0
+Stateno = 1121
+ID = 1121
+Name = "attack"
+Pos = 12,-31
+PosType = P1
+Ownpal = 1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+trigger2 = AnimElemTime(41) = 1
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 8,-26
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+trigger2 = AnimElemTime(41) = 1
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 16,-36
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+trigger2 = AnimElemTime(41) = 1
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 23,-43
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(41) = 0
+trigger2 = AnimElemTime(41) = 1
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 38,-47
+PosType = P1
+Ownpal = 1
+
+;==============================================================================
+;　黒鍵・王手
+;==============================================================================
+[Statedef 1130]
+type     = A
+movetype = I
+physics  = A
+ctrl     = 0
+anim     = 1130
+;velset   = 0,0
+
+[State -1, 移動速度]
+type = VelSet
+trigger1 = Time = [0,14]
+x = -0.25
+y = -1
+
+[State -1, NotHitBy]
+Type = Null;NotHitBy
+Trigger1 = Time = [0,11]
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 10
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 10
+Stateno  = 6030
+ID       = 6030
+Pos      = 3,-54
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 10
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(10) = 0
+triggerAll = Name = "Ciel"
+value = s14,3
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(10) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,121
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = animelemtime(11) = 0
+value = s3,1
+
+[State -1, Helper1]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 30,-36
+PosType = P1
+Ownpal = 1
+[State -1, Helper2]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 12,-31
+PosType = P1
+Ownpal = 1
+[State -1, Helper3]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 8,-26
+PosType = P1
+Ownpal = 1
+[State -1, Helper4]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 16,-36
+PosType = P1
+Ownpal = 1
+[State -1, Helper5]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 23,-43
+PosType = P1
+Ownpal = 1
+[State -1, Helper6]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 38,-47
+PosType = P1
+Ownpal = 1
+[State -1, Helper7]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 74,-37
+PosType = P1
+Ownpal = 1
+[State -1, Helper2]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 72,-57
+PosType = P1
+Ownpal = 1
+[State -1, Helper3]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 62,-39
+PosType = P1
+Ownpal = 1
+[State -1, Helper4]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = 70,-51
+PosType = P1
+Ownpal = 1
+[State -1, Helper5]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = -8,-15
+PosType = P1
+Ownpal = 1
+[State -1, Helper6]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = -31,-28
+PosType = P1
+Ownpal = 1
+[State -1, Helper4]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = -16,-32
+PosType = P1
+Ownpal = 1
+[State -1, Helper5]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = -53,-5
+PosType = P1
+Ownpal = 1
+[State -1, Helper6]
+Type = Helper
+trigger1 = AnimElemTime(12) = 0
+Stateno = 1131
+ID = 1121
+Name = "attack"
+Pos = -44,-8
+PosType = P1
+Ownpal = 1
+
+;==============================================================================
+;　ハイロゥ　弱
+;==============================================================================
+[Statedef 1200]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 40
+poweradd = 0
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1201
+
+;------------------------------------------------------------------------------
+; ハイロゥ　その２
+;------------------------------------------------------------------------------
+[Statedef 1201]
+type     = A
+physics  = A
+ctrl     = 0
+anim     = 1201
+poweradd = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s13,8
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,114
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+value = s2,11
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 0
+x = -10
+y = -10
+
+[State 200, Change]
+type = ChangeState
+trigger1 = BackEdgeDist <= 10
+trigger1 = time >= 17
+value = 1202
+
+;------------------------------------------------------------------------------
+; ハイロゥ　その３
+;------------------------------------------------------------------------------
+[Statedef 1202]
+type     = A
+physics  = N
+ctrl     = 0
+anim     = 1202
+poweradd = 0
+
+[State 1000, 0]
+type = Turn
+trigger1 = time = 0
+trigger1 = p2Dist X < 10
+persistent = 1
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 0
+x = 0
+y = 0
+
+[State 753, ]
+type = PosSet
+trigger1 = 1
+x = ifelse(facing = -1,140,-140);pos x
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+
+[State -1, VarSet];普通飛び
+Type = VarSet
+triggerall = time <= 42
+TriggerAll = Var(1) = 0
+trigger1 = command = "a"
+trigger2 = command = "b"
+trigger3 = command = "c"
+V = 23
+Value = 3
+[State -1, VarSet];壁越え
+Type = VarSet
+triggerall = time <= 42
+TriggerAll = Var(1) = 0
+trigger1 = command = "236+a"
+trigger2 = command = "236+b"
+trigger3 = command = "236+c"
+V = 23
+Value = 1
+[State -1, VarSet];黒鍵投げ
+Type = VarSet
+triggerall = time <= 42
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+a"
+trigger2 = command = "214+b"
+trigger3 = command = "214+c"
+V = 23
+Value = 2
+
+
+[State 200, Change];壁越え
+type = ChangeState
+triggerall = time <= 42
+triggerall = time >= 8
+trigger1 = var(23) = 1
+value = 1204
+[State 200, Change];黒鍵投げ
+type = ChangeState
+triggerall = time <= 42
+triggerall = time >= 8
+trigger1 = var(23) = 2
+value = 1203
+[State 200, Change];普通飛び
+type = ChangeState
+triggerall = time <= 42
+triggerall = time >= 8
+trigger1 = var(23) = 3
+value = 1205
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = Time = 42
+StateType = A
+Physics = A
+
+;------------------------------------------------------------------------------
+; ハイロゥ　黒鍵投げ１
+;------------------------------------------------------------------------------
+[Statedef 1203]
+type     = A
+physics  = N
+ctrl     = 0
+anim     = 1203
+poweradd = 0
+
+[State 753, ]
+type = PosSet
+trigger1 = 1
+x = ifelse(facing = -1,140,-140);pos x
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+triggerAll = Name = "Ciel"
+value = s14,7
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,111
+channel = 0
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(4) = 0
+Stateno = 1114
+ID = 1114
+Name = "attack"
+Pos = 30,-36
+PosType = P1
+Ownpal = 1
+
+[State -1, VarSet]
+Type = VarSet
+triggerall = time >= 5
+triggerall = time <= 32
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+a"
+trigger2 = command = "214+b"
+trigger3 = command = "214+c"
+V = 23
+Value = 2
+[State -1, VarSet]
+Type = VarSet
+triggerall = time >= 5
+triggerall = time <= 32
+TriggerAll = Var(1) = 0
+trigger1 = command = "236+a"
+trigger2 = command = "236+b"
+trigger3 = command = "236+c"
+V = 23
+Value = 1
+
+[State 200, Change]
+type = ChangeState
+triggerall = time <= 32
+triggerall = time >= 17
+trigger1 = var(23) = 1
+value = 1204
+[State 200, Change]
+type = ChangeState
+triggerall = time <= 32
+triggerall = time >= 17
+trigger1 = var(23) = 2
+value = 1206
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = Time = 32
+StateType = A
+Physics = A
+
+;------------------------------------------------------------------------------
+;　ハイロゥ　壁越え
+;------------------------------------------------------------------------------
+[Statedef 1204]
+type     = A
+physics  = N
+ctrl     = 0
+anim     = 1207
+poweradd = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Ciel"
+value = s13,8
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+triggerAll = Name = "Chie_Rumiko"
+value = s14,114
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+value = s2,11
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 0
+x = 13
+y = 1
+
+[State 1000, 0]
+type = PlayerPush
+trigger1 = 1
+value = 0
+;persistent = 
+
+[State -1, NotHitBy]
+Type = Null;NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = FrontEdgeDist <= 10
+value = 1202
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1302
+;------------------------------------------------------------------------------
+;　ハイロゥ　放物線
+;------------------------------------------------------------------------------
+[Statedef 1205]
+type     = A
+physics  = N
+ctrl     = 0
+anim     = 1207
+poweradd = 0
+
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 0
+x = 5
+y = -4
+[State 753, 移動速度]
+type = VelAdd
+trigger1 = command = "holdfwd"
+x = 0.1
+[State 753, 移動速度]
+type = VelAdd
+trigger1 = command = "holdback"
+x = -0.1
+[State 753, 移動速度]
+type = VelAdd
+trigger1 = 1
+y = 0.44
+
+[State 200, Change];鳥葬式典
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+a"
+value = 1600
+[State 200, Change];鳥葬式典
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+b"
+value = 1610
+[State 200, Change];鳥葬式典
+type = ChangeState
+triggerall = time >= 3
+triggerall = power >= 1000
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+c"
+value = 1620
+
+[State 200, Change];土葬式典
+type = ChangeState
+triggerall = time >= 3
+triggerall = power >= 1000
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+y"
+value = 1650
+[State 200, Change];黒鍵投げ三本
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+x"
+value = 1630
+
+[State 200, Change];攻撃
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "a"
+value = 1300
+[State 200, Change];攻撃
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "b"
+value = 1310
+[State 200, Change];攻撃
+type = ChangeState
+triggerall = time >= 3
+triggerall = power >= 1000
+TriggerAll = Var(1) = 0
+trigger1 = command = "z"
+trigger1 = command = "c"
+value = 1330
+[State 200, Change];エンゼルハイロゥ
+type = ChangeState
+triggerall = time >= 3
+triggerall = power >= 1000
+TriggerAll = Var(1) = 0
+trigger1 = command = "c"
+value = 1320
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1302
+
+;------------------------------------------------------------------------------
+;　ハイロゥ　壁黒鍵投げ　２
+;------------------------------------------------------------------------------
+[Statedef 1206]
+type     = A
+physics  = N
+ctrl     = 0
+anim     = 1209
+poweradd = 0
+
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 14
+x = 4
+[State 753, 移動速度]
+type = VelSet
+trigger1 = animelem = 5
+y = -3
+[State 753, 移動速度]
+type = VelAdd
+trigger1 = time > 14
+y = 0.44
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(4) = 0
+Stateno = 1101
+ID = 1101
+Name = "attack"
+Pos = 59,-22
+PosType = P1
+Ownpal = 1
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1302
+
+;==============================================================================
+;　ハイロゥ　中
+;==============================================================================
+[Statedef 1210]
+type     = S
+physics  = S
+ctrl     = 0
+anim     = 40
+poweradd = 0
+
+[State 200, Change]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1211
+
+;------------------------------------------------------------------------------
+; ハイロゥ　その２
+;------------------------------------------------------------------------------
+[Statedef 1211]
+type     = A
+physics  = N
+ctrl     = 0
+anim     = 1207
+poweradd = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+value = s2,11
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 0
+x = 1.5
+y = -8
+[State 753, 移動速度]
+type = VelAdd
+trigger1 = command = "holdfwd"
+x = 0.07
+[State 753, 移動速度]
+type = VelAdd
+trigger1 = command = "holdback"
+x = -0.07
+
+[State 753, 移動速度]
+type = VelAdd
+trigger1 = 1
+y = 0.25
+
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+a"
+value = 1600
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+b"
+value = 1610
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+triggerall = power >= 1000
+trigger1 = command = "214+c"
+value = 1620
+
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+triggerall = power >= 1000
+trigger1 = command = "214+y"
+value = 1650
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "214+x"
+value = 1630
+
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "a"
+value = 820;1300
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+trigger1 = command = "b"
+value = 1310
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+triggerall = power >= 1000
+trigger1 = command = "z"
+trigger1 = command = "c"
+value = 1330
+[State 200, Change]
+type = ChangeState
+triggerall = time >= 3
+TriggerAll = Var(1) = 0
+triggerall = power >= 1000
+trigger1 = command = "c"
+value = 1320
+
+[State 200, Change]
+type = ChangeState
+trigger1 = time >= 5
+trigger1 = Pos Y >= 0
+value = 1302
+
+;==============================================================================
+;　セブンスヘヴン
+;==============================================================================
+[Statedef 1220]
+type     = S
+movetype = I
+physics  = S
+ctrl     = 0
+anim     = 40
+poweradd = 0
+
+[State -1, VarSet]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = ifelse(var(38)>=1 && (command="236+zc" || Var(1) = 1),1,0)
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = time = 0
+Trigger1 = Var(23) = 0
+movetype = A
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1]
+Type = PowerAdd
+Trigger1 = time = 0
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+[State -1]
+Type = PowerAdd
+Trigger1 = time = 1
+Value = ifelse(Var(23)=1 && Var(2) != 7,-500,0)
+
+[State -1]
+Type     = Helper
+Trigger1 = time = 0
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-35
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 2
+Add = 0,0,0
+Mul = 236,236,236
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 4
+Add = 0,0,0
+Mul = 216,216,216
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 6
+Add = 0,0,0
+Mul = 196,196,196
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 8
+Add = 0,0,0
+Mul = 176,176,176
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 10
+Add = 0,0,0
+Mul = 156,156,156
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 12
+Add = 0,0,0
+Mul = 136,136,136
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 14
+Add = 0,0,0
+Mul = 116,116,116
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 16
+Add = 0,0,0
+Mul = 96,96,96
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 18
+Add = 0,0,0
+Mul = 76,76,76
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 20
+Add = 0,0,0
+Mul = 56,56,56
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 22
+Add = 0,0,0
+Mul = 36,36,36
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time = 24
+Add = 0,0,0
+Mul = 16,16,16
+Time = 2
+[State -1, BGPalfx]
+Type = BGPalfx
+Trigger1 = time >= 25
+Add = 0,0,0
+Mul = 5,5,5
+Time = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = time = 0
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = SuperPause
+Trigger1 = time = 0
+Time     = 40
+MoveTime = 40
+sound    = s2,0
+Anim     = -1
+Darken   = 0
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = anim = 40
+trigger1 = AnimTime = 0
+value = 1201
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = Time = 6
+StateType = A
+movetype  = I
+Physics = A
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = time = 6
+Trigger1 = Var(23) = 0
+movetype = A
+;------------------------------------------------------------------------------
+; セブンスヘヴン　その２
+;------------------------------------------------------------------------------
+;[Statedef 1221]
+;type     = A
+;physics  = A
+;ctrl     = 0
+;anim     = 1201
+;poweradd = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = P2Name != "Shiki_Tohno" && P4Name != "Shiki_Tohno"
+trigger1 = P2Name != "shiki_tohno" && P4Name != "shiki_tohno"
+trigger1 = P2Name != "Shiki" && P4Name != "Shiki"
+trigger1 = time = 6
+triggerAll = Name = "Ciel"
+value = s14,1
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = P2Name = "Shiki_Tohno" || P4Name = "Shiki_Tohno"
+trigger2 = P2Name = "shiki_tohno" || P4Name = "shiki_tohno"
+trigger3 = P2Name = "Shiki" || P4Name = "Shiki"
+triggerall = time = 6
+triggerAll = Name = "Ciel"
+value = s14,2
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = time = 6
+triggerAll = Name = "Chie_Rumiko"
+value = s14,118
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = time = 6
+value = s2,11
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = anim = 1201
+trigger1 = time = 6
+x = -10
+y = -10
+
+[State 200, Change]
+type = ChangeAnim;State
+trigger1 = anim = 1201
+trigger1 = BackEdgeDist <= 10
+;trigger1 = time >= 22
+value = 1222
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+trigger1 = anim = 1222
+trigger1 = BackEdgeDist <= 10
+StateType = A
+movetype  = A
+Physics = N
+[State -1, StateTypeSet]
+Type = StateTypeSet
+trigger1 = anim = 1222
+trigger1 = BackEdgeDist <= 10
+Trigger1 = Var(23) = 0
+movetype = A
+
+;------------------------------------------------------------------------------
+; セブンスヘヴン　その３
+;------------------------------------------------------------------------------
+;[Statedef 1222]
+;type     = A
+;physics  = N
+;ctrl     = 0
+;anim     = 1222
+;poweradd = 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = anim = 1222
+trigger1 = animelemtime(1) = 0
+x = 0
+y = 0
+
+[State 200, Change]
+type = ChangeAnim;State
+trigger1 = anim = 1222
+trigger1 = animtime = 0
+value = 1223
+
+;------------------------------------------------------------------------------
+; セブンスヘヴン　攻撃
+;------------------------------------------------------------------------------
+;[Statedef 1223]
+;type     = A
+;physics  = N
+;ctrl     = 0
+;anim     = 1223
+;poweradd = 0
+
+[State 52, 2]
+type = PosSet
+trigger1 = anim = 1223
+trigger1 = animelemtime(1) = 0
+y = 0
+
+[State -1, Helper]
+Type = Helper
+triggerAll = anim = 1223
+trigger1 = gametime %40 = 0
+trigger2 = gametime %40 = 5
+trigger3 = gametime %40 = 9
+trigger4 = gametime %40 = 13
+trigger5 = gametime %40 = 17
+trigger6 = gametime %40 = 22
+trigger7 = gametime %40 = 26
+trigger8 = gametime %40 = 30
+trigger9 = gametime %40 = 35
+Stateno = 1222
+ID = 1222
+Name = "attack"
+Pos = 0,0+EnemyNear,Const(size.mid.pos.y)
+PosType = P2
+Ownpal = 1
+
+
+[State 200, Change]
+type = ChangeState
+trigger1 = anim = 1223
+trigger1 = AnimTime = 0
+value = 1224
+
+;------------------------------------------------------------------------------
+;　セブンスヘヴン　終了
+;------------------------------------------------------------------------------
+[Statedef 1224]
+type    = S
+movetype = I
+physics = S
+ctrl = 0
+anim = 1224
+
+[State -1, Helper]
+Type = Helper
+trigger1 = Time = 0
+trigger1 = var(23) = 1
+Stateno = 1225
+ID = 1225
+Name = "attack"
+Pos = 0,0
+PosType = P2
+Ownpal = 1
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 2
+
+[State 52, 2]
+type = PosAdd
+trigger1 = Time = 0
+x = ceil(P2BodyDist X)+150
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State -2]
+Type     = PlaySnd
+Trigger1 = P2StateNo = 6001
+Value    = 2, 1
+Persistent = 0
+
+[State 52, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;==============================================================================
+;　空中ハイロゥ　弱
+;==============================================================================
+[Statedef 1300]
+type     = A
+movetype = A
+physics  = N
+ctrl     = 0
+anim     = 1204
+poweradd = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+trigger1 = Name = "Ciel"
+value = s13,11
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+trigger1 = Name = "Ciel"
+value = s13,100
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+value = s2,11
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 9
+x = 13
+y = 13
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1302
+
+;==============================================================================
+;　空中ハイロゥ　中
+;==============================================================================
+[Statedef 1310]
+type     = A
+movetype = A
+physics  = N
+ctrl     = 0
+anim     = 1204
+poweradd = 0
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+trigger1 = Name = "Ciel"
+value = s13,12
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,115
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+value = s2,11
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 9
+x = 13
+y = 13
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1311
+;------------------------------------------------------------------------------
+;　空中ハイロゥ　中　攻撃
+;------------------------------------------------------------------------------
+[Statedef 1311]
+type     = S
+movetype = A
+physics  = N
+ctrl     = 0
+anim     = 1205
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 0
+
+[State -1, Hit]
+type = HitDef
+trigger1 = animelem = 1
+trigger2 = animelem = 2
+trigger3 = animelem = 3
+attr              = A, NA
+damage            = 40, 10
+animtype          = hard
+hitflag           = MAFD
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 4,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -5,0
+guard.velocity    = -4
+airguard.velocity = -2.5,-2
+air.velocity      = -1.3,-6
+yaccel            = .48
+kill              = 1
+fall              = 0
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype =A,0,1)
+fall.recovertime  = 25
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-49
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-47
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 3) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-45
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 52, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1302
+
+;==============================================================================
+;　空中ハイロゥ　強
+;==============================================================================
+[Statedef 1320]
+type     = A
+movetype = A
+physics  = N
+ctrl     = 0
+anim     = 1204
+poweradd = 0
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 2
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 2
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = time = 0
+trigger1 = Name = "Ciel"
+value = s14,8
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = time = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,101
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+value = s2,11
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 9
+x = 14
+y = 14
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1321
+
+;------------------------------------------------------------------------------
+;　空中ハイロゥ　強　攻撃
+;------------------------------------------------------------------------------
+[Statedef 1321]
+type     = S
+movetype = A
+physics  = N
+ctrl     = 0
+anim     = 1205
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 0
+
+[State -1, Hit]
+type = HitDef
+trigger1 = animelem = 1
+trigger2 = animelem = 2
+trigger3 = animelem = 3
+attr              = A, NA
+damage            = 70, 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 4,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -0.5,-6
+airguard.velocity = -2.5,-2
+air.velocity      = -0.5,-6
+yaccel            = .48
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = 1
+fall.recovertime  = 35
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-49
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-47
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 3) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-45
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, VarSet4]
+Type = VarSet
+Trigger1 = ((MoveHit = 1) && (HitCount =3))
+FV = 22
+value = 0.5
+IgnoreHitPause = 1
+Persistent = 0
+
+[State 52, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1302
+
+;==============================================================================
+;　エンゼルハイロゥ
+;==============================================================================
+;　開始
+;------------------------------------------------------------------------------
+[Statedef 1330]
+type     = A
+movetype = A
+physics  = N
+ctrl     = 0
+anim     = 1204
+poweradd = 0
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 2
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 2
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+value = s2,11
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 9
+x = 10
+y = 10
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 1
+attr              = A, NA
+damage            = 0, 0
+animtype          = light
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 4,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 5
+ground.hittime    = 15
+ground.velocity   = 0
+airguard.velocity = -1,-2
+air.velocity      = 0,0
+kill              = 0
+fall              = 0
+air.fall          = 0
+fall.recover      = 1
+p1stateno   = 1331
+p2stateno   = 1335
+
+[State 1000, 0]
+type = PlayerPush
+trigger1 = 1
+value = 0
+;persistent = 
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1302
+
+;------------------------------------------------------------------------------
+;　エンゼルハイロゥ　HIT
+;------------------------------------------------------------------------------
+[Statedef 1331]
+type     = A
+movetype = A
+physics  = N
+ctrl     = 0
+anim     = 1331
+poweradd = 0
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 1000, 0]
+type = PlayerPush
+trigger1 = 1
+value = 0
+;persistent = 
+
+[State 3201, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+mul = 0,0,0
+
+[State 3201, BGInvert]
+type = BGPalFX
+trigger1 = 1
+time = 1
+ignorehitpause = 1
+add = 512,512,512
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = time = 1
+x = 10
+y = 10
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1332
+
+;------------------------------------------------------------------------------
+;　エンゼルハイロゥ　攻撃
+;------------------------------------------------------------------------------
+[Statedef 1332]
+type    = S
+physics = S
+ctrl = 0
+anim = 1205
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 52, 4]
+type = ChangeAnim
+trigger1 = ((Anim = 1205) && (AnimTime = 0))
+value = 1332
+
+[State 3201, BGInvert]
+type = BGPalFX
+trigger1 = time <= 130
+time = 1
+ignorehitpause = 1
+add = 512,512,512
+
+[State 3201, PalFX]
+type = PalFX
+trigger1 = time <= 130
+time = 1
+mul = 0,0,0
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 0
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = ((Anim = 1205) && (AnimElemTime(1) = 0))
+trigger1 = Name = "Ciel"
+value = s14,9
+channel = 0
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = ((Anim = 1205) && (AnimElemTime(1) = 0))
+trigger1 = Name = "Chie_Rumiko"
+value = s14,102
+channel = 0
+
+[State -1, Helper3]
+Type = Helper
+trigger1 = ((Anim = 1332) && (AnimElemTime(3) = 50))
+Stateno = 1333
+ID = 1333
+Name = "attack"
+Pos = 0,0
+PosType = P2
+Ownpal = 1
+
+[State 52, 4]
+type = ChangeState
+trigger1 = ((Anim = 1332) && (AnimTime = 0))
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;　エンゼルハイロゥ　相手側
+;------------------------------------------------------------------------------
+[Statedef 1335]
+Type      = A
+Movetype  = H
+Physics   = N
+Ctrl      = 0
+SprPriority = 0
+VelSet    = 0,0
+
+[State 3201, PalFX]
+type = PalFX
+trigger1 = time <= 135
+time = 1
+mul = 0,0,0
+
+[State -1, ScreenBound]
+Type = ScreenBound
+Trigger1 = 1
+Value = 0
+MoveCamera = 0,0
+
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Value = 5030
+
+;------------------------------------------------------------------------------
+;　エンゼルハイロゥ　相手側
+;------------------------------------------------------------------------------
+[Statedef 1336]
+Type      = A
+Movetype  = H
+Physics   = N
+Ctrl      = 0
+SprPriority = 0
+VelSet    = 0,0
+
+[State 3201, PalFX]
+type = PalFX
+trigger1 = time <= 50
+time = 1
+mul = 0,0,0
+
+[State -1, ScreenBound]
+Type = ScreenBound
+Trigger1 = 1
+Value = 0
+MoveCamera = 0,0
+
+[State -1, ChangeAnim2]
+Type = ChangeState
+Trigger1 = Time = 50
+Value = 1337
+
+;------------------------------------------------------------------------------
+;　終了
+;------------------------------------------------------------------------------
+[Statedef 1337]
+Type     = A
+MoveType = H
+Physics  = N
+Ctrl     = 0
+VelSet   = 0,0
+
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Value = 5035
+
+[State 3201, PalFX]
+type = PalFX
+trigger1 = time <= 20
+time = 1
+mul = 0,0,0
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 0
+X = 0
+Y = 0
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 2
+X = 0
+Y = -6
+
+[State -1, Gravity];VelAdd]
+Type = Gravity;VelAdd
+Trigger1 = Time >= 3
+;Y = 0.36
+
+[State -1, ScreenBound]
+Type = Null;ScreenBound
+Trigger1 = 1
+Value = 1
+MoveCamera = 0,1
+
+[State -1, SelfState]
+Type = SelfState
+Trigger1 = (Vel Y > 0) && (Pos Y >= 0)
+Value = 5100
+;------------------------------------------------------------------------------
+;　空中ハイロゥ　終了
+;------------------------------------------------------------------------------
+[Statedef 1302]
+type    = S
+physics = S
+ctrl = 0
+anim = 1206
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+x = 0
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;==============================================================================
+;　ブレードシンカー　弱
+;==============================================================================
+[Statedef 1400]
+Type      = S
+movetype  = A
+Physics   = S
+Ctrl      = 0
+Anim      = 1400
+PowerAdd  = 0
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = time = [7,18]
+X = 15 - time * 0.67
+
+[State -1]
+Type     = Helper
+Trigger1 = AnimElem = 8
+Stateno  = 203
+Ownpal   = 1
+
+[State 200, Hit]
+type = HitDef
+trigger1 = animelem = 8
+trigger2 = animelem = 9
+attr              = S, SA
+damage            = 50, 0
+animtype          = Light
+getpower          = 50, 33
+guardflag         = M
+priority          = 3
+pausetime         = 7,8
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 18
+air.hittime       = 18
+ground.velocity   = -5
+guard.velocity    = -4
+airguard.velocity = -1.5,-5
+air.velocity      = -1.3,-4
+yaccel            = .48
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype = A,0,1)
+fall.recovertime  = 30
+envshake.time = 4
+envshake.ampl = 2
+envshake.freq = 10
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+trigger1 = MoveHit
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = AnimElem = 8
+Anim = 1401
+ID = 1401
+Postype = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 1,1
+SprPriority = 2
+BindTime = -1
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;==============================================================================
+;　ブレードシンカー　中
+;==============================================================================
+[Statedef 1410]
+Type      = S
+movetype  = A
+Physics   = S
+Ctrl      = 0
+Anim      = 1410
+PowerAdd  = 0
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = time = [10,21]
+X = 19 - time * 0.66
+
+[State -1]
+Type     = Helper
+Trigger1 = AnimElem = 8
+Stateno  = 203
+Ownpal   = 1
+
+[State 200, Hit]
+type = HitDef
+trigger1 = animelem = 8
+trigger2 = animelem = 9
+trigger3 = animelem = 10
+attr              = S, SA
+damage            = 50, 0
+animtype          = Up
+getpower          = 50, 33
+guardflag         = M
+priority          = 3
+pausetime         = 5,9
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 10
+guard.slidetime   = 10
+ground.hittime    = 10
+air.hittime       = 10
+ground.velocity   = -.2, -11
+guard.velocity    = -4
+airguard.velocity = -1,-10
+air.velocity      = -.2,-11
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 45
+envshake.time = 9
+envshake.ampl = 6
+envshake.freq = 30
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = AnimElem = 8
+Anim = 1401
+ID = 1401
+Postype = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 1,1
+SprPriority = 2
+BindTime = -1
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;==============================================================================
+;　ブレードシンカー　強　その１
+;==============================================================================
+[Statedef 1420]
+Type      = S
+Physics   = S
+Ctrl      = 0
+Anim      = 1420
+PowerAdd  = 0
+
+[State -1]
+Type = PowerAdd
+Trigger1 = animelem = 1
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 1
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 1
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+trigger1 = Name = "Ciel"
+value = s14,0
+channel = 0
+[State 1610, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(5) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,124
+channel = 0
+
+[State -1]
+Type     = SuperPause
+Trigger1 = Time = 0
+Time     = 40
+MoveTime = 40
+sound    = s2,0
+Anim     = -1
+Darken   = 0
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 1421
+
+;------------------------------------------------------------------------------
+;　ブレードシンカー　強　その２
+;------------------------------------------------------------------------------
+[Statedef 1421]
+Type      = S
+Physics   = S
+Ctrl      = 0
+Anim      = 1421
+PowerAdd  = 0
+
+[State -1, VarAdd]
+Type = VarSet
+Trigger1 = time = 0
+V = 23
+Value = 0
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1, VarAdd]
+Type = VarAdd
+Trigger1 = AnimTime = 0
+V = 23
+Value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1,Effect]
+Type = Explod
+Trigger1 = animtime = 0
+Anim = 167
+ID = 167
+PosType = P1
+Pos = 7,-76
+OwnPal = 1
+SprPriority = 8
+BindTime = -1
+Persistent = 0
+IgnoreHitPause = 1
+[State -1, Sound]
+type = PlaySnd
+Trigger1 = animtime = 0
+value = s1, 9
+channel = 3
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Command != "chold" || ((Var(2) = 5 || Var(2) = 7) && Var(1) != 0)
+Trigger2 = AnimTime = 0
+Value = 1422
+;------------------------------------------------------------------------------
+;　ブレードシンカー　強　その３
+;------------------------------------------------------------------------------
+[Statedef 1422]
+Type      = S
+Physics   = S
+Ctrl      = 0
+Anim      = 1421
+PowerAdd  = 0
+
+[State -1, VarAdd]
+Type = VarAdd
+Trigger1 = AnimTime = 0
+V = 23
+Value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1,Effect]
+Type = Explod
+Trigger1 = animtime = 0
+Anim = 167
+ID = 167
+PosType = P1
+Pos = 7,-76
+OwnPal = 1
+SprPriority = 8
+BindTime = -1
+Persistent = 0
+IgnoreHitPause = 1
+[State -1, Sound]
+type = PlaySnd
+Trigger1 = animtime = 0
+value = s1, 9
+channel = 3
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = Command != "chold" || ((Var(2) = 5 || Var(2) = 7) && Var(1) != 0)
+Trigger2 = AnimTime = 0
+Value = 1423
+
+;------------------------------------------------------------------------------
+;　ブレードシンカー　強　その４
+;------------------------------------------------------------------------------
+[Statedef 1423]
+Type      = S
+Physics   = S
+Ctrl      = 0
+Anim      = 1421
+PowerAdd  = 0
+
+
+[State -1, VarAdd]
+Type = VarAdd
+Trigger1 = animtime = 0
+V = 23
+Value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1,Effect]
+Type = Explod
+Trigger1 = animtime = 0
+Anim = 167
+ID = 167
+PosType = P1
+Pos = 7,-76
+OwnPal = 1
+SprPriority = 8
+BindTime = -1
+Persistent = 0
+IgnoreHitPause = 1
+[State -1, Sound]
+type = PlaySnd
+Trigger1 = animtime = 0
+value = s1, 9
+channel = 3
+
+[State -1, ChangeState]
+Type = ChangeState
+TriggerAll = (Var(23) >= 3) || ((Var(2) = 5 || Var(2) = 7) && Var(1) != 0)
+Trigger1 = Command != "chold"
+Trigger2 = AnimTime = 0
+Value = 1425
+
+[State -1, ChangeState]
+Type = ChangeState
+TriggerAll = Var(23) <= 2
+Trigger1 = Command != "chold"
+Trigger2 = AnimTime = 0
+Value = 1424
+
+;==============================================================================
+;　ブレードシンカー　強　攻撃
+;==============================================================================
+[Statedef 1424]
+Type      = S
+movetype  = A
+Physics   = S
+Ctrl      = 0
+Anim      = 1422
+PowerAdd  = 0
+
+[State -1,Effect]
+Type = Explod
+Trigger1 = time = 0
+Anim = 167
+ID = 167
+PosType = P1
+Pos = 7,-76
+OwnPal = 1
+SprPriority = 8
+BindTime = -1
+Persistent = 0
+IgnoreHitPause = 1
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = time = [5,12]
+X = 14
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = time = 13
+X = 0
+
+[State 200, Hit]
+type = HitDef
+trigger1 = time = 12
+trigger2 = time = 13
+trigger3 = time = 14
+attr              = S, SA
+damage            = 90, 0
+animtype          = Up
+getpower          = 0, 0
+guardflag         = M
+priority          = 3
+pausetime         = 10,11
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 10
+guard.slidetime   = 10
+ground.hittime    = 10
+air.hittime       = 10
+ground.velocity   = -.2, -11
+guard.velocity    = -4
+airguard.velocity = -1,-11
+air.velocity      = -.4,-11
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType = A,0,1)
+fall.recovertime  = 45
+envshake.time = 9
+envshake.ampl = 6
+envshake.freq = 30
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = EnemyNear,Statetype = C
+Trigger1 = Var(38) >= 1
+flag = unguardable
+IgnoreHitPause = 1
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 3) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = Helper
+Trigger1 = AnimElem = 5
+Stateno  = 1426
+Pos      = 36, 5
+Ownpal   = 1
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;==============================================================================
+;　ブレードシンカー　タメ強　攻撃
+;==============================================================================
+[Statedef 1425]
+Type      = S
+movetype  = A
+Physics   = S
+Ctrl      = 0
+Anim      = 1422
+PowerAdd  = 0
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = time = [5,12]
+X = 14
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = time = 13
+X = 0
+
+[State -1]
+Type     = Helper
+Trigger1 = time = 12
+Stateno  = 203
+Ownpal   = 1
+
+[State 200, Hit]
+type = HitDef
+trigger1 = time = 12
+trigger2 = time = 13
+trigger3 = time = 14
+attr              = S, SA
+damage            = 95, 0
+animtype          = Up
+getpower          = 0, 0
+guardflag         = N
+priority          = 3
+pausetime         = 10,11
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 13
+guard.slidetime   = 13
+ground.hittime    = 13
+air.hittime       = 13
+ground.velocity   = -.2, -11
+guard.velocity    = -6
+airguard.velocity = -1,-11
+air.velocity      = -.2,-11
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = 0
+envshake.time = 9
+envshake.ampl = 6
+envshake.freq = 30
+
+[State -1,NoGuard]
+type = AssertSpecial
+trigger1 = 1
+flag = unguardable
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-38
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type     = Helper
+Trigger1 = AnimElem = 5
+Stateno  = 1426
+Pos      = 36, 5
+Ownpal   = 1
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1
+
+;==============================================================================
+;　ブレード強　エフェ
+;==============================================================================
+[Statedef 1426]
+Type = A
+Movetype = I
+Physics = N
+VelSet = 0,0
+SprPriority = 2
+Anim = 1401
+
+[State -1]
+Type     = Trans
+Trigger1 = 1
+Trans    = Add
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+
+[State -1]
+Type     = AngleSet
+Trigger1 = 1
+Value    = 16
+[State -1]
+Type     = AngleDraw
+Trigger1 = 1
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = AnimTime = 0
+
+;==============================================================================
+;　シエルサマー　弱
+;==============================================================================
+[Statedef 1500]
+Type      = S
+MoveType  = A
+Physics   = S
+Ctrl      = 0
+Anim      = 1500
+PowerAdd  = 0
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = animelem = 7
+StateType = A
+MoveType = A
+Physics = A
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = animelem = 7
+X = 1
+Y = -7
+
+[State -1]
+Type     = Helper
+Trigger1 = time = 7
+Stateno  = 203
+Ownpal   = 1
+
+[State 200, Hit]
+type = HitDef
+trigger1 = animelem = 6
+attr              = S, SA
+damage            = 100, 0
+animtype          = light
+getpower          = 70, 33
+hitflag           = MAFD
+guardflag         = M
+priority          = 4
+pausetime         = 10,11
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = s1, 6
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 12
+guard.slidetime   = 12
+ground.hittime    = 12
+air.hittime       = 12
+ground.velocity   = -1, -6
+guard.velocity    = -4.5
+airguard.velocity = -3,-5
+air.velocity      = -1,-6
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType =A,0,1)
+fall.recovertime  = 30
+envshake.time = 0
+envshake.ampl = 0
+envshake.freq = 0
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = time = 7
+Anim = 1501
+ID = 1501
+Postype = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 1,1
+SprPriority = 8
+BindTime = -1
+
+[State -1, PlaySnd]
+Type = PlaySnd
+Trigger1 = time = 7
+Value = s2, 11
+Channel = 3
+
+[State -1, VarSet4]
+Type = VarSet
+Trigger1 = ((MoveHit = 1) && (HitCount =1))
+FV = 22
+value = 0.70
+IgnoreHitPause = 1
+Persistent = 0
+
+;==============================================================================
+;　シエルサマー　中
+;==============================================================================
+[Statedef 1510]
+Type      = S
+MoveType  = I
+Physics   = S
+Ctrl      = 0
+Anim      = 1510
+PowerAdd  = 0
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = Time = 6
+StateType = A
+MoveType = A
+Physics = A
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 6
+X = 1.5
+Y = -9
+
+[State -1]
+Type     = Helper
+Trigger1 = time = 6
+Stateno  = 203
+Ownpal   = 1
+
+[State 200, Hit]
+type = HitDef
+trigger1 = time = 8
+attr              = A, SA
+damage            = 90, 0
+animtype          = Midium
+getpower          = 50, 25
+hitflag           = MAFD
+guardflag         = M
+priority          = 3
+pausetime         = 6,7
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 12
+guard.slidetime   = 12
+ground.hittime    = 12
+air.hittime       = 12
+ground.velocity   = -1, -7
+guard.velocity    = -5
+airguard.velocity = -3,-6
+air.velocity      = -1,-7
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType =A,0,1)
+fall.recovertime  = 30
+envshake.time = 0
+envshake.ampl = 0
+envshake.freq = 0
+
+[State 200, Hit]
+type = HitDef
+trigger1 = time = 9
+attr              = A, SA
+damage            = 90, 0
+animtype          = Midium
+getpower          = 50, 25
+hitflag           = MAFD
+guardflag         = M
+priority          = 3
+pausetime         = 6,7
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 12
+guard.slidetime   = 12
+ground.hittime    = 12
+air.hittime       = 12
+ground.velocity   = -1, -7
+guard.velocity    = -5
+airguard.velocity = -3,-6
+air.velocity      = -1,-7
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType =A,0,1)
+fall.recovertime  = 30
+envshake.time = 0
+envshake.ampl = 0
+envshake.freq = 0
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-58
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = time = 6
+Anim = 1501
+ID = 1501
+Postype = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 1,1
+SprPriority = 8
+BindTime = -1
+
+[State -1, PlaySnd]
+Type = PlaySnd
+Trigger1 = time = 6
+Value = s2, 11
+Channel = 3
+
+[State -1, VarSet4]
+Type = VarSet
+Trigger1 = ((MoveHit = 1) && (HitCount =1))
+FV = 22
+value = 0.70
+IgnoreHitPause = 1
+Persistent = 0
+
+;==============================================================================
+;　シエルサマー　強
+;==============================================================================
+[Statedef 1520]
+Type      = S
+MoveType  = A
+Physics   = S
+Ctrl      = 0
+Anim      = 1520
+PowerAdd  = 0
+
+[State -1]
+Type = PowerAdd
+Trigger1 = animelem = 1
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 1
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-30
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 1
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+
+[State -1, StateTypeSet]
+Type = StateTypeSet
+Trigger1 = animelemtime(19) = 0
+StateType = A
+MoveType = A
+Physics = A
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = [5,23]
+X = 1
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = animelemtime(19) = 0
+X = 2
+Y = -9
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = time = 0
+trigger1 = Name = "Ciel"
+value = s14,0
+channel = 0
+[State 1610, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(1) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,100
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = time = 29
+trigger1 = Name = "Ciel"
+value = s14,10
+channel = 0
+[State 200, Sound]
+type = PlaySnd
+trigger1 = animelem = 16
+value = s2,8
+
+[State 200, Hit]
+type = HitDef
+trigger1 = animelem = 5
+trigger2 = animelem = 6
+trigger3 = animelem = 7
+attr              = S, SA
+damage            = 40, 0
+animtype          = Midium
+getpower          = 0, 0
+hitflag           = MADF
+guardflag         = M
+priority          = 3
+pausetime         = 6,11
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 16
+guard.slidetime   = 16
+ground.hittime    = 16
+air.hittime       = 16
+ground.velocity   = -1, 0
+guard.velocity    = -5.3
+airguard.velocity = -1,0
+air.velocity      = -1,-3
+yaccel            = .48
+fall              = 0
+air.fall          = 0
+fall.recover      = 0
+fall.recovertime  = 30
+envshake.time = 0
+envshake.ampl = 0
+envshake.freq = 0
+
+[State 200, Hit]
+type = HitDef
+trigger1 = animelem = 21
+trigger2 = animelem = 22
+trigger3 = animelem = 23
+attr              = A, SA
+damage            = 65, 0
+animtype          = Midium
+getpower          = 0, 0
+hitflag           = MADF
+guardflag         = M
+priority          = 3
+pausetime         = 6,7
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 16
+guard.slidetime   = 16
+ground.hittime    = 16
+air.hittime       = 16
+ground.velocity   = -1, -7
+guard.velocity    = -5.3
+airguard.velocity = -3,-6
+air.velocity      = -1,-7
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType =A,0,1)
+fall.recovertime  = 30
+envshake.time = 0
+envshake.ampl = 0
+envshake.freq = 0
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 4) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 5) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 6) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 4) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 5) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-58
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 3) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-57
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 4) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-60
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 5) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-60
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 6) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = time = 6
+Trigger2 = animelem = 21
+Anim = 1501
+ID = 1501
+Postype = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 1,1
+SprPriority = 8
+BindTime = -1
+
+[State -1, PlaySnd]
+Type = PlaySnd
+Trigger1 = time = 6
+Trigger2 = animelem = 20
+Value = s2, 11
+Channel = 3
+
+;==============================================================================
+;　シエルサマー　空弱
+;==============================================================================
+[Statedef 1505]
+Type      = A
+MoveType  = A
+Physics   = A
+Ctrl      = 0
+Anim      = 1500
+PowerAdd  = 0
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 1
+X = 1
+Y = -7
+
+[State -1]
+Type     = Helper
+Trigger1 = time = 1
+Stateno  = 203
+Ownpal   = 1
+
+[State 200, Hit]
+type = HitDef
+trigger1 = time = 3
+attr              = A, SA
+damage            = 100, 0
+animtype          = light
+getpower          = 70, 33
+guardflag         = MAF
+priority          = 3
+pausetime         = 10,11
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = s1, 6
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 14
+guard.slidetime   = 14
+ground.hittime    = 14
+air.hittime       = 14
+ground.velocity   = -1, -6
+guard.velocity    = -4
+airguard.velocity = -3,-5
+air.velocity      = -1,-6
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType =A,0,1)
+fall.recovertime  = 30
+envshake.time = 0
+envshake.ampl = 0
+envshake.freq = 0
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = time = 2
+Anim = 1501
+ID = 1501
+Postype = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 1,1
+SprPriority = 8
+BindTime = -1
+
+[State -1, PlaySnd]
+Type = PlaySnd
+Trigger1 = time = 3
+Value = s2, 11
+Channel = 3
+
+;==============================================================================
+;　シエルサマー　空中
+;==============================================================================
+[Statedef 1515]
+Type      = A
+MoveType  = A
+Physics   = A
+Ctrl      = 0
+Anim      = 1505
+PowerAdd  = 0
+
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 2
+X = 1.2
+Y = -8
+
+[State -1]
+Type     = Helper
+Trigger1 = time = 2
+Stateno  = 203
+Ownpal   = 1
+
+[State 200, Hit]
+type = HitDef
+trigger1 = time = 3
+trigger2 = time = 4
+attr              = A, SA
+damage            = 80, 0
+animtype          = Midium
+getpower          = 50, 25
+guardflag         = MAF
+priority          = 3
+pausetime         = 6,7
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 12
+guard.slidetime   = 12
+ground.hittime    = 12
+air.hittime       = 12
+ground.velocity   = -1, -7
+guard.velocity    = -5
+airguard.velocity = -3,-6
+air.velocity      = -1,-7
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(p2MoveType = A,0,1)
+fall.recovertime  = 30
+envshake.time = 0
+envshake.ampl = 0
+envshake.freq = 0
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-58
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = time = 2
+Anim = 1501
+ID = 1501
+Postype = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 1,1
+SprPriority = 8
+BindTime = -1
+
+[State -1, PlaySnd]
+Type = PlaySnd
+Trigger1 = time = 2
+Value = s2, 11
+Channel = 3
+
+;==============================================================================
+;　シエルサマー　空強
+;==============================================================================
+[Statedef 1525]
+Type      = A
+MoveType  = A
+Physics   = A
+Ctrl      = 0
+Anim      = 1525
+PowerAdd  = 0
+
+[State -1]
+Type = PowerAdd
+Trigger1 = animelem = 1
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 1
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-60
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 1
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 2
+Trigger2 = Time = 15
+X = 1.5
+Y = -6
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 29
+X = 1.5
+Y = -7
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = time = 1
+trigger1 = Name = "Ciel"
+value = s14,0
+channel = 0
+[State 1525, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(1) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,100
+channel = 0
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 2
+Stateno  = 203
+Ownpal   = 1
+
+[State 200, Hit]
+type = HitDef
+trigger1 = animelem = 21
+trigger2 = animelem = 22
+trigger3 = animelem = 23
+trigger4 = animelem = 3
+trigger5 = animelem = 4
+trigger6 = animelem = 5
+trigger7 = animelem = 12
+trigger8 = animelem = 13
+trigger9 = animelem = 14
+attr              = A, SA
+damage            = 43, 0
+animtype          = Midium
+getpower          = 0, 0
+guardflag         = MAF
+priority          = 3
+pausetime         = 6,7
+sparkno           = -1
+sparkxy           = 0,-35
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = s1, 10
+ground.type       = High
+ground.slidetime  = 15
+guard.slidetime   = 15
+ground.hittime    = 15
+air.hittime       = 15
+ground.velocity   = -1, -7
+guard.velocity    = -5.5
+airguard.velocity = -3,-6
+air.velocity      = -1,-7
+yaccel            = .48
+fall              = 1
+air.fall          = 1
+fall.recover      = 1
+fall.recovertime  = 30
+envshake.time = 0
+envshake.ampl = 0
+envshake.freq = 0
+
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 4) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 5) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 6) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 7) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 8) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+[State 2200, V.Sion Sound]
+type = PlaySnd
+Trigger1 = ((HitCount = 9) && (MoveHit))
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 2) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 3) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 4) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 5) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 6) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 7) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 8) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 2) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-58
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 3) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-57
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 4) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-60
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 5) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-60
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 6) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 7) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-60
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 8) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-60
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 9) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-62
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = time = 3
+Trigger2 = time = 16
+Trigger3 = time = 30
+Anim = 1501
+ID = 1501
+Postype = P1
+Pos = 0,0
+Ownpal = 1
+Scale = 1,1
+SprPriority = 8
+BindTime = -1
+
+[State -1, PlaySnd]
+Type = PlaySnd
+Trigger1 = time = 6
+Trigger2 = time = 16
+Trigger3 = time = 30
+Value = s2, 11
+Channel = 3
+
+;==============================================================================
+;　鳥葬式典　弱
+;==============================================================================
+[Statedef 1600]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1208
+;velset   = 0,0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.5
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+trigger1 = Name = "Ciel"
+value = s30,0
+channel = 0
+[State 1600, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(4) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,110+random%4
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1601
+ID = 1601
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+
+;==============================================================================
+;　鳥葬式典　中
+;==============================================================================
+[Statedef 1610]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1208
+;velset   = 0,0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.5
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+trigger1 = Name = "Ciel"
+value = s30,0
+channel = 0
+[State 1610, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(4) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,110+random%4
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1611
+ID = 1611
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+
+;==============================================================================
+;　鳥葬式典　強
+;==============================================================================
+[Statedef 1620]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1208
+;velset   = 0,0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.5
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+trigger1 = Name = "Ciel"
+value = s14,3
+channel = 0
+[State 1630, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(4) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,126
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+value = s3,1
+
+[State -1]
+Type = PowerAdd
+Trigger1 = animelem = 6
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 6
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-30
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 6
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+trigger1 = time = [11,30]
+;trigger1 = AnimElemTime(5) = 0
+Stateno = 1621
+ID = 1621
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+SuperMoveTime = 44
+PauseMoveTime = 44
+
+;==============================================================================
+;　空中黒鍵投げ
+;==============================================================================
+[Statedef 1630]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1208
+;velset   = 0,0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.5
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(4) = 0
+trigger1 = Name = "Ciel"
+value = s14,5
+channel = 0
+[State 1630, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(4) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,115
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(5) = 0
+value = s3,1
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1114
+ID = 1114
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1101
+ID = 1101
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1633
+ID = 1631
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+
+;==============================================================================
+;　土葬式典
+;==============================================================================
+[Statedef 1650]
+type     = A
+movetype = A
+physics  = A
+ctrl     = 0
+anim     = 1208
+;velset   = 0,0
+
+[State 753, 移動速度]
+type = VelSet
+trigger1 = Time = [1,10]
+x = -0.5
+y = -2
+
+[State 753, 速度加算]
+type = VelAdd
+trigger1 = Time = [1,10]
+y = -0.3
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+trigger1 = Name = "Ciel"
+value = s10,2
+channel = 0
+[State 1650, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(1) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = s14,126
+channel = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = AnimElemTime(3) = 0
+value = s3,1
+
+[State -1]
+Type = PowerAdd
+Trigger1 = animelem = 2
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State -1]
+Type     = Helper
+Trigger1 = animelem = 2
+Stateno  = 6030
+ID       = 6030
+Pos      = 0,-30
+PosType  = P1
+Ownpal   = 1
+Keyctrl  = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+Trigger1 = animelem = 2
+Stateno = ifelse(Name="Chie_Rumiko",8005,8000)
+ID = 8000
+Name = "EX_CutIn"
+Pos = 0,0
+PosType = p1
+Ownpal = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1651
+ID = 1651
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1652
+ID = 1651
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+[State -1, Helper]
+Type = Helper
+trigger1 = AnimElemTime(5) = 0
+Stateno = 1653
+ID = 1651
+Name = "attack"
+Pos = 15,-29
+PosType = P1
+Ownpal = 1
+
+;------------------------------------------------------------------------------
+; 相手側
+;------------------------------------------------------------------------------
+[Statedef 1654]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+sprpriority = 2
+
+[State -1, PalFX]
+type = PalFX
+trigger1 = time < 60
+time = 1
+color = 0
+add = 40,40,40
+ignorehitpause = 1
+
+[State -1, PalFX]
+type = PalFX
+trigger1 = time >= 60
+trigger1 = Time % 2 = 0
+time = 1
+color = 0
+add = 35,35,35
+ignorehitpause = 1
+
+[State -1]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State -1]
+type = changeanim2
+trigger1 = time = 0
+value = 1654
+
+[State -1]
+type = changestate
+trigger1 = time = 80
+value = 1656
+
+;------------------------------------------------------------------------------
+;　相手側　空中
+;------------------------------------------------------------------------------
+[Statedef 1655]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+sprpriority = 2
+
+[State -1]
+type = veladd
+trigger1 = time >= 0
+y = .3
+
+[State -1]
+type = PalFX
+trigger1 = 1
+time = 1
+color = 0
+add = 40,40,40
+ignorehitpause = 1
+
+[State -1]
+type = PalFX
+trigger1 = time >= 70
+trigger1 = Time % 2 = 0
+time = 1
+color = 0
+add = 35,35,35
+ignorehitpause = 1
+
+[State -1]
+type = changeanim2
+trigger1 = time = 0
+value = 1654
+
+[State -1]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 1654
+
+;------------------------------------------------------------------------------
+;　終了
+;------------------------------------------------------------------------------
+[Statedef 1656]
+Type     = A
+MoveType = H
+Physics  = N
+Ctrl     = 0
+VelSet   = 0,0
+
+[State -1, ChangeAnim2]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Value = 5035
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 0
+X = 0
+Y = 0
+
+[State -1, VelSet]
+Type = VelSet
+Trigger1 = Time = 2
+X = -3
+Y = -4
+
+[State -1, Gravity];VelAdd]
+Type = Gravity;VelAdd
+Trigger1 = Time >= 3
+;Y = 0.36
+
+[State -1, ScreenBound]
+Type = Null;ScreenBound
+Trigger1 = 1
+Value = 1
+MoveCamera = 0,1
+
+[State -1, SelfState]
+Type = SelfState
+Trigger1 = (Vel Y > 0) && (Pos Y >= 0)
+Value = 5100
+
+;==============================================================================
+;　ギャラクティカマグナム（爆）
+;==============================================================================
+[Statedef 1700]
+Type      = S
+movetype  = A
+Physics   = S
+Ctrl      = 0
+Anim      = 202
+PowerAdd  = 0
+
+[State 1700, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(1) = 0
+trigger1 = Name = "Ciel"
+value = 20,3
+channel = 0
+[State 1700, Voice Effect]
+type = PlaySnd
+trigger1 = animelemTime(1) = 0
+trigger1 = Name = "Chie_Rumiko"
+value = 23,100
+channel = 0
+
+[State -1, 1]
+type = NotHitBy
+trigger1 = time = [0,23]
+value = SCA, NA, SA, HA, NT, ST, HT
+
+[State 4000,Spark]
+type = Pause
+trigger1 = time = 0
+time = 7
+pausemovetime = 7
+
+[State 1300, 5]
+type = Palfx;Envcolor
+trigger1 = time = 0
+persistent = 0
+ignorehitpause = 1
+;value = 255, 255, 255
+Add = 255, 255, 255
+time = 10
+under = 10
+supermove = 10
+
+[State -1]
+Type = PowerAdd
+Trigger1 = AnimElem = 1
+Value = ifelse((var(1) = 1 && Var(2) = [6,7]),0,-1000)
+
+[State 203]
+type = VelSet
+trigger1 = time <= 10
+x = 1
+
+[State -1, VarSet]
+Type = VarSet
+trigger1 = Time = 0
+V = 23
+value = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = animelemTime(4) = 0
+value = s0,0
+
+[State -1, HitDef]
+Type = HitDef
+Trigger1 = AnimElem = 6
+Attr = S, SA                     ;立ち攻撃＝「S, NA」空中攻撃＝「A, NA」しゃがみ攻撃＝「C, NA」飛び道具＝「A, HP」
+Damage = 100, 30                 ;ダメージ（左＝普通にヒット　右＝ガード）
+AnimType = Hard                  ;ヒット時の相手のポーズ「弱＝light」「中＝midium」「強＝hard」
+HitFlag = MAF                    ;ヒットする状態　全て＝ＭＡ 上段＝Ｈ 中段＝Ｍ 下段＝Ｌ 空中＝Ａ 落下＝Ｆ ダウン＝Ｄ
+GuardFlag = MA                   ;ガードできる状態「全て＝ＭＡ」「上段＝Ｈ」「中段＝Ｍ」「下段＝Ｌ」「空中＝Ａ」
+Priority = 4, Hit                ;攻撃の優先度「攻撃＝hit」「失敗＝miss」「気絶＝dodge」
+PauseTime = 6, 6                 ;ヒット時の硬直時間（左＝自分　右＝相手）
+SparkNo = -1
+Guard.SparkNo = -1
+Sparkxy = 0, -50                 ;ヒットエフェクト表示位置
+Ground.Type = High               ;どこに当たるか 地上「上段＝High」「下段＝Low」「転倒＝Trip」「不明＝back」「変化無＝none」
+Air.Type = High                  ;どこに当たるか 空中「上段＝High」「下段＝Low」「転倒＝Trip」「不明＝back」「変化無＝none」
+Ground.HitTime  = 20             ;コンボが繋がる時間（地上）
+Air.HitTime = 20                 ;コンボが繋がる時間（空中）
+guard.velocity = -6
+Kill = 1                         ;この攻撃で殺せるか（１＝可　０＝不可）
+AirGuard.Velocity = -1,-2        ;ヒット時の相手の移動（空中ガード）
+getpower          = 0, 0
+hitsound   = s1,5
+guardsound = s1,10
+p2stateno   = 6013
+
+[State -2]
+Type     = PlaySnd
+Trigger1 = P2StateNo = 6001
+Value    = 2, 1
+Persistent = 0
+
+[State -1, VarSet8]
+Type = VarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State 1000, 0]
+type = EnvShake
+Trigger1 = hitcount = 1
+trigger1 = MoveHit
+time = 10
+freq = 90
+ampl = 5
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = Pause
+Trigger1 = hitcount = 1
+trigger1 = MoveHit
+Time     = 10
+ignorehitpause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6004
+ID = 6004
+Name = "HitSpark"
+Pos = 0,-68
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, ChangeState]
+Type = ChangeState
+Trigger1 = AnimTime = 0
+Value = 0
+Ctrl = 1

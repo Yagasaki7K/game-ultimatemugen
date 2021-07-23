@@ -1,0 +1,41 @@
+; ________________________________
+;| Karin by Phantom.of.the.Server |
+; ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+;====================<DEFINITION>====================
+[Info]
+name        = "Karin Kanzuki"
+displayname = "Karin"
+versiondate = 05,12,2007
+mugenversion= 06,14,2003
+author      = "Phantom.of.the.Server"
+pal.defaults= 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+cmd     = Command.cmd
+cns     = ConstantsSFZ.cns
+st      = States/System.st
+st1     = States/Normal.st
+st2     = States/Special.st
+st3     = States/Super.st
+st4     = States/Helpers.st
+st5     = States/Custom.st
+stcommon= common1.cns
+sprite  = Sprite.sff
+anim    = Anim.air
+sound   = Sound.snd
+pal1    = Palettes/Default.act
+pal2    = Palettes/X-Ism1.act
+pal3    = Palettes/V-Ism1.act
+pal4    = Palettes/Z-Ism2.act
+pal5    = Palettes/X-Ism2.act
+pal6    = Palettes/V-Ism2.act
+pal7    = Palettes/Blue.act
+pal8    = Palettes/Purple.act
+pal9    = Palettes/BlackGreen.act
+pal10   = Palettes/Pink.act
+pal11   = Palettes/Sakura.act
+pal12   = Palettes/GodKarin.act
+
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard= ending.def

@@ -1,0 +1,43 @@
+----------------------------
+  AI DOCUMENTATION
+----------------------------
+    
+ 
+    HOW TO TOGGLE BETWEEN 3 DIFFERENT LEVELS OF AI:
+
+
+        Open ryujiX.def and see that there are thre ai's available.
+        Remove the semicolon[;] and transfer to another cmd file
+	to toggle between the type1 ai, type2 ai and the noai.
+	
+ Sample: 
+   Logic or Format --> adding a semicolon before a line makes 
+                       the engine skip that line. so add semicolons
+                       to the disable other AI levels and remove the 
+                       semicolon on the AI you wish to use. USE ONLY
+                       ONE  AI LEVEL AT A TIME!!
+   
+   ---Using NO AI---        
+   added semicolon --> ;cmd = ryuji.cmd      ;---> "Hardest Level AI" 
+   added semicolon --> ;cmd = medai.cmd      ;---> "Medium Level AI"
+   USING NoAI      -->  cmd = noai.cmd       ;---> "NO ai <EASY>"
+   
+   ---Using MEDAI---        
+   added semicolon --> ;cmd = ryuji.cmd      ;---> "Hardest Level AI" 
+   USING MEDAI     -->  cmd = medai.cmd      ;---> "Medium Level AI"
+   added semicolon --> ;cmd = noai.cmd       ;---> "NO ai <EASY>"
+      
+   ---Using HARD AI---        
+   USING HARD      -->  cmd = ryuji.cmd      ;---> "Hardest Level AI" 
+   added semicolon --> ;cmd = medai.cmd      ;---> "Medium Level AI"
+   added semicolon --> ;cmd = noai.cmd       ;---> "NO ai <EASY>"
+
+  ==========================================================================================
+  
+
+Salamat (Thanks)..
+Enjoy
+
+SANDER71113
+
+sander71113@yahoo.com

@@ -1,0 +1,58 @@
+                                   Version 25
+                       Ex-Inferis : http://mugenexus.cjb.net
+
+versus 16 SvC chars with non-SvCVampiro-compliant anims
+       3 fighters from other games
+       6 SvC chars with SvCVampiro-compliant anims
+
+(port)  Midnigth Bliss corretamente versus:
+(eng )  Midnigth Bliss special coding has been added versus:
+
+(port)  TODOS lutadores que n„o s„o do jogo SNK vrs CAPCOM.
+(eng )  EVERY following characters from SvC Chaos - SNK vs. Capcom.
+(port)  TODOS lutadores criados por Brasileiros seguindo o padr„o que eu criei.
+(eng )  AND the fighters with midnight bliss sprites from other games.
+
+
+(port)  E mais estes lutadores de criadores diversos:
+(eng )  So far, the midnight bliss works with:
+
+=============================================================================
+================================ SVC Characters =============================
+=============================================================================
+
+-Tin's Shiki                           added by BlackJack
+-HÅh's Red Arremer                     added by BlackJack
+-Warusaki3's Athena                    added by BlackJack
+-Bad darkness' Demitri                 added by BlackJack
+-HÅh's Ken                             added by BlackJack
+-Warusaki3's Mr. Karate                added by BlackJack
+-Chloe's Violent Ken                   added by BlackJack
+-ActJapan's Genjyuro                   added by BlackJack
+-Tin's Genjyuro                        added by BlackJack
+-Wara's Balrog                         added by BlackJack
+-Star Platinum's Guile                 added by BlackJack
+-Warusaki3's Ryu                       added by BlackJack
+-N64Mario's Zero                       added by BlackJack
+-HÅh's M. Bison                        added by BlackJack
+-Tin's Chun-Li                         added by BlackJack
+
+=============================================================================
+============================== Other characters =============================
+=============================================================================
+
+-Chloe's Athena 2K1                    added by BlackJack
+-Chloe's Athena 2K2                    added by BlackJack
+-Chloe's Neo Athena                    added by BlackJack
+
+=============================================================================
+================= SVC Characters using Ex-Inferis' special anims ============
+=============================================================================
+
+-Jennifer's Dhalsim
+-Z Sabre User's Saber Zero
+-Don Nadie's Dan
+-[Yagami+ihoo1836]'s Iori Yagami
+-Minseo1911's RYU
+-Conversion World - J.Lee's Chun-Li
+-Diego Sanches' Mr. Karate             

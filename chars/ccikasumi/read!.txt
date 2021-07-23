@@ -1,0 +1,287 @@
+KASUMI TODOH ~ the young expert of the ways of Todoh 's Martial arts
+King of fighters 1996
+By CCIRocky aka Ironmugen aka David D.
+http://deltapark.i-xcell.com
+
+
+
+
+Beta release 1 - 05/06/2006
+
+Update         - 02/07/2006
+
+WARNING: This char may have bugs. Thanks for reporting any bugs you find.
+
+
+INDEX:
+
+1- What's done
+2- Random notes
+3- System
+4- Movelist
+5- Who?
+6- Thnx and fvx
+
+
+-------------------------------------------------------------------------------
+1- What's done?
+-------------------------------------------------------------------------------
+
+* Time over lose pose
+* Basics + requireds
+* Taunt
+* 1 normal intro
+* Special intro VS Aof team
+* 3 Win poses
+* All basic attacks
+* 1 command moves.
+* 2 Throws
+* All specials from Kof96 & 99 & SVC
+* Hypers from Kof96 && 99
+* New HSDM
+* Sexy KO
+* Cheese KO
+* AI
+
+
+
+Update:
+
+* Fixed a big bug in the counter SDM.
+* Same for other counters.
+
+
+-------------------------------------------------------------------------------
+2- Random notes
+-------------------------------------------------------------------------------
+
+
+Since her Cho Kasane Ate uses lot of projectiles, it was impossible to put
+juggle limits. So there you have a Kasumi with cheap DM/SDM. :P
+
+If you don't like the edited SVC portrait, you can open the SFF file and
+change the portrait. I have edited the portraits of Kof2000 and Kof1999.
+
+
+-------------------------------------------------------------------------------
+3- System
+-------------------------------------------------------------------------------
+
+Basic moves:
+-----------
+
+
+Kasumi 's system is simple, she rolls like in KOF96~98/2K~2K3, she hasn't got
+any extra modes (armor mode and counter mode) nor the advanced mode.
+Well, she works like all my KOF chars.
+
+You can run, you can "long jump", "short jump" too. You can recover instead
+of falling on the floor after some attacks.
+
+To roll forward, press weak punch + weak kick. To roll backward, do the
+same command, but hold back.
+Emergency escape use 1 power bar, you just dodge during you guard an
+attack.
+
+Knock down attacks can be done by pressing both strong attacks at the
+same time. If you do it during you block an attack, it will use 1 Power bar
+but will send your opponent pretty far.
+
+The counter system works like KOF, since I used Sander 's code (with permission)
+since I made Kusanagi. Though I didn't add the "COUNTER" explod.
+
+
+Hypers attacks:
+--------------
+
+A Hyper attack requires 1 Power bar.
+A stress shot requires 2 Power bars.
+
+And the desperation moves requires 3 Power bars.
+
+
+-------------------------------------------------------------------------------
+4- Movelist
+-------------------------------------------------------------------------------
+
+X Y Z   start
+A B C
+
+I'll use the Arcade language for the movelist. So:
+A = weak punch (X in Mugen)
+B = weak kick (A in Mugen)
+C = strong punch (Y in Mugen)
+D = strong kick (B in Mugen)
+
+
+Command moves:
+-------------
+
+Hiji Ate
+
+-O + A
+
+
+
+Custom combos:
+-------------
+
+- No custom combos made for Kasumi.
+
+
+Special attacks:
+---------------
+
+
+Senkou Nagashi
+
+|  / O- + A/C (do 3 times)
+O O
+
+
+Kasane ate (also in air)
+
+| \ -O + A/C
+O  O
+
+
+Hakusan Tou: Dageki Bougyou
+
+|  / O- + B/D
+O O
+
+
+Messhin Mutou: Joudan Atemi
+
+O- / | \ -O + B
+  O  O  O
+
+
+Sasshou Inshuu: Chuudan Atemi
+
+O- / | \ -O + D
+  O  O  O
+
+
+Hanshin: Morote Gaeshi
+
+| | + B/D
+O O
+
+
+Tatsumaki Souda: Nage Dageki (close)
+
+-O \  |  / O- + A/C
+    O O O
+
+
+
+Hyper attack:
+------------
+
+
+Cho Kasane Ate (requires 1 power bar)
+
+| \ -O | \ -O + A/C
+O  O   O  O
+
+
+Cho Kasane Ate (requires 2 power bars)
+
+| \ -O | \ -O + A+C
+O  O   O  O
+
+
+Shingan Kuzu Otoshi (requires 2 power bars)
+
+| \ -O \  |  / O- + A+C
+O  O    O O O
+
+
+Todoh no Ougi (requires 3 power bars)
+
+-O  / -O + B+D  then  |  / O- + B+D  then  | \ -O + B+D  then  |  / O- + B+D
+   O                  O O                  O  O                O O
+
+
+-------------------------------------------------------------------------------
+5- Who?
+-------------------------------------------------------------------------------
+
+
+- Who is Kasumi? (as I see her)
+
+
+ Okay, after Ryuhaku Todoh 's defeat in Art of fighting 1, his daughter Kasumi
+goes to... it wasn't Southtown, right? I looked like Mexico. Anyway, Kasumi goes
+find Ryo sakazaki to beat his ass up. But she got SEXY KOed.
+
+ Later she joins Mai and King for the King of fighters 1996. Well, everyone know
+Art of fighting/Fatal fury and KOF storyline don't match together. But Anyway.
+
+ After Goenitz 's defeat, she doesn't appear in KOF (maybe that Chizuru stole
+her ticket).
+
+ Later she re-appears in KOF99 and teams up with King, Mary and Xiangfei to kick
+Krizalid 's ass. That team is a perfect team since it includes 2 Aof girls and 2
+Garou girls. 2 of them are lolis and 2 of them are women.
+
+ She stays in KOF, in 2000 and teams up with Mai, Yuri, and Hinako. This time, to
+kick that ugly Clone Zero guy. Then after that one, she is off KOF.
+
+ Later she dreams to be fighting Capcom characters in SVC:Chaos. And hopefully
+she will be fighting one of her father 's rival: Mr Karate.
+
+ After, Kasumi, Eiji and Malin (WTF) join up together to make the Anti-Kyokugen
+team. Ok... What's wrong? Kasumi can't stop saying she is looking for her father
+in the game ending. And Malin is kinda jealous of Yuri because of their boobs
+sizes... Anyway, Kasumi was back at least.
+
+
+Profile of Kasumi:
+-----------------
+
+(Taken from www.kof10th.com)
+
+Fighting style: Todoh Ancient Martial Arts.
+Birthday: 29 of March.
+Height: 154cm
+Weight: 45kg
+Blood type: B
+Sizes: 75cm, 54cm, 78cm
+Birthplace: Japan.
+Hobby: Watching videos (especially splatter flicks).
+Personal Tresures: An amulet from a special person.
+Fav food: Croquet Napolitan from the meat shop on her way to school.
+Hates: The things her mother teaches (Japanese dancing, flower arrangement, tea ceremony).
+
+
+Special Thanks:
+--------------
+
+Ryoga_rg for making the Kof99 counter SDM edits.
+EdenBeast for making additionnal palettes.
+
+Farram for bug repport.
+
+Dark Saviour for his usefull progs.
+Neogouki (his Joe made me like MUGEN)
+Sander for the Counter system coding.
+Orochi KOf97 for helping out on timings years ago.
+Rumiko for the Andy review which was helpfull.
+Big Eli King, Dreamslayer, @ndroide for hostings.
+Chloe and Smogon for unknown reasons.
+Shin Dio, Walter, UltraJP/Kami.
+O Experto, Ice.
+
+Sion for installing my new UG forum.
+
+SNK for creating the KOF saga and that cute girl. RIP.
+Elecbyte for Mugen.
+
+Special Fucks:
+-------------
+
+Pacific Angra.
+AznMystik.
+@ndroide -> "No para que eres imbecil y lo pierdes" Thank you for my pass reminder.

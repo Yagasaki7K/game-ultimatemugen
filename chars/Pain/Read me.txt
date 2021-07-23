@@ -1,0 +1,83 @@
+=========17 August 2011================================================================================================
+Author : Narukimugen (http://narukimugen.blogspot.com)
+
+Finally PAIN is 90% finished and playable...My PAIN can perform asura path, human path, preta path, naraka path with outer path, animal path, black needle rush, banshou tenin, shinra tensei and chibaku tensei. PAIN is using auto defense. PAIN has a great power generation. He can gain power by using preta path or using his Chakra Disruption Blades. By using naraka path and outer path, he can do a rejuvenation or refresh his life. I designed PAIN as a BOSS so he must be powerful.   
+
+
+
+Charging chakra
+press "C+Z"
+
+
+
+Special Moves :
+
+
+Banshou Tenin
+Bansho Ten'in is a technique similar to Shinra Tensei in that it manipulates gravity at the users will. However instead of pushing objects away, it draws them towards the user. It is possible to attract multiple targets at once, causing them to collide with each other
+Move : press "z"
+
+
+Shinra Tensei
+Shinra Tensei is the ability to manipulate gravity at the user's will to repulse matter away. By using this technique as a defensive measure, all attacks directed to the user will be deflected, no matter the size, power or mass. It can also be used to repel flames caught on the user's body, even those of Amaterasu.
+Move : press "c"
+
+
+Rinnengan
+The Rinnegan is characterised by a ripple-like pattern around the pupil, with a light purple iris and sclera. It is said to be the most powerful of Great Three Dojutsu (Daisan Dojutsu; Literally meaning "Great Three Eye Techniques"). It can confuse the enemy orientation and can be used for escaping or dodging.
+Move : press "start"
+
+
+
+Animal Path (Helper) 
+She can summons giant animals such as dog. The dogs always multiple their self even you destroy the dogs they will always regenerate. The only thing to avoid this just try hit or destroy the animal path!! This jutsu is called "Zofuku Kuchiyose no Jutsu" or "amplification summoning technique"
+Move : D DF F + A
+requires :  1000 power
+
+
+
+Preta Path (helper)
+He can immobilize and absorbs the enemy's chakra and also will give power.
+Move : D DF F + Y
+require : 300 power 
+
+
+
+
+Human path (helper)
+He can immobilize and drain some of enemy's  life.
+Move :  D DF F + X
+require : 400 power
+
+
+
+Asura Path (helper)
+ He is a human android who mounted with a lot of blades, bombs, and missiles. He can launch multiple missiles.
+Move : D DF F + Z
+require : 100 power
+
+
+
+Naraka path (helper)
+He can summons Outer Path for rejuvenation
+Move : F DF D + A & B
+require : power 3000
+life <300
+
+
+
+
+Hyper Move :
+
+Chibaku Tensei 
+Chibaku Tensei is a special technique developed by theSage of the Six Paths, who used it to create the moon and trap the enemy's body inside of it. The user creates a dark black sphere of gravity that, when thrown into the sky, attracts objects from all directions and pulls them into the sphere, compressing them together. The surrounding earth, including forests and mountains, are collected into a single point, piling on top of one another until it creates a large sphere.
+Move : D DB B + X & Y
+require : 3000 power
+
+
+Thanks for playing my mugen creations..........;)
+======================================================================================
+Please check http://narukimugen.blogspot.com
+
+
+

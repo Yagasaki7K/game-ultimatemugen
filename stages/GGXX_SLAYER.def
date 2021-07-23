@@ -1,0 +1,127 @@
+[Info]
+name           = "CASTLE"
+
+[Camera]
+startx         = 0
+starty         = 0
+boundleft      = -200    
+boundright     = 200
+boundhigh      = -145
+boundlow       = 0   
+verticalfollow = 0.5
+tension	       = 50
+
+[PlayerInfo]
+p1startx       = -70        
+p1starty       = 0          
+p1startz       = 0         
+p1facing       = 1          
+p2startx       = 70         
+p2starty       = 0 
+p2startz       = 0 
+p2facing       = -1
+leftbound      = -1000      
+rightbound     = 1000      
+topbound       = 0           
+botbound       = 0    
+
+[Scaling]
+topz	       = 0
+botz           = 50
+topscale       = 1
+botscale       = 1.2
+
+[Bound]
+screenleft     = 15
+screenright    = 15
+
+[StageInfo]
+zoffset        = 220
+autoturn       = 1 
+resetBG        = 0
+
+[Shadow]
+color	       = 128,128,128
+yscale	       = 0.3
+
+[Music]
+bgmusic	       = 
+bgvolume       = 255
+
+[BGdef]
+spr             = stages/GGXX_SLAYER.sff
+debugbg		= 1
+
+[BG 0]
+type            = normal
+spriteno        = 0, 0
+layerno         = 0
+start           = -274,-133
+delta           = 0.45,0.72
+trans           = None
+mask            = 1
+
+[BG 1]
+type            = normal
+spriteno        = 1, 0
+layerno         = 0
+start           = -274,-126
+delta           = 0.55,0.85
+trans           = None
+mask            = 1
+
+[BG ANIM1]
+type            = anim
+layerno         = 0
+actionno        = 2
+start           =
+delta           = 0.55,0.85
+trans           = None
+mask            = 1
+
+[Begin action 2]
+2,0, -274,-126, 11
+2,1, -274,-126, 11
+2,2, -274,-126, 11
+2,3, -274,-126, 11
+2,4, -274,-126, 11
+2,5, -274,-126, 11
+2,6, -274,-126, 11
+2,7, -274,-126, 11
+
+[BG ANIM2]
+type            = anim
+layerno         = 0
+actionno        = 3
+start           =
+delta           = 0.55,0.85
+trans           = None
+mask            = 1
+
+[Begin action 3]
+3,0, -274,-126, 15
+3,1, -274,-126, 15
+3,2, -274,-126, 15
+3,3, -274,-126, 15
+3,4, -274,-126, 15
+3,5, -274,-126, 15
+3,6, -274,-126, 15
+3,7, -274,-126, 15
+
+[BG 3]
+type            = normal
+spriteno        = 4, 0
+layerno         = 0
+start           = -254,-126
+delta           = 0.65,1
+trans           = None
+mask            = 1
+
+[BG 3]
+type            = normal
+spriteno        = 5, 0
+layerno         = 0
+start           = -370,251
+delta           = 0.65,1
+trans           = None
+mask            = 1

@@ -1,0 +1,35 @@
+;覇王丸
+[Info]
+name         = "Haoumaru"   ;キャラの名前
+displayname  = "Haoumaru"   ;表示されるキャラの名前
+versiondate  = 02,05,2007   ;更新情報
+mugenversion = 04,14,2001   ;動くmugenのバージョン
+author       = "NRF"        ;製作者名
+pal.defaults = 4,10         ;敵として出るときに使用するパレット
+
+; Files for the player
+[Files]
+cmd      = Haoumaru.cmd     ;コマンド
+cns      = Haoumaru1.cns    ;体力などの基本データ
+st       = Haoumaru1.cns    ;プログラム（主に通常技）
+st2      = Haoumaru2.cns    ;プログラム（主に必殺技）
+st3      = Haoumaru3.cns    ;プログラム（主に超必殺技）
+st4      = Haoumaru4.cns    ;プログラム（主に常駐ステート）
+
+stcommon = Haoumaru0.cns    ;基本動作（自前以外はdataフォルダ内のを使用）
+sprite   = Haoumaru.sff     ;絵
+anim     = Haoumaru.air     ;アニメーション
+sound    = Haoumaru.snd     ;音
+
+pal4     = Haoumaru1.act    ;弱Ｐカラー（真サム1P）
+pal5     = Haoumaru2.act    ;中Ｐカラー（真サム2P）
+pal6     = Haoumaru3.act    ;強Ｐカラー（ガッツ）
+pal1     = Haoumaru4.act    ;弱Ｋカラー（新撰組）
+pal2     = Haoumaru5.act    ;中Ｋカラー（ケンシロウ）
+pal3     = Haoumaru6.act    ;強Ｋカラー（孫悟空）
+pal10    = Haoumaru7.act    ;スタート＋弱Ｐカラー（羅刹丸）
+pal11    = Haoumaru8.act    ;スタート＋中Ｐカラー（ガンダムMk-Ⅱ）
+pal12    = Haoumaru9.act    ;スタート＋強Ｐカラー（百式）
+pal7     = Haoumaru10.act   ;スタート＋弱Ｋカラー（ゲルググ）
+pal8     = Haoumaru11.act   ;スタート＋中Ｋカラー（グフ）
+pal9     = Haoumaru12.act   ;スタート＋強Ｋカラー（シャア専用）

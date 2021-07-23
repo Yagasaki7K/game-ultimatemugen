@@ -1,0 +1,404 @@
+;Web : http://www.freewebs.com/sangkalaza/
+;My mail : KgohanT@yahoo.com
+
+[Info]
+name = "Ice Bridge"
+author = "KGT"
+;********************************
+[Camera]
+startx = 0
+starty = 0
+boundleft = -584
+boundright = 584
+boundhigh = -170
+boundlow = 0
+tension =50
+verticalfollow =.93
+floortension = 116
+;********************************
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = -100
+p2facing = -1
+leftbound  = -1200
+rightbound =  1200
+topbound  =  0
+botbound  =  0
+;********************************
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+;********************************
+[Bound]
+screenleft = 15
+screenright = 15
+;********************************
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 0
+Hires=1
+;********************************
+[Shadow]
+intensity = 64
+yscale = 0.4
+fade.range = -200,-50
+;********************************
+[Reflection]
+intensity = 0
+;********************************
+[Music]
+bgmusic = musics/Sky Dream.mp3
+bgvolume = 255
+;********************************
+[BGdef]
+spr = stages/Ice Bridge.sff
+debugbg = 0
+
+;===******===Background===******===
+[BG Background]
+type = normal
+spriteno = 0,2
+start = 460,-120
+tile = 1,1
+delta = 0.2,0.95
+mask = 0
+
+;===******===ShootingStar===******===
+[BG ShootingStar1]
+type = anim
+actionno = 1
+start = -500, -240
+delta = 0.2,0.95
+tile = 1, 1
+tilespacing = 1050
+velocity = -0.4,0.4
+[BG ShootingStar2]
+type = anim
+actionno = 2
+start = 0, 480
+delta = 0.2,0.95
+tile = 1, 1
+tilespacing = 850
+velocity = -0.5,0.6
+[BG ShootingStar3]
+type = anim
+actionno = 0
+start = -250, -620
+delta = 0.2,0.95
+tile = 1, 1
+tilespacing = 925
+velocity = -0.45,0.5
+[BG ShootingStar4]
+type = anim
+actionno = 1
+start = -920, -420
+delta = 0.2,0.95
+tile = 1, 1
+tilespacing = 620
+velocity = -0.4,0.35
+[BG ShootingStar5]
+type = anim
+actionno = 2
+start = -550, 560
+delta = 0.2,0.95
+tile = 1, 1
+tilespacing = 425
+velocity = -0.5,0.55
+[BG ShootingStar6]
+type = anim
+actionno = 0
+start = -725, -850
+delta = 0.2,0.95
+tile = 1, 1
+tilespacing = 800
+velocity = -0.45,0.4
+
+[Begin Action 0]
+3,2,0,0,-1,,A
+[Begin Action 1]
+3,0,0,0,-1,,A
+[Begin Action 2]
+3,1,0,0,-1,,A
+
+;===******===GlowingStar===******===
+[BG GlowingStar1]
+type = anim
+actionno = 5
+start = -200, 150
+delta = 0.2,0.95
+[BG GlowingStar2]
+type = anim
+actionno = 7
+start = -420, 60
+delta = 0.2,0.95
+[BG GlowingStar3]
+type = anim
+actionno = 6
+start = 270, 115
+delta = 0.2,0.95
+[BG GlowingStar4]
+type = anim
+actionno = 4
+start = 380, 20
+delta = 0.2,0.95
+[BG GlowingStar5]
+type = anim
+actionno = 3
+start = -320, 28
+delta = 0.2,0.95
+[BG GlowingStar6]
+type = anim
+actionno = 8
+start = 360, 95
+delta = 0.2,0.95
+[BG GlowingStar7]
+type = anim
+actionno = 9
+start = -375, 108
+delta = 0.2,0.95
+[BG GlowingStar8]
+type = anim
+actionno = 10
+start = -300, -65
+delta = 0.2,0.95
+[BG GlowingStar9]
+type = anim
+actionno = 11
+start = -115, 90
+delta = 0.2,0.95
+[BG GlowingStar10]
+type = anim
+actionno = 5
+start = 295, -55
+delta = 0.2,0.95
+[BG GlowingStar11]
+type = anim
+actionno = 9
+start = 155, 70
+delta = 0.2,0.95
+[BG GlowingStar12]
+type = anim
+actionno = 7
+start = 340, -85
+delta = 0.2,0.95
+
+[Begin Action 3]
+5,2,0,0,8,,A
+5,3,0,0,8,,A
+5,4,0,0,8,,A
+5,5,0,0,8,,A
+5,6,0,0,8,,A
+5,7,0,0,10,,A
+5,6,0,0,8,,A
+5,5,0,0,8,,A
+5,4,0,0,8,,A
+5,3,0,0,8,,A
+5,2,0,0,8,,A
+5,1,0,0,8,,A
+5,0,0,0,10,,A
+5,1,0,0,8,,A
+[Begin Action 4]
+4,0,0,0,10,,A
+4,1,0,0,8,,A
+4,2,0,0,8,,A
+4,3,0,0,8,,A
+4,4,0,0,8,,A
+4,5,0,0,8,,A
+4,6,0,0,8,,A
+4,7,0,0,10,,A
+4,6,0,0,8,,A
+4,5,0,0,8,,A
+4,4,0,0,8,,A
+4,3,0,0,8,,A
+4,2,0,0,8,,A
+4,1,0,0,8,,A
+[Begin Action 5]
+4,5,0,0,8,,A
+4,6,0,0,8,,A
+4,7,0,0,10,,A
+4,6,0,0,8,,A
+4,5,0,0,8,,A
+4,4,0,0,8,,A
+4,3,0,0,8,,A
+4,2,0,0,8,,A
+4,1,0,0,8,,A
+4,0,0,0,10,,A
+4,1,0,0,8,,A
+4,2,0,0,8,,A
+4,3,0,0,8,,A
+4,4,0,0,8,,A
+[Begin Action 6]
+5,7,0,0,10,,A
+5,6,0,0,8,,A
+5,5,0,0,8,,A
+5,4,0,0,8,,A
+5,3,0,0,8,,A
+5,2,0,0,8,,A
+5,1,0,0,8,,A
+5,0,0,0,10,,A
+5,1,0,0,8,,A
+5,2,0,0,8,,A
+5,3,0,0,8,,A
+5,4,0,0,8,,A
+5,5,0,0,8,,A
+5,6,0,0,8,,A
+[Begin Action 7]
+6,7,0,0,10,,A
+6,6,0,0,8,,A
+6,5,0,0,8,,A
+6,4,0,0,8,,A
+6,3,0,0,8,,A
+6,2,0,0,8,,A
+6,1,0,0,8,,A
+6,0,0,0,10,,A
+6,1,0,0,8,,A
+6,2,0,0,8,,A
+6,3,0,0,8,,A
+6,4,0,0,8,,A
+6,5,0,0,8,,A
+6,6,0,0,8,,A
+[Begin Action 8]
+6,5,0,0,8,,A
+6,4,0,0,8,,A
+6,3,0,0,8,,A
+6,2,0,0,8,,A
+6,1,0,0,8,,A
+6,0,0,0,10,,A
+6,1,0,0,8,,A
+6,2,0,0,8,,A
+6,3,0,0,8,,A
+6,4,0,0,8,,A
+6,5,0,0,8,,A
+6,6,0,0,8,,A
+6,7,0,0,10,,A
+6,6,0,0,8,,A
+[Begin Action 9]
+5,4,0,0,8,,A
+5,3,0,0,8,,A
+5,2,0,0,8,,A
+5,1,0,0,8,,A
+5,0,0,0,10,,A
+5,1,0,0,8,,A
+5,2,0,0,8,,A
+5,3,0,0,8,,A
+5,4,0,0,8,,A
+5,5,0,0,8,,A
+5,6,0,0,8,,A
+5,7,0,0,10,,A
+5,6,0,0,8,,A
+5,5,0,0,8,,A
+[Begin Action 10]
+4,6,0,0,8,,A
+4,5,0,0,8,,A
+4,4,0,0,8,,A
+4,3,0,0,8,,A
+4,2,0,0,8,,A
+4,1,0,0,8,,A
+4,0,0,0,10,,A
+4,1,0,0,8,,A
+4,2,0,0,8,,A
+4,3,0,0,8,,A
+4,4,0,0,8,,A
+4,5,0,0,8,,A
+4,6,0,0,8,,A
+4,7,0,0,10,,A
+[Begin Action 11]
+6,5,0,0,8,,A
+6,4,0,0,8,,A
+6,3,0,0,8,,A
+6,2,0,0,8,,A
+6,1,0,0,8,,A
+6,0,0,0,10,,A
+6,1,0,0,8,,A
+6,2,0,0,8,,A
+6,3,0,0,8,,A
+6,4,0,0,8,,A
+6,5,0,0,8,,A
+6,6,0,0,8,,A
+6,7,0,0,10,,A
+6,6,0,0,8,,A
+
+;===******===CloudBehind===******===
+[BG CloudBehind]
+type = normal
+spriteno = 2,1
+start = 0,310
+delta = 1,1.5
+trans = add
+mask = 1
+tile = 1,0
+velocity = -.7,0
+
+;===******===Platform===******===
+[BG Platform]
+type = normal
+spriteno = 0,0
+start = -1490,301
+delta = 2,2
+mask = 1
+
+;===******===LampLight===******===
+[BG LampLight1]
+type = normal
+spriteno = 0,3
+start = -1590,245
+delta = 2,2
+mask = 1
+trans = add
+[BG LampLight2]
+type = normal
+spriteno = 0,3
+start = -842,245
+delta = 2,2
+mask = 1
+trans = add
+[BG LampLight3]
+type = normal
+spriteno = 0,3
+start = -94,245
+delta = 2,2
+mask = 1
+trans = add
+[BG LampLight4]
+type = normal
+spriteno = 0,3
+start = 654,245
+delta = 2,2
+mask = 1
+trans = add
+[BG LampLight5]
+type = normal
+spriteno = 0,3
+start = 1402,245
+delta = 2,2
+mask = 1
+trans = add
+
+;===******===PlatformFore===******===
+[BG PlatformFore]
+type = normal
+spriteno = 0,1
+start = -1490, 399
+delta = 2,2
+mask = 1
+layerno = 1
+
+;===******===CloudFore===******===
+[BG CloudFore]
+type = normal
+spriteno = 2,0
+start = 400,360
+delta = 2,2
+trans = add
+mask = 1
+tile = 1,0
+velocity = -1.6,0
+layerno = 1

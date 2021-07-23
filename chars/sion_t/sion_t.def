@@ -1,0 +1,41 @@
+[Info]
+Name         = "Sion TATARI"
+DisplayName  = "Sion Tatari"
+VersionDate  = 2008,08,05
+MugenVersion = 2001,04,14
+Author       = "Shiroto"
+;Pal.Defaults = 2,1
+
+[Files]
+cmd       = sion_t.cmd
+cns       = sion_t.cns
+st        = sion_t.cns   ;common_re.act
+st1       = sion_t00.cns ;data
+st2       = sion_t01.cns ;normal
+st3       = sion_t02.cns ;skill
+st4       = sion_t03.cns ;AD LA
+st5       = helper.cns   ;helper
+st6       = helper2.cns  ;effect
+st7       = sion_t04.cns ;AI
+stcommon  = common2.cns  ;common
+sprite    = sion_t2.sff
+anim      = sion_t.air
+sound     = sion_t.snd
+pal1      = sion_t3.act  ;Vampire
+pal2      = sion_t4.act  ;Normal
+pal3      = sion_t3.act  ;Vampire
+pal4      = sion_t4.act  ;Normal
+pal5      = sion_t3.act  ;Vampire
+pal6      = sion_t4.act  ;Normal
+pal7      = sion_t3.act  ;Vampire
+pal8      = sion_t4.act  ;Normal
+pal9      = sion_t3.act  ;Vampire
+pal10     = sion_t4.act  ;Normal
+pal11     = sion_t3.act  ;Vampire
+pal12     = sion_t4.act  ;Normal
+
+;---------------------------------------------
+;[Arcade]
+;intro.storyboard  = Intro.def
+;ending.storyboard = Ending.def
+

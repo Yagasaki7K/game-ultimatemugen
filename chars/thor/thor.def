@@ -1,0 +1,37 @@
+;TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+;The Mighty THOR -  0.91 10/2005
+;Edits: Loganir and Black Dragon
+;Programmer: Loganir
+;weapon.x@ig.com.br
+;TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Info]
+name = "The Mighty Thor" ;Name of character
+displayname = "Thor" ;Name of character to display
+versiondate = 09,10,2005 ;Version date of character (MM-DD-YYYY)
+mugenversion = 14,11,2001 ;Version of M.U.G.E.N character works on
+author = "Loganir & BlackDragon" ;Character author name
+pal.defaults = 1,2,6 ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = thor.cmd   ;Command set
+cns     = thor.cns   ;Constants
+st      = thor.cns   ;States
+st1 = thor1.cns ;Common states
+st2 = thor2.cns ; tagbattle
+sprite  = thor.sff; thor.sff   ;Sprite
+anim    = thor.air   ;Animation
+sound   = thor.snd   ;Sound
+pal1    = pal1.act ;default  
+pal2    = pal6.act ;golden helmet 
+pal3    = pal2.act ;sf3 shade
+pal4    = pal4.act ;thunderstrike
+pal5    = pal3.act ;Red Norvell
+pal6    = pal5.act ;light blue 
+pal7   = pal7.act
+
+; Arcade mode
+[Arcade]
+intro.storyboard =intro.def ;intro.def
+ending.storyboard = ending.def

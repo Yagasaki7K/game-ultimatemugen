@@ -1,0 +1,1088 @@
+;==============================================================================
+;[statedef -3]定義
+;==============================================================================
+[Statedef -3]
+;==============================================================================
+;　AI発動
+;==============================================================================
+[State -3,0000]
+Type = VarSet
+Trigger1 = 1
+Trigger1 = Name = "Ciel"
+V = 2
+Value = 3         ;レベル変更場所（シエル）
+[State -3,0000]
+Type = VarSet
+Trigger1 = 1
+Trigger1 = Name = "Chie_Rumiko"
+V = 2
+Value = 5         ;レベル変更場所（知恵）
+
+; 0 : 激甘モード（CPUなし）
+; 1 : 甘口モード
+; 2 : 中辛モード
+; 3 : 辛口モード
+; 4 : 激辛モード
+; 5 : 昼壊モード
+; 6 : 埋葬モード
+; 7 : 祭囃モード
+
+[State -3, AI]
+Type = VarSet
+TriggerAll = Var(1) != 1
+TriggerAll = Var(2) != 0
+TriggerAll = RoundState = [1,2]
+Trigger1 = Command = "CPU01"
+Trigger2 = Command = "CPU02"
+Trigger3 = Command = "CPU03"
+Trigger4 = Command = "CPU04"
+Trigger5 = Command = "CPU05"
+Trigger6 = Command = "CPU06"
+Trigger7 = Command = "CPU07"
+Trigger8 = Command = "CPU08"
+Trigger9 = Command = "CPU09"
+Trigger10 = Command = "CPU10"
+Trigger11 = Command = "CPU11"
+Trigger12 = Command = "CPU12"
+Trigger13 = Command = "CPU13"
+Trigger14 = Command = "CPU14"
+Trigger15 = Command = "CPU15"
+Trigger16 = Command = "CPU16"
+Trigger17 = Command = "CPU17"
+Trigger18 = Command = "CPU18"
+Trigger19 = Command = "CPU19"
+Trigger20 = Command = "CPU20"
+Trigger21 = Command = "CPU21"
+Trigger22 = Command = "CPU22"
+Trigger23 = Command = "CPU23"
+Trigger24 = Command = "CPU24"
+Trigger25 = Command = "CPU25"
+Trigger26 = Command = "CPU26"
+Trigger27 = Command = "CPU27"
+Trigger28 = Command = "CPU28"
+Trigger29 = Command = "CPU29"
+Trigger30 = Command = "CPU30"
+Trigger31 = Command = "CPU31"
+Trigger32 = Command = "CPU32"
+Trigger33 = Command = "CPU33"
+Trigger34 = Command = "CPU34"
+Trigger35 = Command = "CPU35"
+Trigger36 = Command = "CPU36"
+Trigger37 = Command = "CPU37"
+Trigger38 = Command = "CPU38"
+Trigger39 = Command = "CPU39"
+Trigger40 = Command = "CPU40"
+Trigger41 = Command = "AI_41"
+Trigger42 = Command = "AI_42"
+Trigger43 = Command = "AI_43"
+Trigger44 = Command = "AI_44"
+Trigger45 = Command = "AI_45"
+Trigger46 = Command = "AI_46"
+Trigger47 = Command = "AI_47"
+Trigger48 = Command = "AI_48"
+Trigger49 = Command = "AI_49"
+Trigger50 = Command = "AI_50"
+Trigger51 = NumHelper(9000) != 0
+Trigger51 = Helper(9000),Var(1) = 1
+Trigger52 = Var(1) = 11
+V = 1
+Value = 1
+
+[State -3, AI]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = P2Life <= 0
+Trigger2 = Life <= 0
+V = 1
+Value = 11
+
+[State -3]
+Type = Helper
+TriggerAll = Var(1) = 0
+TriggerAll = NumHelper(9000) = 0
+TriggerAll = Ctrl && StateNo = 0
+TriggerAll = RoundState = 2
+Trigger1 = (PrevStateNo = [191,194]) || PrevStateNo=5900
+StateNo = 9000
+PosType = P1
+Pos = 0, 0
+KeyCtrl = 1
+Ownpal = 1
+ID = 9000
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -3]
+type=changestate
+trigger1= ishelper(9000)
+trigger1= stateno!=9000
+value=9000
+
+;==============================================================================
+;　AI行動
+;==============================================================================
+;------------------------------------------------------------------------------
+;　ハイジャップ
+;------------------------------------------------------------------------------
+;　搭載予定なし
+
+;------------------------------------------------------------------------------
+;　シールドカウンター
+;------------------------------------------------------------------------------
+;　技元に記載
+
+
+;------------------------------------------------------------------------------
+;　ラストアーク
+;------------------------------------------------------------------------------
+;　技元に記載
+
+;------------------------------------------------------------------------------
+;　ヒート・ブラヒ・覚醒発動
+;------------------------------------------------------------------------------
+[State 5900, 4]
+type = ChangeState
+triggerall = Var(1) = 1
+triggerall = Var(33) = 0
+Triggerall = Ctrl = 1
+TriggerAll = StateType != A
+Trigger1 = Power >= 2000
+trigger1 = (P2Life - Life) >= 500
+Trigger2 = Life <= 150 || (Life <= 200 && Var(2) = 4)
+trigger2 = random > 300
+Trigger2 = Power >= 2000 || (power >= 1000 && Var(2) = 4)
+value = 900
+[State 5900, 4]
+type = ChangeState
+triggerall = Var(1) = 1
+TriggerAll = StateType != A
+triggerAll = Var(33) >= 1
+TriggerAll = Ctrl = 1
+triggerAll = Var(36) = 0
+trigger1 = (P2Life - Life) >= 300
+trigger2 = Var(2) != 1
+trigger2 = random > 300
+value = 910
+;------------------------------------------------------------------------------
+;　第七聖典
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(random < 950, ifelse(Var(33) >= 1 || (power=[3000,4999]),2000,2050),2300)
+TriggerAll = Var(1) = 1
+TriggerAll = P2MoveType = A
+TriggerAll = StateType != A
+TriggerAll = P2BodyDist X = [-10,100]
+triggerAll = P2BodyDist Y = [-10,50]
+TriggerAll = Ctrl = 1
+triggerAll = Var(33) != 0 || (power=[3000,4999])
+Trigger1 = Var(2) = 1
+Trigger1 = P2MoveType = A && random < 600
+Trigger2 = Var(2) = 2
+Trigger2 = P2MoveType = A && random < 800
+Trigger3 = Var(2) >= 3
+Trigger3 = P2MoveType = A || random < 50
+Trigger4 = (Var(2) = [3,4]) || Var(2) = [6,7]
+Trigger4 = StateNo = 730 && StateTime < 3 && PrevStateNo = [120,159]
+[State -3]
+Type = ChangeState
+Value = 2050
+TriggerAll = Var(1) = 1
+Trigger1 = P2MoveType = A
+TriggerAll = StateType != A
+TriggerAll = P2BodyDist X = [-10,100]
+triggerAll = P2BodyDist Y = [-10,50]
+TriggerAll = Ctrl = 1
+triggerAll = Var(2) = [6,7]
+[State -3]
+Type = ChangeState
+Value = 2000
+TriggerAll = Var(1) = 1
+Trigger1 = P2MoveType = H
+Trigger1 = StateNo = 220 && PrevStateNo != 210 && PrevStateNo != 410
+TriggerAll = StateType != A
+TriggerAll = P2BodyDist X = [-10,80]
+triggerAll = P2BodyDist Y = [-10,50]
+triggerAll = Var(2) = [6,7]
+;------------------------------------------------------------------------------
+;　反撃用火葬式典＆セブンス＆黒鍵王手
+;------------------------------------------------------------------------------
+[State -3, AI]
+Type = ChangeState
+Value = ifelse((Var(33) != 0 || power>=3000) && (P2BodyDist X = [-10,100]),ifelse(Var(33) > 0 || (power=[3000,4999]),2000,2050),ifelse(Var(2)!=4&&Var(2)!=7&&P2BodyDist X>60,1030+190*(random%2),1220))
+TriggerAll = P2MoveType = A
+TriggerAll = StateType != A
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl = 1
+Trigger1 = Var(2) = 3 && random < 700 && (power > 1500 || Var(33) != 0)
+Trigger2 = Var(2) = 4 && random < 800 && (power > 1100 || Var(33) != 0)
+Trigger3 = Var(2) = 5 && random < 700 && (power > 1500 || Var(33) != 0)
+Trigger4 = Var(2) = [6,7]
+Trigger5 = (Var(2) = [3,4]) || Var(2) = [6,7]
+Trigger5 = StateNo = 730 && StateTime < 3 && PrevStateNo = [120,159]
+[State -3, AI]
+Type = ChangeState
+Value = ifelse(Var(33) != 0 || power>=3000,ifelse(Var(33) > 0 || (power=[3000,4999]),2000,2050),1220)
+TriggerAll = EnemyNear,ctrl = 0 && EnemyNear,MoveType != H
+TriggerAll = StateType != A
+TriggerAll = Var(1) = 1 && BackEdgeDist <= 20 && P2BodyDist X < 100
+TriggerAll = Ctrl = 1
+Trigger1 = Var(2) = 4 && random < 800 && (power > 1100 || Var(33) != 0)
+Trigger2 = Var(2) = 7
+[State -3, AI]
+Type = ChangeState
+Value = ifelse((Var(33) < 0 || power>= 5000) && (P2BodyDist X = [-10,100]),2050,ifelse(Var(2)>=3,1220,1020))
+TriggerAll = P2MoveType = A
+TriggerAll = StateType != A
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1302
+Trigger1 = PrevStateNo = 1300 || PrevStateNo = 1321
+Trigger1 = (power > 1500 || Var(33) != 0) || Var(2) = [6,7]
+[State -3, AI]
+Type = ChangeState
+Value = ifelse(Var(33) != 0 || (Var(2) = [6,7]),2200,1130)
+TriggerAll = P2MoveType = A
+TriggerAll = StateType = A
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl = 1
+triggerAll = P2BodyDist X = [30,100]
+Trigger1 = Var(2) = 3 && random < 600 && power > 1500
+Trigger2 = Var(2) = 4 && random < 200 && power > 1500
+Trigger3 = Var(2) = 5 && random < 600 && power > 1500
+Trigger4 = (Var(2) = [6,7]) && Life > 500
+[State -1]
+type = ChangeState
+value = ifelse(P2BodyDist X >= 60,730,1700)
+triggerall = var(1) = 1 && Var(2) >= 2
+triggerall = statetype != A
+triggerAll = (P2BodyDist X = [-10,100]) && EnemyNear,Vel Y >= 0 && P2bodyDist Y =[-20,20]
+triggerAll = power >= 1500 || Var(33) != 0
+Trigger1 = StateNo = [130,159]
+Trigger1 = random%10 <= 4
+Trigger1 = Var(2) = 4 || var(2) = [6,7]
+[State -1]
+type = ChangeState
+Value = ifelse(enemynear,movetype!=H && (power>1500&&Var(33)>=0),1030,1000)
+triggerall = var(1) = 1 && (Var(2) = 4 || var(2) = [6,7])
+triggerall = statetype != A
+triggerAll = (P2BodyDist X = [290,500]) && P2StateType != A
+TriggerAll = (EnemyNear,Ctrl = 0 && P2MoveType != H) || P2MoveType = A
+Trigger1 = ctrl
+Trigger1 = random%10 <= 7
+;------------------------------------------------------------------------------
+;　?
+;------------------------------------------------------------------------------
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+TriggerAll = StateNo = 2302
+TriggerAll = MoveHit
+Trigger1 = Var(33) <= -1
+V = 24
+Value = 1
+;------------------------------------------------------------------------------
+;　サーキットスパーク
+;------------------------------------------------------------------------------
+[State -1, ChangeState]
+Type = ChangeState
+Value = 950
+TriggerAll = Alive = 1
+TriggerAll = Var(1) = 1
+triggerAll !=hitshakeover
+TriggerAll = StateType != A
+triggerAll = StateNo = [5000,5019]
+IgnoreHitPause = 1
+trigger1 = Var(2) = [6,7]
+trigger2 = Var(2) >= 3 
+trigger2 = Var(33) != 0
+trigger2 = Life <= 200
+[State -1, ChangeState]
+Type = ChangeState
+Value = 951
+TriggerAll = Alive = 1
+TriggerAll = Var(1) = 1
+TriggerAll = movetype = H
+TriggerAll = StateType = A
+TriggerAll = var(38) >= 1
+IgnoreHitPause = 1
+trigger1 = Var(2) = 7
+trigger2 = Var(2) = 5 
+trigger2 = Var(33) != 0
+trigger2 = Life <= 200
+;------------------------------------------------------------------------------
+;　ガード
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = 105
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl
+Triggerall = StateNo != 931
+Triggerall = statetype != A
+TriggerAll = StateNo != [120,159]
+Trigger1 = EnemyNear,HitDefAttr = ,NT,ST,HT
+Trigger1 = InGuardDist || (NumHelper(1140)!=0&&Helper(1140),InguardDist)
+IgnoreHitPause = 1
+
+[State -3]
+Type = ChangeState
+Value = ifelse(random%10 <= 9,120,162)
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl
+Triggerall = statetype = A
+TriggerAll = (Var(2) != [6,7]) || (Life >= 500 && Var(2) = [6,7])
+TriggerAll = StateNo != [120,159]
+Trigger1 = EnemyNear,HitDefAttr = SCA,AA,NA,SA,HA,AP,NP,SP,HP
+Trigger1 = InGuardDist || (NumHelper(1140)!=0&&Helper(1140),InguardDist)
+IgnoreHitPause = 1
+[State -3]
+Type = Null;ChangeState
+Value = ifelse(random%10 <= 1,120,162)
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl
+Triggerall = StateNo != 931
+Triggerall = statetype = A
+TriggerAll = (Life < 500 && Life >= 200 && Var(2) = [6,7])
+TriggerAll = StateNo != [120,159]
+Trigger1 = EnemyNear,HitDefAttr = SCA,AA,NA,SA,HA,AP,NP,SP,HP
+Trigger1 = InGuardDist || (NumHelper(1140)!=0&&Helper(1140),InguardDist)
+IgnoreHitPause = 1
+[State -3]
+Type = ChangeState
+Value = 120
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl
+Triggerall = StateNo != 931
+TriggerAll = (Life < 500 && Var(2) = [6,7])
+TriggerAll = StateNo != [120,159]
+Trigger1 = EnemyNear,HitDefAttr = SCA,AA,NA,SA,HA,AP,NP,SP,HP
+Trigger1 = InGuardDist || (NumHelper(1140)!=0&&Helper(1140),InguardDist)
+Trigger2 = InguardDist || (NumHelper(1140)!=0&&Helper(1140),InguardDist)
+Trigger2 = Enemy,NumHelper > 0 || Enemy,NumProj > 0
+IgnoreHitPause = 1
+[State -3, AI]
+Type = ChangeState
+Value = 162
+TriggerAll = StateType = A
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl = 1
+TriggerAll = (Var(2) = [6,7]) && Life < 500
+Trigger1 = EnemyNear,HitDefAttr = SCA,AA,NA,SA,HA,AP,NP,SP,HP
+Trigger1 = InGuardDist || (NumHelper(1140)!=0&&Helper(1140),InguardDist)
+IgnoreHitPause = 1
+
+[State -3]
+Type = ChangeState
+Value = 120
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl
+Triggerall = StateNo != 931
+TriggerAll = StateNo != [120,159]
+Trigger1 = InguardDist || (NumHelper(1140)!=0&&Helper(1140),InguardDist)
+Trigger1 = Enemy,NumHelper > 0 || Enemy,NumProj > 0
+IgnoreHitPause = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%10 <= 8,120,160+random%2)
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl
+Triggerall = StateNo != 931
+Triggerall = statetype != A
+TriggerAll = StateNo != [120,159]
+Trigger1 = EnemyNear,HitDefAttr = SCA,AA,NA,SA,HA,AP,NP,SP,HP
+Trigger1 = InGuardDist || (NumHelper(1140)!=0&&Helper(1140),InguardDist)
+IgnoreHitPause = 1
+ctrl = 1
+;------------------------------------------------------------------------------
+;　屈ガード
+;------------------------------------------------------------------------------
+;　直接記載
+
+;------------------------------------------------------------------------------
+;　中攻撃
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(P2StateType=A,410,ifelse((random%4!=0 && P2BodyDist X >= 50)|| MoveGuarded=1,210,201))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+Trigger1 = StateNo = 200
+Trigger1 = MoveContact = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%8=3,410,ifelse(MoveGuarded = 1,210,225))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+Trigger1 = StateNo = 400
+Trigger1 = MoveContact = 1
+[State -3]
+Type = ChangeState
+Value = 202
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+Trigger1 = StateNo = 201
+Trigger1 = MoveHit = 1
+;------------------------------------------------------------------------------
+;　強攻撃
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(MoveGuarded = 1,225,420)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+Trigger1 = StateNo = 410
+Trigger1 = MoveContact = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 600,420,220)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+Trigger1 = StateNo = 210
+Trigger1 = MoveContact = 1
+Trigger2 = StateNo = 225
+Trigger2 = HitCount = 2
+Trigger2 = MoveContact = 1
+Trigger3 = PrevStateNo = 1500 || PrevStateNo = 1510
+Trigger3 = P2MoveType = H && P2StateNo != [120,159]
+Trigger3 = ctrl
+[State -3]
+Type = ChangeState
+Value = 160
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = enemynear,StateNo != [5100,5199]
+TriggerAll = Var(2) = 4 && PrevStateNo = [120,159]
+Trigger1 = P2BodyDist X = [50,70]
+Trigger1 = P2BodyDist Y = [-10,10]
+Trigger1 = Ctrl = 1
+[State -3]
+Type = ChangeState
+Value = 220
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = enemynear,StateNo != [5100,5199]
+Trigger1 = P2BodyDist X = [50,70]
+Trigger1 = P2BodyDist Y = [-10,10]
+Trigger1 = Ctrl = 1 && (Var(2) != 4 || PrevStateNo != [120,159])
+Trigger2 = StateNo = 420 && PrevStateNo != 220
+Trigger2 = MoveContact
+Trigger2 = P2BodyDist X = [60,80]
+Trigger3 = StateNo = 420 && PrevStateNo != 220
+Trigger3 = MoveGuarded
+Trigger3 = P2BodyDist X = [-10,55]
+;------------------------------------------------------------------------------
+;　エリアル発動
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = 40
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+Trigger1 = StateNo = 421
+Trigger1 = MoveHit = 1
+trigger2 = Ctrl
+Trigger2 = PrevStateNo = 1410 || PrevStateNo = 1420
+Trigger2 = EnemyNear,MoveType = H && EnemyNear,StateNo != [120,159]
+Trigger2 = Var(2) > 2
+;------------------------------------------------------------------------------
+;　空中攻撃
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse((Var(2)=4||Var(2)=7)&&P2BodyDist X<=35,820,ifelse(random <= 750 && (power > 2000),1525,1515))
+TriggerAll = Var(22) = 1
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 620
+Trigger1 = MoveContact = 1
+[State -3]
+Type = ChangeState
+Value = 610
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 600
+Trigger1 = MoveContact = 1
+[State -3]
+Type = ChangeState
+Value = 820
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 610
+Trigger1 = MoveGuarded = 1
+[State -3]
+Type = ChangeState
+Value = 620
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 610
+Trigger1 = MoveHit = 1
+[State -3]
+Type = ChangeState
+Value = 45
+TriggerAll = Var(22) = 0
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+Trigger1 = enemynear,StateType = A
+Trigger1 = StateNo = 620
+Trigger1 = MoveHit = 1
+;------------------------------------------------------------------------------
+;　投げ
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(random%4 = 0 || EnemyNear,Ctrl = 0,ifelse(EnemyNear,MoveType != H,810,420),200)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = enemynear,StateNo != [5100,5199]
+TriggerAll = PrevStateNo != 5120
+Trigger1 = P2BodyDist X = [0,30]
+Trigger1 = P2BodyDist Y = [-10,10]
+Trigger1 = Ctrl = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%4 = 0 || (EnemyNear,Ctrl = 0 && EnemyNear,MoveType != H),820,600)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = P2StateType = A && P2MoveType != H
+TriggerAll = PrevStateNo != 5120
+Trigger1 = P2BodyDist X = [-10,30]
+Trigger1 = P2BodyDist Y = [-70,30]
+Trigger1 = Ctrl = 1
+;------------------------------------------------------------------------------
+;　弱攻撃
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse((EnemyNear,Ctrl=0&&EnemyNear,MoveType!=H)||P2BodyDist X >40||P2BodyDist Y>0,610,600)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = P2StateType = A
+Trigger1 = StateNo = 50 || StateNo = 51
+Trigger1 = P2BodyDist X = [-10,65]
+Trigger1 = ifelse(P2MoveType = H,(P2BodyDist Y = [-50,50]),P2BodyDist Y = [-50,50])
+Trigger1 = Ctrl = 1
+Trigger2 = StateNo = 225
+Trigger2 = MoveHit = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%5 <= 1,200,400)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = P2Movetype != A
+TriggerAll = enemynear,StateNo != [5100,5199]
+TriggerAll = PrevStateNo != 5120
+TriggerAll = Var(2) != 4
+Trigger1 = P2BodyDist X = [-10,50]
+Trigger1 = P2BodyDist Y = [-10,10]
+Trigger1 = Ctrl = 1
+Trigger2 = StateNo = 200
+Trigger2 = !MoveHit
+Trigger2 = Time >= 8
+[State -3]
+Type = ChangeState
+Value = 160
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = P2Movetype != A
+TriggerAll = enemynear,StateNo != [5100,5199]
+TriggerAll = PrevStateNo != 5120
+TriggerAll = Var(2) = 4
+Trigger1 = P2BodyDist X = [-10,50]
+Trigger1 = P2BodyDist Y = [-10,10]
+Trigger1 = Ctrl = 1
+Trigger2 = StateNo = 200
+Trigger2 = !MoveHit
+Trigger2 = Time >= 8
+[State -3, AI]
+Type = ChangeState
+Value = 400
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 200 || StateNo = 210 || StateNo = 420
+Trigger1 = MoveContAct
+Trigger1 = Enemynear,StateNo = 150
+Trigger1 = Enemynear,StateType = S
+Trigger1 = StateType != A
+TriggerAll = P2BodyDist X = [0,30]
+
+;------------------------------------------------------------------------------
+;　ジャンプ用トリガ
+;------------------------------------------------------------------------------
+[State 45, 4]
+type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = P2BodyDist X != [-30,30]
+triggerall = stateno = 45
+sysvar(1) = 1
+[State 45, 4]
+type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = P2BodyDist X = [-30,30]
+triggerall = stateno = 45
+sysvar(1) = 0
+[State 45, 4]
+type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = P2BodyDist X != [-35,35]
+triggerall = stateno = 40
+sysvar(1) = 1
+[State 45, 4]
+type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = P2BodyDist X = [-35,35]
+triggerall = stateno = 40
+sysvar(1) = 0
+;------------------------------------------------------------------------------
+;　連続技用トリガ
+;------------------------------------------------------------------------------
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+TriggerAll = StateNo = 410
+Trigger1 = MoveGuarded
+Trigger2 != MoveContact
+Trigger2 = random > 600 
+V = 23
+Value = 1
+;　エリアルは直接記載
+
+;------------------------------------------------------------------------------
+;　黒鍵投げ
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 250,ifelse(enemynear,movetype!=H && (power>2000&&Var(33)>=0),1030,1000),1010)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = (enemynear,MoveType != A) || (enemynear,MoveType = A && random <=40)
+TriggerAll = enemynear,StateNo != [5100,5199]
+TriggerAll = P2BodyDist Y = [-10,10]
+TriggerAll = Ctrl = 1
+Trigger1 = EnemyNear,StateNo != 3001 && EnemyNear,StateNo != 1654
+Trigger1 = P2BodyDist X = [130,180]
+Trigger1 = random%12 = 11 || (random%12 >= 9 && (Var(2)=2||Var(2)=4||Var(2)=7)) || (Var(2)=3||Var(2)=[5,6])
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 750,ifelse(power>2000&&Var(33)>=0,1020,1000),1010)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = (enemynear,MoveType != A && random <=200) || (enemynear,MoveType = A && Var(2) != 4 && Var(2) != 7)
+TriggerAll = P2StateNo != [5100,5199]
+Trigger1 = EnemyNear,StateNo != 3001 && EnemyNear,StateNo != 1654
+Trigger1 = P2BodyDist X = [180,230]
+Trigger1 = P2BodyDist Y = [-10,10]
+Trigger1 = Ctrl = 1
+Trigger1 = StateNo != 100
+Trigger1 = random%12 = 11 || (random%12 >= 9 && (Var(2)=2||Var(2)=4||Var(2)=7)) || (Var(2)=3||Var(2)=[5,6])
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1010
+Trigger1 = Animelem = 2
+Trigger1 = P2BodyDist X >= 110
+V = 23
+Value = ifelse(random <= 500 || EnemyNear,StateType = A,1,2)
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1012
+Trigger1 = Animelem = 2
+Trigger1 = P2BodyDist X >= 130 && P2BodyDist Y > -40
+V = 23
+Value = ifelse(random <= 500 && EnemyNear,MoveType != H,1,2)
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1013
+Trigger1 = Animelem = 2
+Trigger1 = P2BodyDist X >= 130 && P2BodyDist Y > -40
+V = 23
+Value = ifelse(random <= 500 && EnemyNear,MoveType != H,1,2)
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1017
+Trigger1 = Animelem = 2
+Trigger1 = P2BodyDist X >= 130 && P2BodyDist Y > -40
+V = 23
+Value = ifelse(random <= 500,1,0)
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1012 || StateNo = 1013 || StateNo = 1017 || StateNo = 1010
+Trigger1 = Animelem = 2
+Trigger1 = P2BodyDist X < 130 || P2BodyDist Y < -40
+V = 23
+Value = 0
+;------------------------------------------------------------------------------
+;　黒鍵投げ（空中）
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(random%3= 1&& power>1500,1300,ifelse(Power>2300||Var(33)!=0,1320+10*(random%2),1310))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = EnemyNear,Pos Y >= -30
+TriggerAll = EnemyNear,StateNo != [5100,5199]
+TriggerAll = P2BodyDist X = [(P2BodyDist Y-40),(P2BodyDist Y+40)]
+Trigger1 = stateno = 1205 || stateno = 1211
+trigger1 = Statetime >= 7
+Trigger2 = Ctrl = 1
+Trigger2 = random%10 = 0
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 750,ifelse(power>2000,1650,1100),1110)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = P2StateType != A
+TriggerAll = P2MoveType != A
+TriggerAll = P2StateNo != [5100,5199]
+TriggerAll = Ctrl = 1
+Trigger1 = P2BodyDist X = [100,200]
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 750,ifelse(power>2000,1120+500*(random%2),1100),1110)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = P2StateType != A
+TriggerAll = P2MoveType != A
+TriggerAll = enemynear,StateNo != [5100,5199]
+Trigger1 = P2BodyDist X = [200,230]
+Trigger1 = Ctrl = 1
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1110
+Trigger1 = Animelem = 2
+V = 23
+Value = 2
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1112
+Trigger1 = Animelem = 2
+V = 23
+Value = 2
+;------------------------------------------------------------------------------
+;　ハイロゥ
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 800,1200+10*(random%2),100)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = P2MoveType != A
+Trigger1 = P2BodyDist X = [130,180]
+Trigger1 = Ctrl = 1
+Trigger1 = Var(2) = 1 || Var(2) = 2 || Var(2) = 5
+[State -3]
+Type = ChangeState
+Value = ifelse(random%4=0,ifelse(power>2300,1020,1010),ifelse(random%4,1200,100))
+TriggerAll = Var(1) = 1
+TriggerAll = P2MoveType != A
+TriggerAll = StateType != A
+TriggerAll = P2StateType != A
+TriggerAll = Ctrl = 1
+;TriggerAll = P2StateNo != [5100,5199]
+Trigger1 = P2BodyDist X = [240,400]
+Trigger1 = StateNo != 100
+Trigger1 = ((Enemy,NumHelper = 0 && Enemy,NumProj = 0) || (Var(2) != 4 && Var(2) != 7))
+[State -3]
+Type = ChangeState
+Value = ifelse(random%4=0,ifelse(power>2300,1030,ifelse(random%4,1210,100)),ifelse(random%3,1200,930))
+TriggerAll = Var(1) = 1
+TriggerAll = P2MoveType != A
+TriggerAll = StateType != A
+TriggerAll = P2StateType = A
+TriggerAll = Ctrl = 1
+;TriggerAll = P2StateNo != [5100,5199]
+Trigger1 = P2BodyDist X = [240,400]
+Trigger1 = StateNo != 100
+Trigger1 = ((Enemy,NumHelper = 0 && Enemy,NumProj = 0) || (Var(2) != 4 && Var(2) != 7))
+[State -3]
+Type = ChangeState
+Value = ifelse(random%4=0,ifelse(power>2300,1030,1200),1210)
+TriggerAll = Var(1) = 1
+TriggerAll = P2MoveType = A
+TriggerAll = StateType != A
+TriggerAll = Ctrl = 1
+Trigger1 = Var(2) != 4 && Var(2) != 7
+Trigger1 = P2BodyDist X = [240,400]
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1202
+Trigger1 = Animelem = 2
+Trigger1 = Var(2) != 4 && Var(2) != 7
+V = 23
+Value = ifelse(random>700 || (P2BodyDist X < 60 && EnemyNear,MoveType != A),1,3)
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1202
+Trigger1 = Animelem = 2
+Trigger1 = Var(2) = 4 || Var(2) = 7
+V = 23
+Value = 3
+
+[State -3]
+Type = ChangeState
+Value = ifelse(Var(2)=7||Var(33)!=0,1650,1630)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = stateno = 1205 || (stateno = 1211 && Pos Y < -50)
+triggerall = Var(2) = 4 || Var(2) = 7
+trigger1 = Statetime >= 7
+Trigger2 = P2BodyDist X = [70,120]
+;Trigger2 = Ctrl = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%3 = 1,1610,ifelse(power>2300,1620,1630))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = P2MoveType != A
+TriggerAll = stateno = 1205 || (stateno = 1211 && Pos Y < -50)
+triggerall = (Var(2) = [5,6]) || (Var(2) = [2,3])
+trigger1 = Statetime >= 7 && random%4 = 0
+Trigger2 = P2BodyDist X = [70,120]
+;Trigger2 = Ctrl = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%5 = 3,1630,ifelse(Var(33)!=0&&Var(36)=0,1320+10*(random%2),1600))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = P2StateType != A
+TriggerAll = P2MoveType = A
+;TriggerAll = P2StateNo != [5100,5199]
+triggerall = (Var(2) = [5,6]) || (Var(2) = [2,3])
+Triggerall = stateno = 1205 || (stateno = 1211 && Pos Y < -50)
+trigger1 = Statetime >= 7 && random%4 = 0
+Trigger2 = P2BodyDist X = [70,120]
+;Trigger2 = Ctrl = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%3 = 1&&power>2000,1620,ifelse(Var(33)!=0&&Var(36)=0,1320+10*(random%2),1600+10*(random%2)))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = P2StateType != A
+;TriggerAll = P2StateNo != [5100,5199]
+triggerall = Var(2) = 1
+Triggerall = stateno = 1205 || (stateno = 1211 && Pos Y < -50)
+trigger1 = Statetime >= 7 && random%4 = 0
+Trigger2 = P2BodyDist X = [70,120]
+;Trigger2 = Ctrl = 1
+
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+TriggerAll = StateNo = 1202
+Trigger1 =  StateTime = 0
+Trigger2 = (Var(2) = 4 || Var(2) = 7) && Var(23) = [0,1]
+V = 23
+Value = ifelse(P2BodyDist X <= 140,3,2)
+[State -1, VarSet]
+Type = VarSet
+TriggerAll = Var(1) = 1
+Trigger1 = StateNo = 1203 && StateTime = 6
+V = 23
+Value = 2
+;------------------------------------------------------------------------------
+;　ブレードシンカー
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(random%6=0&&(Var(33)!=0||Var(2)=7),ifelse(Var(33)!=0,ifelse(Var(33)>0,2000,2050),1420),ifelse(random%4=2,200,1210))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = P2Movetype != A
+;TriggerAll = P2StateNo != [5100,5199]
+Trigger1 = P2BodyDist Y = [-40,30]
+Trigger1 = P2BodyDist X = [50,90]
+Trigger1 = Ctrl = 1
+Trigger1 = random > 200
+[State -3]
+Type = ChangeState
+Value = ifelse(random >= 850 && (Var(33)!=0 || Var(2) = 7),1420,ifelse(P2StateType=A,1510,ifelse(random%4!=0,1410,221)))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = P2BodyDist X >= 60
+Trigger1 = StateNo = 220
+Trigger1 = MoveHit = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%4 = 1,210,ifelse(power>2300,1520,1410))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = stateno = 1311
+TriggerAll = Var(2) != 1
+trigger1 = HitCount >= 3
+Trigger1 = MoveHit = 1
+Trigger2 = MoveGuarded = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%3 = 1,1420,1020+500*(random%2))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = stateno = 1410
+TriggerAll = power>1500 || (Life<200 && power>1000)
+Trigger1 = MoveGuarded = 1
+;------------------------------------------------------------------------------
+;　シエルサマー
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(random >= 850 && (Var(33)!=0),1520,ifelse(random%4=0 && MoveHit=1,1510,221))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = (EnemyNear,StateType != C && P2BodyDist X = [-10,50]) || P2BodyDist X = [-10,35]
+Trigger1 = StateNo = 220
+Trigger1 = MoveHit = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random >= 850 && (Var(33)!=0),1420,1410)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = (EnemyNear,StateType = C && P2BodyDist X = [36,60]) || P2BodyDist X = [50,60]
+Trigger1 = StateNo = 220
+Trigger1 = MoveHit = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random >= 850,221,ifelse(BackEdgeDist < 40,105,1200))
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+Trigger1 = StateNo = 220
+Trigger1 = MoveGuarded = 1
+
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 750 && (power > 2000),1525,1515)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType = A
+TriggerAll = P2StateType != A
+TriggerAll = P2MoveType != A
+;TriggerAll = P2StateNo != [5100,5199]
+TriggerAll = P2BodyDist Y = [-50,50]
+TriggerAll = Ctrl = 1
+Trigger1 = P2BodyDist X = [50,70]
+Trigger2 = PrevStateNo = 200
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 750 && (power > 2000),1520,1500)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = P2StateType = A
+TriggerAll = P2MoveType = A || ((Var(2) = 4 || Var(2) = 7) && P2Movetype != H)
+;TriggerAll = P2StateNo != [5100,5199]
+TriggerAll = P2BodyDist Y = [-70,70]
+TriggerAll = Ctrl = 1 && Var(2) >= 3
+Trigger3 = Var(2) = 4 || Var(2) = [6,7]
+Trigger1 = EnemyNear,Vel X >= 3 && P2BodyDist X = [0,70]
+Trigger2 = P2BodyDist X = [0,50]
+Trigger3 = StateNo = 730 && StateTime < 3 && PrevStateNo = [120,159]
+
+;------------------------------------------------------------------------------
+;　立ち回り
+;------------------------------------------------------------------------------
+[State -3]
+Type = ChangeState
+Value = ifelse(random <= 450,100,105)
+TriggerAll = Var(1) = 1
+TriggerAll = P2MoveType = I
+TriggerAll = StateType != A
+TriggerAll = StateNo != 930
+Trigger1 = P2BodyDist X != [1,70]
+Trigger1 = StateNo = 20
+Trigger1 = Ctrl = 1
+[State -3]
+Type = ChangeState
+Value = ifelse((random%3 = 0||BackEdgeDist<=20)&&FrontEdgeDist>60,110,115)
+TriggerAll = Var(1) = 1
+TriggerAll = P2MoveType != A
+TriggerAll = StateType = A
+TriggerAll = StateNo != 930
+TriggerAll = Var(20) = 0
+Trigger1 = P2BodyDist X != [1,110]
+Trigger1 = Random< 400
+Trigger1 = Ctrl = 1
+Trigger1 = Pos Y < -50
+[State -3]
+Type = ChangeState
+Value = 100
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = StateNo != 930 && StateNo != [100,101]
+Trigger1 = P2BodyDist X != [1,50]
+Trigger1 = EnemyNear,StateNo = 3001 || EnemyNear,StateNo = 1654
+Trigger1 = Ctrl = 1
+[State -3]
+Type = ChangeState
+Value = 120
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl
+TriggerAll = (StateNo != [120,159]); || ((StateNo = [120,159]) && Var(23) = 0)
+Trigger1 = InguardDist
+Trigger1 = Enemy,NumHelper > 0 || Enemy,NumProj > 0
+IgnoreHitPause = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%20 >= 4,120,ifelse(statetype = A,162,160+random%2))
+TriggerAll = Var(1) = 1
+TriggerAll = Ctrl
+TriggerAll = (StateNo != [120,159]); || ((StateNo = [120,159]) && Var(23) = 0)
+Trigger1 = Enemy,NumHelper > 0 || Enemy,NumProj > 0
+Trigger1 = InGuardDist
+Trigger2 = P2MoveType = A
+;Trigger2 = InGuardDist
+IgnoreHitPause = 1
+ctrl = 1
+[State -3]
+Type = ChangeState
+Value = ifelse(random%2=0,ifelse(random%3=0,1200,120),105)
+TriggerAll = Var(1) = 1
+TriggerAll = StateType != A
+TriggerAll = StateNo != 930
+Trigger1 = Var(2) = 4 || Var(2) = 6
+Trigger1 = StateNo = 730 && StateTime < 3 && PrevStateNo = [120,159]
+
+;==============================================================================
+;　サーキットスパーク
+;==============================================================================
+[State -1, ChangeState]
+Type = ChangeState
+Value = 950
+TriggerAll = Command = "a+b+c"
+TriggerAll = Alive = 1
+TriggerAll = Var(1) != 1
+TriggerAll = movetype = H
+triggerAll = Var(33) != 0
+trigger1 = !hitshakeover
+Trigger1 = StateNo = [5000,5019]
+;------------------------------------------------------------------------------
+;　アーマー
+;------------------------------------------------------------------------------
+[State -2, Helper]
+Type = Helper
+TriggerAll = Life > 0
+TriggerAll = RoundState = 2
+TriggerAll = NumHelper(7100) = 0
+Trigger1 = stateno = 2000 || stateno = 2050 || stateno = 2001
+PosType = P1
+Pos = 0, 0
+ID = 7100
+StateNo = 7100
+Name = "Armor"
+PauseMoveTime = 99999
+SuperMoveTime = 99999
+
+[State -3, VarSet]
+Type = VarSet
+Trigger1 = Var(27) != 0
+Trigger1 = Var(27) >= 1000
+V = 27
+Value= 1000
+[State -3, LifeAdd]
+Type = LifeAdd
+Trigger1 = Var(27) != 0
+Value = floor(Var(27)*0.871)
+
+[State -3, VarSet]
+Type = VarSet
+Trigger1 = Var(27) != 0
+V = 27
+Value= 0

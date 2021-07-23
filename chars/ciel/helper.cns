@@ -1,0 +1,3916 @@
+;==============================================================================
+;　ヘルパーステート
+;==============================================================================
+
+;==============================================================================
+;　強攻撃　追加黒鍵
+;==============================================================================
+[Statedef 222]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 13
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(100*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,3
+sparkno           = s222
+guard.sparkno     = s6005
+hitsound          = s1, 4
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -2,-7.2
+guard.velocity    = -2
+airguard.velocity = -2.2,-5.2
+air.velocity      = -2,-7.2
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype = A,0,1)
+fall.recovertime  = 120
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+yaccel            = .4
+
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 40,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Value = 80
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Value = 60
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1008
+;==============================================================================
+;　黒鍵　弱
+;==============================================================================
+[Statedef 1001]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 13
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(60*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = s1, 7
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+palfx.color = 64
+palfx.add = 100,40,50
+palfx.mul = 90,50,40
+palfx.time = 60
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Explod
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Anim = 3001
+ID = 3001
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+scale = 0.6,0.6
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 42
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1008
+
+;==============================================================================
+;　黒鍵　ガード後
+;==============================================================================
+[Statedef 1002]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1007
+
+[State 200, Sound]
+type = PlaySnd
+trigger1 = AnimElemTime(1) = 0
+Trigger1 = PrevStateNo != 1131
+value = s3,0
+[State -2, VarSet]
+Type = ParentVarSet
+Trigger1 = PrevStateNo = 1131
+trigger1 = AnimElemTime(1) = 0
+V = 12
+Value = 2
+IgnoreHitPause = 1
+;Peresistent = 0
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 4
+y = -6
+
+[State 220, Vel]
+type = VelAdd
+trigger1 = 1
+y = 0.5
+
+[State 220, Vel]
+type = VelSet
+trigger1 = Pos Y >= 0
+y = -5
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+trigger2 = time = 40
+
+;==============================================================================
+;　黒鍵　中
+;==============================================================================
+[Statedef 1011]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 13
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(50*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = midium
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3
+guard.velocity    = -2
+airguard.velocity = -2.5
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 0
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 40,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 43
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1008
+
+;==============================================================================
+;　黒鍵　中２
+;==============================================================================
+[Statedef 1015]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 13
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(30*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = midium
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3
+guard.velocity    = -2
+airguard.velocity = -2.5
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 0
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 40,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 43
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1008
+
+;==============================================================================
+;　黒鍵　強
+;==============================================================================
+[Statedef 1021]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 18
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, HP
+damage            = 11, 5
+animtype          = midium
+hitflag           = MAFD
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,10
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3.5
+guard.velocity    = -2.5
+airguard.velocity = -2.5
+air.velocity      = -2,-5
+kill              = 1
+fall              = 0
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 1021]
+type = ChangeState
+trigger1 = MoveHit
+value = 1022
+
+[Statedef 1022]
+type = A
+movetype = A
+physics = N
+anim = 1008
+
+[State 1022, 0]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 1022, 1]
+type = DestroySelf
+trigger1 = Parent,Stateno != 1020
+trigger1 = FrontEdgeDist <= -40
+trigger2 = time >= 120
+
+;==============================================================================
+;　黒鍵　強
+;==============================================================================
+[Statedef 1023]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 18
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, HP
+damage            = 11, 5
+animtype          = hard
+hitflag           = MAFD
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,4
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -0.5,-9
+guard.velocity    = -2.5
+airguard.velocity = -2.5
+air.velocity      = -0.5,-8
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 1021]
+type = ChangeState
+trigger1 = MoveHit
+value = 1022
+
+[Statedef 1022]
+type = A
+movetype = A
+physics = N
+anim = 1008
+
+[State 1022, 0]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 1022, 1]
+type = DestroySelf
+trigger1 = Parent,Stateno != 1020
+trigger1 = FrontEdgeDist <= -40
+trigger2 = time >= 120
+;==============================================================================
+;　黒鍵　強
+;==============================================================================
+[Statedef 1031]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 18
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, HP
+damage            = 18, 5
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,10
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -6,-4
+guard.velocity    = -7
+airguard.velocity = -2.5
+air.velocity      = -6,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype=A,0,1)
+fall.recovertime  = 30
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+trigger1 = random < 100
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6016
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1008
+;==============================================================================
+;　空中黒鍵　弱
+;==============================================================================
+[Statedef 1101]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 9.2
+y = 9.2
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(50*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAFD
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 7
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+palfx.color = 64
+palfx.add = 100,40,50
+palfx.mul = 90,50,40
+palfx.time = 80
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 6
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Explod
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Anim = 3001
+ID = 3001
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+scale = 0.6,0.6
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 42
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+
+;==============================================================================
+;　空中黒鍵　中
+;==============================================================================
+[Statedef 1111]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 9.2
+y = 9.2
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(50*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 0
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 22,22
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 42
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+
+;==============================================================================
+;　ハイロゥ時壁黒鍵　弱
+;==============================================================================
+[Statedef 1114]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1105
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 4.6
+y = 12
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(45*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 7
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2Movetype=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+palfx.color = 64
+palfx.add = 100,40,50
+palfx.mul = 90,50,40
+palfx.time = 80
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 6
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Explod
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Anim = 3001
+ID = 3001
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+scale = 0.6,0.6
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 42
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1106
+
+;==============================================================================
+;　空中黒鍵２
+;==============================================================================
+[Statedef 1633]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State -1]
+Type     = Trans
+Trigger1 = 1
+Trans    = Add
+
+[State -1]
+Type     = AngleDraw
+Trigger1 = 1
+
+[State -1]
+Type     = AngleSet
+Trigger1 = 1
+Value    = 20
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 12
+y = 4.6
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(45*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 7
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+palfx.color = 64
+palfx.add = 100,40,50
+palfx.mul = 90,50,40
+palfx.time = 80
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 6
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Explod
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Anim = 3001
+ID = 3001
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+scale = 0.6,0.6
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 42
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+;==============================================================================
+;　空中黒鍵　強１
+;==============================================================================
+[Statedef 1121]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 9.2
+y = 9.2
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(22 * parent,fvar(22)), 5
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-4
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 22,22
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+
+;==============================================================================
+;　空中黒鍵　強２
+;==============================================================================
+[Statedef 1131]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 9.2
+y = 9.2
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(22 * parent,fvar(22)), 5
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = -1
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-4
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+trigger1 = random < 70
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6016
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+
+;==============================================================================
+;　黒鍵用音声
+;==============================================================================
+[Statedef 1140]
+Type = A
+Movetype = I
+Physics = N
+VelSet = 0,0
+Anim = 20012
+
+[State -1, VelSet]
+Type = PosSet
+Trigger1 = 1
+X = Root,Pos X+50*Root,Facing
+Y = Root,Pos Y
+
+[State 200, Sound Effect]
+type = PlaySnd
+Trigger1 = Parent,Var(12) = 1
+value = s1,6
+channel = 5
+[State 200, Sound Effect]
+type = PlaySnd
+Trigger1 = Parent,Var(12) = 2
+value = s3,0
+channel = 2
+[State 200, Sound Effect]
+type = PlaySnd
+Trigger1 = Parent,Var(12) = 3
+value = s1,10
+channel = 4
+[State 200, Sound Effect]
+type = PlaySnd
+Trigger1 = Parent,Var(12) = 4
+value = s3,8
+channel = 2
+[State 200, Sound Effect]
+type = PlaySnd
+Trigger1 = Parent,Var(12) = 5
+value = s2,11
+channel = 3
+[State 200, Sound Effect]
+type = PlaySnd
+Trigger1 = Parent,Var(12) = 6
+value = s1,7
+channel = 3
+[State -1, ParentVarSet]
+Type = ParentVarSet
+Trigger1 = Parent,Var(12) > 0
+V = 12
+Value = 0
+
+[State -1,end]
+type = Destroyself
+Trigger1 = Root,Alive = 0
+
+;==============================================================================
+;　エンゼルハイロゥ　攻撃
+;==============================================================================
+[Statedef 1333]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1333
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, HP
+damage            = ceil(285 * parent,fvar(22)), 0
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = s1, 6
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 5
+ground.hittime    = 15
+ground.velocity   = -3
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+p2stateno   = 1336
+getpower          = 0,0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 0,-60
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = 5,-35
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6015
+ID = 6010
+Name = "HitSpark"
+Pos = -10,-72
+PosType = P2
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = AnimTime = 0
+
+;==============================================================================
+;　セブンスヘヴン　攻撃
+;==============================================================================
+[StateDef 1222]
+StateType   = A
+Movetype    = A
+Physics     = N
+Anim        = 1225
+SprPriority = 1
+VelSet      = 0,0
+
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 41
+Range    = -30,30
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 42
+Range    = -5,5
+
+[State -1]
+Type     = PosAdd
+Trigger1 = time = 0
+x = Var(42)
+y = Var(41)
+
+[State -1]
+Type     = Trans
+Trigger1 = 1
+Trans    = Add
+
+[State -1]
+Type     = NotHitBy
+Trigger1 = 1
+Value    = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time     = 1
+
+[State -1]
+Type     = AngleDraw
+Trigger1 = 1
+Scale    = 100,0.015
+
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 40
+Range    = 120,240
+
+[State -1]
+Type     = AngleSet
+Trigger1 = 1
+Value    = Var(40)
+
+[State -1, Hit]
+type = HitDef
+trigger1          = time = 1
+attr              = A, HP
+damage            = ceil(20*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 5
+animtype          = Hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,10
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 20
+ground.hittime    = 20
+ground.velocity   = 0,-7
+airguard.velocity = 0,-7
+air.velocity      = 0,-7
+guard.kill        = 1
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+getpower          = 0,0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 2200, V.Sion Sound]
+type = Null;PlaySnd
+Trigger1 = MoveHit
+value = s1, 6
+IgnoreHitPause = 1
+Persistent = 0
+channel = 5
+
+[State -1]
+Type = AssertSpecial
+Trigger1       = 1
+Flag           = Noshadow
+IgnoreHitPause = 1
+SuperMoveTime  = 9999
+PauseMoveTime  = 9999
+
+[State 960, Color Gradation]
+type           = Palfx
+trigger1       = time >= 5
+add            = 25*(5-time),25*(5-time),25*(5-time)
+time = 1
+IgnoreHitPause = 1
+Persistent = 1
+
+[State -1]
+Type     = DestroySelf
+Trigger1 = Time = 15
+
+;==============================================================================
+;　セブンスヘヴン　攻撃
+;==============================================================================
+[StateDef 1225]
+StateType   = A
+Movetype    = A
+Physics     = N
+Anim        = 1333
+SprPriority = 1
+VelSet      = 0,0
+
+[State -1]
+Type     = NotHitBy
+Trigger1 = 1
+Value    = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time     = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1          = time = 1
+attr              = A, HA
+damage            = ceil(20*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 5
+animtype          = Hard
+hitflag           = MAF
+guardflag         = L
+priority          = 4, hit
+pausetime         = 0,10
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 20
+ground.hittime    = 20
+ground.velocity   = 0,-7
+airguard.velocity = 0,-7
+air.velocity      = 0,-7
+guard.kill        = 1
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+p2stateno         = 6013
+P2facing          = 1
+getpower          = 0,0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = AssertSpecial
+Trigger1       = 1
+Flag           = Noshadow
+Flag2          = UnGuardAble
+IgnoreHitPause = 1
+SuperMoveTime  = 9999
+PauseMoveTime  = 9999
+
+[State -1]
+Type     = DestroySelf
+Trigger1 = Time = 15
+
+;==============================================================================
+;　鳥葬式典　弱
+;==============================================================================
+[Statedef 1601]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1601
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 16
+y = 16
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = time = 0
+value = s2,11
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(60*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = s1, 6
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 22,22
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 42
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveContact = 1
+value = 1603
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1602
+
+;==============================================================================
+;　鳥葬式典　終了
+;==============================================================================
+[Statedef 1602]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1602
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = time = 0
+trigger1 = PrevStateNo != 1621
+value = s3,8
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = PrevStateNo = 1621
+trigger1 = AnimElemTime(1) = 0
+V = 12
+value = 4
+Persistent = 0
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 0
+y = 0
+
+[State -1,]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1,end]
+type = Destroyself
+trigger1 = animtime = 0
+
+;==============================================================================
+;　鳥葬式典　中
+;==============================================================================
+[Statedef 1611]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1600
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = time = 50
+trigger1 = anim = 1600
+value = 1601
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = [1,8]
+x = .5
+y = -.5
+
+[State 220, Vel]
+type = VelSet
+trigger1 = animelemtime(1) = 0
+trigger1 = anim = 1601
+x = 16
+y = 16
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = animelemtime(1) = 0
+trigger1 = anim = 1601
+value = s2,11
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(60*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+sparkno           = -1
+guard.sparkno     = -1
+hitsound          = s1, 6
+guardsound        = s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 22,22
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveHit = 1
+Trigger1 = root,var(33) = 0
+Value = 50
+[State -1]
+Type = PowerAdd
+Trigger1 = MoveGuarded = 1
+Trigger1 = root,var(33) = 0
+Value = 42
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveContact = 1
+value = 1603
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1602
+
+;==============================================================================
+;　鳥葬式典　強
+;==============================================================================
+[Statedef 1621]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1600
+
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 41
+Range    = -40,40
+[State -1]
+Type     = VarRandom
+Trigger1 = Time = 0
+V        = 42
+Range    = -40,40
+
+[State -1]
+Type     = PosAdd
+Trigger1 = time = 0
+x = Var(42)
+y = Var(41)
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = time = 60
+trigger1 = anim = 1600
+value = 1601
+
+[State -1, VarSet8]
+Type = ParentVarSet
+trigger1 = animelemtime(1) = 0
+trigger1 = anim = 1601
+V = 12
+value = 5
+Persistent = 0
+
+[State 200, Sound Effect]
+type = PlaySnd
+trigger1 = animelemtime(1) = 0
+trigger1 = anim = 1601
+trigger1 = random%5 = 0
+value = s2,11
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = [1,8]
+x = .5
+y = -.5
+
+[State 220, Vel]
+type = VelSet
+trigger1 = animelemtime(1) = 0
+trigger1 = anim = 1601
+x = 16
+y = 16
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(15*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 22,22
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveContact = 1
+value = 1603
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+value = 1602
+
+;==============================================================================
+;　土葬式典
+;==============================================================================
+[Statedef 1651]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 9.2
+y = 9.2
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(50*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 0
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+p2stateno         = ifelse(enemynear,statetype = A,ifelse(parent,stateno=3000,3002,1655),ifelse(parent,stateno=3000,3001,1654))
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 22,22
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+
+;==============================================================================
+;　土葬式典　２
+;==============================================================================
+[Statedef 1652]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1105
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 4.6
+y = 12
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(45*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+p2stateno         = ifelse(enemynear,statetype = A,ifelse(parent,stateno=3000,3002,1655),ifelse(parent,stateno=3000,3001,1654))
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1106
+
+;==============================================================================
+;　土葬式典　３
+;==============================================================================
+[Statedef 1653]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State -1]
+Type     = Trans
+Trigger1 = 1
+Trans    = Add
+
+[State -1]
+Type     = AngleDraw
+Trigger1 = 1
+
+[State -1]
+Type     = AngleSet
+Trigger1 = 1
+Value    = 20
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 12
+y = 4.6
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(45*Root,fvar(21)*Root,fvar(22)*Root,fvar(24)*Root,fvar(23)*ifelse(random%32=0,1.15,1)), 10
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 6
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3,-3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+p2stateno         = ifelse(enemynear,statetype = A,ifelse(parent,stateno=3000,3002,1655),ifelse(parent,stateno=3000,3001,1654))
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6010
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+
+;==============================================================================
+;　火葬式典　その１
+;==============================================================================
+[Statedef 2201]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 9.2
+y = 9.2
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(25 * parent,fvar(22)), 5
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = s3001
+guard.sparkno     = s6005
+hitsound          = -1;s1, 7
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -3
+guard.velocity    = -2
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 0
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+palfx.color = 64
+palfx.add = 100,40,50
+palfx.mul = 90,50,40
+palfx.time = 80
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 6
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger1 = parent,var(23) != 0
+value = 2203
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+
+;==============================================================================
+;　火葬式典　その２
+;==============================================================================
+[Statedef 2202]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1103
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 9.2
+y = 9.2
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = ceil(25 * parent,fvar(22)), 5
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -2,-5
+guard.velocity    = -1.6
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = ifelse(P2MoveType=A,0,1)
+fall.recovertime  = 20
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+palfx.color = 64
+palfx.add = 100,40,50
+palfx.mul = 90,50,40
+palfx.time = 80
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 6
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Explod
+Trigger1 = ((HitCount = 1) && (MoveHit))
+trigger1 = random < 100
+Anim = 3001
+ID = 3001
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -40
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger1 = parent,var(23) != 0
+value = 2203
+
+[State 200, Change]
+type = ChangeState
+trigger1 = Pos Y >= 0
+trigger2 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1104
+
+;==============================================================================
+;　火葬式典　その３
+;==============================================================================
+[Statedef 2203]
+Type = S
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 3000
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = animelemtime(4) = 1
+attr              = S, NP
+damage            = 10, 4
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = -1
+ground.type       = High
+air.type          = High
+ground.slidetime  = 17
+guard.slidetime   = 17
+ground.hittime    = 17
+air.hittime       = 17
+ground.velocity   = -1,0
+airguard.velocity = -1,0
+air.velocity      = -1,0
+kill              = 1
+fall              = 0
+air.fall          = 0
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+palfx.color = 64
+palfx.add = 100,40,50
+palfx.mul = 90,50,40
+palfx.time = 80
+
+[State -1,end]
+type = Destroyself
+trigger1 = animtime = 0
+
+;==============================================================================
+;　式典乱舞
+;==============================================================================
+[Statedef 3004]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 18
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, HP
+damage            = 15, 5
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,10
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 12
+ground.hittime    = 15
+air.hittime       = 15
+ground.velocity   = -3
+airguard.velocity = -2.5
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 0
+air.fall          = 1
+fall.recover      = 0
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+p2stateno         = ifelse(enemynear,statetype = A,ifelse(parent,stateno=3003,3002,1655),ifelse(parent,stateno=3003,3001,1654))
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Helper
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Stateno = 6016
+ID = 6010
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+Keyctrl = 0
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -20
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1008
+
+;==============================================================================
+;　式典乱舞３
+;==============================================================================
+[Statedef 3005]
+Type = A
+Movetype = A
+Physics = N
+VelSet = 0,0
+SprPriority = 8
+Anim = 1006
+
+[State 220, Vel]
+type = VelSet
+trigger1 = time = 0
+x = 18
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Hit]
+type = HitDef
+trigger1 = time = 0
+attr              = A, NP
+damage            = 15, 5
+animtype          = hard
+hitflag           = MAF
+guardflag         = MA
+priority          = 4, hit
+pausetime         = 0,6
+getpower          = 0,0
+sparkno           = -1
+guard.sparkno     = s6005
+hitsound          = -1;s1, 7
+guardsound        = -1;s1, 10
+ground.type       = High
+air.type          = High
+ground.slidetime  = 5
+ground.hittime    = 15
+ground.velocity   = -3,-3
+airguard.velocity = -2.5,-3
+air.velocity      = -2.3,-3
+kill              = 1
+fall              = 1
+air.fall          = 1
+fall.recover      = 1
+envshake.time     = 0
+envshake.ampl     = 0
+envshake.freg     = 0
+palfx.color = 64
+palfx.add = 100,40,50
+palfx.mul = 90,50,40
+palfx.time = 60
+p2stateno         = ifelse(enemynear,statetype = A,ifelse(parent,stateno=3003,3002,1655),ifelse(parent,stateno=3003,3001,1654))
+
+[State -1, VarSet8]
+Type = ParentVarAdd
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 25
+value = 1
+IgnoreHitPause = 1
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = ((HitCount = 1) && (MoveHit))
+V = 12
+value = 6
+Persistent = 0
+[State -1, VarSet8]
+Type = ParentVarSet
+Trigger1 = MoveGuarded
+V = 12
+value = 3
+Persistent = 0
+
+[State -1]
+Type = Explod
+Trigger1 = ((HitCount = 1) && (MoveHit))
+Anim = 3001
+ID = 3001
+Name = "HitSpark"
+Pos = 0,0
+PosType = P1
+Ownpal = 1
+SprPriority = 8
+IgnoreHitPause = 1
+Persistent = 0
+scale = 0.6,0.6
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1,end]
+type = Destroyself
+trigger1 = FrontEdgeDist <= -20
+
+[State 200, Change]
+type = ChangeState
+trigger1 = MoveGuarded = 1
+value = 1002
+
+[State 200, Change]
+type = ChangeAnim
+trigger1 = MoveHit = 1
+value = 1008
+
+;==============================================================================
+;　アーマー１
+;==============================================================================
+[StateDef 7100]
+Type = S
+MoveType = I
+Physics = N
+
+[State 8000, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag  = Invisible
+IgnoreHitPause = 1
+
+[State 800, ChangeAnim]
+Type = ChangeAnim
+Trigger1 = time = 0
+Trigger1 = anim != root,anim
+Value = root,Anim
+IgnoreHitPause = 1
+
+[State 8000, BindToParent]
+Type = BindToParent
+Trigger1 = 1
+Time = 9999
+Facing = 1
+Pos = 0, 0
+IgnoreHitPause = 1
+
+[State 8000, HitOverride]
+Type = HitOverride
+Trigger1 = 1
+Attr = SCA, NA, SA, HA, NP, SP, HP
+StateNo = 7101
+Time = 1
+IgnoreHitPause = 1
+
+[State 8001, DestroySelf]
+Type = DestroySelf
+Trigger1 = Root,Life = 0
+Trigger2 = root,stateno != 2000 && root,stateno != 2050 && root,stateno != 2001
+
+;==============================================================================
+;　アーマー２
+;==============================================================================
+[StateDef 7101]
+Type = S
+MoveType = H
+Physics = N
+
+[State 8001, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag  = Invisible
+IgnoreHitPause = 1
+
+[State 8001, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+IgnoreHitPause = 1
+
+[State 8001, BindToParent]
+Type = BindToParent
+Trigger1 = 1
+Time = 99999
+Facing = 1
+Pos = 0, 0
+IgnoreHitPause = 1
+
+[State 8001, ParentVarAdd]
+Type = ParentVarAdd
+Trigger1 = Time = 0
+V = 27
+Value = -floor(Ceil(GetHitVar(Damage)))
+IgnoreHitPause = 1
+
+[State 8001, ChangeState]
+Type = ChangeState
+Trigger1 = Time >= 0
+Value = 7100
+IgnoreHitPause = 1
+
+[State 8001, DestroySelf]
+Type = DestroySelf
+Trigger1 = Root,Life = 0
+Trigger2 = root,stateno != 2000 && root,stateno != 2050 && root,stateno != 2001
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　通常
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8000]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20000
+ID = 20000
+Postype = back
+Pos = -240+(statetime*12) ,20 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20000
+ID = 20000
+Postype = back
+Pos = 0,20 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20001
+ID = 20001
+Postype = back
+Pos = 0,20
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　アークドライブ
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8010]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20002
+ID = 20002
+Postype = back
+Pos = -240+(statetime*12) ,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20002
+ID = 20002
+Postype = back
+Pos = 0,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20003
+ID = 20003
+Postype = back
+Pos = 0,0
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　BH時アークドライブ＆ラストアーク
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8020]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20004
+ID = 20004
+Postype = back
+Pos = -240+(statetime*12) ,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20004
+ID = 20004
+Postype = back
+Pos = 0,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20005
+ID = 20005
+Postype = back
+Pos = 0,0
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　通常（知恵）
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8005]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20006
+ID = 20006
+Postype = back
+Pos = -210+(statetime*12) ,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20006
+ID = 20006
+Postype = back
+Pos = 30,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20007
+ID = 20007
+Postype = back
+Pos = 30,0
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　アークドライブ（知恵）
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8015]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20008
+ID = 20008
+Postype = back
+Pos = -240+(statetime*12) ,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20008
+ID = 20008
+Postype = back
+Pos = 0,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20009
+ID = 20009
+Postype = back
+Pos = 0,0
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+; カットイン　ラストアーク（知恵）
+;＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Statedef 8025]
+Type = A
+Physics = N
+SprPriority = 8
+Anim = 20012
+
+[State -1, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [0,20]
+Anim = 20010
+ID = 20010
+Postype = back
+Pos = -240+(statetime*12) ,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time = [21,40]
+Anim = 20010
+ID = 20010
+Postype = back
+Pos = 0,0 
+scale = .5,.5
+Ownpal = 1
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, Explod]
+Type = Explod
+Trigger1 = Time > 40
+Anim = 20011
+ID = 20011
+Postype = back
+Pos = 0,0
+scale = 0.5+(statetime-40)*0.02,.5+(statetime-40)*0.02
+Ownpal = 0
+SprPriority = -1
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1]
+Type     = VarAdd
+Trigger1 = Time >= 40
+V        = 7
+Value    = 25
+
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) > 0
+Time     = 1
+Add      = 0,0,0
+Mul      = ceil(256-Var(7)),ceil(256-Var(7)),ceil(256-Var(7))
+[State -1]
+Type     = PalFx
+Trigger1 = 256-Var(7) <= 0
+Time     = 1
+Add      = 0,0,0
+Mul      = 0,0,0
+
+[State -1, AssertSpacial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+Flag1 = invisible
+IgnoreHitPause = 1
+SuperMoveTime = 9999999
+PauseMoveTime = 9999999
+
+[State -1, DestroySelf]
+Type = DestroySelf
+Trigger1 = Time = 50
+
+;==============================================================================
+;　AI起動用ヘルパー
+;==============================================================================
+[Statedef 9000]
+anim=20012;なにも表示しないｱﾆﾒでもいいけど入れなくても全然問題ない
+ctrl=0
+
+[State 10000,間違いで本体が来たら立ちへ移行]
+type=selfstate
+trigger1=!ishelper
+value=0
+
+[State 10000,プレイヤー判定]
+type=varset
+trigger1=command="up"&&root,command="up"
+trigger2=command="down"&&root,command="down"
+trigger3=command="back"&&root,command="back"
+trigger4=command="fwd"&&root,command="fwd"
+trigger5=command="a"&&root,command="a"
+trigger6=command="b"&&root,command="b"
+trigger7=command="c"&&root,command="c"
+trigger8=command="x"&&root,command="x"
+trigger9=command="y"&&root,command="y"
+trigger10=command="z"&&root,command="z"
+trigger11=command="start"&&root,command="start"
+var(1)=-1
+
+[State 10000,立ったら消失]
+Type = DestroySelf
+triggerAll = isHelper
+Trigger1 = root,var(1)||var(1)=-1
+trigger2=command="up"&&root,command="up"
+trigger3=command="down"&&root,command="down"
+trigger4=command="back"&&root,command="back"
+trigger5=command="fwd"&&root,command="fwd"
+trigger6=command="a"&&root,command="a"
+trigger7=command="b"&&root,command="b"
+trigger8=command="c"&&root,command="c"
+trigger9=command="x"&&root,command="x"
+trigger10=command="y"&&root,command="y"
+trigger11=command="z"&&root,command="z"
+trigger12=command="start"&&root,command="start"
+
+[State 10000,ﾌﾗｸﾞON]
+type=varset
+triggerall=var(1)!=-1
+trigger1=root,command="up"
+trigger2=root,command="down"
+trigger3=root,command="back"
+trigger4=root,command="fwd"
+trigger5=root,command="a"
+trigger6=root,command="b"
+trigger7=root,command="c"
+trigger8=root,command="x"
+trigger9=root,command="y"
+trigger10=root,command="z"
+trigger11=root,command="start"
+var(1)=1

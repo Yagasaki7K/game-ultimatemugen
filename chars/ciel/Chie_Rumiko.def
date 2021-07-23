@@ -1,0 +1,41 @@
+[Info]
+Name         ="Chie_Rumiko"
+DisplayName  ="Chie_Rumiko"
+VersionDate  =12,30,2008
+MugenVersion =11,01,2001
+Author       ="Shiroto"
+Pal.Defaults = 1,2,3,4
+
+[Files]
+cmd       =ciel.cmd
+cns       =Chie_Rumiko.cns
+;st        =Chie_Rumiko.cns
+st        =ciel00.cns
+st2       =ciel01.cns
+st3       =ciel02.cns
+st4       =ciel03.cns
+st5       =ciel04.cns  ;AI
+st6       =helper.cns
+st7       =helper2.cns
+stcommon  =common2.cns
+sprite    =ciel2.sff
+anim      =ciel.air
+sound     =ciel3.snd
+pal1      =act/react/ciel01.act
+pal2      =act/react/ciel02.act
+pal3      =act/react/ciel04.act
+pal4      =act/react/ciel07.act
+pal5      =act/cadenza/ciel02.act
+pal6      =act/cadenza/ciel03.act
+pal7      =act/cadenza/ciel04.act
+pal8      =act/cadenza/ciel07.act
+pal9      =act/cadenza/ciel09.act
+pal10     =act/cadenza/ciel10.act
+pal11     =act/react/ciel09.act
+pal12     =act/react/ciel10.act
+
+;---------------------------------------------
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

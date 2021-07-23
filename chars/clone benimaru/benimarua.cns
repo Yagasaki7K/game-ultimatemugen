@@ -1,0 +1,6664 @@
+
+;============================
+; Overide Common States
+;============================
+;<><><><<><><><><>>>><><><><<><><<><>><<>><<<>>><<><><<><><><<><<><<<<><><><>>><<<>><><><><
+; HIT_FALLRECOVER (on the ground)
+[Statedef 5201]
+type    = S
+movetype= H
+physics = S
+anim = 5200
+velset = 0,0
+
+[State 5201, snd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 5,3
+channel = 0
+
+[State 5201, 3]
+type = PosSet
+trigger1 = 1
+y = 0
+
+[State 5201, 4]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 5201, Turn]
+type = Turn
+triggerall = time = 0
+trigger1 = command != "holdback"
+trigger1 = command != "holdfwd"
+trigger1 = P2Dist X < 0
+
+[State 2110, ]
+type = Varset
+trigger1 = command = "holdfwd"
+trigger1 = time = 0
+var(17) = 1
+
+[State 2110, ]
+type = ChangeAnim
+triggerall = var(17) = 1
+trigger1 = time = 0
+value = 700
+
+[State 1000, VelSet]
+type = VelSet
+trigger1 = anim = 5200 && AnimElemtime(1) >= 0 && AnimElemtime(6) <= 0
+trigger2 = anim != 5200 && AnimElemtime(2) >= 0 && AnimElemtime(7) <= 0
+x = ifelse(var(17)= 1,6.1,-6.1)
+
+[State 2100]
+type = VelSet
+trigger1 = var(17) = 0
+trigger1 = AnimElem = 6
+x = 0
+
+[State 2100]
+type = VelSet
+trigger1 = var(17) = 1
+trigger1 = AnimElem = 7
+x = 0
+
+[State 2110, ]
+type = PlayerPush
+trigger1 = AnimElemTime(1) > 0
+value = 0
+
+[State 5201, PalFX]
+type = PalFX
+trigger1 = time = 0
+time = 1
+
+[State 2110, ]
+type = Varset
+trigger1 = Animtime = 0
+var(17) = 0
+
+[State 2110]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+; HITA_RECOV (recovering in air, not falling)
+[Statedef 5040]
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+
+[State 1000, NotHitBy]
+type = NotHitBy
+triggerall = Anim = 5040
+trigger1 = 1
+value = SCA
+
+[State 5040, 1]
+type = ChangeState
+trigger1 = !Alive
+value = 5050
+
+[State 5040, 2]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+trigger1 = Anim != 5040
+trigger2 = Time = 0
+trigger2 = Anim != 5035
+value = 5040
+
+[State 5040, 5]
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 5120, 5] ;Can't be thrown right after getting up
+type = NotHitBy
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = , NT,ST,HT
+time = 20
+
+[State 5120, 5] ;Can't be thrown right after getting up
+type = NotHitBy
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value2 = SCA
+time = 1
+
+[State 5040, 6]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 52 ;JUMPLAND
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; HITG_SHAKE
+[Statedef 5000]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+
+;----------------------------------------
+[State 5120, 7]
+type = ChangeState
+trigger1 = prevstateno != 5250
+trigger1 = var(11) >= 1000
+trigger1 = HitShakeOver
+value = 5249
+ctrl = 0
+;-----------------------------------------
+
+;----------------------------------------
+; Play "ouch" sound when hit light or medium
+[State 5000, ouch]
+type = PlaySnd
+triggerall = Random < 400
+triggerall = Time = 1
+trigger1 = GetHitVar(animtype) = [0,1]
+value = 9,1
+volume = -10
+
+; Play "ouch" sound when hit hard
+[State 5000, ouch2]
+type = PlaySnd
+triggerall = Random < 400
+triggerall = Time = 1
+trigger1 = GetHitVar(animtype) = [2,5]
+value = 9,2
+volume = -10
+
+[State 5000, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) != [3,5]
+value = IfElse((GetHitVar(groundtype) = 1),5000,5010) + GetHitVar(animtype)
+
+[State 5000, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = var(37) > 0
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5002
+
+[State 5000, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = var(37) > 0
+trigger1 = Time = 0
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5002
+
+[State 5000, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = var(37) <= 0
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5030
+
+[State 5000, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = var(37) <= 0
+trigger1 = Time = 0
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5047 + GetHitVar(animtype) ;5051 - 4 + type
+
+[State 5000, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 = Time > 0
+value = Anim
+
+[State 5000, 5] ;State type gets set to aerial if getting hit up
+type = StateTypeSet
+trigger1 = Time = 0
+trigger1 = GetHitVar(yvel) != 0 || GetHitVar(fall)
+trigger2 = Pos Y != 0
+statetype = a
+
+[State 5000, 6]
+type = ChangeState
+trigger1 = HitShakeOver
+trigger1 = GetHitVar(yvel) = 0 && !GetHitVar(fall)
+trigger2 = var(37) > 0
+trigger2 = Time >= Floor(GetHitVar(hittime) * 0.3)
+trigger2 = life > 0
+value = 5001 ;HITG_SLIDE
+
+[State 5000, 7]
+type = ChangeState
+triggerall = HitShakeOver
+trigger1 = var(37) <= 0
+trigger2 = life <= 0
+value = 5030
+
+[State 5000, FFB Light]
+type = ForceFeedback
+trigger1 = Anim = 5000
+trigger2 = Anim = 5010
+persistent = 0
+time = 6
+waveform = square
+
+[State 5000, FFB Medium]
+type = ForceFeedback
+trigger1 = Anim = 5001
+trigger2 = Anim = 5011
+persistent = 0
+time = 8
+waveform = sinesquare
+ampl = 110,-1,-.3
+
+[State 5000, FFB Hard]
+type = ForceFeedback
+trigger1 = Anim = 5012
+trigger2 = Anim = 5002
+trigger3 = Anim = 5030
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+
+;--------------------------------------------------------------------------
+; HITG_SLIDE
+[Statedef 5001]
+type    = S
+movetype= H
+physics = S
+
+[State 5001, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+
+[State 5001, 2]
+type = ChangeAnim
+trigger1 = var(37) <= 0
+trigger1 = AnimTime = 0
+value = 5005 + GetHitVar(animtype) + (GetHitVar(groundtype)=2)*10
+
+[State 5001, 3] ;Stop sliding back
+type = VelMul
+trigger1 = Time >= GetHitVar(slidetime)
+x = .6
+
+[State 5001, 4]
+type = VelSet
+trigger1 = HitOver
+x = 0
+
+[State 5001, 5]
+type = DefenceMulSet
+trigger1 = HitOver
+value = 1
+
+[State 5001, 6]
+type = ChangeState
+trigger1 = var(37) > 0
+trigger1 = Time >= Floor(GetHitVar(hittime) * 0.3)
+value = 0
+ctrl = 1
+
+[State 5001, 6] ;Can't be thrown right after getting up
+type = NotHitBy
+trigger1 = HitOver
+value = , NT,ST,HT
+time = 10
+
+[State 5001, 6]
+type = ChangeState
+trigger1 = var(37) <= 0
+trigger1 = HitOver
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+
+
+;---------------------------------------------------------------------------
+; HITC_SHAKE
+[Statedef 5010]
+type    = C
+movetype= H
+physics = N
+velset = 0,0
+
+;----------------------------------------
+[State 5010, 0]
+type = ChangeState
+trigger1 = prevstateno != 5250
+trigger1 = var(11) >= 1000
+trigger1 = HitShakeOver
+value = 5249
+ctrl = 0
+;-----------------------------------------
+
+; Play "ouch" sound when hit light or medium
+[State 5010, ouch]
+type = PlaySnd
+triggerall = Random < 400
+triggerall = Time = 1
+trigger1 = GetHitVar(animtype) = [0,1]
+value = 9,1
+volume = -10
+
+; Play "ouch" sound when hit hard
+[State 5010, ouch2]
+type = PlaySnd
+triggerall = Random < 400
+triggerall = Time = 1
+trigger1 = GetHitVar(animtype) = [2,5]
+value = 9,2
+volume = -10
+
+[State 5010, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) != [3,5]
+value = 5020 + GetHitVar(animtype)
+
+[State 5010, ARMOR1] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = var(37) > 0
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5022
+
+[State 5010, ARMOR2] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = var(37) > 0
+trigger1 = Time = 0
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5022 
+
+[State 5010, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = var(37) <= 0
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5030
+
+[State 5010, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = var(37) <= 0
+trigger1 = Time = 0
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5047 + GetHitVar(animtype) ;5051 - 4 + type
+
+[State 5010, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 = Time > 0
+value = Anim
+
+[State 5010, 5] ;State type gets set to aerial if getting hit up
+type = StateTypeSet
+triggerall = Time = 0
+trigger1 = GetHitVar(yvel) != 0 || GetHitVar(fall)
+trigger2 = Pos Y != 0
+statetype = a
+
+[State 5010, 6]
+type = ChangeState
+trigger1 = HitShakeOver
+trigger1 = GetHitVar(yvel) = 0 && !GetHitVar(fall)
+trigger2 = var(37) > 0
+trigger2 = Time >= Floor(GetHitVar(hittime) * 0.3)
+trigger2 = life > 0
+value = 5011 ;HITC_SLIDE
+
+[State 5010, 7]
+type = ChangeState
+triggerall = HitShakeOver
+trigger1 = var(37) <= 0
+trigger2 = life <= 0
+value = 5030
+
+[State 5010, FFB Light]
+type = ForceFeedback
+trigger1 = Anim = 5020
+persistent = 0
+time = 6
+waveform = square
+
+[State 5010, FFB Medium]
+type = ForceFeedback
+trigger1 = Anim = 5021
+persistent = 0
+time = 8
+waveform = sinesquare
+ampl = 110,-1,-.3
+
+[State 5010, FFB Hard]
+type = ForceFeedback
+trigger1 = Anim = 5022
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; HITC_SLIDE
+[Statedef 5011]
+type    = C
+movetype= H
+physics = C
+
+[State 5011, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+
+[State 5011, 2]
+type = ChangeAnim
+trigger1 = var(37) <= 0
+trigger1 = AnimTime = 0
+value = 5025 + GetHitVar(animtype)
+
+[State 5011, 3] ;Stop sliding back
+type = VelMul
+trigger1 = Time >= GetHitVar(slidetime)
+x = .6
+
+[State 5011, 4]
+type = VelSet
+trigger1 = HitOver
+x = 0
+
+[State 5011, 5]
+type = DefenceMulSet
+trigger1 = HitOver
+value = 1
+
+[State 5011, 6]
+type = ChangeState
+trigger1 = var(37) > 0
+trigger1 = Time >= Floor(GetHitVar(hittime) * 0.3)
+value = 11
+ctrl = 1
+
+[State 5011, 6]
+type = ChangeState
+trigger1 = var(37) <= 0
+trigger1 = HitOver
+value = 11
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; HITA_SHAKE
+[Statedef 5020]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+ctrl = 0
+
+;----------------------------------------
+[State 5020, CS]
+type = ChangeState
+trigger1 = prevstateno != 5250
+trigger1 = var(11) >= 1000
+trigger1 = HitShakeOver
+value = 5249
+ctrl = 0
+;-----------------------------------------
+; Play "ouch" sound when hit light or medium
+[State 5020, ouch]
+type = PlaySnd
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = GetHitVar(animtype) = [0,1]
+value = 9,1
+volume = -10
+
+; Play "ouch" sound when hit hard
+[State 5020, ouch2]
+type = PlaySnd
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = GetHitVar(animtype) = [2,5]
+value = 9,2
+volume = -10
+
+[State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) != [3,5]
+value = IfElse((GetHitVar(airtype) = 1),5000,5010) + GetHitVar(animtype)
+
+[State 5020, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5030
+
+[State 5020, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5047 + GetHitVar(animtype) ;5051 - 4 + type
+
+[State 5020, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 = Time > 0
+value = Anim
+
+[State 5020, 5]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 5030
+ctrl = 0
+
+[State 5020, FFB Light]
+type = ForceFeedback
+trigger1 = Anim = 5000
+trigger2 = Anim = 5010
+persistent = 0
+time = 6
+waveform = square
+
+[State 5020, FFB Medium]
+type = ForceFeedback
+trigger1 = Anim = 5001
+trigger2 = Anim = 5011
+persistent = 0
+time = 8
+waveform = sinesquare
+ampl = 110,-1,-.3
+
+[State 5020, FFB Hard]
+type = ForceFeedback
+trigger1 = Anim = 5012
+trigger2 = Anim = 5002
+trigger3 = Anim = 5030
+trigger4 = Anim = [5051,5059]
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+
+;---------------------------------------------------------------------------
+; HITA_SHAKE
+[Statedef 1022]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 1022, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) != [3,5]
+value = IfElse((GetHitVar(airtype) = 1),5000,5010) + GetHitVar(animtype)
+
+[State 1022, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5030
+
+[State 1022, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5047 + GetHitVar(animtype) ;5051 - 4 + type
+
+[State 1022, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 = Time > 0
+value = Anim
+
+[State 1022, 5]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 1023
+
+[State 1022, FFB Light]
+type = ForceFeedback
+trigger1 = Anim = 5000
+trigger2 = Anim = 5010
+persistent = 0
+time = 6
+waveform = square
+
+[State 1022, FFB Medium]
+type = ForceFeedback
+trigger1 = Anim = 5001
+trigger2 = Anim = 5011
+persistent = 0
+time = 8
+waveform = sinesquare
+ampl = 110,-1,-.3
+
+[State 1022, FFB Hard]
+type = ForceFeedback
+trigger1 = Anim = 5012
+trigger2 = Anim = 5002
+trigger3 = Anim = 5030
+trigger4 = Anim = [5051,5059]
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; HITA_UP (initial going up)
+[Statedef 1023]
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+
+[State 1023, 1]
+type = VelAdd;Gravity
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 1023, 2]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 1023, 3]
+type = ChangeState
+trigger1 = HitOver
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= 0  ;.
+value = 1025 ;HITA_FALL
+
+[State 1023, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1024 ;HITA_UP (transition)
+
+;---------------------------------------------------------------------------
+; HITA_UP_T (transition)
+[Statedef 1024]
+type    = A
+movetype= H
+physics = N
+
+[State 1024, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5035)
+trigger1 = Anim != [5051,5059] ;Not if in hit up anim
+trigger1 = Anim != 5090 ;Not if hit off ground anim
+value = 5035
+
+[State 1024, 2]
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 1024, 3]
+type = ChangeState
+trigger1 = HitOver  ;Hit is over
+trigger2 = AnimTime = 0 ;Anim is over
+trigger3 = Vel Y > 0    ;Hit ground
+trigger3 = Pos Y >= 0  ;.
+trigger4 = Time = 0     ;No transition anim
+trigger4 = Anim != 5035 ;.
+value = 1028 ;HITA_FALL
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+; HITA_FALL (knocked up, falling)
+[Statedef 1028]
+type    = A
+movetype= H
+physics = N
+
+[State 1028, 1] ;Change anim when done with transition
+type = ChangeAnim
+trigger1 = AnimTime = 0
+trigger1 = Anim = 5035
+trigger2 = Time = 0     ;If no transition anim
+trigger2 = Anim != 5035
+trigger2 = (Anim != [5051, 5059]) && (Anim != [5061, 5069])
+trigger2 = Anim != 5090 ;Not if hit off ground anim
+value = 5050
+
+[State 1028, 2] ;Coming down anim
+type = ChangeAnim
+trigger1 = Anim = [5050,5059]
+trigger1 = Vel Y >= IfElse(anim = 5050, 1, -2)
+trigger1 = SelfAnimExist(anim+10)
+value = Anim+10
+persistent = 0
+
+[State 1028, 3] ;Gravity
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 1028, 4]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 1026 ;HIT_BOUNCE
+
+;---------------------------------------------------------------------------
+; HITA_FALL (knocked up, falling)
+[Statedef 1025]
+type    = A
+movetype= H
+physics = N
+
+[State 1025, 1] ;Change anim when done with transition
+type = ChangeAnim
+trigger1 = AnimTime = 0
+trigger1 = Anim = 5035
+trigger2 = Time = 0     ;If no transition anim
+trigger2 = Anim != 5035
+trigger2 = (Anim != [5051, 5059]) && (Anim != [5061, 5069])
+trigger2 = Anim != 5090 ;Not if hit off ground anim
+value = 5050
+
+[State 1025, 2] ;Coming down anim
+type = ChangeAnim
+trigger1 = Anim = [5050,5059]
+trigger1 = Vel Y >= IfElse(anim = 5050, 1, -2)
+trigger1 = SelfAnimExist(anim+10)
+value = Anim+10
+persistent = 0
+
+[State 1025, 3] ;Gravity
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 1025, 4]
+type = ChangeState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 1026 ;HIT_BOUNCE
+
+;---------------------------------------------------------------------------
+
+;-----------------------------------
+;subsob
+[Statedef 1026]
+type    = S
+movetype= H
+physics = N
+
+[State 1026, VelSet]
+type = VelSet
+trigger1 = Time = 0
+trigger1 =  Vel x > 0
+x = 4
+y = 0
+
+[State 1026, VelSet]
+type = VelSet
+trigger1 = Time = 0
+trigger1 =  Vel x < 0
+x = -4
+y = 0
+
+[State 1026, NH]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA
+time = 1
+
+[State 1026, EnvShake]
+type = FallEnvShake
+trigger1 = Time = 0
+
+[State 1026, var]
+type = VarSet
+trigger1 = Time = 0
+;trigger1 = GetHitVar(fall.yvel) = 0
+sysvar(1) = Floor(Vel y)
+
+[State 1026, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 5080
+
+[State 1026, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 1026, 3] ;Reduce speed
+type = VelMul
+trigger1 = Time = 0
+x = 0.75
+
+[State 1026, 4]
+type = GameMakeAnim
+trigger1 = Time = 1
+value = 61
+pos = 0, 0
+under = SysVar(0) <= 10
+
+[State 1026, 5]
+type = HitFallDamage
+trigger1 = Time = 3
+
+[State 1026, 6]
+type = PlaySnd
+trigger1 = Time = 1
+;value = F7, 0 ;Hit ground
+value = F7, (SysVar(1) > 5) + (SysVar(1) > 14)
+
+[State 1026, 7]
+type = ChangeState
+trigger1 = Time = 20
+value = 1027
+
+[State 1026, 8]
+type = ForceFeedback
+trigger1 = Time = 0
+waveform = sinesquare
+ampl = 128,-3,-.2,.005
+time = 20
+;---------------------------------------
+
+; HIT_LIEDOWN
+[Statedef 1027]
+type    = L
+movetype= H
+physics = N
+ctrl = 0
+
+[State 1027, SCRN]
+type = ScreenBound
+trigger1 = Time >= 0
+value = 1
+movecamera = 1,0
+
+[State 1027, EnvShake]
+type = FallEnvShake
+trigger1 = Time = 0
+
+9[State 1027, 1]
+type = HitFallDamage
+trigger1 = Time = 0
+
+[State 1027, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 5100, 3]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 5110
+
+[State 1027, var] ;Get fall velocity
+type = VarSet
+trigger1 = Time = 0
+trigger1 = GetHitVar(fall.yvel) != 0
+sysvar(1) = Floor(Vel y)
+
+[State 1027, 4]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 1027, 5] ;If just died
+type = SelfState
+triggerall = !Alive
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0) ;SysVar(0) = 1 avoids hit ground frame
+trigger3 = Anim = [5110,5119]
+value = 5150
+
+[State 1027, 6]
+type = SelfState
+triggerall = Alive
+trigger1 = Time = 50
+value = 5120
+
+[State 1027, 7]
+type = VarSet
+trigger1 = SysVar(0)
+trigger1 = Time = 0
+sysvar(0) = 0
+
+[State 1027, 8] ;Friction
+type = VelMul
+trigger1 = 1
+x = 0.85
+
+[State 1027, 9]
+type = ForceFeedback
+trigger1 = Alive
+trigger1 = Time = 0
+time = 8
+ampl = 240
+waveform = sine
+
+[State 1027, 10]
+type = ForceFeedback
+trigger1 = !Alive
+trigger1 = Time = 0
+ampl = 200, 7, -.467
+time = 30
+waveform = sine
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+; SLAM FACE DOWN shaking
+[Statedef 1103]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+
+[State 5000, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 5012
+
+[State 5000, 3] ;Freeze anim
+type = ChangeAnim
+trigger1 = Time > 0
+value = anim
+
+[State 5000, 5]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 1104
+
+[State 5000, FFB Hard]
+type = ForceFeedback
+trigger1 = anim = 5012
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+
+;---------------------------------------------------------------------------
+
+;-----------------------------------
+;subsob
+[Statedef 1104]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 1104, Envshake]
+type = envshake
+Trigger1 = time = 0
+time = 9
+ampl = -3
+freq = 110
+
+[State 1104, posadd]
+type = posadd
+trigger1 = Time = 0
+x = -20
+
+[State 1104,1]
+type = nothitby
+trigger1 = Time >= 0
+value = SCA
+time = 1
+
+[State 1104, EnvShake]
+type = FallEnvShake
+trigger1 = Time = 0
+
+[State 1104, Var]
+type = VarSet
+trigger1 = Time = 0
+;trigger1 = GetHitVar(fall.yvel) = 0
+sysvar(1) = floor(vel y)
+
+[State 1104, 2]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = SelfAnimExist(5102)
+value = 5102
+
+[State 1104, 2]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = SelfAnimExist(5101)
+trigger1 = !SelfAnimExist(5102)
+value = 5101
+
+[State 1104, 2]
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = !SelfAnimExist(5101)
+trigger1 = !SelfAnimExist(5102)
+value = 5100
+
+[State 1104, 4]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 1104, 6] ;Reduce speed
+type = VelMul
+trigger1 = Time = 0
+x = 0.75
+
+[State 1104, 8]
+type = GameMakeAnim
+trigger1 = Time = 1
+value = 61
+pos = 0, 0
+under = sysvar(0) <= 10
+
+[State 1104, 9]
+type = HitFallDamage
+trigger1 = Time = 3
+
+[State 1104, 10]
+type = PlaySnd
+trigger1 = Time = 1
+;value = F7, 0 ;Hit ground
+value = F7, (sysvar(1) > 5) + (sysvar(1) > 14)
+
+[State 1104, 12]
+type = selfState
+trigger1 = Time = 10
+value = 5101
+
+[State 1104, 13]
+type = ForceFeedback
+trigger1 = Time = 0
+waveform = sinesquare
+ampl = 128,-3,-.2,.005
+time = 20
+;---------------------------------------
+
+
+;--------------------------------------
+;WIRE DAMAGE SYSTEM :P
+;------------------
+; Hit by Fast Kung Fu Palm - shaking from the hit
+; (a custom gethit state)
+[Statedef 3300]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 3300, Flash]
+type = PalFX
+trigger1 = 1;Time % 2
+time = 10
+add = 30,-40,-140
+mul = 256,256,256
+sinadd = 60,60,50,10
+color = 0
+invertall = 1
+
+[State 3300, Anim] ;Custom animation
+type = ChangeAnim2
+trigger1 = 1
+value = 3300
+
+[State 3300, State]
+type = ChangeState
+trigger1 = HitShakeOver = 1
+value = 3305
+
+;------------------
+; Hit by Fast Kung Fu Palm - flying through the air
+; (a custom gethit state)
+[Statedef 3305]
+type    = A
+movetype= H
+physics = N
+
+[State 3305, Flash]
+type = PalFX
+trigger1 = 1;Time % 2
+time = 10
+add = 30,-40,-140
+mul = 256,256,256
+sinadd = 60,60,50,10
+color = 0
+invertall = 1
+
+[State 3305, Velocity]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 3305, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .1
+
+[State 3305, No scroll]
+type = ScreenBound
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist < 65
+trigger2 = FrontEdgeBodyDist < 65
+value = 1
+movecamera = 0,1
+
+[State 1028, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5051)
+value = 1025
+
+[State 1028, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5051)
+value = 5051
+
+[State 3305, Hit wall]
+type = ChangeState
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist <= 20
+trigger2 = FrontEdgeBodyDist <= 20
+value = 3310
+
+[State 3305, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+;------------------
+; Hit by Fast Kung Fu Palm - hit wall
+; (a custom gethit state)
+[Statedef 3310]
+type    = A
+movetype= H
+physics = N
+
+[State 3310, Flash]
+type = PalFX
+trigger1 = 1;Time % 2
+time = 10
+add = 30,-40,-140
+mul = 256,256,256
+sinadd = 60,60,50,10
+color = 0
+invertall = 1
+
+[State 3310, Turn]
+type = Turn
+trigger1 = (Time = 0) && (FrontEdgeBodyDist <= 30)
+
+[State 3310, Pos]
+type = PosAdd
+trigger1 = Time = 0
+x = 15 - BackEdgeBodyDist
+
+[State 3310, Stop moving]
+type = PosFreeze
+trigger1 = 1
+x = 1
+y = 1
+
+[State 3310, No scroll]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 1027, エフェクト表示]
+type = Explod
+trigger1 = Time = 0
+anim = F72
+pos = 0, floor(ScreenPos Y) - 50
+postype = Back
+sprpriority = -1
+
+[State 1027, エフェクト表示]
+type = Explod
+trigger1 = Time = 0
+anim = F73
+pos = 0, floor(ScreenPos Y) - 50
+postype = Back
+sprpriority = 5
+
+[State 3310, Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 3310
+
+[State 3310, Sound]
+type = PlaySnd
+trigger1 = Time = 0
+value = F7,4
+
+[State 3310, State]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 3315
+
+;------------------
+; Hit by Fast Kung Fu Palm - bounce off wall
+; (a custom gethit state)
+[Statedef 3315]
+type    = A
+movetype= H
+physics = N
+
+[State 3315, Flash]
+type = PalFX
+trigger1 = 1;Time % 2
+time = 10
+add = 30,-40,-140
+mul = 256,256,256
+sinadd = 60,60,50,10
+color = 0
+invertall = 1
+
+[State 3315, Vel Y]
+type = Hitfallset
+trigger1 = Time = 0
+value = 0
+
+[State 3315, Vel Y]
+type = VelSet
+trigger1 = Time = 0
+y = -11
+
+[State 3315, Vel X]
+type = VelSet
+trigger1 = Time = 0
+x = 2.9
+
+[State 3315, Turn]
+type = Turn
+trigger1 = (Time = 0) && (BackEdgeDist < 30)
+
+[State 3315, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .5
+
+[State 3315, Anim 5050] ;Self falling animation
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5052)
+value = 5050
+
+[State 3315, Anim 5052] ;Self falling animation (diagup type)
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5052)
+value = 5052
+
+[State 3315, Anim 5060] ;Coming down - normal
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5050
+trigger1 = SelfAnimExist(5060)
+persistent = 0
+value = 5060
+
+[State 3315, Anim 5062] ;Coming down - diagup type
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5052
+trigger1 = SelfAnimExist(5062)
+persistent = 0
+value = 5062
+
+[State 3315, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+
+;---------------------------------------------------------------------------
+;
+; AI activation code by Winane.
+; (Credit to ANMC, Bagaliao, and FlowaGirl for the basic helper method concept.)
+;
+;------------------
+; AI Activation Helper State - Primary Version
+; (Credit to YongMing for the basic HitPause bugfix concept.)
+;
+; var(1) - First tick button activation prevention.
+; var(2) - Used for pause/superpause and custom state check, basically.
+; var(3) - (Super/)Pause & custom state-triggered dir detection disabler.
+; var(4) - Persistent direction command detection enabler (due to 2002.04.14).
+; var(9) - AutoTurn bug fixer.
+; parent's var(58) - Parent's GameTime var, for pause and custom state check.
+; parent's var(59) - Parent's primary AI variable.
+
+[StateDef 9741]
+type = S
+movetype = I
+physics = N
+anim = 9741
+ctrl = 0
+
+[State 9741, Safety]; Just in case your opponent is very poorly coded.
+type = SelfState
+trigger1 = !IsHelper
+value = 0
+
+[State 9741, PauseCheck]
+type = VarSet
+trigger1 = (GameTime>(Parent,var(58)))
+trigger2 = !(Parent,Alive)
+trigger3 = (RoundState != 2)
+trigger4 = Parent,var(59)
+trigger5 = (var(3):=0)
+var(2) = (var(3):=1)+(var(4):=0)
+
+[State 9741, Facing]
+type = Turn
+trigger1 = (var(9):=(Facing != Parent,Facing))
+
+[State 9741, DirTurnOnAI]
+type = ParentVarSet
+triggerall = !var(3)
+triggerall = !var(9)
+trigger1 = (Parent,command = "holdfwd")
+trigger2 = (Parent,command = "holdback")
+trigger3 = (Parent,command = "holdup")
+trigger4 = (Parent,command = "holddown")
+trigger5 = !(var(4):=1)
+var(59) = var(4)
+
+[State 9741, DirTurnOffAI]
+type = ParentVarSet
+triggerall = !var(3)
+triggerall = Parent,var(59)
+trigger1 = (command = "holdfwd")
+trigger1 = (Parent,command = "holdfwd")
+trigger2 = (command = "holdback")
+trigger2 = (Parent,command = "holdback")
+trigger3 = (command = "holdup")
+trigger3 = (Parent,command = "holdup")
+trigger4 = (command = "holddown")
+trigger4 = (Parent,command = "holddown")
+var(59) = (var(4):=0)
+
+[State 9741, ButtonTurnOnAI]
+type = ParentVarSet
+triggerall = var(1)
+triggerall = !var(2)
+trigger1 = (Parent,command = "b")
+trigger2 = (Parent,command = "d")
+trigger3 = (Parent,command = "c1")
+trigger4 = (Parent,command = "x")
+trigger5 = (Parent,command = "y")
+trigger6 = (Parent,command = "z")
+trigger7 = (Parent,command = "s")
+var(59) = 1
+
+[State 9741, ButtonTurnOffAI]
+type = ParentVarSet
+triggerall = !var(2)
+trigger1 = (command = "b")
+trigger1 = (Parent,command = "b")
+trigger2 = (command = "d")
+trigger2 = (Parent,command = "d")
+trigger3 = (command = "c1")
+trigger3 = (Parent,command = "c1")
+trigger4 = (command = "x")
+trigger4 = (Parent,command = "x")
+trigger5 = (command = "y")
+trigger5 = (Parent,command = "y")
+trigger6 = (command = "z")
+trigger6 = (Parent,command = "z")
+trigger7 = (command = "s")
+trigger7 = (Parent,command = "s")
+var(59) = -1
+
+[State 9741, UnPauseCheck]
+type = VarSet
+triggerall = var(2)
+trigger1 = (Parent,command = "b")
+trigger2 = (Parent,command = "d")
+trigger3 = (Parent,command = "c1")
+trigger4 = (Parent,command = "x")
+trigger5 = (Parent,command = "y")
+trigger6 = (Parent,command = "z")
+trigger7 = (Parent,command = "s")
+trigger8 = (var(2) = 2)
+trigger8 = (var(2):=0)
+var(2) = 2
+
+[State 9741, Goodbye]
+type = DestroySelf
+triggerall = (var(1):=1)
+trigger1 = Parent,var(59)
+trigger2 = !(Parent,Alive)
+trigger3 = (RoundState != 2)
+
+
+;------------------
+; AI Activation Helper State - Compatibly Partnered Version
+;
+; var(1) - First tick dir activation prevention
+; var(2) - Used for pause/superpause and custom state check, basically.
+; var(3) - (Super/)Pause & custom state-triggered dir detection disabler.
+; var(4) - Hitpause check.
+; var(5) - No button on previous tick.
+; var(6) - Any dir on this tick.
+; var(7) - Any button on this tick.
+; var(8) - Matching partner button detected.
+; var(9) - AutoTurn bug fixer.
+; parent's var(58) - Parent's GameTime var, for pause and custom state check.
+; parent's var(59) - Parent's primary AI variable.
+
+[StateDef 9742]
+type = S
+movetype = I
+physics = N
+anim = 9741
+ctrl = 0
+
+[State 9742, Safety]; Just in case your opponent is very poorly coded.
+type = SelfState
+trigger1 = !IsHelper
+value = 0
+
+[State 9742, PauseCheck]
+type = VarSet
+trigger1 = (GameTime>Parent,var(58))
+trigger2 = !(Parent,Alive)
+trigger3 = (RoundState != 2)
+trigger4 = Parent,var(59)
+trigger5 = (var(3):=0)
+var(2) = (var(3):=1)
+
+[State 9742, Facing]
+type = Turn
+trigger1 = (var(9):=(Facing != Parent,Facing))
+
+[State 9742, ParentDirCheck]
+type = VarSet
+trigger1 = (Parent,command = "holdfwd")
+trigger2 = (Parent,command = "holdback")
+trigger3 = (Parent,command = "holdup")
+trigger4 = (Parent,command = "holddown")
+trigger5 = (var(6):=0)
+var(6) = 1
+
+[State 9742, ParentButtonCheck]
+type = VarSet
+trigger1 = (Parent,command = "b")
+trigger2 = (Parent,command = "d")
+trigger3 = (Parent,command = "c1")
+trigger4 = (Parent,command = "x")
+trigger5 = (Parent,command = "y")
+trigger6 = (Parent,command = "z")
+trigger7 = (Parent,command = "s")
+trigger8 = (var(7):=0)
+var(7) = 1
+
+[State 9742, SameButtonCheck]
+type = VarSet
+triggerall = var(7)
+triggerall = !var(2)
+triggerall = NumPartner
+trigger1 = (Parent,command = "b")
+trigger1 = (Partner,command = "b")
+trigger2 = (Parent,command = "d")
+trigger2 = (Partner,command = "d")
+trigger3 = (Parent,command = "c1")
+trigger3 = (Partner,command = "c1")
+trigger4 = (Parent,command = "x")
+trigger4 = (Partner,command = "x")
+trigger5 = (Parent,command = "y")
+trigger5 = (Partner,command = "y")
+trigger6 = (Parent,command = "z")
+trigger6 = (Partner,command = "z")
+trigger7 = (Parent,command = "s")
+trigger7 = (Partner,command = "s")
+trigger8 = (var(8):=0)
+var(8) = 1
+
+[State 9742, DirTurnOnAI]
+type = ParentVarSet
+trigger1 = var(1)
+trigger1 = var(6)
+trigger1 = !var(3)
+trigger1 = !var(4)
+trigger1 = !var(9)
+var(59) = 1
+
+[State 9742, DirTurnOffAI]
+type = ParentVarSet
+triggerall = var(6)
+triggerall = !var(3)
+triggerall = Parent,var(59)
+trigger1 = (command = "holdfwd")
+trigger1 = (Parent,command = "holdfwd")
+trigger2 = (command = "holdback")
+trigger2 = (Parent,command = "holdback")
+trigger3 = (command = "holdup")
+trigger3 = (Parent,command = "holdup")
+trigger4 = (command = "holddown")
+trigger4 = (Parent,command = "holddown")
+var(59) = 0
+
+[State 9742, ButtonTurnOnAI]
+type = ParentVarSet
+trigger1 = var(5)
+trigger1 = var(7)
+trigger1 = !var(2)
+trigger1 = !var(8)
+var(59) = 1
+
+[State 9742, ButtonTurnOffAI]
+type = ParentVarSet
+triggerall = var(7)
+triggerall = !var(2)
+triggerall = !var(8)
+trigger1 = (command = "b")
+trigger1 = (Parent,command = "b")
+trigger2 = (command = "d")
+trigger2 = (Parent,command = "d")
+trigger3 = (command = "c1")
+trigger3 = (Parent,command = "c1")
+trigger4 = (command = "x")
+trigger4 = (Parent,command = "x")
+trigger5 = (command = "y")
+trigger5 = (Parent,command = "y")
+trigger6 = (command = "z")
+trigger6 = (Parent,command = "z")
+trigger7 = (command = "s")
+trigger7 = (Parent,command = "s")
+var(59) = -1
+
+[State 9742, UnPauseCheck]
+type = VarSet
+triggerall = var(2)
+triggerall = !var(4)
+trigger1 = var(7)
+trigger2 = (var(2) = 2)
+trigger2 = (var(2):=0)
+var(2) = 2
+
+[State 9742, Goodbye]
+type = DestroySelf
+trigger1 = Parent,var(59)
+trigger2 = !(Parent,Alive)
+trigger3 = (RoundState != 2)
+
+[State 9742, HitPauseCheck]
+type = VarSet
+trigger1 = var(6)
+trigger2 = var(7)
+trigger3 = !(Parent,HitPauseTime)
+var(4) = Parent,HitPauseTime
+
+[State 9742, Delay]
+type = VarSet
+trigger1 = (var(1):=1)
+var(5) = !var(7)
+;-------------------------------------------------------------------------------
+;Caer de rodillas KOFM
+[Statedef 5250]
+type    = S
+movetype= H
+physics = S
+
+[State 1203, 5]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 153, 4]
+type = statetypeset
+trigger1 = animtime = 0
+value = L
+
+[State 870, PosSet]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 1000, VelSet]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 1000, VelAdd]
+type = VelAdd
+trigger1 = Time = 0
+y = 0
+
+[State 870]
+type = ChangeAnim
+Trigger1 = Time = 0
+trigger1 = SelfAnimExist(5250)
+value = 5250
+
+[State 870]
+type = ChangeAnim2
+Trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5250)
+value = 1095
+
+[State 870]
+type = ChangeState
+trigger1 = Animtime = 0
+trigger1 = SelfAnimExist(5250)
+value = 5251
+
+[State 870]
+type = SelfState
+trigger1 = Animtime = 0
+trigger1 = !SelfAnimExist(5250)
+value = 5110
+;-------------------------------------------------------------------------------
+[Statedef 5251]
+type    = L
+movetype= H
+physics = N
+
+[State 6010, Explod]
+type = Explod
+trigger1 = time = 0
+anim = f61
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = -9
+
+[State 6010, PlaySound]
+type = PlaySnd
+trigger1 = time = 0
+value = f7,1
+
+[State 6010, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 10
+freq = 110
+ampl = -4
+
+[State 899]
+type = ChangeAnim
+persistent = 0
+trigger1 = SelfAnimExist(5111)
+value = 5111
+
+[State 5251]
+type = ChangeAnim
+triggerall = time = 0
+triggerall = anim != [5110,5119]
+trigger1 = anim != [5161,5169]
+trigger2 = !SelfAnimExist(5170 + (anim % 10))
+value = 5170
+
+[State 5251]
+type = ChangeAnim
+triggerall = time = 0
+triggerall = anim != [5110,5119]
+trigger1 = anim = [5161,5169]
+trigger1 = SelfAnimExist(5170 + (anim % 10))
+value = 5170 + (anim % 10)
+
+[State 5251]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 5251]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 5251]
+type = ChangeAnim
+persistent = 0
+triggerall = anim = [5171,5179]
+triggerall = SelfAnimExist(5111)
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0)
+value = 5111
+
+[State 5251]
+type = ChangeAnim
+persistent = 0
+triggerall = Anim != [5111,5119]
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0)
+value = 5110
+
+[State 5251]
+type = VarSet
+trigger1 = SysVar(0)
+trigger1 = Time = 0
+sysvar(0) = 0
+
+[State 5251]
+type = ForceFeedback
+trigger1 = alive
+trigger1 = Time = 0
+time = 8
+ampl = 240
+waveform = sine
+
+[State 5251]
+type = ForceFeedback
+trigger1 = !alive
+trigger1 = Time = 0
+ampl = 200, 7, -.467
+time = 30
+waveform = sine
+
+[State 3680]
+type = selfstate
+trigger1 = alive
+trigger1 = Time = 70
+value = 5120
+
+[State 5251]
+type = selfstate
+trigger1 = !alive
+trigger1 = Time = 10
+value = 5150
+;-------------------------------------------------------------------------------
+;Guard Crush KOFM
+[Statedef 5255]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+
+[State 1000, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 5255, EnvColor]
+type = EnvColor
+trigger1 = time = 0
+value = 255,255,255
+time = 1
+under = 1
+persistent = 0
+
+[State 5255, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = -4.5
+
+[State 5255, VelSet]
+type = VelSet
+trigger1 = time = 15
+x = 0
+
+[State 5255, ChangeAnim]
+type = ChangeAnim
+Trigger1 = Time = 0
+trigger1 = SelfAnimExist(5255)
+value = 5255
+
+[State 5255, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5255)
+value = 5256
+
+[State 5255]
+type = SelfState
+trigger1 = Animtime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Cancelled Grasp p1
+[Statedef 5260]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+facep2  = 1
+
+[State 1000, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 1000, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = s5200,2
+
+[State 1000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = f3
+pos = 0,-70
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = 9
+
+[State 1000, TargetState]
+type = TargetState
+trigger1 = time = 0
+value = 5261
+ctrl = 0
+
+[State 1000, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 5255, EnvColor]
+type = EnvColor
+trigger1 = time = 0
+value = 255,255,255
+time = 1
+under = 1
+persistent = 0
+
+[State 5255, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 0
+
+[State 5255, VelSet]
+type = VelSet
+trigger1 = time = 1
+x = -4.5
+
+[State 5255, VelSet]
+type = VelSet
+trigger1 = time = 15
+x = 0
+
+[State 5255, ChangeAnim]
+type = ChangeAnim
+Trigger1 = Time = 0
+trigger1 = SelfAnimExist(5255)
+value = 5255
+
+[State 5255, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5255)
+value = 5256
+
+[State 1000, CtrlSet]
+type = CtrlSet
+trigger1 = animtime = 0
+value = 1
+
+[State 5255]
+type = SelfState
+trigger1 = Animtime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+;Cancelled Grasp p2
+[Statedef 5261]
+type    = S
+movetype= H
+physics = N
+velset  = 0,0
+facep2  = 1
+
+[State 1000, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 1000, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 5255, EnvColor]
+type = EnvColor
+trigger1 = time = 0
+value = 255,255,255
+time = 1
+under = 1
+persistent = 0
+
+[State 5255, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 0
+
+[State 5255, VelSet]
+type = VelSet
+trigger1 = time = 1
+x = -4.5
+
+[State 5255, VelSet]
+type = VelSet
+trigger1 = time = 15
+x = 0
+
+[State 5255, ChangeAnim]
+type = ChangeAnim
+Trigger1 = Time = 0
+trigger1 = SelfAnimExist(5255)
+value = 5255
+
+[State 5255, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5255)
+value = 5256
+
+[State 1000, CtrlSet]
+type = CtrlSet
+trigger1 = animtime = 0
+value = 1
+
+[State 5255]
+type = SelfState
+trigger1 = Animtime = 0
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+; HITA_FALL (knocked up, falling)
+[Statedef 8050]
+type    = A
+movetype= H
+physics = N
+
+[State 1000, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+y = -20
+
+[State 1000, VelSet]
+type = VelSet
+trigger1 = time > 0
+x = -6
+
+[State 1000, VelAdd]
+type = VelAdd
+trigger1 = time > 15
+y = 1
+
+[State 7000, Flash]
+type = PalFX
+trigger1 = 1;Time % 2
+time = 10
+add = 30,-40,-140
+mul = 256,256,256
+sinadd = 60,60,50,10
+color = 0
+invertall = 1
+
+[State 5050, 1] ;Change anim when done with transition
+type = ChangeAnim
+trigger1 = AnimTime = 0
+trigger1 = Anim = 5035
+trigger2 = Time = 0     ;If no transition anim
+trigger2 = Anim != 5035
+trigger2 = (Anim != [5051, 5059]) && (Anim != [5061, 5069])
+trigger2 = Anim != 5090 ;Not if hit off ground anim
+value = 5050
+
+[State 5050, 2] ;Coming down anim
+type = ChangeAnim
+trigger1 = anim = [5050,5059]
+trigger1 = Vel Y >= ifelse(anim = 5050, 1, -2)
+trigger1 = SelfAnimExist(anim+10)
+value = anim+10
+persistent = 0
+
+[State 5050, 6]
+type = selfstate
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= ifelse((anim = [5051,5059]) || (anim = [5061,5069]), 0, 25)
+value = 5100 ;HIT_BOUNCE
+;-------------------------------------------------------------------------------
+;Slow Effect
+[Statedef 2026]
+type = S
+ctrl = 0
+;anim = 999
+velset = 0,0
+
+[State 0, 1]
+type = ChangeAnim
+trigger1 = Anim != 999
+value = 999
+
+[State 1000, Pause]
+type = Pause
+triggerall = RoundState = 2
+trigger1 = time = [0,3]
+time = 1
+movetime = 1
+ignorehitpause = 1
+
+[State 1000, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 10
+;----------------------------------
+[StateDef 2799]
+type = S
+movetype = I
+physics = S
+juggle = 0
+anim = 3699
+ctrl = 0
+
+[State 268,1]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S4,2
+
+[State -2]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 100, 2]
+type = posSet
+trigger1 = 1
+y = 0
+
+[State 100, 2]
+type = VelSet
+trigger1 = AnimElem = 1, < 3
+x = 0
+
+[State 100, 3]
+type = VelSet
+trigger1 = AnimElem = 2, >= 0
+x = const(velocity.run.fwd.x)
+
+[State 9510, 42]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3790
+ctrl = 0
+;==============================================
+[Statedef 3790]
+Type = S
+MoveType = A
+physics = S
+anim = 3700
+Ctrl = 0
+SprPriority = 2
+velset = 0,0
+juggle = 0
+
+[State ]
+type = posSet
+trigger1 = 1
+y = 0
+
+[State 3500,Explod1]
+type = Explod
+trigger1 = time = 5
+anim = 7110
+id   = 1351
+pos = -20,-98 
+postype = p1
+supermove = 1
+sprpriority = 1
+bindtime = 1
+ontop = 1
+ownpal = 1
+
+[State 3500,Explod2]
+type = Explod
+trigger1 = time = 5
+anim = 7100
+id   = 1352
+pos = -20,-98 
+postype = p1
+sprpriority = -2
+supermove = 1
+bindtime = 1
+ontop = 0
+ownpal = 1
+
+[State 3500, SparkSound]
+type = PlaySnd
+trigger1 = animelem = 1, = 2
+value = s12,7;s10,0
+volume = 255
+
+[State 3700, Envcolor]
+type = EnvColor
+trigger1 = time = 0
+value = 0,0,0
+time = 28
+under = 1
+
+[State 3700, Super Pause]
+type = SuperPause
+trigger1 = animelem = 2, = 1
+movetime = 28
+poweradd = -2000
+time = 28
+anim = -1
+sound = s-1
+;p2defmul = 1
+darken = 1
+
+[State 3500, SparkSound]
+type = PlaySnd
+trigger1 = animelem = 2, = 1
+value = s3,8
+channel = 1
+volume = -10
+
+[State 3700, NOTHITBY]
+type = Nothitby
+trigger1 = 1
+value = SCA
+
+[State 3500,Explod2]
+type = Explod
+trigger1 = time = 0
+anim = 659
+pos = 0,0
+postype = p1
+removetime = -2
+bindtime = -1
+sprpriority = 10
+ownpal = 1
+
+[State 3700, soltar]
+type = changestate
+trigger1 = time >= 32
+value = 3795
+Ctrl = 0
+;********************************************************
+[Statedef 3795]
+Type = S
+MoveType = A
+physics = S 
+anim = 3701
+Ctrl = 0
+SprPriority = 2
+velset = 0,0
+juggle = 0
+
+[State 100, 2]
+type = posSet
+trigger1 = 1
+y = 0
+
+[State 13705, 1]
+type = helper
+trigger1 = animelem = 4,3
+name = "magia"
+ID = 3750
+pos = 48,2
+postype = p1
+stateno = 3750
+ownpal = 1
+trans = add
+size.xscale = .6
+size.yscale = 1
+
+[state 3705, playsnd]
+type = playsnd
+trigger1 = animelem = 4
+value = s13,15
+
+[state 3705, playsnd]
+type = playsnd
+trigger1 = animelem = 5
+value = s13,16
+
+[State 3035, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 4, = 1
+time = 12
+ampl = -5
+freq = 90
+
+[state 3705, voltar a anim]
+type = changestate
+trigger1 = animtime = 0
+value = 3796
+ctrl = 0
+
+[Statedef 3796]
+Type = S
+MoveType = I
+physics = S 
+anim = 3702
+Ctrl = 0
+SprPriority = 2
+velset = 0,0
+juggle = 0
+
+[State 100, 2]
+type = posSet
+trigger1 = 1
+y = 0
+
+[State 100, 2]
+type = VelSet
+trigger1 = AnimElemtime(2) >= 0
+x = -9
+
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+;=======================================
+[StateDef 3750]
+type = S
+movetype= A
+physics = N
+juggle  = 0
+velset = 0,0
+ctrl = 0
+anim = 2253
+sprpriority = 4
+juggle = 0
+
+[State 3305, 2]
+type = PalFX
+trigger1 = 1
+time = 30
+add = 0,-50,80
+sinadd = 50,50,50,15
+color = 0
+invertall = 0
+ignorehitpause = 1
+
+[State ]
+type = Nothitby
+trigger1 = 1
+value = ,AA,AT
+ignorehitpause = 1
+
+[State 1000, Helper]
+type = Helper
+triggerall = animelem = 7, = 1
+trigger1 = frontedgedist  >= 10
+helpertype = normal
+name = "Explosiones"
+ID = 3750
+stateno = 3750
+pos = 40,0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 0.6
+size.yscale = 1
+trans = add
+
+[State 1000, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S13,16
+
+[State 1000, EnvColor]
+type = EnvColor
+trigger1 = time = 0
+trigger2 = movehit
+value = 255,255,255
+time = 1
+under = 1
+ignorehitpause = 1
+
+[State 1000, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 20
+freq = 90
+ampl = -6
+phase = 90
+ignorehitpause = 1
+
+[State 1000, Helper]
+type = Helper
+trigger1 = movehit
+helpertype = normal
+name = "Efecto Freeze"
+ID = 2625
+stateno = 2625
+pos = 0,0
+postype = p2
+ownpal = 1
+persistent = 0
+
+[State 1000, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S13,14
+
+[State ]
+type = Explod
+trigger1 = !time
+anim = 2255
+pos = -20,0
+sprpriority = 2
+postype = p1
+ontop = 0
+removetime = -2
+bindtime = -1
+ownpal = 0
+ignorehitpause = 1
+
+[State 3402]
+type = hitdef
+trigger1 = !MoveContact
+attr = A,HP
+hitflag = MAFP
+guardflag = M
+damage = 100,10
+animtype = Hard
+priority = 7,miss
+pausetime = 0,10
+guard.pausetime = 0,10
+sparkno = s62
+guard.sparkno = s50
+sparkxy = 10, -44
+hitsound = s-1
+guardsound = s-1
+ground.type = High
+air.type = Low
+guard.slidetime = 25
+guard.hittime = 30
+guard.velocity = -10
+air.hittime = 20
+guard.ctrltime = 20
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+p2stateno = 2620
+;p2facing = 1
+juggle = 0
+p2getp1state = 1
+
+[State 9510, 42]
+type = ChangeState
+trigger1 = animtime = 0||movetype= H
+value = 1
+ctrl = 0
+
+
+[Statedef 2625]
+type    = S
+physics = N
+movetype= I
+anim = 9999
+ctrl = 0
+velset = 0,0
+juggle   = 0
+
+[State 3410, 1]
+type = Explod
+trigger1 = time = 0
+ID = 2625
+anim = 2625
+pos = 0,floor(-p2bodydist y-pos y)
+postype = p2
+bindtime = -1
+removetime = -1
+ontop = 0
+ownpal = 1
+
+[State 3410, 2]
+type = Explod
+trigger1 = p2stateno != 2620
+anim = 2631
+pos = 0,floor(-p2bodydist y-pos y)
+postype = p2
+ontop = 0
+ownpal = 1
+
+[State 3410, 4]
+type = changestate
+trigger1 = p2stateno != 2620
+value = 2632
+ignorehitpause = 1
+
+[Statedef 2632]
+type    = S
+physics = N
+movetype= I
+anim = 9999
+ctrl = 0
+velset = 0,0
+juggle   = 0
+
+[State 1000, Removeexplod]
+type = Removeexplod
+trigger1 = time = 0
+ID = 2625
+
+[State 1000, destroyself]
+type = destroyself
+trigger1 = animtime = 0
+ignorehitpause = 1
+
+
+
+[Statedef 2620]
+movetype= H
+velset = 0,0
+ctrl = 0
+
+[State 1000, AssertSpecial]
+type = AssertSpecial
+trigger1 = enemy,movetype= A
+trigger2 = enemynear,movetype= A
+flag = nojugglecheck
+
+[State 700,]
+type = Palfx
+trigger1 = 1
+time = 10
+add = 0,-50,80
+sinadd = 50,50,50,15
+color = 1
+invertall = 1
+
+[State 1000, Pause]
+type = Pause
+triggerall = winko = 0
+triggerall = time = [0,25]
+trigger1 = timemod = 2,0
+time = 1
+movetime = 0
+
+[State 2620, lifeadd]
+type = lifeadd
+triggerall = timemod = 30,0
+triggerall = time >= 1
+Trigger1 = time <= 290
+value = -ceil(lifemax*0.001)
+
+[State 52, 1]
+type = VelSet
+trigger1 = time >= 0
+x = 0
+y = 0
+
+[State 52, 1]
+type = posset
+trigger1 = Pos Y >= 0
+y = 0
+
+[State 6000, 3]
+type = StateTypeSet
+trigger1 = Pos Y >= 0
+statetype = S
+
+[State 6000, 3]
+type = StateTypeSet
+trigger1 = Pos Y != 0
+trigger2 = AnimTime = 0
+statetype = A
+
+[State 1830]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2635
+
+[State 1830]
+type = ChangeState
+trigger1 = Animtime = 0
+trigger2 = life = 0
+value = 2630
+
+[Statedef 2630]
+type = A
+movetype= H
+physics  = N
+ctrl = 0
+
+[State 1830]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2636
+
+[State 170]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 52, 1]
+type = VelSet
+trigger1 = time = 0
+x = -4
+y = -6
+
+[State 52, 1]
+type = Veladd
+trigger1 = time >= 0
+y = .4
+
+[State 1830]
+type = SelfState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 5100
+;------------------------------------------
+[StateDef 2899]
+type = S
+movetype = I
+physics = S
+juggle = 0
+anim = 2221
+ctrl = 0
+juggle = 0
+
+[State 268,1]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S4,2
+
+[State -2]
+type = nothitby
+trigger1 = 1
+value = SCA
+
+[State 100, 2]
+type = posSet
+trigger1 = 1
+y = 0
+
+[State 100, 2]
+type = VelSet
+trigger1 = AnimElem = 1, = 0
+x = 0
+
+[State 100, 3]
+type = VelSet
+trigger1 = AnimElem = 1, >= 1
+x = 6
+
+[State 9510, 42]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3890
+ctrl = 0
+
+[Statedef 3890]
+type = S
+movetype = A
+physics = S
+anim = 2223
+poweradd = 10
+velset = 0
+ctrl = 0
+facep2 = 1
+juggle = 0
+
+[State 100, 2]
+type = posSet
+trigger1 = 1
+y = 0
+
+[State 3000, Super Pause]
+type = SuperPause
+trigger1 = animelem = 1, = 0
+movetime = 32
+poweradd = -1000
+time = 32
+anim = -1
+sound = s3,6
+p2defmul = 0
+darken = 0
+
+[State 1000, EnvColor]
+type = EnvColor
+trigger1 = animelem = 1, = 0
+value = 255,255,255
+time = 2
+under = 1
+
+[State 1000, BGPalFX]
+type = BGPalFX
+trigger1 = animelem = 1, = 0
+time = 30
+add = 0,0,0
+mul = -256,-256,-256
+sinadd =  256,256,256,51
+invertall = 1
+color = 256
+
+[State 3000,Explod1]
+type = Explod
+trigger1 = animelem = 1, = 0
+anim = 7000
+id   = 1351
+pos = 10,-58
+postype = p1
+supermove = 1
+sprpriority = 1
+bindtime = 1
+ontop = 1
+ownpal = 1
+
+[State 3000,Explod2]
+type = Explod
+trigger1 = animelem = 1, = 0
+anim = 7010
+id   = 1352
+pos = 10,-58
+postype = p1
+sprpriority = -2
+supermove = 1
+bindtime = 1
+ontop = 0
+ownpal = 1
+
+[State 2000]
+type = NotHitBy
+Trigger1 = 1
+value = SCA,AA,AT,AP
+time = -1
+
+[State -2]
+Type = AttackDist
+Trigger1 = animelem = 6,>=0||MoveGuarded
+Value = 0
+
+[State 2100]
+type = VelSet
+Trigger1 = animelem = 6,>=0
+x = 6
+
+[State 2100]
+type = VelAdd
+Trigger1 = FrontEdgeBodyDist <= -59
+x = -1
+
+[State 1000, Explod]
+type = Explod
+trigger1 = animelemtime(5)=0
+anim = 3251
+pos = -10,2
+postype = p1
+bindtime = 1
+removetime = -2
+scale = 1,1
+ownpal = 1
+ontop = 1
+sprpriority = 8
+ignorehitpause = 1
+
+[State 1000, PlaySnd]
+type = PlaySnd
+trigger1 = animelemtime(2)=1
+value = S12,8
+
+[State 3220, Shock]
+type = PalFX
+trigger1 = animelem = 5,>=2
+time = 1
+add = 30,-40,-140
+sinadd = 60,60,50,10
+;mul = 256,256,256
+color = 0
+invertall = 1
+ignorehitpause = 1
+
+[State 1000, PlaySnd]
+type = PlaySnd
+trigger1 = animelemtime(5)=1
+value = S13,11
+persistent = 9
+
+[State 3000]
+type = Projectile
+trigger1 = animelemtime(5)=2
+projID = 3200
+projanim = 3252
+projremove = 0
+projpriority = 5
+projsprpriority = 10
+projshadow = 0,0,0
+projhitanim = -1
+projremanim = -1
+projhits = 1
+projremovetime = 42
+getpower = 0
+ownpal = 1
+offset = -10, 2
+velocity = 0, 0
+attr = S,HP
+animtype = Hard
+damage = 40,5
+hitflag = MAFP
+guardflag = MA
+hitsound = s1,4
+guardsound = s2,4
+pausetime = 0,2
+sparkno = s62
+guard.sparkno = s50
+sparkxy = (floor(p2bodydist X)),-65 + (floor(p2bodydist Y))
+ground.type = High
+ground.hittime = 50
+ground.slidetime = 40
+ground.velocity = -12
+air.velocity = -3,-5.5
+air.juggle = 0
+yaccel = .357
+air.fall = 1
+fall.recover = 0
+palfx.time = 60
+palfx.add = 30,-40,-140
+palfx.sinadd = 60,60,50,10
+palfx.mul = 256,256,256
+palfx.color = 0
+palfx.invertall = 1
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+
+[State 100, DashSound]
+type = PlaySnd
+trigger1 = animelem = 6,>=0
+value = 3,4
+persistent = 0
+
+[State 2100]
+type = VelSet
+Trigger1 = Vel X <= 0
+x = 0
+
+[State 2100]
+type = PlayerPush
+Trigger1 = 1
+value = 0
+
+[State 2100]
+type = AfterImage
+Trigger1 = animelem = 1
+time = -1
+PalBright = 0, 0, 0
+PalContrast = 130,130,130
+PalAdd = -50, -50, -50
+PalMul = 1,1,1
+Length = 4
+FrameGap = 1
+TimeGap = 4
+Trans = add1
+
+[State 2100]
+type = Explod
+Trigger1 = MoveHit
+anim = 4147
+sprpriority = 5
+postype = p2
+pos = 0,-50
+vel = 0,-.5
+bindtime = 1
+supermove = 1
+under = 0
+ownpal = 1
+scale = .85,.85
+ignorehitpause = 1
+persistent = 0
+
+[State 2100]
+type = Explod
+Triggerall = animelem = 6,>=0
+Trigger1 = gametime%9 = 0
+anim = 4145
+sprpriority = 5
+postype = p1
+random = 65,85
+pos = 0,-50
+bindtime = 1
+removetime = -2
+supermove = 1
+under = 0
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 2100]
+type = Explod
+Triggerall = animelem = 6,>=0
+Trigger1 = gametime%10 = 0
+anim = 4140
+sprpriority = 5
+postype = p1
+random = 55,70
+pos = 0,-50
+bindtime = 1
+removetime = -2
+supermove = 1
+under = 0
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 2100]
+type = Explod
+Triggerall = animelem = 6,>=0
+Trigger1 = gametime%9 = 0
+anim = 4130
+sprpriority = 5
+postype = p1
+random = 65,85
+pos = 0,-50
+bindtime = 1
+supermove = 1
+removetime = -2
+under = 0
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+[State 2100]
+type = Explod
+Triggerall = animelem = 6,>=0
+Trigger1 = gametime%10 = 0
+anim = 4125
+sprpriority = 5
+postype = p1
+random = 45,70
+pos = 0,-50
+bindtime = 1
+removetime = -2
+supermove = 1
+under = 0
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 2100]
+type = PlaySnd
+Trigger1 = MoveHit
+value = s1,3
+volume = 0
+ignorehitpause = 1
+persistent = 0
+
+[State 2100]
+type = HitDef
+Trigger1 = !MoveContact
+attr = ,HA
+animtype  = up
+air.animtype  = up
+damage    = 255,10
+hitflag = MAFP
+guardflag = M
+getpower = 0,0
+givepower = 20,0
+pausetime = 4,5
+guard.pausetime = 0,0
+sparkno = s62
+guard.sparkno = S50
+sparkxy = -25,-50
+hitsound   = s1,4
+guardsound = s2,4
+ground.type = High
+ground.slidetime = 18
+ground.hittime  = 5
+ground.velocity = -4,-9.3
+air.velocity = -4,-9.3
+airguard.velocity = -3,-5
+guard.slidetime = 10
+guard.hittime  = 12
+guard.velocity = -7.2
+air.type = Low
+ground.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+yaccel = 0.547
+fall = 1
+fall.recover = 0
+palfx.time = 60
+palfx.add = 30,-40,-140
+palfx.mul = 256,256,256
+palfx.sinadd = 60,60,50,10
+palfx.invertall = 1
+palfx.color = 0
+ignorehitpause = 1
+
+[State 1000, EnvShake]
+type = EnvShake
+trigger1 =  MoveHit=1
+time = 10
+freq = 90
+ampl = -6
+phase = 90
+ignorehitpause = 1
+
+[State -1]
+type = destroyself
+trigger1 =  FrontEdgeBodyDist <= -60
+ignorehitpause = 1
+
+[State a]
+type = ChangeState
+trigger1 = movetype= H||movereversed
+value = 1
+ctrl = 0
+;===================================================================
+[Statedef 11112]
+anim = 9999
+
+[State 40001, P1 BG]
+type = Explod
+triggerall = !numexplod(15650)
+triggerall = teamside = 1
+trigger1 = !time
+anim = 15605
+ID = 15650
+pos = 0,81
+postype = left  ;p2,front,back,left,right
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+bindtime = -1
+scale = 1,1
+sprpriority = -21
+ownpal = 1
+ignorehitpause = 1
+
+[State 40001, P2 BG]
+type = Explod
+triggerall = !numexplod(15651)
+triggerall = teamside = 2
+trigger1 = !time
+anim = 15606
+ID = 15651
+pos = 0,81
+postype = right  ;p2,front,back,left,right
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+bindtime = -1
+scale = 1,1
+facing = -1
+sprpriority = -21
+ownpal = 1
+ignorehitpause = 1
+
+[State 40001, P1 PORTRAIT]
+type = Explod
+triggerall = !numexplod(15660)
+triggerall = teamside = 1
+trigger1 = !time
+anim = 15607
+ID = 15660
+pos = 0,81
+postype = left  ;p2,front,back,left,right
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+bindtime = -1
+scale = 1,1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+
+[State 40001, P2 PORTRAIT]
+type = Explod
+triggerall = !numexplod(15661)
+triggerall = teamside = 2
+trigger1 = !time
+anim = 15607
+ID = 15661
+pos = 0,81
+postype = right  ;p2,front,back,left,right
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+bindtime = -1
+scale = 1,1
+facing = -1
+sprpriority = -20
+ownpal = 1
+ignorehitpause = 1
+
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 2
+ID = 15650
+scale = 1,0.3
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 15650
+scale = 1,0.54
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 15650
+scale = 1,0.77
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 15650
+scale = 1,1
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 56
+ID = 15650
+scale = 1,0.77
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 57
+ID = 15650
+scale = 1,0.54
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 58
+ID = 15650
+scale = 1,0.3
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 59
+ID = 15650
+scale = 1,1
+
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 2
+ID = 15651
+scale = 1,0.3
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 15651
+scale = 1,0.54
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 15651
+scale = 1,0.77
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 15651
+scale = 1,1
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 56
+ID = 15651
+scale = 1,0.77
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 57
+ID = 15651
+scale = 1,0.54
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 58
+ID = 15651
+scale = 1,0.3
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 59
+ID = 15651
+scale = 1,1
+
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 2
+ID = 15660
+scale = 1,0.3
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 15660
+scale = 1,0.54
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 15660
+scale = 1,0.77
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 15660
+scale = 1,1
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 56
+ID = 15660
+scale = 1,0.77
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 57
+ID = 15660
+scale = 1,0.54
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 58
+ID = 15660
+scale = 1,0.3
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 59
+ID = 15660
+scale = 1,1
+
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 2
+ID = 15661
+scale = 1,0.3
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 15661
+scale = 1,0.54
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 15661
+scale = 1,0.77
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 15661
+scale = 1,1
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 56
+ID = 15661
+scale = 1,0.77
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 57
+ID = 15661
+scale = 1,0.54
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 58
+ID = 15661
+scale = 1,0.3
+[State 40003, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 59
+ID = 15661
+scale = 1,1
+
+[State 40001, DestroySelf]
+type = DestroySelf
+trigger1 = time = 60
+;============================================================
+[Statedef 11110]
+type = A
+ctrl = 0
+anim = 9999
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = -100
+
+[State 2000]
+type = Explod
+trigger1 = !time
+anim = 8001
+pos = 0,0
+PosType = Back
+sprpriority = 0
+ownpal = 1
+bindtime = -1
+RemoveTime = -1
+supermove = 1
+ID = 8001
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 1]
+type = BindToRoot
+trigger1 = ishelper
+pos = 0,-50
+ignorehitpause = 1
+
+[State 3020, 1]
+type = AssertSpecial
+trigger1 = time >= 0
+flag = NoBG
+flag2 = NoFG
+ignorehitpause = 1
+
+[State a]
+type = ScreenBound
+trigger1 = ishelper
+value = 0
+movecamera = 0
+IgnoreHitPause = 1
+[State a]
+type = playerpush
+trigger1 = IsHelper
+value = 0
+IgnoreHitPause = 1
+
+;===========================================
+[State 20]
+type = changestate
+trigger1 = root,stateno != 2500
+trigger1 = root,stateno != 3900
+trigger1 = root,stateno != 3902
+trigger1 = root,stateno != [4501,4505]
+trigger1 = root,stateno != [4600,4601]
+trigger1 = root,stateno != 2750
+trigger1 = root,stateno != 3745
+trigger2 = root,movetype = H
+trigger3 = root,stateno = 2500&&root,animelem = 15
+trigger4 = root,stateno = 3745&&root,animelem = 8
+value = 11111
+ctrl = 0
+;----------------------------------------------------------------------------
+[Statedef 11111]
+type = A
+ctrl = 0
+anim = 9999
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = -100
+
+[State a]
+type = PlaySnd
+trigger1 = time = 0
+value = s14000,0
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 1]
+type = BindToRoot
+trigger1 = ishelper
+pos = 0,-50
+ignorehitpause = 1
+
+[State a]
+type = ScreenBound
+trigger1 = ishelper
+value = 0
+movecamera = 0
+IgnoreHitPause = 1
+[State a]
+type = playerpush
+trigger1 = IsHelper
+value = 0
+IgnoreHitPause = 1
+
+[State 40002, RemoveExplod]
+type = RemoveExplod
+trigger1 = !time
+id = 8001
+
+[State 2000]
+type = Explod
+trigger1 = time = 0
+anim = 8002
+pos = 0,0
+PosType = Back
+sprpriority = 0
+ownpal = 1
+bindtime = -1
+RemoveTime = -2
+supermove = 1
+
+[State 200, 7]
+type = destroyself
+trigger1 = time >= 16
+;=====================================================================
+[Statedef 91050]
+type = S
+movetype = I 
+physics = N
+velset = 0,0
+anim = 9999
+ctrl = 0
+
+[State 1, AfterImage]
+type = AfterImage
+trigger1 = !time
+time = -1
+length = 11
+PalBright = 0,0,0
+PalContrast = 256,256,256
+PalAdd = 0,0,0
+PalMul = 1,1,1
+FrameGap = 4
+Trans = add
+
+[State a]
+type = ScreenBound
+trigger1 = ishelper
+value = 0
+movecamera = 0
+IgnoreHitPause = 1
+[State a]
+type = playerpush
+trigger1 = IsHelper
+value = 0
+IgnoreHitPause = 1
+
+[State 11050, ]
+type = BindToParent
+triggerall = ishelper(91050)
+trigger1 = 1
+pos = 30,-70
+
+[State 11050, ]
+type = BindToParent
+triggerall = ishelper(91054)
+trigger1 = 1
+pos = -30,-80
+
+[State 11050,vs ]
+type = Varadd
+trigger1 = (timemod = 1,0) && (time <= 10)
+fvar(2) = .025
+
+[State 11050,vs ]
+type = VarSet
+trigger1 = time = 0
+fv =  3
+value = -250
+
+[State 11050,vs ]
+type = Varadd
+trigger1 = (timemod = 1,0) && (time < 10)
+fv =  3
+value = 30
+
+[State 11050,pf ]
+type = PalFX
+trigger1 = time > 0
+time = 1
+add = fvar(3),fvar(3),fvar(3)
+
+[State 1150,ex ]
+type = Explod
+trigger1 = time = 0
+anim = 1151
+ID = 1050
+bindtime = -1
+removetime = -1
+scale = .1,.1
+sprpriority = (3-random%2)
+ownpal = 0
+
+[State a]
+type = ModifyExplod
+trigger1 = time > 0
+id = 1050
+scale = .1+(fvar(2)),.1+(fvar(2))
+
+[State 11050,st ]
+type = ChangeState
+trigger1 = parent,stateno = [5000,5120]
+value = 91051
+
+[State 11050,st ]
+type = ChangeState
+trigger1 = time >= 10
+value = 91052
+
+[Statedef 91051]
+type = S
+movetype = I 
+physics = N
+velset = 0,0
+anim = 9999
+ctrl = 0
+
+[State a]
+type = ScreenBound
+trigger1 = ishelper
+value = 0
+movecamera = 0
+IgnoreHitPause = 1
+[State a]
+type = playerpush
+trigger1 = IsHelper
+value = 0
+IgnoreHitPause = 1
+
+[State 11050,vs ]
+type = VarSet
+trigger1 = time = 0
+fv =  2
+value = 1
+
+[State 11050,vs ]
+type = Varadd
+trigger1 = (timemod = 1,0) && (time < 10)
+fv =  2
+value = .1
+
+[State 11050,vs ]
+type = VarSet
+trigger1 = time = 0
+fv =  3
+value = 0
+
+[State 11050,vs ]
+type = Varadd
+trigger1 = (timemod = 1,0) && (time < 14)
+fv =  3
+value = -15
+
+[State 11050,pf ]
+type = PalFX
+trigger1 = time > 0
+time = 1
+add = fvar(3),fvar(3),fvar(3)
+
+[State 1, AfterImage]
+type = AfterImage
+trigger1 = !time
+time = -1
+length = 11
+PalBright = 0,0,0
+PalContrast = 256,256,256
+PalAdd = 0,0,0
+PalMul = 1,1,1
+FrameGap = 4
+Trans = add
+
+[State 1150,ex ]
+type = Explod
+trigger1 = time = 0
+anim = 4135
+ID = 1050
+bindtime = -1
+removetime = -1
+scale = .1*(fvar(2)),.1*(fvar(2))
+sprpriority = 7
+ownpal = 0
+supermovetime = 30
+
+[State 11050, ]
+type = ModifyExplod
+trigger1 = time > 0
+id = 1050
+scale = .1*(fVar(2)),.1*(fVar(2))
+
+[State 11060,ex ]
+type = RemoveExplod
+trigger1 = time >= 13
+ID = 1050
+
+[State 11050,st ]
+type = destroyself
+trigger1 = time >= 14
+;===============================
+[Statedef 91052]
+type = S
+movetype = I 
+physics = N
+velset = 2,2
+anim = 9999
+ctrl = 0
+
+[State 1, AfterImage]
+type = AfterImage
+trigger1 = !time
+time = -1
+length = 11
+PalBright = 0,0,0
+PalContrast = 256,256,256
+PalAdd = 0,0,0
+PalMul = 1,1,1
+FrameGap = 4
+Trans = add
+
+[State a]
+type = ScreenBound
+trigger1 = ishelper
+value = 0
+movecamera = 0
+IgnoreHitPause = 1
+[State a]
+type = playerpush
+trigger1 = IsHelper
+value = 0
+IgnoreHitPause = 1
+
+[State 11051,ex ]
+type = Explod
+trigger1 = (timemod = 2,0) && (numexplod < 6)
+anim = 3063
+vel = 0,-.4
+random = 20,20
+sprpriority = 1
+ownpal = 1
+scale = .35,.35
+trans = add
+
+[State 11052,vs ]
+type = VelSet
+trigger1 = time = 10
+x = 0
+y = 0
+
+[State 11052,va ]
+type = VelAdd
+trigger1 = (parentdist Y <= 80) && (time > 10) && (vel Y > -5)
+y = -.5
+
+[State 11052,va ]
+type = VelAdd
+trigger1 = (parentdist X >= -30) && (time > 10) && (vel X < 5)&&ishelper(91050)
+X = .3
+
+[State 11052,va ]
+type = VelAdd
+trigger1 = (parentdist X <= 30) && (time > 10) && (vel X > -5)&&ishelper(91050)
+X = -.3
+
+[State 11052,va ]
+type = VelAdd
+trigger1 = (parentdist X >= -35) && (time > 10) && (vel X < 5)&&ishelper(91054)
+X = .4
+
+[State 11052,va ]
+type = VelAdd
+trigger1 = (parentdist X <= 35) && (time > 10) && (vel X > -5)&&ishelper(91054)
+X = -.5
+
+[State 11052,va ]
+type = VelAdd
+trigger1 = (parentdist Y >= 80) && (time > 10) && (vel Y < 5)
+y = .5
+
+[State 11052,t ]
+type = Turn
+trigger1 = facing != (parent,facing)
+
+[State 11050,st ]
+type = ChangeState
+trigger1 = roundstate > 2
+value = 91070
+;------------------------------------
+[Statedef 91070]
+type = S
+movetype = I
+physics = N
+velset = 0,0
+anim = 4135
+ctrl = 0
+
+[State 1, AfterImage]
+type = AfterImage
+trigger1 = !time
+time = -1
+length = 11
+PalBright = 0,0,0
+PalContrast = 256,256,256
+PalAdd = 0,0,0
+PalMul = 1,1,1
+FrameGap = 4
+Trans = add
+
+[State -2]
+type = trans
+trigger1 = 1
+trans = add
+
+[State 1303,asp ]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 11060,ex ]
+type = RemoveExplod
+trigger1 = time = 0
+ID = 1050
+
+[State 11050,st ]
+type = destroyself
+trigger1 = animtime = 0
+;============================================================
+;KO Flash Effect
+[Statedef 9910]
+type = S
+ctrl = 0
+anim = 999
+
+[State 2000]
+type = SuperPause
+trigger1 = time = 0
+anim = -1
+poweradd = 0
+movetime = -1
+time = 30
+darken = 0
+
+[State 1000, Sp Finish]
+type = Explod
+trigger1 = time = 0
+anim = 9910
+removetime = -2
+id = 9910
+sprpriority = -9
+pos = 0,0
+postype = left
+bindtime = -1
+ignorehitpause = 1
+supermove = 1
+pausemove = 1
+pausemovetime = 99999
+supermovetime = 99999
+ownpal = 1
+
+[State 1000, AllPalFX]
+type = AllPalFX
+trigger1 = time = 0
+time = 51
+add = 0,0,0
+sinadd = 90,90,90,100
+invertall = 0
+color = 256
+
+[State -2,a]
+type = ScreenBound
+trigger1 = ishelper
+value = 0
+movecamera = 0
+IgnoreHitPause = 1
+[State -2,a]
+type = playerpush
+trigger1 = ishelper
+value = 0
+IgnoreHitPause = 1
+
+[State 1000, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 999999
+ignorehitpause = 1
+persistent = 0
+;=========================================================================================
+[Statedef 100044]
+velset = 0,0
+[State 0]
+type = destroyself
+trigger1 = ishelper
+IgnoreHitPause = 1
+[state a]
+type=ctrlset
+trigger1=1
+value=0
+ignorehitpause=1
+[State a]
+type = lifeset
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+[State a]
+type = powerset
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+[State a] 
+type = Afterimagetime 
+trigger1 = 1
+time = 0
+ignorehitpause = 1
+[State a]
+type = RemoveExplod
+trigger1 = 1
+IgnoreHitPause = 1
+[State -3]
+type = ChangeState
+trigger1 = hitpausetime < 2
+value = prevstateno
+IgnoreHitPause = 1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[State ]
+type = ChangeState
+trigger1 = !ishelper
+value = ifelse(prevstateno != 100043,100043,100042)
+IgnoreHitPause = 1
+;===========================================================================
+;-------------------------
+[Statedef 100043]
+movetype= H
+velset = 0,0
+ctrl = 0
+[State 2223]
+type = VarRangeSet
+trigger1 = name != "clone Benimaru-Nikaido"
+value = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = VarRangeSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvalue = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(0) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(1) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(2) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(3) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(4) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(5) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(6) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(7) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(8) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(9) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(10) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(11) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(12) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(13) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(14) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(15) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(16) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(17) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(18) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(19) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(20) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(21) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(22) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(23) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(24) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(25) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(26) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(27) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(28) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(29) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(30) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(31) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(32) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(33) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(34) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(35) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(36) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(37) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(38) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(39) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(40) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(41) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(42) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(43) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(44) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(45) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(46) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(47) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(48) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(49) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(50) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(51) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(52) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(53) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(54) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(55) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(56) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(57) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(58) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+var(59) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(0) = random+random-random*random/random*7
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(1) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(2) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(3) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(4) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(5) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(6) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(7) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(8) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(9) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(10) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name !="clone Benimaru-Nikaido"
+fvar(11) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(12) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(13) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(14) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(15) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(16) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(17) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(18) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(19) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(20) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(21) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(22) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(23) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(24) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(25) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(26) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(27) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(28) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(29) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(30) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(31) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(32) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(33) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(34) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(35) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(36) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(37) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(38) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = parentVarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+fvar(39) = random+random-random*random/random
+ignorehitpause = 1
+[State 0]
+type = lifeset
+trigger1 = name != "clone Benimaru-Nikaido"
+value = 0
+ignorehitpause = 1
+[State 0]
+type = powerset
+trigger1 = name != "clone Benimaru-Nikaido"
+value = 0
+ignorehitpause = 1
+[State 2]
+type = Destroyself
+trigger1 = ishelper
+IgnoreHitPause = 1
+[State 0]
+type = changestate
+trigger1 = time > 1&&prevstateno != 100042
+value = 100042
+IgnoreHitPause = 1
+[State -2]
+type = changestate
+trigger1 = !alive
+value = 104010
+IgnoreHitPause = 1
+;===========================================================================
+[Statedef 100042]
+type = S
+movetype = H
+physics = N
+velset = 0,0
+ctrl = 0
+[State a]
+type = SelfState
+trigger1 = Name = "clone Benimaru-Nikaido"
+value = 52
+IgnoreHitPause = 1
+[State a]
+type = Lifeset
+triggerall = !IsHelper
+trigger1 = name != "clone Benimaru-Nikaido"
+value = 0
+ignorehitpause = 1
+[State a]
+type = varrangeset
+triggerall = !IsHelper
+trigger1 = name != "clone Benimaru-Nikaido"
+value = -77
+ignorehitpause = 1
+[State a]
+type = varrangeset
+triggerall = !IsHelper
+trigger1 = name != "clone Benimaru-Nikaido"
+fvalue = -77
+ignorehitpause = 1
+[State a]
+type = ChangeAnim2
+trigger1 = anim != 3199
+value = 3199
+ignorehitpause = 1
+[State A]
+type = Hitdef
+triggerall = Roundstate = 2
+triggerall = hitpausetime < 2
+trigger1 = !IsHelper
+attr = SC,NA,HA,HP
+hitflag = MAFD
+damage = 0
+pausetime = 20,10
+sparkno = -1
+[State 2223]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysvar(0) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysvar(1) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysvar(2) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysvar(3) = random+random-random*random/random
+ignorehitpause = 1
+[State 2223]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysvar(4) = random+random-random*random/random
+ignorehitpause = 1
+[State 2224]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysfvar(0) = random+random-random*random/random
+ignorehitpause = 1
+[State 2224]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysfvar(1) = random+random-random*random/random
+ignorehitpause = 1
+[State 2224]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysfvar(2) = random+random-random*random/random
+ignorehitpause = 1
+[State 2224]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysfvar(3) = random+random-random*random/random
+ignorehitpause = 1
+[State 2224]
+type = VarSet
+trigger1 = name != "clone Benimaru-Nikaido"
+sysfvar(4) = random+random-random*random/random
+ignorehitpause = 1
+[State a]
+type = RemoveExplod
+trigger1 = 1
+IgnoreHitPause = 1
+[State a]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+[State -2]
+type = changestate
+trigger1 = !alive
+value = 104010
+IgnoreHitPause = 1
+[State 0]
+type = changestate
+trigger1 = alive && hitpausetime < 2&&prevstateno != 100043
+value = 100043
+IgnoreHitPause = 1
+[State 0]
+type = changestate
+trigger1 = alive != 0 && hitpausetime >= 2&&prevstateno != 100044
+value = 100044
+IgnoreHitPause = 1
+;------------------------------
+[Statedef 104010]
+type    = A
+movetype= H
+physics = N
+sprpriority = 4
+velset = 0,0
+[State ]
+type = ChangeAnim
+trigger1 = SelfAnimExist(5110)
+trigger1 = Anim != 5110
+value = 5110
+ignorehitpause = 1
+[State ]
+type = ChangeAnim
+trigger1 = !SelfAnimExist(anim)
+trigger1 = Anim != anim
+value = anim
+ignorehitpause = 1
+[State a] 
+type = Afterimagetime 
+trigger1 = 1
+time = 0
+ignorehitpause = 1
+[State a]
+type = RemoveExplod
+trigger1 = 1
+IgnoreHitPause = 1
+[State 8]
+type = posset
+Trigger1 = 1
+y = 0
+ignorehitpause = 1
+[State 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+ignorehitpause = 1
+[State 1]
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+ignorehitpause = 1
+[State 1]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+flag2 = noshadow
+flag3 = globalnoshadow
+ignorehitpause = 1
+[state a]
+type = destroyself
+trigger1 = ishelper
+ignorehitpause = 1
+[State ]
+type = lifeset
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+[State ]
+type = powerset
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+[State -2]
+type = SelfState
+trigger1 = !alive&&loseko
+value = 5150
+ignorehitpause = 1
+[State -1]
+type = SelfState
+triggerall = alive
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+trigger2 = time >= 50
+value = 5110
+ignorehitpause = 1

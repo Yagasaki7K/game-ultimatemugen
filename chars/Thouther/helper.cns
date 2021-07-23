@@ -1,0 +1,703 @@
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;í¥ïKéEãZ
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;(HELPER)éµêØÉQÅ[ÉW;ÉwÉãÉpÅ[Ç≈ï\é¶Ç≈Ç´ÇΩÇÁäyÇ»ÇÒÇæÇØÇ«Ç»Çü•••
+[Statedef 4000]
+type = A
+ctrl = 0
+anim = 4000
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+[state a]
+type = null;posset
+trigger1 = 1
+y = pos y - screenpos y +50
+
+;---------------------[ìßâﬂ]
+[state a]
+type = null;Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256, 256
+;---------------------[]
+[state -2,a];ÉQÅ[ÉWòg
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4000) = 0
+anim = 4000
+id = 4000
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 98
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWòg
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4000) = 0
+anim = 4000
+id = 4000
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 98
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+
+[state -2,a];êØÇP
+type = Explod
+trigger1 = root,var(4) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(4001) = 0
+anim = 4001
+id = 4001
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];êØÇP
+type = Explod
+trigger1 = root,var(4) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(4001) = 0
+anim = 4001
+id = 4001
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];êØÇPè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) >= 1
+id = 4001
+
+
+
+[state -2,a];êØÇQ
+type = Explod
+trigger1 = root,var(4) <= 1
+trigger1 = Facing = 1
+trigger1 = numexplod(4002) = 0
+anim = 4002
+id = 4002
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];êØÇQ
+type = Explod
+trigger1 = root,var(4) <= 1
+trigger1 = Facing = -1
+trigger1 = numexplod(4002) = 0
+anim = 4002
+id = 4002
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];êØÇQè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) >= 2
+id = 4002
+
+
+[state -2,a];êØÇR
+type = Explod
+trigger1 = root,var(4) <= 2
+trigger1 = Facing = 1
+trigger1 = numexplod(4003) = 0
+anim = 4003
+id = 4003
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];êØÇR
+type = Explod
+trigger1 = root,var(4) <= 2
+trigger1 = Facing = -1
+trigger1 = numexplod(4003) = 0
+anim = 4003
+id = 4003
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];êØÇRè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) >= 3
+id = 4003
+
+
+[state -2,a];êØÇS
+type = Explod
+trigger1 = root,var(4) <= 3
+trigger1 = Facing = 1
+trigger1 = numexplod(4004) = 0
+anim = 4004
+id = 4004
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];êØÇS
+type = Explod
+trigger1 = root,var(4) <= 3
+trigger1 = Facing = -1
+trigger1 = numexplod(4004) = 0
+anim = 4004
+id = 4004
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];êØÇSè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) >= 4
+id = 4004
+
+
+[state -2,a];êØÇT
+type = Explod
+trigger1 = root,var(4) <= 4
+trigger1 = Facing = 1
+trigger1 = numexplod(4005) = 0
+anim = 4005
+id = 4005
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];êØÇT
+type = Explod
+trigger1 = root,var(4) <= 4
+trigger1 = Facing = -1
+trigger1 = numexplod(4005) = 0
+anim = 4005
+id = 4005
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];êØÇTè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) >= 5
+id = 4005
+
+
+[state -2,a];êØÇU
+type = Explod
+trigger1 = root,var(4) <= 5
+trigger1 = Facing = 1
+trigger1 = numexplod(4006) = 0
+anim = 4006
+id = 4006
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];êØÇU
+type = Explod
+trigger1 = root,var(4) <= 5
+trigger1 = Facing = -1
+trigger1 = numexplod(4006) = 0
+anim = 4006
+id = 4006
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];êØÇUè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) >= 6
+id = 4006
+
+
+
+[state -2,a];êØÇV
+type = Explod
+trigger1 = root,var(4) <= 6
+trigger1 = Facing = 1
+trigger1 = numexplod(4007) = 0
+anim = 4007
+id = 4007
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];êØÇV
+type = Explod
+trigger1 = root,var(4) <= 6
+trigger1 = Facing = -1
+trigger1 = numexplod(4007) = 0
+anim = 4007
+id = 4007
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];êØÇVè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) >= 7
+id = 4007
+
+
+[state -2,a];éÄíõêØ
+type = Explod
+trigger1 = root,var(4) = 7
+trigger1 = Facing = 1
+trigger1 = numexplod(4010) = 0
+anim = 4010
+id = 4010
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];éÄíõêØ
+type = Explod
+trigger1 = root,var(4) = 7
+trigger1 = Facing = -1
+trigger1 = numexplod(4010) = 0
+anim = 4010
+id = 4010
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 99
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];éÄíõêØè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) <= 6
+id = 4010
+
+
+[state -2,a];éÄíõêØ
+type = Explod
+trigger1 = root,var(4) = 7
+trigger1 = Facing = 1
+trigger1 = numexplod(4020) = 0
+anim = 4020
+id = 4020
+postype = right
+bindtime = -1
+pos = -50,50
+sprpriority = 100
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];éÄíõêØ
+type = Explod
+trigger1 = root,var(4) = 7
+trigger1 = Facing = -1
+trigger1 = numexplod(4020) = 0
+anim = 4020
+id = 4020
+postype = left
+bindtime = -1
+pos = 50,50
+sprpriority = 100
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];éÄíõêØè¡ñ≈
+type = removeexplod
+trigger1 = root,var(4) <= 6
+id = 4020
+
+
+;---------------------------------------------------------------------------
+;(HELPER)ÉuÅ[ÉXÉgÉQÅ[ÉW
+[Statedef 4100]
+type = A
+ctrl = 0
+anim = 4100
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+[state a]
+type = null;posset
+trigger1 = 1
+y = pos y - screenpos y +50
+
+;---------------------[ìßâﬂ]
+[state a]
+type = null;Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256, 256
+;---------------------[]
+[state -2,a];ÉQÅ[ÉWòg
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4100) = 0
+anim = 4100
+id = 4100
+postype = left
+bindtime = -1
+pos = 65,225
+sprpriority = 98
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWòg
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4100) = 0
+anim = 4101
+id = 4100
+postype = right
+bindtime = -1
+pos = -65,225
+sprpriority = 98
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+
+[state -2,a];ÉQÅ[ÉWòg2(îºìßñæ)
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4105) = 0
+anim = 4105
+id = 4105
+postype = left
+bindtime = -1
+pos = 65,225
+sprpriority = 95
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWòg2
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4105) = 0
+anim = 4105
+id = 4105
+postype = right
+bindtime = -1
+pos = -65,225
+sprpriority = 95
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+
+[state -2,a];ÉQÅ[ÉWÇP
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4110) = 0
+trigger1 = root,var(16) >= 100
+anim = 4110
+id = 4110
+postype = left
+bindtime = -1
+pos = 65,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWÇP
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4110) = 0
+trigger1 = root,var(16) >= 100
+anim = 4110
+id = 4110
+postype = right
+bindtime = -1
+pos = -65,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];è¡ñ≈
+type = removeexplod
+trigger1 = root,var(16) < 100
+id = 4110
+
+
+[state -2,a];ÉQÅ[ÉWÇQ
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4111) = 0
+trigger1 = root,var(16) >= 200
+anim = 4111
+id = 4111
+postype = left
+bindtime = -1
+pos = 65,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWÇQ
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4111) = 0
+trigger1 = root,var(16) >= 200
+anim = 4111
+id = 4111
+postype = right
+bindtime = -1
+pos = -65,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];è¡ñ≈
+type = removeexplod
+trigger1 = root,var(16) < 200
+id = 4111
+
+
+[state -2,a];ÉQÅ[ÉWÇR
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4112) = 0
+trigger1 = root,var(16) = 300
+anim = 4112
+id = 4112
+postype = left
+bindtime = -1
+pos = 65,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWÇR
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4112) = 0
+trigger1 = root,var(16) = 300
+anim = 4112
+id = 4112
+postype = right
+bindtime = -1
+pos = -65,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];è¡ñ≈
+type = removeexplod
+trigger1 = root,var(16) < 300
+id = 4112
+
+
+
+[state -2,a];ÉQÅ[ÉWå∏è≠1
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4115) = 0
+trigger1 = root,var(16) < 300
+trigger1 = root,var(16) >= 201
+anim = 4115
+id = 4115
+postype = left
+bindtime = -1
+pos = 85,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWå∏è≠1
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4115) = 0
+trigger1 = root,var(16) < 300
+trigger1 = root,var(16) >= 201
+anim = 4115
+id = 4115
+postype = right
+bindtime = -1
+pos = -84,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];è¡ñ≈
+type = removeexplod
+trigger1 = root,var(16) <= 200
+trigger2 = root,var(16) = 300
+id = 4115
+
+[state a]
+type = ModifyExplod
+trigger1 = 1
+ID = 4115
+scale = (root,var(16)-200)*0.005,0.5
+
+
+
+
+[state -2,a];ÉQÅ[ÉWå∏è≠2
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4116) = 0
+trigger1 = root,var(16) < 200
+trigger1 = root,var(16) >= 101
+anim = 4115
+id = 4116
+postype = left
+bindtime = -1
+pos = 48,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWå∏è≠2
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4116) = 0
+trigger1 = root,var(16) < 200
+trigger1 = root,var(16) >= 101
+anim = 4115
+id = 4116
+postype = right
+bindtime = -1
+pos = -47,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];è¡ñ≈
+type = removeexplod
+trigger1 = root,var(16) <= 100
+trigger2 = root,var(16) >= 200
+id = 4116
+
+[state a]
+type = ModifyExplod
+trigger1 = 1
+ID = 4116
+scale = (root,var(16)-100)*0.005,0.5
+
+
+[state -2,a];ÉQÅ[ÉWå∏è≠3
+type = Explod
+trigger1 = Facing = 1
+trigger1 = numexplod(4117) = 0
+trigger1 = root,var(16) < 100
+trigger1 = root,var(16) >= 1
+anim = 4115
+id = 4117
+postype = left
+bindtime = -1
+pos = 8,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+
+[state -2,a];ÉQÅ[ÉWå∏è≠3
+type = Explod
+trigger1 = Facing = -1
+trigger1 = numexplod(4117) = 0
+trigger1 = root,var(16) < 100
+trigger1 = root,var(16) >= 1
+anim = 4115
+id = 4117
+postype = right
+bindtime = -1
+pos = -7,225
+sprpriority = 97
+ownpal = 1
+scale = 0.5,0.5
+facing = -1
+
+[state a];è¡ñ≈
+type = removeexplod
+trigger1 = root,var(16) = 0
+trigger2 = root,var(16) >= 100
+id = 4117
+
+[state a]
+type = ModifyExplod
+trigger1 = 1
+ID = 4117
+scale = root,var(16)*0.005,0.5
